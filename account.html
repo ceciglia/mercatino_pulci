@@ -82,30 +82,83 @@
 	
 
 	
-	<div class="header-middle">  <!--side-bar-->
+	<section>
 		<div class="container">
-			<!-- <div class="row"> -->
-				<div class="col-sm-2" >		<!--class="col-sm-3"-->
-                    <div class="left-sidebar" id="account_menu_big">      
-                        <h2>Nome_utente</h2>
-                        <div class="mainmenu pull-left" id="account_menu">
-                            <ul class="nav navbar-nav" style="width: 110px;">    
-								<li><a href='#'>Il mio profilo</a></li>
-                                <li class="dropdown"><a href="#">Venditore</a>			<!--<li class="dropdown panel-collapse">-->
-                                    <ul role="menu" class="sub-menu" id="vendor">	<!--id="vendor"   style="position: static; padding-left:10px; margin-top: 5px;"-->
-                                        <li><a href='#'>I miei annunci</a></li>
-                                        <li><a href='#'>Valutazioni</a></li>
-										<li><a href='#'>Risposte ai miei annunci</a></li>
-                                    </ul>
-								</li>
-								<li><a href="#">MAMAAA</a></li>
-                            </ul>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Nome Utente</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-products-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#profilo">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Il mio profilo
+										</a>
+									</h4>
+								</div>
+								
+								<div id="profilo" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul class="nav navbar-nav" style="width: 110px;">    
+											<ul>
+												<li><a href="#">Modifica</a></li>
+												
+											</ul>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#venditore">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Venditore
+										</a>
+									</h4>
+								</div>
+								<div id="venditore" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul class="nav navbar-nav" style="width: 200px;">    
+											<ul>
+												<li><a href="#">Annunci pubblicati</a></li>
+												<li><a href="#">Valutazioni</a></li>
+												<li><a href="#">Risposte ai miei annunci</a></li>
+											</ul>
+										</ul>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordian" href="#acquirente">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											Acquirente
+										</a></h4>
+									</div>
+								</div>
+								<div id="acquirente" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul class="nav navbar-nav" style="width: 200px;">    
+											<ul>
+												<li><a href="#">Annunci osservati</a></li>
+												<li><a href="mieiAcquisti.html">I miei acquisti</a></li>
+												
+											</ul>
+										</ul>
+									</div>
+								</div>	
+							</div>	
 						</div>
 					</div>
 				</div>
-			<!-- </div> -->
-		</div>        
-	</div>		<!--/side-bar-->
+			</div>
+		</div>
+	</section>
+					
 	
 	
 	<footer id="footer"><!--Footer-->
