@@ -1,6 +1,60 @@
 <!DOCTYPE html> 			
 <html lang="en">
+	<script>
+		function stelle(){
+			var x = document.getElementById("serieta1").src;
+
+			if (x == 'images/stellagrigia.gif'){
+				x = 'images/stellagialla';
+			}else{
+				x = 'images/stellagrigia.gif';
+			}
+		}
+
+		function opensottomenu(evt, comando) {
+			var i, content, links;
+			content = document.getElementsByClassName("col-sm-9 padding-right");
+			for (i = 0; i < content.length; i++) {
+				content[i].style.display = "none";
+			}
+			links = document.getElementsByClassName("panel-body ul li a");
+			for (i = 0; i < links.length; i++) {
+				links[i].className = links[i].className.replace(" active", "");
+			}
+			document.getElementById(comando).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// gestione stelle
+		// Get the modal
+		var modal = document.getElementById("myModal");
+												  
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+												  
+		//Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+												  
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		modal.style.display = "block";
+		}
+												  
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+												  
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+	</script>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -54,8 +108,8 @@
 						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
+								<li><a href="listaOsservati.html"><i class="fa fa-star"></i>Annunci Osservati</a></li>	
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Annunci Pubblicati</a></li>	
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
@@ -80,85 +134,18 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-	<!--<section id="slider">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
-						</ol>
-						
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
-								</div>
-							</div>
-							
-						</div>
-						
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>-->
-	
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3" >
-					<!-- <div class="left-sidebar" > -->
+				<div class="col-sm-3">
+					<div class="left-sidebar">
 						<h2>Nome Utente</h2>
-						<br>
-						
-						<div class="panel-group category-products" id="accordian" ><!--category-products-->
+						<div class="panel-group category-products" id="accordian"><!--category-products-->
 							<div class="panel panel-default">
-								<div class="panel-heading" >
-									<h4 class="panel-title" >
-										<a data-toggle="collapse" data-parent="#accordian" href="#profilo" 2>
-											<span class="badge pull-right"><i class="fa fa-plus" ></i></span>
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#profilo">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
 											Il mio profilo
 										</a>
 									</h4>
@@ -190,9 +177,9 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav" style="width: 200px;">    
 											<ul>
-												<li><a href="#">Annunci pubblicati</a></li>
-												<li><a href="#">Valutazioni</a></li>
-												<li><a href="#">Risposte ai miei annunci</a></li>
+												<li><a onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
+												<li><a onclick="opensottomenu(event, 'valutazioni')">Valutazioni</a></li>
+												<li><a onclick="opensottomenu(event, 'risposte')">Risposte ai miei annunci</a></li>
 											</ul>
 										</ul>
 									</div>
@@ -209,54 +196,253 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav" style="width: 200px;">    
 											<ul>
-												<li><a href="#">Lista osservati</a></li>
-												<li><a href="#">I mie acquisti</a></li>
+												<li><a onclick="opensottomenu(event, 'listaOsservati')">Lista osservati</a></li>
+												<li><a onclick="opensottomenu(event, 'listaAcquistati')">I mie acquisti</a></li>
 												
 											</ul>
 										</ul>
 									</div>
 								</div>
-								
 							</div>
-							
 						</div>
-					
-					<!-- </div> -->
+
+					</div>
+				</div> 
+				
+				<!--VENDITORE-->
+
+				<!--ANNUNCI PUBBLICATI-->
+				<div class="col-sm-9 padding-right" id='annunciPubblicati'>
+					<div class="features_items" ><!--features_items-->
+						<h2 class="title text-center">Annunci pubblicati</h2>
+							  
+						<div class="col-sm-4" >
+							<div class="product-image-wrapper" >
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="images/home/product1.jpg" alt="" style="width: 250px;" />
+											<h2>$56</h2>
+											<h4>Nome Annuncio</h4>
+											<p>Nome venditore</p>
+											
+										</div>
+										<div  class="product-overlay">
+											<div class="overlay-content">
+												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta venditore</a>
+												<div id="myModal" class="modal">
+													<script>
+														
+													</script>
+													<!-- Modal content -->
+													<div class="modal-content">
+													  <span class="close">&times;</span> 
+														<p id="serieta">Valuta la <b>serietà</b> del venditore: </p>
+														<div style="text-align: left;">
+															<img id="serieta1" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta1').src='images/stellagialla.gif'">
+															<img id="serieta2" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta2').src='images/stellagialla.gif'">
+															<img id="serieta3" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta3').src='images/stellagialla.gif'">
+															<img id="serieta4" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta4').src='images/stellagialla.gif'">
+															<img id="serieta5" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta5').src='images/stellagialla.gif'">
+														
+														<p>Valuta la <b>puntualità</b> del venditore: </p>
+
+														
+															<img id="serieta6" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta6').src='images/stellagialla.gif'">
+															<img id="serieta7" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta7').src='images/stellagialla.gif'">
+															<img id="serieta8" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta8').src='images/stellagialla.gif'">
+															<img id="serieta9" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta9').src='images/stellagialla.gif'">
+															<img id="serieta10" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta10').src='images/stellagialla.gif'">
+														</div>
+														<script>
+															// Get the modal
+															var modal = document.getElementById("myModal");
+															
+															// Get the button that opens the modal
+															var btn = document.getElementById("myBtn");
+															
+															// Get the <span> element that closes the modal
+															var span = document.getElementsByClassName("close")[0];
+															
+															// When the user clicks the button, open the modal 
+															btn.onclick = function() {
+															  modal.style.display = "block";
+															}
+															
+															// When the user clicks on <span> (x), close the modal
+															span.onclick = function() {
+															  modal.style.display = "none";
+															}
+															
+															// When the user clicks anywhere outside of the modal, close it
+															window.onclick = function(event) {
+															  if (event.target == modal) {
+																modal.style.display = "none";
+															  }
+															}
+															</script>
+													</div>
+												  
+												  </div>
+									
+											</div>
+										</div>
+										
+										
+								</div>
+
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href=""><i class="fa fa-plus-square"></i>Valuta</a></li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</div><!--features_items-->
+				</div>
+				<!--VALUTAZIONI-->
+				<div class="col-sm-9 padding-right" id='valutazioni'>
+					<div class="features_items" ><!--features_items-->
+						<h2 class="title text-center">Valutazioni</h2>
+					</div>
+				</div>
+
+				<!--RISPOSTE AGLI ANNUNCI-->
+				<div class="col-sm-9 padding-right" id='risposte'>
+					<div class="features_items" ><!--features_items-->
+						<h2 class="title text-center">Risposte agli annunci</h2>
+					</div>
+				</div>
+
+
+
+				<!--FINE VENDITORE-->
+
+				<!--ACQUIRENTE-->
+				<!--Annunci osservati-->
+				<div class="col-sm-9 padding-right" id='listaOsservati'>
+					<div class="features_items" ><!--features_items-->
+						<h2 class="title text-center">Annunci osservati</h2>
+							  
+						<div class="col-sm-4" >
+							<div class="product-image-wrapper" >
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="images/home/product1.jpg" alt="" style="width: 250px;" />
+											<h2>$56</h2>
+											<h4>Nome Annuncio</h4>
+											<p>Nome venditore</p>
+											
+										</div>
+										<div  class="product-overlay">
+											<div class="overlay-content">
+												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta venditore</a>
+												<div id="myModal" class="modal">
+
+													<!-- Modal content -->
+													<div class="modal-content">
+													  <span class="close">&times;</span> 
+														<p id="serieta">Valuta la <b>serietà</b> del venditore: </p>
+														<div style="text-align: left;">
+															<img id="serieta1" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta1').src='images/stellagialla.gif'">
+															<img id="serieta2" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta2').src='images/stellagialla.gif'">
+															<img id="serieta3" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta3').src='images/stellagialla.gif'">
+															<img id="serieta4" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta4').src='images/stellagialla.gif'">
+															<img id="serieta5" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta5').src='images/stellagialla.gif'">
+														
+														<p>Valuta la <b>puntualità</b> del venditore: </p>
+
+														
+															<img id="serieta6" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta6').src='images/stellagialla.gif'">
+															<img id="serieta7" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta7').src='images/stellagialla.gif'">
+															<img id="serieta8" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta8').src='images/stellagialla.gif'">
+															<img id="serieta9" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta9').src='images/stellagialla.gif'">
+															<img id="serieta10" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta10').src='images/stellagialla.gif'">
+														</div>
+													</div>
+												  
+												  </div>
+									
+											</div>
+										</div>
+										
+										
+								</div>
+
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href=""><i class="fa fa-plus-square"></i>Valuta</a></li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</div><!--features_items-->
 				</div>
 				
 				
-				<div class="col-sm-9 padding-right">
-					<br>
-					<br>
-					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Dettagli</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper" style="border-color:transparent">
-								<div class="single-products">
-										
-											<img src="images/home/product1.jpg" alt="" style="width: 230px;" />
-										
-									</div>
-							</div>
-						</div>
+				<!--Lista Acquisti-->
+				<div class="col-sm-9 padding-right" id='listaAcquistati'>
+					<div class="features_items" ><!--features_items-->
+						<h2 class="title text-center">I miei acquisti</h2>
+							  
 						<div class="col-sm-4" >
-							<div class="product-image-wrapper" style="border-color:transparent">
-								<div class="single-products" >
-											<h2>Nome utente</h2>
-											<p>E-mail</p>
-										
+							<div class="product-image-wrapper" >
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="images/home/product1.jpg" alt="" style="width: 250px;" />
+											<h2>$56</h2>
+											<h4>Nome Annuncio</h4>
+											<p>Nome venditore</p>
+											
+										</div>
+										<div  class="product-overlay">
+											<div class="overlay-content">
+												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta venditore</a>
+												<div id="myModal" class="modal">
+
+													<!-- Modal content -->
+													<div class="modal-content">
+													  <span class="close">&times;</span> 
+														<p id="serieta">Valuta la <b>serietà</b> del venditore: </p>
+														<div style="text-align: left;">
+															<img id="serieta1" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta1').src='images/stellagialla.gif'">
+															<img id="serieta2" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta2').src='images/stellagialla.gif'">
+															<img id="serieta3" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta3').src='images/stellagialla.gif'">
+															<img id="serieta4" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta4').src='images/stellagialla.gif'">
+															<img id="serieta5" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta5').src='images/stellagialla.gif'">
+														
+														<p>Valuta la <b>puntualità</b> del venditore: </p>
+
+														
+															<img id="serieta6" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta6').src='images/stellagialla.gif'">
+															<img id="serieta7" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta7').src='images/stellagialla.gif'">
+															<img id="serieta8" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta8').src='images/stellagialla.gif'">
+															<img id="serieta9" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta9').src='images/stellagialla.gif'">
+															<img id="serieta10" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta10').src='images/stellagialla.gif'">
+														</div>
+													</div>
+												  
+												  </div>
+								
+											</div>
+										</div>
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
+									</ul>
 								</div>
 							</div>
 						</div>
 					</div><!--features_items-->
 				</div>
-
-				
+				<!--FINE ACQUIRENTE -->
 			</div>
 		</div>
 	</section>
-	<br>
-	<br>
 	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
