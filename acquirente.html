@@ -1,6 +1,18 @@
 <!DOCTYPE html> 			
 <html lang="en">
+	<script>
+		function stelle(){
+			var x = document.getElementById("serieta1").src;
+
+			if (x == 'images/stellagrigia.gif'){
+				x = 'images/stellagialla';
+			}else{
+				x = 'images/stellagrigia.gif';
+			}
+		}
+	</script>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -54,8 +66,8 @@
 						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
+								<li><a href="listaOsservati.html"><i class="fa fa-star"></i>Annunci Osservati</a></li>	
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Annunci Pubblicati</a></li>	
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
@@ -79,71 +91,6 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
-	<!--<section id="slider">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
-						</ol>
-						
-						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
-							</div>
-							
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
-								</div>
-							</div>
-							
-						</div>
-						
-						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-						</a>
-						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-						</a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>-->
 	
 	<section>
 		<div class="container">
@@ -218,16 +165,82 @@
 							</div>
 							
 						</div>
-
-						
+				
 					
 					</div>
 				</div>
-				
-				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">I miei acquisti</h2>
+						<h2 class="title text-center">Acquirente</h2>
+						<style>
+							body {font-family: 'Roboto', sans-serif;}
+							
+							/* Style the tab */
+							.tab {
+							  margin-top: 150px;	
+							  padding-left: 17px;
+							  padding-bottom: 20px;
+							  overflow: hidden;
+							  /* border: 1px solid #FE980F; */
+							  background-color: #ffffff;
+							}
+							
+							/* Style the buttons inside the tab */
+							.tab button {
+							  color:  #FE980F;
+							  font-family: 'Roboto', sans-serif;
+							  background-color: inherit;
+							  float: left;
+							  border: none;
+							  outline: none;
+							  cursor: pointer;
+							  /* padding: 14px 16px; */
+							  transition: 0.3s;
+							  font-size: 25px;
+							}
+							
+							/* Change background color of buttons on hover */
+							.tab button:hover {
+							  background-color: #fcbf6f;
+							  opacity: 0.5;
+							}
+							
+							/* Create an active/current tablink class */
+							.tab button.active {
+							  background-color:  #fcbf6f;
+							  opacity: 0.5;
+							}
+							
+							/* Style the tab content */
+							.tabcontent {
+							
+							  display: none;
+							  /* padding: 6px 12px; */
+							  border: 1px solid #FE980F; 
+							  border-top: none;
+							}
+							</style>
+							<div class="tab">
+								<button class="tablinks" onclick="openCity(event, 'London')">Annunci osservati</button>
+								<button class="tablinks" onclick="openCity(event, 'Paris')">I miei acquisti</button>
+								<!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
+							  </div>
+							  
+							  <div id="London" class="tabcontent">
+								<h2>Annunci osservati</h2>
+								<p>London is the capital city of England.</p>
+							  </div>
+							  
+							  <div id="Paris" class="tabcontent">
+								<h2>I miei acquisti</h2>
+								<p>Paris is the capital of France.</p> 
+							  </div>
+							  
+							  <div id="Tokyo" class="tabcontent">
+								<h2>Tokyo</h2>
+								<p>Tokyo is the capital of Japan.</p>
+							  </div>
+							  
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -240,95 +253,60 @@
 										</div>
 										<div  class="product-overlay">
 											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
-												
-											</div>
-										</div>
-										
-										
-								</div>
-						
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
-										
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product2.jpg" alt="" style="width: 250px;" />
-											<h2>$56</h2>
-											<h4>Nome Annuncio</h4>
-											<p>Nome venditore</p>
-											
-										</div>
-										<div  class="product-overlay">
-											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
-												
-											</div>
-										</div>
-										
-										
-								</div>
-						
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
-										
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product3.jpg" alt="" style="width: 250px;" />
-											<h2>$56</h2>
-											<h4>Nome Annuncio</h4>
-											<p>Nome venditore</p>
-											
-										</div>
-										<div  class="product-overlay">
-											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
-												
-											</div>
-										</div>
-										
-										
-								</div>
-						
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
-										
-									</ul>
-								</div>
-							</div>
-						</div>
+												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta venditore</a>
+												<div id="myModal" class="modal">
 
-					
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product4.jpg" alt="" style="width: 250px;" />
-											<h2>$56</h2>
-											<h4>Nome Annuncio</h4>
-											<p>Nome venditore</p>
-											
-										</div>
-										<div  class="product-overlay">
-											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
+													<!-- Modal content -->
+													<div class="modal-content">
+													  <span class="close">&times;</span> 
+														<p id="serieta">Valuta la <b>serietà</b> del venditore: </p>
+														<div style="text-align: left;">
+															<img id="serieta1" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta1').src='images/stellagialla.gif'">
+															<img id="serieta2" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta2').src='images/stellagialla.gif'">
+															<img id="serieta3" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta3').src='images/stellagialla.gif'">
+															<img id="serieta4" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta4').src='images/stellagialla.gif'">
+															<img id="serieta5" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta5').src='images/stellagialla.gif'">
+														
+														<p>Valuta la <b>puntualità</b> del venditore: </p>
+
+														
+															<img id="serieta6" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta6').src='images/stellagialla.gif'">
+															<img id="serieta7" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta7').src='images/stellagialla.gif'">
+															<img id="serieta8" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta8').src='images/stellagialla.gif'">
+															<img id="serieta9" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta9').src='images/stellagialla.gif'">
+															<img id="serieta10" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta10').src='images/stellagialla.gif'">
+														</div>
+													</div>
+												  
+												  </div>
+												  
+												  <script>
+												  // Get the modal
+												  var modal = document.getElementById("myModal");
+												  
+												  // Get the button that opens the modal
+												  var btn = document.getElementById("myBtn");
+												  
+												  // Get the <span> element that closes the modal
+												  var span = document.getElementsByClassName("close")[0];
+												  
+												  // When the user clicks the button, open the modal 
+												  btn.onclick = function() {
+													modal.style.display = "block";
+												  }
+												  
+												  // When the user clicks on <span> (x), close the modal
+												  span.onclick = function() {
+													modal.style.display = "none";
+												  }
+												  
+												  // When the user clicks anywhere outside of the modal, close it
+												  window.onclick = function(event) {
+													if (event.target == modal) {
+													  modal.style.display = "none";
+													}
+												  }
+												  </script>
 												
 											</div>
 										</div>
@@ -338,71 +316,139 @@
 						
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
+										<li><a href=""><i class="fa fa-plus-square"></i>Valuta</a></li>
 										
 									</ul>
 								</div>
 							</div>
 						</div>
-						
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product5.jpg" alt="" style="width: 250px;" />
+									<div class="productinfo text-center">
+										<img src="images/home/product2.jpg" alt="" style="width: 250px;"/>
+										<h2>Nome annuncio</h2>
+										<p>Venditore</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
 											<h2>$56</h2>
-											<h4>Nome Annuncio</h4>
-											<p>Nome venditore</p>
-											
+											<p>Easy Polo Black Edition</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
-										<div  class="product-overlay">
-											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
-												
-											</div>
-										</div>
-										
-										
+									</div>
 								</div>
-						
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
-										
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product6.jpg" alt="" style="width: 250px;" />
+									<div class="productinfo text-center">
+										<img src="images/home/product3.jpg" alt="" />
+										<h2>$56</h2>
+										<p>Easy Polo Black Edition</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
 											<h2>$56</h2>
-											<h4>Nome Annuncio</h4>
-											<p>Nome venditore</p>
-											
+											<p>Easy Polo Black Edition</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
-										<div  class="product-overlay">
-											<div class="overlay-content">
-												<a onclick="valuta()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Valuta il venditore</a>
-												
-											</div>
-										</div>
-										
-										
+									</div>
 								</div>
-						
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-plus-square"></i>Dettagli annuncio</a></li>
-										
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="images/home/product4.jpg" alt="" />
+										<h2>$56</h2>
+										<p>Easy Polo Black Edition</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>$56</h2>
+											<p>Easy Polo Black Edition</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+									</div>
+									<img src="images/home/new.png" class="new" alt="" />
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="images/home/product5.jpg" alt="" />
+										<h2>$56</h2>
+										<p>Easy Polo Black Edition</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>$56</h2>
+											<p>Easy Polo Black Edition</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+									</div>
+									<img src="images/home/sale.png" class="new" alt="" />
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="images/home/product6.jpg" alt="" />
+										<h2>$56</h2>
+										<p>Easy Polo Black Edition</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>$56</h2>
+											<p>Easy Polo Black Edition</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+									</div>
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 						
 					</div><!--features_items-->
 					
