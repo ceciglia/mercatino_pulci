@@ -14,13 +14,16 @@ function opensottomenu(evt, comando) {
 	for (i = 0; i < content.length; i++) {
 		content[i].style.display = "none";
 	}
-	links = document.getElementsByClassName("panel-body ul li a");
+	links = document.getElementsByClassName("panel"); //-body ul li a
 	for (i = 0; i < links.length; i++) {
 		links[i].className = links[i].className.replace(" active", "");
 	}
 	document.getElementById(comando).style.display = "block";
 	evt.currentTarget.className += " active";
 }
+document.getElementById("profilo_click").click();
+
+
 // gestione stelle
 // Get the modal
 var modal = document.getElementById("myModal");
