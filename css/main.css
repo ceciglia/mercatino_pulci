@@ -2560,8 +2560,8 @@ h2.title {
   z-index: 1;
 }
 
-#profilo_click:hover {
-  color: #FE980F; 
+.account_click:hover {
+  color: #FE980F !important; 
 }
 
 /*FINE MODIFICHE CECI*/
