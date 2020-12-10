@@ -1,60 +1,7 @@
 <!DOCTYPE html> 			
 <html lang="en">
-	<script>
-		function stelle(){
-			var x = document.getElementById("serieta1").src;
-
-			if (x == 'images/stellagrigia.gif'){
-				x = 'images/stellagialla';
-			}else{
-				x = 'images/stellagrigia.gif';
-			}
-		}
-
-		function opensottomenu(evt, comando) {
-			var i, content, links;
-			content = document.getElementsByClassName("col-sm-9 padding-right");
-			for (i = 0; i < content.length; i++) {
-				content[i].style.display = "none";
-			}
-			links = document.getElementsByClassName("panel-body ul li a");
-			for (i = 0; i < links.length; i++) {
-				links[i].className = links[i].className.replace(" active", "");
-			}
-			document.getElementById(comando).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
-
-		// gestione stelle
-		// Get the modal
-		var modal = document.getElementById("myModal");
-												  
-		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
-												  
-		//Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-												  
-		// When the user clicks the button, open the modal 
-		btn.onclick = function() {
-		modal.style.display = "block";
-		}
-												  
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-			modal.style.display = "none";
-		}
-												  
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-
-	</script>
 <head>
-
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -80,6 +27,7 @@
 </head><!--/head-->
 
 <body>
+	
 	<header id="header"><!--header-->
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
@@ -177,9 +125,9 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav" style="width: 200px;">    
 											<ul>
-												<li><a onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
-												<li><a onclick="opensottomenu(event, 'valutazioni')">Valutazioni</a></li>
-												<li><a onclick="opensottomenu(event, 'risposte')">Risposte ai miei annunci</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'valutazioni')">Valutazioni</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'risposte')">Risposte ai miei annunci</a></li>
 											</ul>
 										</ul>
 									</div>
@@ -196,8 +144,8 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav" style="width: 200px;">    
 											<ul>
-												<li><a onclick="opensottomenu(event, 'listaOsservati')">Lista osservati</a></li>
-												<li><a onclick="opensottomenu(event, 'listaAcquistati')">I mie acquisti</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'annunciOsservati')">Annunci osservati</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'listaAcquistati')">I mie acquisti</a></li>
 												
 											</ul>
 										</ul>
@@ -253,41 +201,12 @@
 															<img id="serieta9" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta9').src='images/stellagialla.gif'">
 															<img id="serieta10" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta10').src='images/stellagialla.gif'">
 														</div>
-														<script>
-															// Get the modal
-															var modal = document.getElementById("myModal");
-															
-															// Get the button that opens the modal
-															var btn = document.getElementById("myBtn");
-															
-															// Get the <span> element that closes the modal
-															var span = document.getElementsByClassName("close")[0];
-															
-															// When the user clicks the button, open the modal 
-															btn.onclick = function() {
-															  modal.style.display = "block";
-															}
-															
-															// When the user clicks on <span> (x), close the modal
-															span.onclick = function() {
-															  modal.style.display = "none";
-															}
-															
-															// When the user clicks anywhere outside of the modal, close it
-															window.onclick = function(event) {
-															  if (event.target == modal) {
-																modal.style.display = "none";
-															  }
-															}
-															</script>
+														
 													</div>
-												  
 												  </div>
-									
 											</div>
 										</div>
-										
-										
+
 								</div>
 
 								<div class="choose">
@@ -321,7 +240,7 @@
 
 				<!--ACQUIRENTE-->
 				<!--Annunci osservati-->
-				<div class="col-sm-9 padding-right" id='listaOsservati'>
+				<div class="col-sm-9 padding-right" id='annunciOsservati'>
 					<div class="features_items" ><!--features_items-->
 						<h2 class="title text-center">Annunci osservati</h2>
 							  
@@ -609,6 +528,7 @@
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/account.js"></script>
 </body>
 </html>
