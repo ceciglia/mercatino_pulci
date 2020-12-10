@@ -2555,6 +2555,11 @@ h2.title {
   padding-top: 6px !important; 
   margin-top: 0px !important;
 }
+
+#h2_layer {
+  z-index: 1;
+}
+
 /*FINE MODIFICHE CECI*/
 
 /*MODIFICHE ANNA*/
