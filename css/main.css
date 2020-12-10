@@ -2560,6 +2560,10 @@ h2.title {
   z-index: 1;
 }
 
+#profilo_click:hover {
+  color: #FE980F; 
+}
+
 /*FINE MODIFICHE CECI*/
 
 /*MODIFICHE ANNA*/
