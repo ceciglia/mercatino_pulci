@@ -2575,6 +2575,7 @@ h2.title {
 }
 
 .input_profilo {
+  display: inline-block;
   border: 2px solid #d8d8d8; 
   color: #585858;
   margin-bottom: 20px;
@@ -2604,7 +2605,32 @@ h2.title {
   padding-right: 2px;
 }
 
+
+
+/*dati_design_prova*/
+.col-25 {         /*.col-25*/
+  float: left;
+  width: 20%;         
+  margin-top: 6px;
+  margin-right: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 /*FINE MODIFICHE CECI*/
+
 
 /*MODIFICHE ANNA*/
 /*Finestra valutazioni*/
