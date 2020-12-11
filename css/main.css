@@ -2556,12 +2556,52 @@ h2.title {
   margin-top: 0px !important;
 }
 
+/*risolto problema di nome_utente*/
 #h2_layer {
   z-index: 1;
 }
 
+/*account.html*/
 .account_click:hover {
   color: #FE980F !important; 
+}
+
+.p_benvenuto {
+  font-family: 'Roboto', sans-serif; 
+  font-size: 25px; 
+  font-weight: 500;
+  margin-left: 25px; 
+  margin-bottom: 30px;
+}
+
+.input_profilo {
+  border: 2px solid #d8d8d8; 
+  color: #585858;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  padding-left: 5px;
+}
+
+#bottone_profilo_1, #bottone_profilo_2 {
+  background-color:#FE980F !important;
+  color:#fff;
+  border-radius: unset;
+  display: inline-block;
+}
+
+
+#bottone_profilo_1:hover, #bottone_profilo_2:hover {
+  background-color: rgb(239, 239, 239) !important;
+  color: #000;
+
+}
+
+#div_salva_modifiche {
+  margin: 70px 0 70px 158px;
+}
+
+#div_salva_modifiche i {
+  padding-right: 2px;
 }
 
 /*FINE MODIFICHE CECI*/
