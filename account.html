@@ -293,6 +293,16 @@
 				<div class="col-sm-9 padding-right" id='annunciPubblicati'>
 					<div class="features_items" ><!--features_items-->
 						<h2 class="title text-center">Annunci pubblicati</h2>
+						
+						<div  class="single-products">
+							<button  id="bottone_pubblicaAnnuncio" class="btn"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  Pubblica un annuncio</button>
+							<div id="myModal" class="modal">
+								<!-- Modal content -->
+								<div id="nuovoannuncio" class="modal-content">
+								  <span class="close">&times;</span> 
+								</div>
+							</div>
+						</div> 
 							  
 						<div class="col-sm-4" >
 							<div class="product-image-wrapper" >
@@ -308,9 +318,6 @@
 											<div class="overlay-content">
 												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>-->
 												<div id="myModal" class="modal">
-													<script>
-														
-													</script>
 													<!-- Modal content -->
 													<div class="modal-content">
 													  <span class="close">&times;</span> 
@@ -324,7 +331,6 @@
 														
 														<p>Valuta la <b>puntualità</b> del venditore: </p>
 
-														
 															<img id="serieta6" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta6').src='images/stellagialla.gif'">
 															<img id="serieta7" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta7').src='images/stellagialla.gif'">
 															<img id="serieta8" src="images/stellagrigia.gif" style="width:20px" onclick="document.getElementById('serieta8').src='images/stellagialla.gif'">
@@ -386,7 +392,7 @@
 										</div>
 										<div  class="product-overlay">
 											<div class="overlay-content">
-												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+												<a id="myBtn" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Valuta il venditore</a>
 												<div id="myModal" class="modal">
 
 													<!-- Modal content -->
@@ -421,7 +427,7 @@
 
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
+										<li><a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i>Dettagli annuncio</a></li>
 										
 									</ul>
 								</div>
@@ -475,13 +481,17 @@
 													</div>
 												  
 												  </div>
-								
+									
 											</div>
 										</div>
+										
+										
 								</div>
+
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
+										
 									</ul>
 								</div>
 							</div>

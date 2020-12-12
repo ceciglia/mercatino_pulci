@@ -2696,4 +2696,19 @@ h2.title {
   text-decoration: none;
   cursor: pointer;
 }
+
+#bottone_pubblicaAnnuncio{
+  background-color:#FE980F !important;
+  color:#fff;
+  border-radius: 2;
+  display: inline-block;
+  margin-left: 17px;
+  margin-bottom: 25px;
+}
+
+#nuovoannuncio{
+  width: 600px;
+  height: 400px;
+
+}
 /*FINE MODIFICHE ANNA*/

@@ -1,5 +1,5 @@
 function stelle(){
-	var x = document.getElementById("serieta1").src;
+	var x = document.getElementById("serieta").src;
 
 	if (x == 'images/stellagrigia.gif'){
 		x = 'images/stellagialla';
