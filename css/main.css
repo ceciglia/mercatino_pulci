@@ -2628,6 +2628,17 @@ h2.title {
   clear: both;
 }
 
+.sottomenu_profilo > li > a {
+  display: inline !important;
+  white-space: nowrap;    /*per non far andare a capo "miei annunci" in "risposte ai miei annunci*/
+}
+
+.sottomenu_profilo > li > a:hover{
+  color: #FE980F !important;
+  background-color: transparent;
+}
+
+/*    border-radius: 0.25rem;     > SUGOSO*/
 /*FINE MODIFICHE CECI*/
 
 
