@@ -2743,7 +2743,44 @@ h2.title {
   height: 400px;
 
 }
+
+/*stelle */
+input[name="stelle"] { 
+  display: none; 
+}
+input[name="stelle"] + label:after {
+  content: none; 
+}
+input[name="stelle"] + label {
+  font-family: 'FontAwesome'; 
+}
+input[name="stelle"] + label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #ffc107;
+  content: '\f005';
+  font-size: 1.33333333em;
+  transition: none;
+}
+input[name="stelle"]:checked ~ label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #607d8b;
+}
+input[name="stelle"]:checked + label:before {
+   color: #ffc107; 
+}
+input[name="stelle"] + label:hover ~ input + label:before { 
+   opacity: 0.6; 
+}
+
+/* Demo style only */
+.demo-content {
+   text-align: left; 
+}
+
 /*FINE MODIFICHE ANNA*/
+
 
 
 
