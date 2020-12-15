@@ -2670,6 +2670,34 @@ h2.title {
   cursor: pointer;
 }
 
+.tab-menu {
+  background-color: transparent !important;
+}
+
+.tab-menu > li > a > div {
+  width: 100% !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.tab-menu > li > a > h2 :hover{
+  color: #FE980F !important;
+}
+
+.tab-menu > li {
+  width: 215px !important;
+}
+
+.tab-menu > li, .tab-menu > li > a {
+  color: #000 !important;
+}
+
+.tab-menu :hover, .tab-menu > li > a :focus, .tab-menu > li.active > a{
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
 /*    border-radius: 0.25rem;     > SUGOSO*/
 /*FINE MODIFICHE CECI*/
 
