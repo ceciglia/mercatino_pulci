@@ -2662,8 +2662,8 @@ h2.title {
   margin-top: 20px !important;
 }
 
-#venditore-1 {
-  text-transform: unset;
+.testo-normale {
+  text-transform: unset !important;
 }
 
 .clickable {
