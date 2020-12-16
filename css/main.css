@@ -2802,17 +2802,17 @@ h2.title {
 
 }
 
-/*stelle */
-input[name="stelle"] { 
+/*stelle serieta */
+input[name="serieta"] { 
   display: none; 
 }
-input[name="stelle"] + label:after {
+input[name="serieta"] + label:after {
   content: none; 
 }
-input[name="stelle"] + label {
+input[name="serieta"] + label {
   font-family: 'FontAwesome'; 
 }
-input[name="stelle"] + label:before {
+input[name="serieta"] + label:before {
   background-color: transparent;
   border: none !important;
   color: #ffc107;
@@ -2820,15 +2820,45 @@ input[name="stelle"] + label:before {
   font-size: 1.33333333em;
   transition: none;
 }
-input[name="stelle"]:checked ~ label:before {
+input[name="serieta"]:checked ~ label:before {
   background-color: transparent;
   border: none !important;
   color: #607d8b;
 }
-input[name="stelle"]:checked + label:before {
+input[name="serieta"]:checked + label:before {
    color: #ffc107; 
 }
-input[name="stelle"] + label:hover ~ input + label:before { 
+input[name="serieta"] + label:hover ~ input + label:before { 
+   opacity: 0.6; 
+}
+
+/*stelle puntualita */
+input[name="puntualita"] { 
+  display: none; 
+}
+input[name="puntualita"] + label:after {
+  content: none; 
+}
+input[name="puntualita"] + label {
+  font-family: 'FontAwesome'; 
+}
+input[name="puntualita"] + label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #ffc107;
+  content: '\f005';
+  font-size: 1.33333333em;
+  transition: none;
+}
+input[name="puntualita"]:checked ~ label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #607d8b;
+}
+input[name="puntualita"]:checked + label:before {
+   color: #ffc107; 
+}
+input[name="puntualita"] + label:hover ~ input + label:before { 
    opacity: 0.6; 
 }
 
