@@ -2839,7 +2839,7 @@ input[name="stelle"] + label:hover ~ input + label:before {
 .approvato > a:last-child:hover {
   background: rgb(224, 0, 0);
   background-color: rgb(224, 0, 0);
-
+}
 /*FINE MODIFICHE ANNA*/
 
 
