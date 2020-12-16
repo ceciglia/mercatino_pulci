@@ -2702,6 +2702,16 @@ h2.title {
   margin-right: 5px;
 }
 
+.valuta-btn {
+  color: #696763 !important;
+}
+
+.valuta-btn:hover {
+  background-color: #FE980F !important;
+  color: #fff !important;
+}
+
+
 /*    border-radius: 0.25rem;     > SUGOSO*/
 /*FINE MODIFICHE CECI*/
 
