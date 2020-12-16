@@ -2821,6 +2821,16 @@ input[name="stelle"] + label:hover ~ input + label:before {
    text-align: left; 
 }
 
+
+.approvato > a :hover, .approvato > a > i :hover{
+  background:rgb(41, 204, 41);
+  background-color:rgb(41, 204, 41) ;
+}
+
+.approvato > a :last-child :hover, .approvato > a > i :last-child :hover {
+  background: rgb(224, 0, 0) !important;
+  background-color: rgb(224, 0, 0) !important;
+
 /*FINE MODIFICHE ANNA*/
 
 

@@ -421,29 +421,75 @@
 										<li><a class="account_click" data-toggle="collapse" data-parent="#accordian" href="#annuncio1"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>Hai 3 richieste d'acquisto</a></li>
 										<div id="annuncio1" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">  
-													<table style="width: 100%; ">
+												<table style="width: 100%;">
+													<thead>
+														<tr class="cart_menu" style="background-color: rgb(253, 141, 55); color:rgb(255, 255, 255)">
+															<td class="image">Acquirente</td>
+															<td class="description"></td> 
+															<td class="price">Metodo di pagamento</td>
+															<!-- <td class="quantity">Quantity</td> -->
+															<td class="total">Stato</td>
+															<td></td>
+														</tr>
+													</thead>
+													<tbody style="width: 100%;">
+														<tr>
+															<td class="cart_product">
+																<a href=""><img src="images/home/gallery3.jpg"  alt="" style="width: 70px; margin-right: 30px; border-radius: 180px;" ></a>
+															</td>
+															<td class="cart_description">
+																<h4><a href="">Nome Cognome</a></h4>
+																<p>acquirente@mail.com</p>
+															</td>
+															<td class="cart_price">
+																<p>Carta di credito</p>
+															</td>
+															<!-- <td class="cart_quantity">
+																<div class="cart_quantity_button">
+																	<a class="cart_quantity_up" href=""> + </a>
+																	<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+																	<a class="cart_quantity_down" href=""> - </a>
+																</div>
+															</td> -->
+															<td class="cart_total">
+																<p class="cart_total_price">In elaborazione</p>
+															</td>
+															<td class="cart_delete approvato">
+																<a class="cart_quantity_delete " href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												
+													<!-- <table style="width: 100%; ">
+														<thead>
 														<tr style="background-color: rgb(252, 146, 80); color:rgb(255, 255, 255)">
-															<th><p style="width: 25%;">Acquirente</p></th>
-															<th style="width: 25%"> </th>
-															<th><p style="width: 25%">pagamento</p></th>
-															<th><p style="width: 25%">Stato</p></th>
+															<th><p style="margin-left: 20px; margin-top: 10px;">Acquirente</p></th>
+															<th><p></p></th>
+															<th><p  style="margin-left: 100px; margin-top: 10px; ">Metodo di pagamento</p></th>
+															<th><p style="margin-top: 10px; ">Stato</p></th>
 														</tr>
 													
 														<tr>
-															<th><img src="images/home/product2.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> <!---moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;-->
+															<th>
+																<img src="images/home/product2.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
+															</th>
 															<th>
 																<p>Nome Cognome</p>
 																<p>acquirente@mail.com</p>
+															</th>
+															<th>
+																<p >Carta di credito</p>
 															</th>
 															
 															<th>
-																<button type="submit" id="bottone_profilo_2" class="btn" style="margin-left: 200px;">Salva modifiche</button>
+																<button type="submit" id="bottone_profilo_2" class="btn" style="margin-left: 250px;">Salva modifiche</button>
 															</th>
 														</tr>
 														
 														<tr>
-															<th><img src="images/home/gallery3.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> <!---moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;-->
+															<th><img src="images/home/gallery3.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
 															<th>
 																<p>Nome Cognome</p>
 																<p>acquirente@mail.com</p>
@@ -451,14 +497,14 @@
 														</tr>
 														
 														<tr>
-															<th><img src="images/home/gallery4.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> <!---moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;-->
+															<th><img src="images/home/gallery4.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
 															<th>
 																<p>Nome Cognome</p>
 																<p>acquirente@mail.com</p>
 															</th>
 														</tr>
-													</table>
-												</ul>
+													</table> -->
+												
 											</div>
 										</div>
 									</ul>
