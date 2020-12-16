@@ -2562,7 +2562,7 @@ h2.title {
 }
 
 /*account.html*/
-.account_click:hover {
+.account-click:hover {
   color: #FE980F !important; 
 }
 
@@ -2821,15 +2821,14 @@ input[name="stelle"] + label:hover ~ input + label:before {
    text-align: left; 
 }
 
-
-.approvato > a :hover, .approvato > a > i :hover{
+.approvato > a:hover{
   background:rgb(41, 204, 41);
   background-color:rgb(41, 204, 41) ;
 }
 
-.approvato > a :last-child :hover, .approvato > a > i :last-child :hover {
-  background: rgb(224, 0, 0) !important;
-  background-color: rgb(224, 0, 0) !important;
+.approvato > a:last-child:hover {
+  background: rgb(224, 0, 0);
+  background-color: rgb(224, 0, 0);
 
 /*FINE MODIFICHE ANNA*/
 
