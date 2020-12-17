@@ -2517,8 +2517,9 @@ h2.title {
 
 
 /*aggiunte CECI*/
-#signup {
-  margin-left: 40px;
+.signup {
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 /*annunci più osservati*/
