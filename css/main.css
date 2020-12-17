@@ -208,7 +208,7 @@ a#scrollUp i{
 /*ho cancellato tutto il css relativo a shop in questo punto*/
 
 .header-bottom {
-  padding-bottom: 30px;
+  /* padding-bottom: 30px;    tolto per grafica*/
   padding-top: 30px;
 }
 
@@ -2698,8 +2698,9 @@ h2.title {
   border-color: transparent !important;
 }
 
-#applica-btn {
-  margin-right: 5px;
+.applica-btn {
+  margin-top: 20px;
+  width: 100%;
 }
 
 .valuta-btn {

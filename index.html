@@ -70,11 +70,11 @@
 				<div class="row">
 					<div class="col-sm-9">
 					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right" id=search_2>		<!--aggiunto id=search_1-->
+					<!-- <div class="col-sm-3">
+						<div class="search_box pull-right" id=search_2>		aggiunto id=search_1
 							<input type="text" placeholder="Search"/>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div><!--/header-bottom-->
@@ -100,10 +100,10 @@
 									<button type="button" class="btn btn-default get">Check details</button>
 								</div> -->
 								<div class="col-sm-9 index-benvenuto">
-									<h1>Benvenut* in <span>FR</span> MARKET!</h1>
+									<h1 style="font-size: 80px;">Benvenut* in <span>FR</span> MARKET</h1>
 									<!-- <h2>Free E-Commerce Template</h2> -->
-									<p>Clicca qui sotto per scoprire le nuove occasioni! </p>
-									<button type="button" class="btn btn-default get">Scopri di più</button>
+									<p style="font-size: 30px;">Scorri per scoprire le nuove occasioni! </p>
+									<button style="font-size: 18px;" type="button" class="btn btn-default get">Registrati subito</button>
 								</div>
 								<!-- <div class="col-sm-6 index-benvenuto"> -->
 									<!-- <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
@@ -146,6 +146,11 @@
 						</a>
 					</div>
 					
+				</div>
+				<div class="col-sm-3 pull-right" style="margin-top: 40px;">
+					<div class="search_box pull-right" id=search_2>		<!--aggiunto id=search_1-->
+						<input type="text" placeholder="Search"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -261,13 +266,40 @@
 							</div>
 						</div>		/brands_products -->
 						
-						<!-- <div class="price-range">		price-range
-							<h2>Price Range</h2>
+		
+						<div class="price-range">		<!-- filtro comune provincia regione -->
+							<h2>Area Geografica</h2>
 							<div class="well text-center">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+								<form>
+									<select>
+										<option>-- Comune --</option>
+										<option>Comune1</option>
+										<option>Comune2</option>
+										<option>Comune3</option>
+										<option>Comune4</option>
+									</select>
+									<br>
+									<br>
+									<select>
+										<option>-- Provincia --</option>
+										<option>Provincia1</option>
+										<option>Provincia2</option>
+										<option>Provincia3</option>
+										<option>Provincia4</option>
+									</select>
+									<br>
+									<br>
+									<select>
+										<option>-- Regione --</option>
+										<option>Regione1</option>
+										<option>Regione2</option>
+										<option>Regione3</option>
+										<option>Regione4</option>
+									</select>
+								</form>
 							</div>
-						</div>				/price-range -->
+						</div>				<!-- /filtro comune provincia regione -->
+									
 
 
 						<div class="price-range">		<!-- price-range -->
@@ -276,12 +308,10 @@
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="99999" data-slider-step="5" data-slider-value="[40000,70500]" id="sl2" ><br />
 								 <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
 							</div>
-							<a href="index.html" id="applica-btn" class="btn btn-default add-to-cart piùosservati-btn pull-right">Applica</a>
+							<!-- <a href="index.html" id="applica-btn" class="btn btn-default add-to-cart piùosservati-btn pull-right">Applica</a> -->
+							<a href="index.html" class="btn btn-default add-to-cart applica-btn">Applica</a>
 						</div>				<!-- /price-range -->
 									
-						
-						
-						
 						
 								
 						<!-- <div class="shipping text-center">	shipping
