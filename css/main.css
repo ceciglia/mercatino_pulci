@@ -2883,6 +2883,37 @@ input[name="puntualita"] + label:hover ~ input + label:before {
   background: rgb(224, 0, 0);
   background-color: rgb(224, 0, 0);
 }
+
+/*metodo di pagamento*/
+input[name="metodop"] { 
+  display: none; 
+}
+input[name="metodop"] + label:after {
+  content: none; 
+}
+input[name="metodop"] + label {
+  font-family: 'FontAwesome'; 
+}
+input[name="metodop"] + label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #ffc107;
+  content: '\f096'; 
+  font-size: 1.33333333em;
+  transition: none;
+}
+input[name="metodop"]:checked ~ label:before {
+  background-color: transparent;
+  border: none !important;
+  color: #607d8b;
+}
+input[name="metodop"]:checked + label:before {
+   color: #ffc107; 
+   content: '\f046';
+}
+input[name="metodop"] + label:hover ~ input + label:before { 
+   opacity: 0.6; 
+}
 /*FINE MODIFICHE ANNA*/
 
 

@@ -124,10 +124,10 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">    
 											<!-- <ul class="sottomenu_profilo"> -->
-												<li><a href="pubblicaAnnuncio.html">Pubblica un nuovo annuncio</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'mievendite')">Le mie vendite</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'risposte')">Risposte ai miei annunci</a></li>
+												<li><a href="pubblicaAnnuncio.html"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')"style="padding-left: 28px; ">Annunci pubblicati</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'mievendite')" style="padding-left: 28px; ">Le mie vendite</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'risposte')" style="padding-left: 28px; ">Risposte ai miei annunci</a></li>
 											<!-- </ul> -->
 										</ul>
 									</div>
@@ -311,7 +311,38 @@
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a id="myBtn" class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
+										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#richiestaA"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
+										<div id="richiestaA" class="panel-collapse collapse">
+											<div class="panel-body">
+												<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">    
+													<div style="text-align: left;">
+														<p>Metodo di pagamento: </p>
+
+														<!-- <form>
+															<input type="radio" id="c" name="metodop" value="cartacredito" style="background-color:rgb(253, 141, 55); ">
+															<a style="color:rgb(0, 0, 0) ; " for="cartacredito">Carta di credito</a><br>
+															<input type="radio" id="c" name="metodop" value="contanti">
+															<a for="contanti">Contanti alla consegna</a><br>
+														  </form>  -->
+													    <div class="demo-content">
+															<div class="metodop">
+																<ul	class="nav">
+																	<input name="metodop" type="radio" id="carta" value="1" />
+																	<label for="carta"><p>   Carta di credito</p></label>
+																	<br>
+																	<input name="metodop" type="radio" id="contanti" value="2" />
+																	<label for="contanti"><p style="display: inline-block !important; margin-left: 20px; font-family: 'Roboto', sans-serif !important;">   Contanti alla consegna</p></label>
+																</ul>
+															</div>
+														</div>
+														 
+														 
+														<button type="submit" id="bottone_profilo_1" class="btn pull-left" style="padding: 2px 6px 2px 4px; margin-top: 10px; "><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+
+													</div>
+												</ul>
+											</div>					
+										</div>
 									</ul>
 								</div>
 							</div>
@@ -385,7 +416,7 @@
 																<label for="stellaV10"></label>
 																
 															</div>
-															<button type="submit" id="bottone_profilo_1" class="btn pull-left" style="padding: 2px 4px 2px 4px; margin-top: 10px; "><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+															<button type="submit" id="bottone_profilo_1" class="btn pull-left" style="padding: 2px 6px 2px 4px; margin-top: 10px; "><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
 														</div>
 														
 													</div>
@@ -618,6 +649,7 @@
 																<input name="puntualita" type="radio" id="stellaA10" value="5" checked />
 																<label for="stellaA10"></label>
 														</div>
+														<button type="submit" id="bottone_profilo_1" class="btn pull-left" style="padding: 2px 6px 2px 4px; margin-top: 10px; "><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
 													</div>
 												</ul>
 											</div>					
