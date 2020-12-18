@@ -32,7 +32,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
+							<a href="index.html"><img class="logo-image logo-position" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -51,13 +51,13 @@
 						</div>
 						
 						
-						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
+						<div id="main_menu_desktop" class="mainmenu pull-right">		<!--pull right anzichè pull left-->
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
 								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -79,6 +79,45 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
+
+	<div id="myNav" class="overlay overlay-tendina">
+        <div class="overlay-content overlay-tendina-content">
+            <section id="form"><!--form-->
+                <div class="container login-line">
+                    <div class="row ">
+                        <a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;<i class="fa fa-angle-up" aria-hidden="true"></i></a> -->
+
+                        <div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
+                            <div class="login-form"><!--login form-->
+                                <h2>Login</h2>
+                                <form action="#">
+                                    <input type="email" placeholder="Email" />
+                                    <input type="password" placeholder="Password" />
+                                    <span>
+                                        <input type="checkbox" class="checkbox"> 
+                                        Resta conness*
+                                    </span>
+                                    <button type="submit" class="btn btn-default">Accedi</button>
+                                </form>
+                            </div><!--/login form-->
+                        </div>
+                        <div class="col-sm-1">
+                            <h2 class="or">OR</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="signup-form"><!--sign up form-->
+                                <h2>Registrati subito!</h2>
+                                <form action="#">
+                                   <a href="registrazione.html" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
+                                </form>
+                            </div><!--/sign up form-->
+                        </div>
+                    </div>
+                </div>
+            </section><!--/form-->
+        </div>
+    </div>
 	
 	<section id="slider"><!--slider-->
 		<div class="container">
@@ -1341,6 +1380,7 @@
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
 </body>
 </html>

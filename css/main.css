@@ -2721,6 +2721,60 @@ h2.title {
 }
 
 
+/*tendina login*/
+.overlay-tendina {
+  height: 0%;
+  width: 100%;
+  position: fixed;        /* position: fixed;*/       
+  z-index: 1;     /*z-index: 1;*/
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);               /*background-color: rgb(0,0,0);*/
+  background-color: rgb(255, 255, 255);         /*background-color: rgba(0,0,0, 0.9);*/
+  overflow-y: hidden;
+  transition: 0.5s;
+  }
+
+.overlay-tendina-content {
+  position: relative;                    /* position: relative; */
+  top: 25%;
+  width: 100%;                /*width: 100%;*/
+  /*text-align: left;         text-align: center;*/
+  margin-top: 60px;           /*margin-top: 30px;*/
+  padding-right: 130px; /*aggiunta*/
+  padding-left: 130px; /*aggiunta*/
+}
+
+.overlay-tendina .closebtn-tendina {
+  position: absolute;
+  cursor: pointer;        /*aggiunta*/
+  top: 260px;              /* top: 20px;*/
+  right: 45px;            /*right: 45px;*/
+  font-size: 30px;            /*font-size: 60px;*/
+  text-decoration: none;  /*aggiunta*/
+  color:  #696763;
+}
+
+#main_menu_desktop  {           /*.nav-menu*/
+  /* min-height: 5em; */
+  position: relative;     /*position: absolute;*/
+  /* top: 0;
+  left: 0; */
+  z-index: 999;
+  /* transition: all 1s; */
+}
+
+.logo-position{
+  z-index: 999 !important;
+  position: relative;
+}
+
+.login-line {
+  border-top: 1px solid #f5f5f5;
+  padding-top: 10px;
+}
+
+/*fine tendina login*/
 
 
 
