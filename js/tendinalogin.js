@@ -2,7 +2,7 @@
 
 
     function openNav() {
-        document.getElementById("myNav").style.height = "65%";
+        document.getElementById("myNav").style.height = "80%";
     }
 
     function closeNav() {

@@ -680,7 +680,7 @@ ul.sub-menu {
 	position: absolute;
 	background: #fff;
 	bottom: -6px;
-	width: 130px;
+	width: max-content;           /*width: 130px;*/
 	height: 30px;
 	z-index: -1;
 	left: 50%;
@@ -692,7 +692,7 @@ h2.title:before{
 	position: absolute;
 	background: #fff;
 	bottom: -6px;
-	width: 220px;
+	width: max-content;           /*width: 220px;*/
 	height: 30px;
 	z-index: -1;
 	left: 50%;
@@ -2748,7 +2748,7 @@ h2.title {
 .overlay-tendina .closebtn-tendina {
   position: absolute;
   cursor: pointer;        /*aggiunta*/
-  top: 260px;              /* top: 20px;*/
+  top: 330px;              /* top: 20px;*/
   right: 45px;            /*right: 45px;*/
   font-size: 30px;            /*font-size: 60px;*/
   text-decoration: none;  /*aggiunta*/
@@ -2762,6 +2762,7 @@ h2.title {
   left: 0; */
   z-index: 999;
   /* transition: all 1s; */
+  margin-top: 30px;
 }
 
 .logo-position{
@@ -2775,6 +2776,12 @@ h2.title {
 }
 
 /*fine tendina login*/
+
+.title-span{
+  background: white;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
 
 
