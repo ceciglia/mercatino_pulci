@@ -1,6 +1,38 @@
 <!DOCTYPE html> 			
 <html lang="en">
 <head>
+	<style>
+		.container_imm {
+			position: relative;
+			width: 50%;
+			max-width: 300px;
+		}
+
+		.image_p {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		.overlay_p {
+			position: absolute; 
+			bottom: 0; 
+			background: rgb(0, 0, 0);
+			background: rgba(0, 0, 0, 0.5); /* Black see-through */
+			color: #f1f1f1; 
+			width: 100%;
+			transition: .5s ease;
+			opacity:0;
+			color: white;
+			font-size: 20px;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.container_imm:hover .overlay {
+			opacity: 1;
+		}
+	</style>
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -163,7 +195,11 @@
 						<h2 class="title text-center">Dettagli prodotto</h2>
 						<div class="col-sm-4">
 							<textarea name="text"  placeholder="Nome" rows="1" style="margin-bottom: 10px; ;"></textarea> 
-							<img src="images/pubblicaAnnuncio.jpg" alt="" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;" /> 	
+							<div class="container_imm">
+								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="image_p" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;">
+								<div class="overlay_p"><input type="file" id="myFile" name="filename"></div>
+							</div>
+							<!-- <img src="images/pubblicaAnnuncio.jpg" alt="" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;" /> 	 -->
 							<input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" style="background-color: #F0F0E9; color:  #696763; border-color: transparent; width: 32%;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block;"> €</p>						
 						</div>
 						<div class="col-sm-4">
@@ -204,17 +240,7 @@
 									<input type="date" style="background-color: #F0F0E9; color: #696763; border-color: transparent; margin-top: 5px; width: 100%; "/>
 								</div>
 							</div>
-							<script>
-								function myFunction(id) {
-								  var x = document.getElementById(id);
-								  
-								  if (window.getComputedStyle(x).display === "none") {
-									x.style.display = "block";
-								  }else{
-									x.style.display = "none";
-								  }
-								}
-							</script>
+						
 									
 						</div>
 						<div class="col-sm-4">
@@ -241,12 +267,9 @@
 							
 							</select>
 							<p style="margin-top: 10px;">Selezionare la visibilità dell'annuncio: </p>
-							<select>
-								<option>-- Visibilità --</option>
-								<option>Pubblica</option>
-								<option>Privata</option>
-								<option onclick="myFunction('ristretta')">Ristretta</option>
-							</select>	
+							<button style="border-color:transparent; background-color: #F0F0E9; color: #696763; ">Pubblica</button>
+							<button style="border-color:transparent; background-color: #F0F0E9; color: #696763; ">Privata</button>	
+							<button onclick="myFunction('ristretta')" style="border-color:transparent; background-color: #F0F0E9; color: #696763; ">Ristretta</button>	
 							<div id="ristretta" style="display: none; ">
 								<p>Inserisci l'area di visibilità: </p>
 								<select style="margin-top: 10px; width: 50%;">
@@ -263,6 +286,17 @@
 								
 								</select>
 							</div>
+							<script>
+								function myFunction(id) {
+								  var x = document.getElementById(id);
+								  
+								  if (window.getComputedStyle(x).display === "none") {
+									x.style.display = "block";
+								  }else{
+									x.style.display = "none";
+								  }
+								}
+							</script>
 							
 						</div>
 						<div class="col-sm-4" >
