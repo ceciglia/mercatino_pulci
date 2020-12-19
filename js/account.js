@@ -1,11 +1,11 @@
-function stelle(){
-	var x = document.getElementById("serieta").src;
+// function stelle(){
+// 	var x = document.getElementById("serieta").src;
 
-	if (x == 'images/stellagrigia.gif'){
-		x = 'images/stellagialla';
-	}else{
-		x = 'images/stellagrigia.gif';
-	}
+// 	if (x == 'images/stellagrigia.gif'){
+// 		x = 'images/stellagialla';
+// 	}else{
+// 		x = 'images/stellagrigia.gif';
+// 	}
 }
 
 function opensottomenu(evt, comando) {
