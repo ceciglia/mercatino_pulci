@@ -1,38 +1,7 @@
 <!DOCTYPE html> 			
 <html lang="en">
 <head>
-	<style>
-		.product_image {
-			position: relative;
-			width: 50%;
-			max-width: 300px;
-		}
-
-		.p_image {
-			display: block;
-			width: 100%;
-			height: auto;
-		}
-
-		.p_overlay {
-			position: absolute; 
-			bottom: 0; 
-			background: rgb(0, 0, 0);
-			background: rgba(0, 0, 0, 0.5); /* Black see-through */
-			color: #180f0f; 
-			width: 100%;
-			transition: .5s ease;
-			opacity:0;
-			color: rgb(14, 9, 9);
-			font-size: 20px;
-			padding: 20px;
-			text-align: center;
-		}
-
-		.product_image:hover .overlay {
-			opacity: 1;
-		}
-	</style>
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -102,108 +71,381 @@
 				<div class="row">
 					<div class="col-sm-9">
 					</div>
-					<!-- <div class="col-sm-3">
-						<div class="search_box pull-right" id=search_2>		
-							<input type="text" placeholder="Search"/>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-
-	<section id="cart_items">
-		
+	
+	<!--<section id="slider">
 		<div class="container">
-			<h2 style="color: orange">Nuovo annuncio</h2>
-			<!-- <div class="checkout-options">
-				<h2 style="color: orange">Nuovo annuncio</h2> 
-				 <p>Checkout options</p> 
-				<ul class="nav">
-					<li>
-						<label><input type="checkbox"> Register Account</label>
-					</li>
-					<li>
-						<label><input type="checkbox"> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=""><i class="fa fa-times"></i>Cancel</a>
-					</li>
-				</ul> 
-			</div>  -->
-
-			<!-- <div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-			</div> -->
-
-			<div class="shopper-informations">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="shopper-info">
-							<!-- <p>Shopper Information</p> -->
-							<form>
-								<input type="text" placeholder="Nome prodotto">
-								<div class="product_image">
-									<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="p_image">
-									<div class="p_overlay">My Name is John</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+						
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>Free E-Commerce Template</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
-							</form>
-							<!-- <a class="btn btn-primary" href="">Get Quotes</a>
-							<a class="btn btn-primary" href="">Continue</a> -->
-						</div>
-					</div>
-					<div class="col-sm-5 clearfix">
-						<div class="bill-to">
-							<!-- <p>Bill To</p> -->
-							<div class="form-one">
-								<form>
-									<input type="text" placeholder="Nome annuncio">
-									<textarea name="message"  placeholder="Descrizione annnuncio" rows="13"></textarea>
-								</form>
+								<div class="col-sm-6">
+									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png"  class="pricing" alt="" />
+								</div>
 							</div>
-							<div class="form-two">
-								<form>
-									<select>
-										<option>-- Categorie --</option>
-										<option>Elettrodomestici</option>
-										<option>Foto e video</option>
-										<option>Abbigliamento</option>
-										<option>Hobby</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<input type="password" placeholder="Confirm password">
-									<input type="text" placeholder="Phone *">
-									<input type="text" placeholder="Mobile Phone">
-									<input type="text" placeholder="Fax">
-								</form>
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>100% Responsive Design</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png"  class="pricing" alt="" />
+								</div>
 							</div>
+							
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>Free Ecommerce Template</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png" class="pricing" alt="" />
+								</div>
+							</div>
+							
 						</div>
+						
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
 					</div>
-					<!-- <div class="col-sm-4">
-						<div class="order-message">
-							<p>Shipping Order</p>
-							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-							<label><input type="checkbox"> Shipping to bill address</label>
-						</div>	
-					</div>					 -->
+					
 				</div>
 			</div>
 		</div>
-	</section> <!--/#cart_items-->
+	</section>-->
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3" >
+					<div class="left-sidebar" > 
+						<h2><span style="background-color: white; padding-left: 2px; padding-right: 2px;">Nuovo annuncio</span></h2>
+						<!-- <div class="panel-group category-products" id="accordian" >   -->
+							<!-- <div class="panel panel-default"> -->
+								<!--login form-->
+									<!-- <form action="#"> -->
+										<textarea name="text"  placeholder="Nome annuncio" rows="1" style="margin-bottom: 10px;"></textarea> 
+										<textarea name="text"  placeholder="Descrizione annnuncio" rows="12" style="height: 234px !important;"></textarea> 
+									
+							<!-- </div> -->
+						<!-- </div> -->
+					</div> 
+				</div>
+				<div class="col-sm-9 padding-right" style="padding-left: 0;">
+					<div class="features_items">
+						<h2 class="title text-center">Dettagli prodotto</h2>
+						<div class="col-sm-4">
+							<textarea name="text"  placeholder="Nome" rows="1" style="margin-bottom: 10px; ;"></textarea> 
+							<img src="images/pubblicaAnnuncio.jpg" alt="" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;" /> 	
+							<input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" style="background-color: #F0F0E9; color:  #696763; border-color: transparent; width: 32%;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block;"> €</p>						
+						</div>
+						<div class="col-sm-4">
+							<select style="margin-bottom: 10px;">
+								<option>-- Categoria --</option>
+								<option>Elettrodomestici</option>
+								<option>Foto e video</option>
+								<option>Abbigliamento</option>
+								<option>Hobby</option>
+							</select>
+							<select style="margin-bottom: 10px;">
+								<option>-- Sottocategoria --</option>
+								<option>Elettrodomestici</option>
+								<option>Foto e video</option>
+								<option>Abbigliamento</option>
+								<option>Hobby</option>
+							</select>
+							<p>Seleziona lo stato del prodotto: </p>
+							<button onclick="myFunction('usato')" style="border-color:transparent; background-color: #F0F0E9; color: #696763; ">Usato</button>
+							<button onclick="myFunction('nuovo')" style="border-color:transparent; background-color: #F0F0E9; color: #696763; ">Nuovo</button>
+							<div id="usato" style="display: none;">
+								<select style="margin-top: 10px;">
+									<option>-- Stato di usura --</option>
+									<option>Pari al nuovo</option>
+									<option>Buono</option>
+									<option>Medio</option>
+									<option>Usurato</option>
+								</select>
+								<textarea type="text" placeholder="Indicare il periodo di utilizzo" rows="2" style="background-color: #F0F0E9; color: #696763; border-color: transparent; margin-top: 10px; width: 100%; "></textarea>
+							</div>
+						
+							<div id="nuovo" style="display: none;">
+								
+								<input type="checkbox"  name="garanzia" onclick="myFunction('garanzia')" style="margin-top: 10px; ">
+								<label for="garanzia" style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block;">Garanzia di copertura </label><br>
+								<div id="garanzia" style="display: none;">
+									<p style="margin-top: 10px;">Indica la scadenza:  </p>
+									<input type="date" style="background-color: #F0F0E9; color: #696763; border-color: transparent; margin-top: 5px; width: 100%; "/>
+								</div>
+							</div>
+							<script>
+								function myFunction(id) {
+								  var x = document.getElementById(id);
+								  
+								  if (window.getComputedStyle(x).display === "none") {
+									x.style.display = "block";
+								  }else{
+									x.style.display = "none";
+								  }
+								}
+							</script>
+									
+						</div>
+						<div class="col-sm-4">
+							<p>Inserire la collocazione geografica: </p>
+							<select style="margin-top: 8px;">
+								<option>-- Comune --</option>
+								<option>Comune1</option>
+								<option>Comune2</option>
+								<option>Comune3</option>
+							
+							</select>
+							<select style="margin-top: 10px;">
+								<option>-- Provincia --</option>
+								<option>Provincia1</option>
+								<option>Provincia2</option>
+								<option>Provincia3</option>
+							
+							</select>
+							<select style="margin-top: 10px;">
+								<option>-- Regione --</option>
+								<option>Regione1</option>
+								<option>Regione2</option>
+								<option>Regione3</option>
+							
+							</select>
+							<p style="margin-top: 10px;">Selezionare la visibilità dell'annuncio: </p>
+							<select>
+								<option>-- Visibilità --</option>
+								<option>Pubblica</option>
+								<option>Privata</option>
+								<option onclick="myFunction('ristretta')">Ristretta</option>
+							</select>	
+							<div id="ristretta" style="display: none; ">
+								<p>Inserisci l'area di visibilità: </p>
+								<select style="margin-top: 10px; width: 50%;">
+									<option>-- Provincia --</option>
+									<option>Provincia1</option>
+									<option>Provincia2</option>
+									<option>Provincia3</option>
+								</select>
+								<select style="margin-top: 10px; width: 50%;">
+									<option>-- Regione --</option>
+									<option>Regione1</option>
+									<option>Regione2</option>
+									<option>Regione3</option>
+								
+								</select>
+							</div>
+							
+						</div>
+						<div class="col-sm-4" >
+							<div class="product-image-wrapper" style="border-color:transparent">
+								<div class="single-products" >
 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</section>
+	<br>
+	<br>
+	
+	<footer id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2><span>e</span>-shopper</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe1.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe2.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe3.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe4.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Circle of Hands</p>
+								<h2>24 DEC 2014</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quock Shop</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">T-Shirt</a></li>
+								<li><a href="#">Mens</a></li>
+								<li><a href="#">Womens</a></li>
+								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About Shopper</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+	
+
+  
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </body>
