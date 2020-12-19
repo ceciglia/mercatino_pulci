@@ -4,9 +4,32 @@
 	<style>
 		.container_imm {
 			position: relative;
-			width: 50%;
+			/* width: 50%; */
 			max-width: 300px;
 		}
+
+		.btn-container_imm {
+			position: absolute;
+			top: 80%;			/*top: 50%;*/
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			/* background-color: #555; */
+			background-color: rgba(85, 85, 85, 0.301);
+			color: white;
+			/* font-size: 16px; */
+			/*padding: 5px 5px;			padding: 12px 24px;*/
+			border: none;
+			/* cursor: pointer; */
+			/* border-radius: 5px; */
+			text-align: center;
+			width: -webkit-fill-available;
+		}
+
+		.btn-container_imm:focus {
+			outline: none;
+		}
+
 
 		.image_p {
 			display: block;
@@ -178,7 +201,7 @@
 			<div class="row">
 				<div class="col-sm-3" >
 					<div class="left-sidebar" > 
-						<h2><span style="background-color: white; padding-left: 2px; padding-right: 2px;">Nuovo annuncio</span></h2>
+						<h2><span class="title-span">Nuovo annuncio</span></h2>
 						<!-- <div class="panel-group category-products" id="accordian" >   -->
 							<!-- <div class="panel panel-default"> -->
 								<!--login form-->
@@ -192,16 +215,31 @@
 				</div>
 				<div class="col-sm-9 padding-right" style="padding-left: 0;">
 					<div class="features_items">
-						<h2 class="title text-center">Dettagli prodotto</h2>
+						<h2 class="title text-center"><span class="title-span">Dettagli prodotto</span></h2>
 						<div class="col-sm-4">
 							<textarea name="text"  placeholder="Nome" rows="1" style="margin-bottom: 10px; ;"></textarea> 
 							<div class="container_imm">
-								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="image_p" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;">
-								<div class="overlay_p"><input type="file" id="myFile" name="filename"></div>
+								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="image_p" style="width: 100% !important; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;">
+								<!-- <div class="overlay_p"> -->
+									<!-- <button class="btn-container_imm"><input type="file" id="myFile" name="filename"></button> -->
+								<!-- </div> -->
+								<input type="file" id="file" style="display:none;" />
+								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();">Upload</button>
 							</div>
 							<!-- <img src="images/pubblicaAnnuncio.jpg" alt="" style="width: 100%; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;" /> 	 -->
 							<input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" style="background-color: #F0F0E9; color:  #696763; border-color: transparent; width: 32%;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block;"> €</p>						
 						</div>
+
+						<script>
+							function thisFileUpload() {
+								document.getElementById("file").click();
+							};
+						</script>
+
+
+
+
+
 						<div class="col-sm-4">
 							<select style="margin-bottom: 10px;">
 								<option>-- Categoria --</option>
