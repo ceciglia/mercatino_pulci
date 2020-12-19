@@ -6,7 +6,7 @@
 // 	}else{
 // 		x = 'images/stellagrigia.gif';
 // 	}
-}
+
 
 function opensottomenu(evt, comando) {
 	var i, content, links;
