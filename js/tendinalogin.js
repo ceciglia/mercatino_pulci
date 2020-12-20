@@ -1,10 +1,15 @@
 //tendina login
 
-
     function openNav() {
-        document.getElementById("myNav").style.height = "80%";
+        var x = document.getElementById("myNav");
+        if (x.style.height === "0%") {
+            x.style.height = "80%";
+        } else {
+            x.style.height = "0%";
+        }
     }
 
     function closeNav() {
         document.getElementById("myNav").style.height = "0%";
     }
+
