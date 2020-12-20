@@ -2586,7 +2586,7 @@ h2.title {
   padding-left: 5px;
 }
 
-#bottone_profilo_1, #bottone_profilo_2 {
+.btn-profilo {
   background-color:#FE980F !important;
   color:#fff;
   border-radius: unset;
@@ -2594,7 +2594,7 @@ h2.title {
 }
 
 
-#bottone_profilo_1:hover, #bottone_profilo_2:hover {
+.btn-profilo:hover {
   background-color: rgb(239, 239, 239) !important;
   color: #000;
 
