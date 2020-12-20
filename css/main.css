@@ -2783,7 +2783,12 @@ h2.title {
   padding-right: 4px;
 }
 
-
+/*notifiche*/
+.notification-bell {
+  border: 1px solid; 
+  padding: 3px 3px !important; 
+  border-radius: 0.25rem;
+}
 
 
 /*    border-radius: 0.25rem;     > SUGOSO*/
