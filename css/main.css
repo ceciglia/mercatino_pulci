@@ -2591,6 +2591,8 @@ h2.title {
   color:#fff;
   border-radius: unset;
   display: inline-block;
+  padding: 2px 6px 2px 4px; /*aggiunte*/
+  margin-top: 10px; /*aggiunte*/
 }
 
 
@@ -2791,6 +2793,58 @@ h2.title {
   padding: 2px 5px !important; 
   border-radius: 0.25rem;
   margin-top: 35px !important;
+}
+
+/*popup conferma*/
+.popup-conferma {
+  width: 304px;
+}
+
+.popup-conferma > p{
+  padding-top: 0 !important;
+}
+
+.popup-modal {
+  border: 1px solid black;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.popup-btn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;     /*padding: 14px 20px;*/
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.popup-btn:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #FE980F;
 }
 
 
