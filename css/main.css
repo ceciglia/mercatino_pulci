@@ -2797,18 +2797,26 @@ h2.title {
 
 /*popup conferma*/
 .popup-conferma {
-  width: 304px;
+  width: 100%;
 }
 
 .popup-conferma > p{
   padding-top: 0 !important;
+  font-size: 17px;
+  margin-bottom: 0px;
 }
 
-.popup-modal {
-  border: 1px solid black;
+.popup-modal-content {
+  border: 1px solid black !important;
+  width: 500px !important;
+  height: 300px !important;
 }
 
 /* Clear floats */
+.clearfix {
+  margin-top: 110px;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
