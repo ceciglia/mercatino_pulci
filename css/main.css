@@ -231,7 +231,7 @@ a#scrollUp i{
 
 
 .mainmenu ul li a {
-	color: #696763;
+	color: #2b5164;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;      /*font-size: 17px;*/
 	font-weight: 300;     /*font-weight: 300;*/
@@ -591,7 +591,7 @@ ul.sub-menu {
 }
 
 .item h1 {
-  color: #B4B1AB;
+  color: #2b5164;
   font-family: abel;
   font-size: 48px;
   margin-top: 115px;
@@ -717,7 +717,7 @@ h2.title:before{
 }
 
 .category-products .panel-default .panel-heading .panel-title a {
-  color: #696763;
+  color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   text-decoration: none;
@@ -749,7 +749,7 @@ h2.title:before{
 
 
 .panel-body ul li a {
-  color: #696763;
+  color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -764,7 +764,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a {
   background-color: #FFFFFF;
-  color: #696763;
+  color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   padding: 5px 25px;
@@ -774,7 +774,7 @@ h2.title:before{
 
 .brands-name .nav-stacked li a:hover{
   background-color: #fff;
-  color: #696763;
+  color: #2b5164;
 }
 
 .shipping {
@@ -874,7 +874,7 @@ h2.title {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #696763;
+  color: #2b5164;
 }
 
 .productinfo img{
@@ -937,10 +937,10 @@ h2.title {
 
 
 .add-to-cart {
-  background:#F5F5ED;
+  background:#9bbe592e;
   border: 0 none;
   border-radius: 0;    
-  color: #696763;
+  color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 25px;
@@ -972,7 +972,7 @@ h2.title {
 }
 
 .choose ul li a {
-  color: #B3AFA8;
+  color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
   padding-left: 0;
@@ -1704,8 +1704,8 @@ h2.title {
 }
 
 .total_area ul li {
-  background:#E6E4DF;
-  color: #696763;
+  background:#9bbe592e;
+  color: #2b5164;
   margin-top: 10px;
   padding: 7px 20px;
 }
@@ -1726,7 +1726,7 @@ h2.title {
 }
 
 .user_info label {
-  color: #696763;
+  color: #2b5164;
   display: block;
   font-size: 15px;
   font-weight: normal;
@@ -1751,9 +1751,9 @@ h2.title {
 }
 
 .user_info input, select, textarea {
-  background: #F0F0E9;
+  background: #9bbe592e;
   border:0;
-  color: #696763;
+  color: #2b5164;
   padding: 5px;
   width: 100%;
   border-radius: 0;
@@ -2709,7 +2709,7 @@ h2.title {
 }
 
 .valuta-btn {
-  color: #696763 !important;
+  color: #2b5164!important;
 }
 
 .valuta-btn:hover {
