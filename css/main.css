@@ -2655,13 +2655,14 @@ h2.title {
   background-color: transparent !important;
 }
 
-.user-info > h2 {
+.user-information > h2 {
   font-size: 18px !important;
 }
 
-.user-info > p {
+.user-information> p {
   font-size: 12px !important;
 }
+
 
 .index-margin-top {
   margin-top: 20px !important;
@@ -2789,10 +2790,16 @@ h2.title {
 
 /*notifiche*/
 .notification-bell {
-  border: 1px solid; 
+  border: 2px solid; 
   padding: 2px 5px !important; 
   border-radius: 0.25rem;
   margin-top: 35px !important;
+}
+
+.notification-bell:hover {
+  background-color: #FE980F !important;
+  color: #fff !important;
+  border: 2px solid #FE980F;
 }
 
 /*popup conferma*/
