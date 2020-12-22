@@ -2820,6 +2820,15 @@ h2.title {
   height: 300px !important;
 }
 
+#id01 {
+  display: none;  /*aggiunta*/
+}
+
+#id02 {
+  display: none;  /*aggiunta*/
+}
+
+
 /* Clear floats */
 .clearfix {
   margin-top: 110px;
@@ -3025,14 +3034,16 @@ input[name="puntualita"] + label:hover ~ input + label:before {
    text-align: left; 
 }
 
-.approvato > a:hover{
+.approvato > a:first-child:hover{
   background:rgb(41, 204, 41);
   background-color:rgb(41, 204, 41) ;
+  cursor: pointer;
 }
 
-.approvato > a:last-child:hover {
+.approvato > a:hover {
   background: rgb(224, 0, 0);
   background-color: rgb(224, 0, 0);
+  cursor: pointer;
 }
 
 /*metodo di pagamento*/

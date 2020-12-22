@@ -348,8 +348,22 @@
 														</div>
 														 
 														 
-														<button type="submit" class="btn pull-left btn-profilo"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
-														
+														<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma('id02')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+															<div id="id02" class="modal">
+																<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+																<form class="modal-content popup-modal-content">
+																	<div class="container popup-conferma">
+																		<h4>Metodo di pagamento</h4>
+																		<p>Stai per confermare il metodo di pagamento.</p> 
+																		<p>Sei sicur* di voler proseguire?</p>
+																		
+																		<div class="clearfix">
+																			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																		</div>
+																	</div>
+																</form>
+															</div>
 													</div>
 												</ul>
 											</div>					
@@ -660,7 +674,7 @@
 																<input name="puntualita" type="radio" id="stellaA10" value="5" checked />
 																<label for="stellaA10"></label>
 														</div>
-														<button type="submit" id="btn-vendite" class="btn pull-left btn-profilo" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+														<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma('id01')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
 																<div id="id01" class="modal">
 																	<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
 																	<form class="modal-content popup-modal-content">
@@ -742,8 +756,38 @@
 																<p class="cart_total_price">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb1a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+																	<div id="thumb1a" class="modal">
+																		<span onclick="document.getElementById('thumb1a').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb1b')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																	<div id="thumb1b" class="modal">
+																		<span onclick="document.getElementById('thumb1b').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
 															</td>
 														</tr>
 														<tr>
@@ -768,8 +812,38 @@
 																<p class="cart_total_price">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb2a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+																	<div id="thumb2a" class="modal">
+																		<span onclick="document.getElementById('thumb2a').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb2a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb2a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb2b')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																	<div id="thumb2b" class="modal">
+																		<span onclick="document.getElementById('thumb2b').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
 															</td>
 														</tr>
 														<tr>
@@ -794,8 +868,38 @@
 																<p class="cart_total_price">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-																<a class="cart_quantity_delete" href=""><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb3a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+																	<div id="thumb3a" class="modal">
+																		<span onclick="document.getElementById('thumb3a').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb3a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb3a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
+																<a class="cart_quantity_delete" onclick="btnConferma('thumb3b')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+																	<div id="thumb3b" class="modal">
+																		<span onclick="document.getElementById('thumb3b').style.display='none'" class="close" title="Close Modal">×</span>
+																		<form class="modal-content popup-modal-content">
+																			<div class="container popup-conferma">
+																				<h4>Risposte ai miei annunci</h4>
+																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																				<p>Sei sicur* di voler proseguire?</p>
+																				
+																				<div class="clearfix">
+																					<button type="button" onclick="document.getElementById('thumb3b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																					<button type="button" onclick="document.getElementById('thumb3b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
 															</td>
 														</tr>
 													</tbody>
