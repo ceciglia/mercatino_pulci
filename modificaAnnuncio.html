@@ -134,8 +134,8 @@
 	<section>
 		<div class="container">
 			<div class="row"> 
-				<h2 class="title text-center"><span class="title-span">Nuovo annuncio</span></h2>
-				<h2 style="font-size: 25px; padding-left: 15px; font-weight: 400; color: #2b5164; " >Inserisci i dettagli dell'annuncio</h2>
+				<h2 class="title text-center"><span class="title-span">Modifica annuncio</span></h2>
+				<h2 style="font-size: 25px; padding-left: 15px; font-weight: 400; color: #2b5164; " >Modifica i dettagli dell'annuncio</h2>
 				<div class="col-sm-18 padding-right" style="padding-left: 0;"> <!--col-sm-36-->
 					<div class="features_items">
 						
@@ -146,104 +146,108 @@
 									<!-- <button class="btn-container_imm"><input type="file" id="myFile" name="filename"></button> -->
 								<!-- </div> -->
 								<input type="file" id="file" style="display:none;" />
-								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"> Upload</button>
+								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i> Modifica immagine</button>
 							</div>
 							<script>
 								function thisFileUpload() {
 									document.getElementById("file").click();
 								};
 							</script>
-							<input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" style="background-color: #9bbe592e; color:  #2b5164; border-color: transparent; width: 32%;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400;  color:  #2b5164; padding-left: 5px; display: inline-block;"> €</p>						
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" style="background-color: #9bbe592e; color:  #2b5164; border-color: transparent; width: 32%;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400;  color:  #2b5164; padding-left: 5px; display: inline-block;"> €</p></div>						
 						
 
 						</div> 
 
 						<div class="col-sm-6">
-							<textarea name="text"  placeholder="Nome annuncio" rows="1" style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164;"></textarea> 
-							<textarea name="text"  placeholder="Descrizione annuncio" rows="9" style="margin-bottom: 50px; background-color: #9bbe592e; color: #2b5164;"></textarea> 
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><textarea name="text"  placeholder="Nome annuncio" rows="1" style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; display: inline-block !important; width: 95%;"></textarea> </div>
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><textarea name="text"  placeholder="Descrizione annuncio" rows="9" style="margin-bottom: 50px; background-color: #9bbe592e; color: #2b5164; display: inline-block !important; width: 95%;"></textarea> </div>
 							
-							<textarea name="text"  placeholder="Nome prodotto" rows="1" style="margin-bottom: 20px; background-color: #9bbe592e; color: #2b5164;"></textarea> 
-							<button onclick="myFunction('usato')" style="border-color:transparent; background-color: #9bbe592e; color: #2b5164; margin-bottom: 10px;">Usato</button>
-							<button onclick="myFunction('nuovo')" style="border-color:transparent; background-color:  #9bbe592e; color: #2b5164; margin-bottom: 10px;">Nuovo</button>
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><textarea name="text"  placeholder="Nome prodotto" rows="1" style="margin-bottom: 20px; background-color: #9bbe592e; color: #2b5164; display: inline-block !important; width: 95%;"></textarea> </div>
+							<div>
+								  <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><button onclick="myFunction('usato')" style="border-color:transparent; background-color: #9bbe592e; color: #2b5164; margin-bottom: 10px;">Usato</button>
+							      <button onclick="myFunction('nuovo')" style="border-color:transparent; background-color:  #9bbe592e; color: #2b5164; margin-bottom: 10px;">Nuovo</button>
+							</div>
 							<div id="usato" style="display: none;">
-								<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164;">
+								<select style="margin-top: 10px; margin-left: 20px; background-color: #9bbe592e; color: #2b5164;">
 									<option>-- Stato di usura --</option>
 									<option>Pari al nuovo</option>
 									<option>Buono</option>
 									<option>Medio</option>
 									<option>Usurato</option>
 								</select>
-								<textarea type="text" placeholder="Indicare il periodo di utilizzo" rows="2" style="background-color: #9bbe592e; color: #2b5164; border-color: transparent; margin-top: 10px; width: 100%; "></textarea>
+								<textarea type="text" placeholder="Indicare il periodo di utilizzo" rows="2" style="background-color: #9bbe592e; color: #2b5164; border-color: transparent; margin-top: 10px; margin-left: 20px; width: 100%; "></textarea>
 							</div>
 						
 							<div id="nuovo" style="display: none;">
 								
-								<input type="checkbox"  name="garanzia" onclick="myFunction('garanzia')" style="margin-top: 10px; ">
-								<label for="garanzia" style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block; color: #2b5164;">Garanzia di copertura </label><br>
+								<input type="checkbox"  name="garanzia" onclick="myFunction('garanzia')" style="margin-top: 10px; margin-left: 20px;">
+								<label for="garanzia" style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px; display: inline-block; color: #2b5164; margin-left: 20px;">Garanzia di copertura </label><br>
 								<div id="garanzia" style="display: none;">
-									<p style="margin-top: 10px;">Indica la scadenza:  </p>
-									<input type="date" style="background-color: #9bbe592e; color: #2b5164; border-color: transparent; margin-top: 5px; width: 100%; "/>
+									<p style="margin-top: 10px; margin-left: 20px;">Indica la scadenza:  </p>
+									<input type="date" style="background-color: #9bbe592e; color: #2b5164; border-color: transparent; margin-top: 5px; width: 100%; margin-left: 20px; "/>
 								</div>
 							</div>
 							
-							<select style="margin-top: 10px; background-color: #9bbe592e;">
+							
+							<i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><select style="margin-top: 10px; background-color: #9bbe592e; display: inline-block !important; width: 95%;">
 								<option>-- Categoria --</option>
 								<option>Elettrodomestici</option>
 								<option>Foto e video</option>
 								<option>Abbigliamento</option>
 								<option>Hobby</option>
 							</select>
-							<select style="margin-top: 10px; background-color: #9bbe592e; margin-bottom: 10px;">
-									<option>-- Sottocategoria --</option>
-									<option>Elettrodomestici</option>
-									<option>Foto e video</option>
-									<option>Abbigliamento</option>
-									<option>Hobby</option>
-								</select>
 							
+							<i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><select style="margin-top: 10px; background-color: #9bbe592e; width: 95%;">
+								<option>-- Sottocategoria --</option>
+								<option>Elettrodomestici</option>
+								<option>Foto e video</option>
+								<option>Abbigliamento</option>
+								<option>Hobby</option>
 							</select>
-							<p style="color: #2b5164; font-size: 15px; ">Inseire la collocazione geografica: </p>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164;">
+							
+						
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><p style="color: #2b5164; font-size: 15px; display: inline-block !important; margin-top: 20px;">Modifica la collocazione geografica: </p></div>
+							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px;">
 								<option>-- Comune --</option>
 								<option>Comune1</option>
 								<option>Comune2</option>
 								<option>Comune3</option>
 							
 							</select>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164;">
+							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px;">
 								<option>-- Provincia --</option>
 								<option>Provincia1</option>
 								<option>Provincia2</option>
 								<option>Provincia3</option>
 							
 							</select>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164;">
+							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px;">
 								<option>-- Regione --</option>
 								<option>Regione1</option>
 								<option>Regione2</option>
 								<option>Regione3</option>
 							
 							</select>
-							<p style="color: #2b5164; font-size: 15px; margin-top: 10px;">Seleziona la visibilità: </p>
-							<button style="border-color:transparent; background-color: #9bbe592e; color: #2b5164; ">Pubblica</button>
+							<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px; display: inline-block !important;"></i><p style="color: #2b5164; font-size: 15px; margin-top: 10px;  display: inline-block !important; margin-top: 20px;">Modifica la visibilità: </p></div>
+							<button style="border-color:transparent; background-color: #9bbe592e; color: #2b5164; margin-left: 20px;">Pubblica</button>
 							<button style="border-color:transparent;  background-color: #9bbe592e; color: #2b5164;">Privata</button>	
 							<button onclick="myFunction('ristretta')" style="border-color:transparent;  background-color: #9bbe592e; color: #2b5164; ">Ristretta</button>	
 							<div id="ristretta" style="display: none; color: #2b5164;">
-								<p style="margin-top: 10px; "> Inserisci l'area di visibilità: </p>
-								<select style="margin-top: 10px; width: 30%;  background-color: #9bbe592e; color: #2b5164;">
+								<p style="margin-top: 10px;  margin-left: 20px; "> Inserisci l'area di visibilità: </p>
+								<select style="margin-top: 10px; width: 30%;  background-color: #9bbe592e; color: #2b5164;  margin-left: 20px;">
 									<option>-- Provincia --</option>
 									<option>Provincia1</option>
 									<option>Provincia2</option>
 									<option>Provincia3</option>
 								</select>
-								<select style="margin-top: 10px; width: 30%;  background-color: #9bbe592e; color: #2b5164; display: inline-block !important; margin-bottom: 20px;">
+								<select style="margin-top: 10px; width: 30%;  background-color: #9bbe592e; color: #2b5164; display: inline-block !important; margin-bottom: 20px;  margin-left: 20px;">
 									<option>-- Regione --</option>
 									<option>Regione1</option>
 									<option>Regione2</option>
 									<option>Regione3</option>
 							
 								</select>
-								<p style="color: #696763;"><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
+								<p style="color: #696763;  margin-left: 20px;"><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
 							</div>
 							<script>
 								function myFunction(id) {
@@ -257,7 +261,7 @@
 								}
 							</script>
 							
-							<a href="account.html" ><button type="submit" class="btn" style="background-color: #ffa33d; color: white; margin-top: 20px; width: 100%;">Pubblica nuovo annuncio</button></a>
+							<a href="account.html"> <button type="submit" class="btn" style="background-color: #ffa33d; color: white; margin-top: 20px; width: 100%;"><i class="fa fa-check" aria-hidden="true"></i> Salva le modifiche</button></a>
 					</div>
 				</div>
 
