@@ -2726,6 +2726,17 @@ h2.title {
   height: 441px;
 }
 
+.index-benvenuto > h1 {
+  font-size: 80px;
+}
+
+.index-benvenuto > p {
+  font-size: 30px;
+}
+
+.index-benvenuto > a > button {
+  font-size: 18px;
+}
 
 /*tendina login*/
 .overlay-tendina {
