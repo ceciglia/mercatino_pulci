@@ -2678,6 +2678,7 @@ h2.title {
 
 .tab-menu {
   background-color: transparent !important;
+  border: none;
 }
 
 .tab-menu > li > a > div {
@@ -2862,6 +2863,18 @@ h2.title {
   background-color: #FE980F;
 }
 
+
+/*immagini annunci*/
+.img-contenitore {
+  width: 242px;
+  height: 225px;
+  margin-right: 0;
+}
+
+.img-contenitore > img {
+  height: 100%;
+  width: auto;
+}
 
 /*    border-radius: 0.25rem;     > SUGOSO*/
 /*FINE MODIFICHE CECI*/
