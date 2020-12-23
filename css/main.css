@@ -1606,7 +1606,7 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description h4 a {
-  color: #363432;
+  color: #2b5164;
   font-family: 'Roboto',sans-serif;
   font-size: 20px;
   font-weight: normal;
@@ -1614,12 +1614,12 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description p {
-  color:#696763
+  color:#2b5164
 }
 
 
 #cart_items .cart_info .cart_price p {
-  color:#696763;
+  color:#2b5164;
   font-size: 18px
 }
 
@@ -1632,6 +1632,7 @@ h2.title {
 .cart_product {
   display: block;
   margin: 15px -70px 10px 25px;
+  color: #2b5164;
 }
 
 .cart_quantity_button a {
@@ -1648,7 +1649,7 @@ h2.title {
 
 
 .cart_quantity_input {
-  color: #696763;
+  color: #2b5164;
   float: left;
   font-size: 16px;
   text-align: center;
@@ -1683,13 +1684,13 @@ h2.title {
 }
 
 .heading h3 {
-  color: #363432;
+  color: #2b5164;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
 .heading p {
-  color: #434343;
+  color: #2b5164;
   font-size: 16px;
   font-weight: 300;
 }

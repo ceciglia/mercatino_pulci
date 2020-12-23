@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mercatino delle pulci</title>			<!--Home | E-Shopper-->
+    <title>Mercatino delle pulci</title>			
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -34,14 +34,12 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
+							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	
 						</div>
 					</div>
 					<div class="col-sm-8">
-						<!-- <div class="shop-menu pull-right">
-							<ul class="nav navbar-nav"> -->
 						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
+							<div class="search_box pull-left" id=search_1 >	
 								<input type="text" placeholder="Search"/>
 							</div>
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,7 +51,7 @@
 						</div>
 						
 						
-						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
+						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="listaOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
@@ -67,13 +65,13 @@
 			</div>
 		</div><!--/header-middle-->
 	
-		<div class="header-bottom"><!--header-bottom-->
+		<div class="header-bottom">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-9">
 					</div>
 					<div class="col-sm-3">
-						<div class="search_box pull-right" id=search_2>		<!--aggiunto id=search_1-->
+						<div class="search_box pull-right" id=search_2>		
 							<input type="text" placeholder="Search"/>
 						</div>
 					</div>
@@ -88,30 +86,16 @@
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2 id="h2_layer"><span class="title-span">Nome Utente</span></h2>
-						<div class="panel-group category-products" id="accordian"><!--category-products-->
+						<div class="panel-group category-products" id="accordian">
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, 'profilo')">					<!-- data-toggle="collapse" data-parent="#accordian" href="#profilo"-->
-											<!-- <span class="badge pull-right"><i class="fa fa-plus"></i></span> -->
+										<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, 'profilo')">				
 											Il mio profilo
 										</a>
 									</h4>
 								</div>
-								
-								<!-- <div id="profilo" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul class="nav navbar-nav" style="width: 110px;">    
-											<ul>
-												<li><a href="#">Modifica</a></li>
-												
-											</ul>
-										</ul>
-									</div>
-								</div> -->
 							</div>
-							
-						<!--mammma-->	
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -619,21 +603,21 @@
 									<ul class="nav nav-pills nav-justified">
 										<li><a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#annuncio1"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>Hai 3 richieste d'acquisto</a></li>
 										<div id="annuncio1" class="panel-collapse collapse">
-											<div class="panel-body">
-												<table style="width: 100%;">
-													<thead>
-														<tr class="cart_menu" style="background-color: rgb(253, 141, 55); color:rgb(255, 255, 255)">
-															<td class="image" style="padding-left: 35px !important; ">Acquirente</td>
+											<div class="panel-body ">
+												<table class="table-risposte">
+													<theadb>
+														<tr class="cart_menu cart-color-richieste" >
+															<td class="image" >Acquirente</td>
 															<td class="description"></td> 
 															<td class="price">Metodo di pagamento</td>
 															<td class="total">Stato</td>
 															<td></td>
 														</tr>
 													</thead>
-													<tbody style="width: 100%;">
+													<tbody classe="table-risposte">
 														<tr>
 															<td class="cart_product">
-																<a href=""><img src="images/home/gallery3.jpg"  alt="" style="width: 90px; margin-right: 30px; border-radius: 180px;" ></a>
+																<a href=""><img src="images/home/gallery3.jpg"  alt="" class="imm-richieste" ></a>
 															</td>
 															<td class="cart_description">
 																<h4><a href="">Nome Cognome</a></h4>
@@ -642,69 +626,56 @@
 															<td class="cart_price">
 																<p>Carta di credito</p>
 															</td>
-															<!-- <td class="cart_quantity">
-																<div class="cart_quantity_button">
-																	<a class="cart_quantity_up" href=""> + </a>
-																	<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-																	<a class="cart_quantity_down" href=""> - </a>
-																</div>
-															</td> -->
+															
 															<td class="cart_total">
 																<p class="cart_total_price">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
 																<a class="cart_quantity_delete" onclick="btnConferma('thumb1a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-																	<div id="thumb1a" class="modal">
-																		<form class="modal-content popup-modal-content">
-																			<div class="container popup-conferma">
-																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
-																				<p>Sei sicur* di voler proseguire?</p>
-																				
-																				<div class="clearfix">
-																					<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-																					<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-																				</div>
+																<div id="thumb1a" class="modal">
+																	<form class="modal-content popup-modal-content">
+																		<div class="container popup-conferma">
+																			<h4>Risposte ai miei annunci</h4>
+																			<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																			<p>Sei sicur* di voler proseguire?</p>
+																			
+																			<div class="clearfix">
+																				<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																				<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 																			</div>
-																		</form>
-																	</div>
+																		</div>
+																	</form>
+																</div>
 																<a class="cart_quantity_delete" onclick="btnConferma('thumb1b')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
-																	<div id="thumb1b" class="modal">
-																		<form class="modal-content popup-modal-content">
-																			<div class="container popup-conferma">
-																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
-																				<p>Sei sicur* di voler proseguire?</p>
-																				
-																				<div class="clearfix">
-																					<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-																					<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-																				</div>
+																<div id="thumb1b" class="modal">
+																	<form class="modal-content popup-modal-content">
+																		<div class="container popup-conferma">
+																			<h4>Risposte ai miei annunci</h4>
+																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																			<p>Sei sicur* di voler proseguire?</p>
+																			
+																			<div class="clearfix">
+																				<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																				<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 																			</div>
-																		</form>
-																	</div>
+																		</div>
+																	</form>
+																</div>
 															</td>
 														</tr>
 														<tr>
 															<td class="cart_product">
 																<a href=""><img src="images/home/gallery4.jpg"  alt="" style="width: 90px; margin-right: 30px; border-radius: 180px;" ></a>
 															</td>
-															<td class="cart_description">
+															<td class="cart_description blu">
 																<h4><a href="">Nome Cognome</a></h4>
 																<p>acquirente@mail.com</p>
 															</td>
-															<td class="cart_price">
+															<td class="cart_price blu">
 																<p>Carta di credito</p>
 															</td>
-															<!-- <td class="cart_quantity">
-																<div class="cart_quantity_button">
-																	<a class="cart_quantity_up" href=""> + </a>
-																	<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-																	<a class="cart_quantity_down" href=""> - </a>
-																</div>
-															</td> -->
 															<td class="cart_total">
-																<p class="cart_total_price">In elaborazione</p>
+																<p class="cart_total_price blu">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
 																<a class="cart_quantity_delete" onclick="btnConferma('thumb2a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
@@ -723,42 +694,34 @@
 																		</form>
 																	</div>
 																<a class="cart_quantity_delete" onclick="btnConferma('thumb2b')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
-																	<div id="thumb2b" class="modal">
-																		<form class="modal-content popup-modal-content">
-																			<div class="container popup-conferma">
-																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
-																				<p>Sei sicur* di voler proseguire?</p>
-																				
-																				<div class="clearfix">
-																					<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-																					<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-																				</div>
+																<div id="thumb2b" class="modal">
+																	<form class="modal-content popup-modal-content">
+																		<div class="container popup-conferma ">
+																			<h4>Risposte ai miei annunci</h4>
+																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																			<p>Sei sicur* di voler proseguire?</p>
+																			<div class="clearfix">
+																				<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+																				<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 																			</div>
-																		</form>
-																	</div>
+																		</div>
+																	</form>
+																</div>
 															</td>
 														</tr>
 														<tr>
 															<td class="cart_product">
-																<a href=""><img src="images/home/gallery2.jpg"  alt="" style="width: 90px; margin-right: 30px; border-radius: 180px;" ></a>
+																<a href=""><img src="images/home/gallery2.jpg"  alt="" class="imm-richieste" ></a>
 															</td>
-															<td class="cart_description">
+															<td class="cart_description blu">
 																<h4><a href="">Nome Cognome</a></h4>
 																<p>acquirente@mail.com</p>
 															</td>
-															<td class="cart_price">
+															<td class="cart_price blu">
 																<p>Carta di credito</p>
 															</td>
-															<!-- <td class="cart_quantity">
-																<div class="cart_quantity_button">
-																	<a class="cart_quantity_up" href=""> + </a>
-																	<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-																	<a class="cart_quantity_down" href=""> - </a>
-																</div>
-															</td> -->
 															<td class="cart_total">
-																<p class="cart_total_price">In elaborazione</p>
+																<p class="cart_total_price blu">In elaborazione</p>
 															</td>
 															<td class="cart_delete approvato">
 																<a class="cart_quantity_delete" onclick="btnConferma('thumb3a')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
@@ -795,116 +758,37 @@
 														</tr>
 													</tbody>
 												</table>
-												
-													<!-- <table style="width: 100%; ">
-														<thead>
-														<tr style="background-color: rgb(252, 146, 80); color:rgb(255, 255, 255)">
-															<th><p style="margin-left: 20px; margin-top: 10px;">Acquirente</p></th>
-															<th><p></p></th>
-															<th><p  style="margin-left: 100px; margin-top: 10px; ">Metodo di pagamento</p></th>
-															<th><p style="margin-top: 10px; ">Stato</p></th>
-														</tr>
-													
-														<tr>
-															<th>
-																<img src="images/home/product2.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
-															</th>
-															<th>
-																<p>Nome Cognome</p>
-																<p>acquirente@mail.com</p>
-															</th>
-															<th>
-																<p >Carta di credito</p>
-															</th>
-															
-															<th>
-																<button type="submit" id="bottone_profilo_2" class="btn" style="margin-left: 250px;">Salva modifiche</button>
-															</th>
-														</tr>
-														
-														<tr>
-															<th><img src="images/home/gallery3.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
-															<th>
-																<p>Nome Cognome</p>
-																<p>acquirente@mail.com</p>
-															</th>
-														</tr>
-														
-														<tr>
-															<th><img src="images/home/gallery4.jpg" alt="" style="width: 70px; margin: 20px; border-radius: 180px;  " /></th> -moz-border-radius: 180px; -webkit-border-radius: 180px; o-border-radius: 180px;
-															<th>
-																<p>Nome Cognome</p>
-																<p>acquirente@mail.com</p>
-															</th>
-														</tr>
-													</table> -->
-												
 											</div>
 										</div>
 									</ul>
 								</div>
 							</div>
-							
-							
 						</div>
 					</div>
 				</div>
-				<!--Lista Acquisti-->
+				<!--annunci pubblicati-->
 				<div class="col-sm-9 padding-right" id='annunciPubblicati'>
-					<div class="features_items"><!--features_items-->
+					<div class="features_items">
 						<h2 class="title text-center"><span class="title-span">Annunci pubblicati</span></h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product1.jpg" alt="" style="width: 250px;" />
+									<div class="productinfo text-center blu">
+										<img src="images/home/product1.jpg" alt="" class="imm-osservati" />
 										<h2>$56</h2>
 										<h4>Nome Annuncio</h4>
 										<p>Stato annuncio</p>
 									</div>
 								</div>
 								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
+									<ul class="nav nav-pills nav-justified blu">
 										<li><a href="modificaAnnuncio.html"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4" >
-							<div class="product-image-wrapper" >
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" style="width: 250px;" />
-										<h2>$56</h2>
-										<h4>Nome Annuncio</h4>
-										<p>Stato annuncio</p>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="modificaAnnuncio.html"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4" >
-							<div class="product-image-wrapper" >
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="" style="width: 250px;" />
-										<h2>$56</h2>
-										<h4>Nome Annuncio</h4>
-										<p>Stato annuncio</p>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="modificaAnnuncio.html"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div><!--features_items-->
+				
+					</div>
 				</div>
 				<!--FINE ACQUIRENTE -->
 			</div>
