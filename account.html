@@ -1,61 +1,6 @@
 <!DOCTYPE html> 			
 <html lang="en">
 <head>
-	<style>
-		.container_imm {
-			position: relative;
-			/* width: 50%; */
-			max-width: 300px;
-		}
-
-		.btn-container_imm {
-			position: absolute;
-			top: 80%;			/*top: 50%;*/
-			left: 50%;
-			transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			/* background-color: #555; */
-			background-color: rgba(85, 85, 85, 0.301);
-			color: white;
-			/* font-size: 16px; */
-			/*padding: 5px 5px;			padding: 12px 24px;*/
-			border: none;
-			/* cursor: pointer; */
-			/* border-radius: 5px; */
-			text-align: center;
-			width: -webkit-fill-available;
-		}
-
-		.btn-container_imm:focus {
-			outline: none;
-		}
-
-
-		.image_p {
-			display: block;
-			width: 100%;
-			height: auto;
-		}
-
-		.overlay_p {
-			position: absolute; 
-			bottom: 0; 
-			background: rgb(0, 0, 0);
-			background: rgba(0, 0, 0, 0.5); /* Black see-through */
-			color: #f1f1f1; 
-			width: 100%;
-			transition: .5s ease;
-			opacity:0;
-			color: white;
-			font-size: 20px;
-			padding: 20px;
-			text-align: center;
-		}
-
-		.container_imm:hover .overlay {
-			opacity: 1;
-		}
-	</style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -68,6 +13,7 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/account.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -177,12 +123,12 @@
 								</div>
 								<div id="venditore" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">    
+										<ul class="nav navbar-nav sottomenu_profilo">    
 											<!-- <ul class="sottomenu_profilo"> -->
 												<li><a href="pubblicaAnnuncio.html"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')"style="padding-left: 28px; ">Annunci pubblicati</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'mievendite')" style="padding-left: 28px; ">Le mie vendite</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'risposte')" style="padding-left: 28px; ">Risposte ai miei annunci</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'mievendite')" >Le mie vendite</a></li>
+												<li><a href="#" onclick="opensottomenu(event, 'risposte')" >Risposte ai miei annunci</a></li>
 											<!-- </ul> -->
 										</ul>
 									</div>
@@ -198,7 +144,7 @@
 								</div>
 								<div id="acquirente" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">    
+										<ul class="nav navbar-nav sottomenu_profilo" >    
 											<!-- <ul class="sottomenu_profilo"> -->
 												<li><a href="#" onclick="opensottomenu(event, 'annunciOsservati')">Annunci osservati</a></li>
 												<li><a href="#" onclick="opensottomenu(event, 'listaAcquistati')">I miei acquisti</a></li>
@@ -219,20 +165,20 @@
 						<h2 class="title text-center"><span class="title-span">PROFILO</span></h2>
 					</div>
 
-					<p class="p_benvenuto" style="color: #2b5164;" >Ciao Mitic*!</p>
+					<p class="p_benvenuto"  >Ciao Mitic*!</p>
 					<div class="col-sm-4">
-						<div class="product-image-wrapper" style="border-color: transparent; margin-bottom: 10px !important;">
+						<div class="product-image-wrapper-profilo" >
 							<div class="single-products">
-								<img src="images/home/product1.jpg" alt="" style="width: 100% !important; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;" />		
+								<img src="images/home/product1.jpg" alt="" class="immagine-profilo" />		
 							</div>
 						</div>
-						<p style="display: inline-block; color: #2b5164; font-size: 16px;">Valutazione: </p>
-						<div style="display: inline-block;">
-							<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-							<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-							<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-							<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-							<i class="fa fa-star-half-o" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
+						<p class="valutazione-profilo">Valutazione: </p>
+						<div class="stelle-valutazione-profilo">
+							<i class="fa fa-star" aria-hidden="true" ></i>
+							<i class="fa fa-star" aria-hidden="true" ></i>
+							<i class="fa fa-star" aria-hidden="true" ></i>
+							<i class="fa fa-star" aria-hidden="true" ></i>
+							<i class="fa fa-star-half-o" aria-hidden="true" class="stelle-valutazione-profilo"></i>
 						</div>
 						<div style="margin-bottom: 30px;">
 							<button type="submit" class="btn btn-profilo pull-left" style="width: 48%; margin-bottom: 20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Acquirente</button>
@@ -240,19 +186,19 @@
 						</div>
 					</div>
 					<div class="col-sm-8" >
-						<textarea name="text"  placeholder="E-mail: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><textarea name="text"  placeholder="nomeutente@mail.com" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
-						<textarea name="text"  placeholder="Nome: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><textarea name="text"  placeholder="Nome" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
-						<textarea name="text"  placeholder="Cognome: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><textarea name="text"  placeholder="Cognome" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
+						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="nomeutente@mail.com" rows="1" disabled class="profilo-data"></textarea >
+						<textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="Nome" rows="1" disabled class="profilo-data"></textarea >
+						<textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="Cognome" rows="1" disabled class="profilo-data"></textarea >
 						
-						<textarea name="text"  placeholder="CF: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="Codice fiscale" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Via: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="via" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="N° civico: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="N° civico" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="CAP: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="CAP" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Comune: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="Comune" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Provincia: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="Provincia" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Regione: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><textarea name="text"  placeholder="Regione" rows="1" disabled style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
+						<textarea name="text"  placeholder="CF: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Codice fiscale" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="via" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="N° civico" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="CAP" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Comune" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Provincia" rows="1" disabled class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Regione" rows="1" disabled class="profilo-data"></textarea> 
 						
-						<button type="submit" onclick="opensottomenu(event, 'modificaProfilo')" class="btn btn-profilo pull-right" style="margin-right: 9%; margin-bottom: 50px; padding: 5px 5px 5px 5px;"><i class="fa fa-pencil" aria-hidden="true"></i>   Modifica profilo</button>
+						<button type="submit" onclick="opensottomenu(event, 'modificaProfilo')" class="btn btn-profilo modificaprofilo pull-right" ><i class="fa fa-pencil" aria-hidden="true"></i>   Modifica profilo</button>
 					
 					</div>
 
@@ -262,14 +208,11 @@
 						<h2 class="title text-center"><span class="title-span">Modifica profilo</span></h2>
 					</div>
 
-					<p  style="color: #2b5164; font-size:20px; margin-left: 15px;" >Modifica i tuoi dati</p>
+					<p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
 					<div class="col-sm-4">
 						
 						<div class="container_imm" style="max-width: none;">
-							<img src="images/home/product1.jpg" alt="Avatar" class="image_p" style="width: 100% !important; margin-bottom: 10px; border: solid 2px; border-color: #FE980F;">
-							<!-- <div class="overlay_p"> -->
-								<!-- <button class="btn-container_imm"><input type="file" id="myFile" name="filename"></button> -->
-							<!-- </div> -->
+							<img src="images/home/product1.jpg" alt="Avatar" class="image_p immagine-profilo" >
 							<input type="file" id="file" style="display:none;" />
 							<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica immagine</button>
 						</div>
@@ -279,24 +222,50 @@
 							};
 						</script>
 						<p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
-						<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Nuova password" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
-						<div><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Conferma password" rows="1"  style="margin-bottom: 30px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
+						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nuova password" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
+						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Conferma password" rows="1"  style="margin-bottom: 30px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
 					</div>
 					<div class="col-sm-8" >
-						<textarea name="text"  placeholder="E-mail: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="nomeutente@mail.com" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
-						<textarea name="text"  placeholder="Nome: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Nome" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
-						<textarea name="text"  placeholder="Cognome: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea ><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Cognome" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea >
+						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="nomeutente@mail.com" rows="1"  class="profilo-data"></textarea >
+						<textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nome" rows="1"  class="profilo-data"></textarea >
+						<textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Cognome" rows="1"  class="profilo-data"></textarea >
 						
-						<textarea name="text"  placeholder="FC: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Codice fiscale" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Via: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="via" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="N° civico: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="N° civico" rows="1" style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="CAP: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="CAP" rows="1" style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Comune: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Comune" rows="1" style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Provincia: " rows="1" disabled style="margin-bottom: 10px; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Provincia" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<textarea name="text"  placeholder="Regione: " rows="1" disabled style="margin-bottom: none; background-color: #ffffff; color: #2b5164; width: 30%;"></textarea><i class="fa fa-pencil" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Regione" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea> 
-						<button type="submit" onclick="opensottomenu(event, 'profilo')" class="btn btn-profilo pull-right"  style=" margin-bottom: 20px; margin-top: 20px;  padding: 5px 5px 5px 5px; margin-right: 5%;" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
-						<button type="submit" onclick="opensottomenu(event, 'profilo')" class="btn btn-profilo pull-left" style=" margin-bottom: 20px;  margin-top: 20px;  margin-left: 2%; padding: 5px 5px 5px 5px; background-color: #fc0000 !important;" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
-					
+						<textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Codice fiscale" rows="1"  class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="via" rows="1"  class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="N° civico" rows="1" class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="CAP" rows="1" class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Comune" rows="1" class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Provincia" rows="1"  class="profilo-data"></textarea> 
+						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name "></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Regione" rows="1"  class="profilo-data"></textarea> 
+						
+						<button type="submit"  onclick="btnConferma('modifica')" class="btn btn-profilo pull-right btn-salvamodifiche" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
+						<div id="modifica" class="modal">
+							<form class="modal-content popup-modal-content">
+								<div class="container popup-conferma">
+									<h4>Modifica profilo</h4>
+									<p>Stai per modificare il tuo profilo.</p> 
+									<p>Sei sicur* di voler proseguire?</p>      
+									<div class="clearfix">
+										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+									</div>
+								</div>
+							</form>
+						</div>	
+						<button type="submit"  onclick="btnConferma('elimina')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
+						<div id="elimina" class="modal">
+							<form class="modal-content popup-modal-content">
+								<div class="container popup-conferma">
+									<h4>Elimina profilo</h4>
+									<p>Stai per eliminare il tuo profilo.</p> 
+									<p>Sei sicur* di voler proseguire?</p>      
+									<div class="clearfix">
+										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 					
 				</div>
@@ -310,7 +279,7 @@
 							<div class="product-image-wrapper" >
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" style="width: 250px;" />
+										<img src="images/home/product2.jpg" alt="" class="imm-osservati" />
 										<h2>$56</h2>
 										<h4>Nome Annuncio</h4>
 										<p>Nome venditore</p>
@@ -326,8 +295,8 @@
 										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#richiestaA"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
 										<div id="richiestaA" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px; padding-left: 0;">    
-													<div style="text-align: left;">
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >    
+													<div >
 														<p><b>Metodo di pagamento: </b></p>
 
 														<!-- <form>
@@ -338,11 +307,11 @@
 														  </form>  -->
 													    <div class="demo-content">
 															<div class="metodop">
-																<ul	class="nav" style="padding-left: 5px;">
+																<ul	class="nav paddingsinistra" >
 																	<input name="metodop" type="radio" id="carta" value="1" />
-																	<label for="carta" style="display: flex;"><p style="font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px;">Carta di credito</p></label>
+																	<label for="carta" ><p >Carta di credito</p></label>
 																	<input name="metodop" type="radio" id="contanti" value="2" />
-																	<label for="contanti" style="display: flex;"><p style="display: inline-block !important; font-family: 'Roboto', sans-serif !important; font-weight: 400; padding-left: 5px !important;">Contanti alla consegna</p></label>
+																	<label for="contanti" ><p >Contanti alla consegna</p></label>
 																</ul>
 															</div>
 														</div>
@@ -383,7 +352,7 @@
 							<div class="product-image-wrapper" >
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="images/home/product1.jpg" alt="" style="width: 250px;" />
+										<img src="images/home/product1.jpg" alt="" class="imm-osservati" />
 										<h2>$56</h2>
 										<h4>Nome Annuncio</h4>
 										<p>Nome venditore</p>
@@ -399,9 +368,9 @@
 										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valutaV"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
 										<div id="valutaV" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo" style="width: 200px;">    
-													<div style="text-align: left;">
-														<p>Valuta la <b style="color: rgb(253, 141, 55);">serietà</b> :</p>
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">    
+													<div>
+														<p>Valuta la <b >serietà</b> :</p>
 														<div class="demo-content">
 															<div class="serieta">
 																<input name="serieta" type="radio" id="stellaV1" value="1" />
@@ -421,7 +390,7 @@
 																
 															</div>
 														</div>
-														<p>Valuta la <b style="color: rgb(253, 141, 55);">puntualità</b> :</p>
+														<p>Valuta la <b >puntualità</b> :</p>
 														<div class="demo-content">
 															<div class="puntualita">
 																<input name="puntualita" type="radio" id="stellaV6" value="1" />

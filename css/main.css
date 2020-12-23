@@ -843,7 +843,14 @@ h2.title {
 .product-image-wrapper{
 	border:1px solid #F7F7F5;
 	overflow: hidden;
-	margin-bottom:30px;
+  margin-bottom:30px;
+   
+}
+.product-image-wrapper-profilo {
+  border:1px solid #F7F7F5;
+  overflow: hidden;
+  margin-bottom:10px;
+  border-color: transparent;
 }
 
 .single-products {
@@ -2570,6 +2577,7 @@ h2.title {
 }
 
 .p_benvenuto {
+  color: #2b5164;
   font-family: 'Roboto', sans-serif; 
   font-size: 25px; 
   font-weight: 500;
@@ -2639,10 +2647,12 @@ h2.title {
 
 .sottomenu_profilo > li {
   padding-bottom: 5px;
+  
 }
 
 .sottomenu_profilo > li > a {
   display: inline !important;
+  padding-left: 28px;
   white-space: nowrap;    /*per non far andare a capo "miei annunci" in "risposte ai miei annunci*/
 }
 

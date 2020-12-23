@@ -266,9 +266,39 @@
 								}
 							</script>
 							<div style="margin-top: 30px;">
-								<button type="submit" class="btn btn-profilo pull-right"  style=" margin-bottom: 20px;   padding: 5px 5px 5px 5px;  margin-right: 15%;" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
-								<button type="submit"  class="btn btn-profilo pull-left" style=" margin-bottom: 20px;   margin-left: 2%; padding: 5px 5px 5px 5px; background-color: #fc0000 !important;" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina annuncio</button>
-						</div>
+								<button type="submit" onclick="btnConferma('modannuncio')" class="btn btn-profilo pull-right"  style=" margin-bottom: 20px;   padding: 5px 5px 5px 5px;  margin-right: 15%;" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
+								
+								<div id="modannuncio" class="modal">
+									<form class="modal-content popup-modal-content">
+										<div class="container popup-conferma">
+											<h4>Modifica annuncio</h4>
+											<p>Stai per modificare questo annuncio.</p> 
+											<p>Sei sicur* di voler proseguire?</p>
+											
+											<div class="clearfix">
+												<button type="button" onclick="document.getElementById('modannuncio').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+												<button type="button" onclick="document.getElementById('modannuncio').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+											</div>
+										</div>
+									</form>
+								</div>	
+								
+								<button type="submit"  class="btn btn-profilo pull-left" onclick="btnConferma('eliminannuncio')" style=" margin-bottom: 20px;   margin-left: 2%; padding: 5px 5px 5px 5px; background-color: #fc0000 !important;" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina annuncio</button>
+								<div id="eliminannuncio" class="modal">
+									<form class="modal-content popup-modal-content">
+										<div class="container popup-conferma">
+											<h4>Elimina annuncio</h4>
+											<p>Stai per eliminare questo annuncio.</p> 
+											<p>Sei sicur* di voler proseguire?</p>
+											
+											<div class="clearfix">
+												<button type="button" onclick="document.getElementById('eliminannuncio').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+												<button type="button" onclick="document.getElementById('eliminannuncio').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+											</div>
+										</div>
+									</form>
+								</div>	
+							</div>
 						</div>	
 						
 						
@@ -447,6 +477,7 @@
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/account.js"></script>
 </body>
 </html>

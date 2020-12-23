@@ -159,7 +159,22 @@
 								<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
 								<i class="fa fa-star-half-o" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
 							</div>
-							<button type="submit" class="btn pull-right" style="background-color: #ffa33d; color: white; margin-top: 25px; width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+							<button type="submit" class="btn pull-right" onclick="btnConferma('richiesta')" style="background-color: #ffa33d; color: white; margin-top: 25px; width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+							
+							<div id="richiesta" class="modal">
+								<form class="modal-content popup-modal-content">
+									<div class="container popup-conferma">
+										<h4>Richiesta d'acquisto</h4>
+										<p>Stai per inviare una richiesta d'acquisto per questo articolo.</p> 
+										<p>Sei sicur* di voler proseguire?</p>
+										
+										<div class="clearfix">
+											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn deletebtn">Conferma</button>
+											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+										</div>
+									</div>
+								</form>
+							</div>	
 						</div>
 					</div>
 					<h2 class="title text-left" style="margin-top: 25px; margin-bottom: none;"><span class="title-span">Dettagli prodotto</span></h2>
@@ -343,6 +358,7 @@
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/account.js"></script>
 </body>
 </html>
