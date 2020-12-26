@@ -2902,7 +2902,8 @@ h2.title {
 .img-contenitore {
   width: 242px;
   height: 225px;
-  margin-right: 0;
+  margin-right: 0 !important;
+  display: inline-block;
 }
 
 .img-contenitore > img {
