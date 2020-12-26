@@ -357,10 +357,10 @@ ul.sub-menu {
 }
 
 .companyinfo h2 {
-  color: #B4B1AB;
+  color: #2b5164;         /*color: #B4B1AB;*/
   font-family: abel;
   font-size: 27px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .companyinfo h2  span{
@@ -368,7 +368,7 @@ ul.sub-menu {
 }
 
 .companyinfo p {
-  color: #B3B3AD;
+  color: #B3B3AD;       /*color: #B3B3AD;*/
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -453,7 +453,7 @@ ul.sub-menu {
 }
 
 .address p {
-  color: #666663;
+  color: #2b5164;         /*color: #666663;*/
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -2676,7 +2676,17 @@ h2.title {
 }
 
 .user-information> p {
-  font-size: 12px !important;
+  /* font-size: 12px !important; */
+  margin-bottom: 10px; 
+  font-size: 13px !important;
+}
+
+.user-information > div {
+  margin-bottom: 20px;
+}
+
+.user-information > div > i {
+  color: #ffc107;
 }
 
 
@@ -2765,7 +2775,7 @@ h2.title {
   background-color: rgb(255, 255, 255);               /*background-color: rgb(0,0,0);*/
   background-color: rgb(255, 255, 255);         /*background-color: rgba(0,0,0, 0.9);*/
   overflow-y: hidden;
-  transition: 0.5s;
+  transition: 0.5s;                                  /* transition: 0.5s; */
   }
 
 .overlay-tendina-content {
@@ -2929,6 +2939,20 @@ h2.title {
   display: grid;
 }
 
+.address {
+  text-align: center;
+}
+
+
+/*footer*/
+.address > img {
+  height: 154px;
+  width: auto;
+} 
+
+.copyright-style > p {
+  color: #2b5164;
+}
 
 /*    border-radius: 0.25rem;     > SUGOSO*/
 /*FINE MODIFICHE CECI*/
