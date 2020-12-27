@@ -472,7 +472,7 @@ ul.sub-menu {
 }
 
 .single-widget h2 {
-  color: #666663;
+  color: #2b5164;                        /*color: #666663;*/
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -485,7 +485,7 @@ ul.sub-menu {
 }
 
 .single-widget ul li a{
-	color: #8C8C88;
+	color: #2b5164;                       /* color: #8C8C88; */
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
