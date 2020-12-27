@@ -138,7 +138,7 @@
 							</div>
 							
 							
-							<i class="fa fa-pencil matita" aria-hidden="true"></i><select style="margin-top: 10px; background-color: #9bbe592e; display: inline-block !important; width: 90%;">
+							<i class="fa fa-pencil matita" aria-hidden="true"></i><select class="modifica_cat">
 								<option>-- Categoria --</option>
 								<option>Elettrodomestici</option>
 								<option>Foto e video</option>
@@ -146,7 +146,7 @@
 								<option>Hobby</option>
 							</select>
 							<br>
-							<i class="fa fa-pencil matita" aria-hidden="true" ></i><select style="margin-top: 10px; background-color: #9bbe592e; width: 90%;">
+							<i class="fa fa-pencil matita" aria-hidden="true" ></i><select class="modifica_cat">
 								<option>-- Sottocategoria --</option>
 								<option>Elettrodomestici</option>
 								<option>Foto e video</option>
@@ -155,48 +155,48 @@
 							</select>
 							
 						
-							<div><i class="fa fa-pencil matita" aria-hidden="true"></i><p style="color: #2b5164; font-size: 15px; display: inline-block !important; margin-top: 20px;">Modifica la collocazione geografica: </p></div>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px; width: 90%;">
+							<div><i class="fa fa-pencil matita" aria-hidden="true"></i><p class="areageog_title">Modifica la collocazione geografica: </p></div>
+							<select class="areageog">
 								<option>-- Comune --</option>
 								<option>Comune1</option>
 								<option>Comune2</option>
 								<option>Comune3</option>
 							
 							</select>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px; width: 90%;">
+							<select class="areageog">
 								<option>-- Provincia --</option>
 								<option>Provincia1</option>
 								<option>Provincia2</option>
 								<option>Provincia3</option>
 							
 							</select>
-							<select style="margin-top: 10px; background-color: #9bbe592e; color: #2b5164; margin-left: 20px; width: 90%;">
+							<select  class="areageog">
 								<option>-- Regione --</option>
 								<option>Regione1</option>
 								<option>Regione2</option>
 								<option>Regione3</option>
 							
 							</select>
-							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><p style="color: #2b5164; font-size: 15px; margin-top: 10px;  display: inline-block !important; margin-top: 20px;">Modifica la visibilità: </p></div>
-							<button style="border-color:transparent; background-color: #9bbe592e; color: #2b5164; margin-left: 20px; margin-bottom: 30px;">Pubblica</button>
-							<button style="border-color:transparent;  background-color: #9bbe592e; color: #2b5164; margin-bottom: 30px;">Privata</button>	
-							<button onclick="myFunction('ristretta')" style="border-color:transparent;  background-color: #9bbe592e; color: #2b5164; margin-bottom: 30px;">Ristretta</button>	
-							<div id="ristretta" style="display: none; color: #2b5164;  width: 60% !important; ">
-								<p style="margin-top: 10px;  margin-left: 20px; "> Inserisci l'area di visibilità: </p>
-								<select style="margin-top: 10px; width: 40%;  background-color: #9bbe592e; color: #2b5164;  margin-left: 20px;">
+							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><p class="areageog_title">Modifica la visibilità: </p></div>
+							<button class="btn-nuovo-usato-vis modifica_nuovo_usato">Pubblica</button>
+							<button class="btn-nuovo-usato-vis ">Privata</button>	
+							<button onclick="myFunction('ristretta')" class="btn-nuovo-usato-vis">Ristretta</button>	
+							<div id="ristretta" style="display: none;" >
+								<p class="modifica_garanzia"> Inserisci l'area di visibilità: </p>
+								<select class="select-data ristr modifica_nuovo_usato">
 									<option>-- Provincia --</option>
 									<option>Provincia1</option>
 									<option>Provincia2</option>
 									<option>Provincia3</option>
 								</select>
-								<select style="margin-top: 10px; width: 40%;  background-color: #9bbe592e; color: #2b5164; display: inline-block !important; margin-bottom: 20px;  margin-left: 20px;">
+								<select class="select-data ristr modifica_nuovo_usato">
 									<option>-- Regione --</option>
 									<option>Regione1</option>
 									<option>Regione2</option>
 									<option>Regione3</option>
 							
 								</select>
-								<p style="color: #696763;  margin-left: 20px;"><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
+								<p class="modifica_garanzia"><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
 							</div>
 							<script>
 								function myFunction(id) {
@@ -210,7 +210,7 @@
 								}
 							</script>
 							<div style="margin-top: 30px;">
-								<button type="submit" onclick="btnConferma('modannuncio')" class="btn btn-profilo pull-right"  style=" margin-bottom: 20px;   padding: 5px 5px 5px 5px;  margin-right: 3%;" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
+								<button type="submit" onclick="btnConferma('modannuncio')" class="btn btn-profilo pull-right btn_salva"   ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
 								
 								<div id="modannuncio" class="modal">
 									<form class="modal-content popup-modal-content">
@@ -227,7 +227,7 @@
 									</form>
 								</div>	
 								
-								<button type="submit"  class="btn btn-profilo pull-right" onclick="btnConferma('eliminannuncio')" style=" margin-bottom: 20px; margin-right: 10px; margin-left: 2%; padding: 5px 5px 5px 5px; background-color: #fc0000 !important;" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina annuncio</button>			<!--class="btn btn-profilo pull-left" margin-right: 10px;-->
+								<button type="submit"  class="btn btn-profilo pull-right btn_elimina" onclick="btnConferma('eliminannuncio')"  ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina annuncio</button>			<!--class="btn btn-profilo pull-left" margin-right: 10px;-->
 								<div id="eliminannuncio" class="modal">
 									<form class="modal-content popup-modal-content">
 										<div class="container popup-conferma">

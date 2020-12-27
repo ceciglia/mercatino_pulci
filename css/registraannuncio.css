@@ -108,9 +108,14 @@
 
 .btn-r{
     background-color: #ffa33d; 
-    color: white; 
+    color: white !important; 
     margin-top: 20px; 
     width: 30%;
+}
+
+.btn-r:hover{
+    background-color: #9bbe592e !important; 
+    color: #2b5164 !important; 
 }
 
 .price-container{
@@ -160,6 +165,11 @@
     width: 100%;
 }
 
+.btn-pa:hover {
+    background-color: #9bbe592e !important; 
+    color: #2b5164 !important; 
+}
+
 .scadenza{
     margin-top: 10px;
 }
@@ -198,4 +208,51 @@
 .modifica_garanzia{
     margin-top: 10px; 
     margin-left: 20px;
+    color: #2b5164;
+}
+
+.modifica_cat {
+    margin-top: 10px; 
+    background-color: #9bbe592e; 
+    display: inline-block !important; 
+    width: 90%;
+}
+
+.areageog_title {
+    color: #2b5164; 
+    font-size: 15px; 
+    display: inline-block !important; 
+    margin-top: 20px;
+}
+
+.areageog{
+    margin-top: 10px;
+    background-color: #9bbe592e; 
+    color: #2b5164; 
+    margin-left: 20px; 
+    width: 90%;
+}
+
+.btn_salva{
+    margin-bottom: 20px;   
+    padding: 5px 5px 5px 5px;  
+    margin-right: 3%;
+}
+
+.btn_salva :hover{
+    background-color: #9bbe592e !important; 
+    color: #2b5164 !important; 
+}
+
+.btn_elimina{
+    margin-bottom: 20px; 
+    margin-right: 10px; 
+    margin-left: 2%; 
+    padding: 5px 5px 5px 5px; 
+    background-color: #fc0000 !important;
+    
+}
+.btn_elimina :hover{
+    background-color: #9bbe592e !important; 
+    color: #2b5164 !important; 
 }
