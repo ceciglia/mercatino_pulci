@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mercatino delle pulci</title>			<!--Home | E-Shopper-->
+    <title>Mercatino delle pulci</title>			
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -15,11 +15,6 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/registraannuncio.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
 	<link rel="shortcut icon" href="images/ico/logo5.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -34,14 +29,13 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
+							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	
 						</div>
 					</div>
 					<div class="col-sm-8">
-						<!-- <div class="shop-menu pull-right">
-							<ul class="nav navbar-nav"> -->
+					
 						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
+							<div class="search_box pull-left" id=search_1 >
 								<input type="text" placeholder="Search"/>
 							</div>
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,13 +47,11 @@
 						</div>
 						
 						
-						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
+						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
+								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -95,15 +87,7 @@
 								<input type="file" id="file" style="display:none;" />
 								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true" ></i> Modifica immagine</button>
 							</div>
-							<script>
-								function thisFileUpload() {
-									document.getElementById("file").click();
-								};
-							</script>
-							
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" class="price-container"><p class="price"> €</p></div>						
-						
-
 						</div> 
 						
 						<div class="col-sm-6">
@@ -113,8 +97,8 @@
 							
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nome prodotto" rows="1" class="modifica_dati"></textarea> </div>
 							<div>
-								  <i class="fa fa-pencil matita" aria-hidden="true" ></i><button onclick="myFunction('usato')" class="btn-nuovo-usato-vis">Usato</button>
-							      <button onclick="myFunction('nuovo')" class="btn-nuovo-usato-vis">Nuovo</button>
+								  <i class="fa fa-pencil matita" aria-hidden="true" ></i><button onclick="nuovousatoris('usato')" class="btn-nuovo-usato-vis">Usato</button>
+							      <button onclick="nuovousatoris('nuovo')" class="btn-nuovo-usato-vis">Nuovo</button>
 							</div>
 							<div id="usato" style="display: none;" >
 								<select class="modifica_dati modifica_nuovo_usato">
@@ -129,7 +113,7 @@
 						
 							<div id="nuovo" style="display: none;">
 								
-								<input type="checkbox"  name="garanzia" onclick="myFunction('garanzia')" class="modifica_garanzia modifica_nuovo_usato">
+								<input type="checkbox"  name="garanzia" onclick="nuovousatoris('garanzia')" class="modifica_garanzia modifica_nuovo_usato">
 								<label for="garanzia" class="price"> Garanzia di copertura </label><br>
 								<div id="garanzia" style="display: none;">
 									<p class="price modifica_nuovo_usato">Indica la scadenza:   </p>
@@ -180,7 +164,7 @@
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><p class="areageog_title">Modifica la visibilità: </p></div>
 							<button class="btn-nuovo-usato-vis modifica_nuovo_usato">Pubblica</button>
 							<button class="btn-nuovo-usato-vis ">Privata</button>	
-							<button onclick="myFunction('ristretta')" class="btn-nuovo-usato-vis">Ristretta</button>	
+							<button onclick="nuovousatoris('ristretta')" class="btn-nuovo-usato-vis">Ristretta</button>	
 							<div id="ristretta" style="display: none;" >
 								<p class="modifica_garanzia"> Inserisci l'area di visibilità: </p>
 								<select class="select-data ristr modifica_nuovo_usato">
@@ -198,17 +182,7 @@
 								</select>
 								<p class="modifica_garanzia"><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
 							</div>
-							<script>
-								function myFunction(id) {
-								  var x = document.getElementById(id);
-								  
-								  if (window.getComputedStyle(x).display === "none") {
-									x.style.display = "block";
-								  }else{
-									x.style.display = "none";
-								  }
-								}
-							</script>
+							
 							<div style="margin-top: 30px;">
 								<button type="submit" onclick="btnConferma('modannuncio')" class="btn btn-profilo pull-right btn_salva"   ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
 								
@@ -244,12 +218,8 @@
 								</div>	
 							</div>
 						</div>	
-						
-						
 					</div>
 				</div>
-
-				
 			</div>
 		</div>
 	</section>

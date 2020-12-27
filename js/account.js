@@ -69,3 +69,17 @@ function btnConferma(id) {
 	// 	}
 	// }
 }
+
+function thisFileUpload() {
+	document.getElementById("file").click();
+};
+
+function nuovousatoris(id) {
+	var x = document.getElementById(id);
+	
+	if (window.getComputedStyle(x).display === "none") {
+	  x.style.display = "block";
+	}else{
+	  x.style.display = "none";
+	}
+  }

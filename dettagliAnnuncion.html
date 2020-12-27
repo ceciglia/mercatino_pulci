@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mercatino delle pulci</title>			<!--Home | E-Shopper-->
+    <title>Mercatino delle pulci</title>		
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -15,12 +15,13 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/dettagliAnnuncio.css" rel="stylesheet">
+	<link href="css/account.css" rel="stylesheet">
 	<link rel="shortcut icon" href="images/ico/logo5.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+</head>
 
 <body>
 	<header id="header">
@@ -48,34 +49,32 @@
 						
 						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
+								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div><!--/header-middle-->
+		</div>
 	
-		<div class="header-bottom"><!--header-bottom-->
+		<div class="header-bottom">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-9">
 					</div>
 				</div>
 			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+		</div>
+	</header>
 
 	<section>
 		<div class="container">
 			<div class="row"> 
 			
 				<h2 class="title text-center"><span class="title-span">Dettagli annuncio</span></h2>
-				<div class="col-sm-18 padding-right" > <!--col-sm-36-->
+				<div class="col-sm-18 padding-right" > 
 					<div class="features_items">
 						<div class="col-sm-4">
 							<div class="container_imm" style="max-width: none; ">
@@ -105,9 +104,15 @@
 									<div class="container popup-conferma">
 										<h4>Richiesta d'acquisto</h4>
 										<p>Stai per inviare una richiesta d'acquisto per questo articolo.</p> 
-										<p>Sei sicur* di voler proseguire?</p>
-										
-										<div class="clearfix">
+										<p>Scegli un metodo di pagamento:</p>
+									
+										<input type="radio" id="cd" name="pagamento" value="cd">
+										<label for="cd">Carta di credito</label><br>
+										<input type="radio" id="cc" name="pagamento" value="cc">
+										<label for="cc">Contanti alla consegna</label><br>
+									
+										<p>Sei sicuro di voler proseguire? </p>
+										<div class="clearfix-dettagli">
 											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 										</div>
