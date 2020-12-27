@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mercatino delle pulci</title>			<!--Home | E-Shopper-->
+    <title>Mercatino delle pulci</title>			
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -18,11 +18,7 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/dettagliAnnuncio.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
+   
 	<link rel="shortcut icon" href="images/ico/logo5.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -37,14 +33,13 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
+							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	
 						</div>
 					</div>
 					<div class="col-sm-8">
-						<!-- <div class="shop-menu pull-right">
-							<ul class="nav navbar-nav"> -->
+					
 						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
+							<div class="search_box pull-left" id=search_1 >	
 								<input type="text" placeholder="Search"/>
 							</div>
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,7 +51,7 @@
 						</div>
 						
 						
-						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
+						<div class="mainmenu pull-right">	
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
@@ -85,7 +80,7 @@
 			<div class="row"> 
 			
 				<h2 class="title text-center"><span class="title-span">Dettagli annuncio</span></h2>
-				<div class="col-sm-18 padding-right" > <!--col-sm-36-->
+				<div class="col-sm-18 padding-right" > 
 					<div class="features_items">
 						<div class="col-sm-4">
 							<div class="container_imm" style="max-width: none; ">
@@ -117,7 +112,14 @@
 										<p>Stai per inviare una richiesta d'acquisto per questo articolo.</p> 
 										<p>Sei sicur* di voler proseguire?</p>
 										
-										<div class="clearfix">
+										
+										<input type="radio" id="cd" name="pagamento" value="cd">
+										<label for="cd">Carta di credito</label><br>
+										<input type="radio" id="cc" name="pagamento" value="cc">
+										<label for="cc">Contanti alla consegna</label><br>
+									
+										<p>Sei sicuro di voler proseguire? </p>
+										<div class="clearfix-dettagli">
 											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 											<button type="button" onclick="document.getElementById('richiesta').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 										</div>

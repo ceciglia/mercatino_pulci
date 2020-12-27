@@ -2861,6 +2861,7 @@ h2.title {
   height: 300px !important;
 }
 
+
 #id01 {
   display: none;  /*aggiunta*/
 }
@@ -2873,6 +2874,10 @@ h2.title {
 /* Clear floats */
 .clearfix {
   margin-top: 110px;
+}
+
+.clearfix-dettagli{
+  margin-top: 20px;
 }
 
 .clearfix::after {

@@ -15,11 +15,7 @@
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/account.css" rel="stylesheet">
 	<link href="css/account_responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
+   
 	<link rel="shortcut icon" href="images/ico/logo5.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -28,7 +24,6 @@
 </head><!--/head-->
 
 <body>
-	
 	<header id="header"><!--header-->
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
@@ -50,8 +45,6 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						
-						
 						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
@@ -63,9 +56,7 @@
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
 	</header><!--/header-->
-	
 	<section>
 		<div class="container">
 			<div class="row">
@@ -94,12 +85,10 @@
 								<div id="venditore" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav sottomenu_profilo">    
-											<!-- <ul class="sottomenu_profilo"> -->
-												<li><a href="pubblicaAnnuncio.html"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'mievendite')" >Le mie vendite</a></li>
-												<li><a href="#" onclick="opensottomenu(event, 'risposte')" >Risposte ai miei annunci</a></li>
-											<!-- </ul> -->
+											<li><a href="pubblicaAnnuncio.html"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+											<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
+											<li><a href="#" onclick="opensottomenu(event, 'mievendite')" >Le mie vendite</a></li>
+											<li><a href="#" onclick="opensottomenu(event, 'risposte')" >Risposte ai miei annunci</a></li>
 										</ul>
 									</div>
 								</div>
@@ -115,12 +104,9 @@
 								<div id="acquirente" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav sottomenu_profilo" >    
-											<!-- <ul class="sottomenu_profilo"> -->
 												<li><a href="#" onclick="opensottomenu(event, 'annunciOsservati')">Annunci osservati</a></li>
 												<li><a href="#" onclick="opensottomenu(event, 'listaAcquistati')">I miei acquisti</a></li>
 												<li><a href="#" onclick="opensottomenu(event, 'richiesteAcquisto')">Richieste di acquisto</a></li>
-												
-											<!-- </ul> -->
 										</ul>
 									</div>
 								</div>
@@ -131,11 +117,10 @@
 				</div> 
 				<!--PROFILO-->
 				<div class="col-sm-9 padding-right" id='profilo'>
-					<div class="features_items" ><!--features_items-->
+					<div class="features_items" >
 						<h2 class="title text-center"><span class="title-span">PROFILO</span></h2>
 					</div>
-
-					<p class="p_benvenuto"  >Ciao Mitic*!</p>
+					<p class="p_benvenuto" >Ciao Mitic*!</p>
 					<div class="col-sm-4">
 						<div class="product-image-wrapper-profilo" >
 							<div class="single-products">
@@ -154,7 +139,6 @@
 							<button type="submit" class="btn btn-profilo pull-left btn-a-v" ><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Acquirente</button>
 							<button type="submit" class="btn btn-profilo pull-right btn-a-v" ><i class="fa fa-credit-card" aria-hidden="true"></i>   Venditore</button>
 						</div>
-
 					</div>
 					<div class="col-sm-8" >
 						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="nomeutente@mail.com" rows="1" disabled class="profilo-data"></textarea >
@@ -175,23 +159,16 @@
 
 				</div>
 				<div class="col-sm-9 padding-right" id='modificaProfilo'>
-					<div class="features_items" ><!--features_items-->
+					<div class="features_items" >
 						<h2 class="title text-center"><span class="title-span">Modifica profilo</span></h2>
 					</div>
-
 					<p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
 					<div class="col-sm-4">
-						
 						<div class="container_imm" style="max-width: none;">
 							<img src="images/home/product1.jpg" alt="Avatar" class="image_p immagine-profilo" >
 							<input type="file" id="file" style="display:none;" />
 							<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica immagine</button>
 						</div>
-						<script>
-							function thisFileUpload() {
-								document.getElementById("file").click();
-							};
-						</script>
 						<p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
 						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nuova password" rows="1"  class="modifica-password"></textarea ></div>
 						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Conferma password" rows="1"  class="modifica-password"></textarea ></div>
@@ -238,9 +215,7 @@
 							</form>
 						</div>
 					</div>
-					
 				</div>
-
 				<!--ACQUIRENTE--> 
 				<!--ANNUNCI OSSERVATI-->
 				<div class="col-sm-9 padding-right" id='annunciOsservati'>
@@ -269,25 +244,17 @@
 												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >    
 													<div >
 														<p><b>Metodo di pagamento: </b></p>
-
-														<!-- <form>
-															<input type="radio" id="c" name="metodop" value="cartacredito" style="background-color:rgb(253, 141, 55); ">
-															<a style="color:rgb(0, 0, 0) ; " for="cartacredito">Carta di credito</a><br>
-															<input type="radio" id="c" name="metodop" value="contanti">
-															<a for="contanti">Contanti alla consegna</a><br>
-														  </form>  -->
 													    <div class="demo-content">
 															<div class="metodop">
 																<ul	class="nav paddingsinistra" >
 																	<input name="metodop" type="radio" id="carta" value="1" />
-																	<label for="carta" ><p >Carta di credito</p></label>
+																	<label for="carta" style="display: inline-block;"><p >Carta di credito</p></label>
 																	<input name="metodop" type="radio" id="contanti" value="2" />
-																	<label for="contanti" ><p >Contanti alla consegna</p></label>
+																	<label for="contanti" style="display: inline-block;"><p >Contanti alla consegna</p></label>
 																</ul>
 															</div>
 														</div>
-														 
-														 
+
 														<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma('id02')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
 															<div id="id02" class="modal">
 																<form class="modal-content popup-modal-content">
@@ -396,7 +363,6 @@
 																	</form>
 																</div>
 														</div>
-														
 													</div>
 												</ul>
 											</div>					
@@ -408,9 +374,7 @@
 					</div><!--features_items-->
 				</div>
 
-
 				<!--RICHIESTE ACQUISTO-->
-				
 				<div class="col-sm-9 padding-right" id='richiesteAcquisto'>
 					<div class="features_items" ><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Richieste di acquisto</span></h2>
@@ -597,7 +561,6 @@
 										<tr>
 											<th><img src="images/home/product1.jpg" alt="" style="width: 130px; margin: 10px;" /></th>
 											<th><p>Nome annuncio</p></th>
-										
 										</tr>
 									</table>
 								</div>
@@ -617,7 +580,7 @@
 														</tr>
 													</thead>
 													<tbody classe="table-risposte">
-														<tr>
+														<tr class="singola_risposta">
 															<td class="cart_product">
 																<a href=""><img src="images/home/gallery3.jpg"  alt="" class="imm-richieste" ></a>
 															</td>
@@ -796,11 +759,6 @@
 			</div>
 		</div>
 	</section>
-	
-	
-	
-
-  
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
