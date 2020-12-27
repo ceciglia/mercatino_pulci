@@ -1,61 +1,6 @@
 <!DOCTYPE html> 			
 <html lang="en">
 <head>
-	<style>
-		.container_imm {
-			position: relative;
-			/* width: 50%; */
-			max-width: 300px;
-		}
-
-		.btn-container_imm {
-			position: absolute;
-			top: 80%;			/*top: 50%;*/
-			left: 50%;
-			transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			/* background-color: #555; */
-			background-color: rgba(85, 85, 85, 0.301);
-			color: white;
-			/* font-size: 16px; */
-			/*padding: 5px 5px;			padding: 12px 24px;*/
-			border: none;
-			/* cursor: pointer; */
-			/* border-radius: 5px; */
-			text-align: center;
-			width: -webkit-fill-available;
-		}
-
-		.btn-container_imm:focus {
-			outline: none;
-		}
-
-
-		.image_p {
-			display: block;
-			width: 100%;
-			height: auto;
-		}
-
-		.overlay_p {
-			position: absolute; 
-			bottom: 0; 
-			background: rgb(0, 0, 0);
-			background: rgba(0, 0, 0, 0.5); /* Black see-through */
-			color: #f1f1f1; 
-			width: 100%;
-			transition: .5s ease;
-			opacity:0;
-			color: white;
-			font-size: 20px;
-			padding: 20px;
-			text-align: center;
-		}
-
-		.container_imm:hover .overlay {
-			opacity: 1;
-		}
-	</style>
 	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,11 +14,7 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
+	<link href="css/dettagliAnnuncio.css" rel="stylesheet">
 	<link rel="shortcut icon" href="images/ico/logo5.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -82,20 +23,18 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
-		<div class="header-middle"><!--header-middle-->
+	<header id="header">
+		<div class="header-middle">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
+							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	
 						</div>
 					</div>
 					<div class="col-sm-8">
-						<!-- <div class="shop-menu pull-right">
-							<ul class="nav navbar-nav"> -->
 						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
+							<div class="search_box pull-left" id=search_1 >	
 								<input type="text" placeholder="Search"/>
 							</div>
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -107,7 +46,7 @@
 						</div>
 						
 						
-						<div class="mainmenu pull-right">		<!--pull right anzichè pull left-->
+						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
@@ -136,30 +75,30 @@
 			<div class="row"> 
 			
 				<h2 class="title text-center"><span class="title-span">Dettagli annuncio</span></h2>
-				<div class="col-sm-18 padding-right" style="padding-left: 0;"> <!--col-sm-36-->
+				<div class="col-sm-18 padding-right" > <!--col-sm-36-->
 					<div class="features_items">
 						<div class="col-sm-4">
 							<div class="container_imm" style="max-width: none; ">
-								<img src="images/mercatino/bialettiMoka.jpg" alt="Avatar" class="image_p" style="width: 100% !important; margin-bottom: 10px; border: solid 2px; border-color: #FE980F; padding: 20px;">
+								<img src="images/mercatino/bialettiMoka.jpg" alt="Avatar" class="image_p imm_dettagli" >
 							</div>
 						</div> 
-						<div class="col-sm-5" style="color: #2b5164; font-size: 16px;">
-							<h2 style="font-size: 30px; font-weight: 18px; color: color: #2b5164; " >Nome annuncio</h2>
-							<p style="display: inline-block !important; margin-bottom: 10px;"></p>ID annuncio: #numero</p>
+						<div class="col-sm-5 descrizione_annuncio" >
+							<h2 class="title1" >Nome annuncio</h2>
+							<p class="title2"></p>ID annuncio: #numero</p>
 							<p><b>Prezzo: </b> #numero €</p>
 
 							<p><b>Stato annuncio: </b> In vendita/venduto/eliminato</p>
-							<textarea name="text"  placeholder="Descrizione annuncio" rows="4" disabled style="margin-bottom: 20px; background-color: #9bbe592e; color: #2b5164;"></textarea> 
+							<textarea name="text"  placeholder="Descrizione annuncio" rows="4" disabled class="box_descrizione_annuncio"></textarea> 
 							<p ><b>Venditore: </b> venditore@mail.com</p>
-							<p style="display: inline-block; color: #2b5164; font-size: 16px;"><b>Valutazione del venditore: </b></p>
+							<p class="title2"><b>Valutazione del venditore: </b></p>
 							<div style="display: inline-block; ">
-								<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-								<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-								<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-								<i class="fa fa-star" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
-								<i class="fa fa-star-half-o" aria-hidden="true" style="color: #ffc107; display: inline-block !important;"></i>
+								<i class="fa fa-star stelle_valutazione" aria-hidden="true" ></i>
+								<i class="fa fa-star stelle_valutazione" aria-hidden="true" ></i>
+								<i class="fa fa-star stelle_valutazione" aria-hidden="true" ></i>
+								<i class="fa fa-star stelle_valutazione" aria-hidden="true" ></i>
+								<i class="fa fa-star-half-o stelle_valutazione" aria-hidden="true"></i>
 							</div>
-							<button type="submit" class="btn pull-right" onclick="btnConferma('richiesta')" style="background-color: #ffa33d; color: white; margin-top: 25px; width: 100%;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+							<button type="submit" class="btn pull-right btn_prodotto" onclick="btnConferma('richiesta')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
 							
 							<div id="richiesta" class="modal">
 								<form class="modal-content popup-modal-content">
@@ -177,8 +116,8 @@
 							</div>	
 						</div>
 					</div>
-					<h2 class="title text-left" style="margin-top: 25px; margin-bottom: none;"><span class="title-span">Dettagli prodotto</span></h2>
-					<div class="col-sm-4" style="color: #2b5164; font-size: 16px;">
+					<h2 class="title text-left title_dettagli_prodotto" ><span class="title-span">Dettagli prodotto</span></h2>
+					<div class="col-sm-4 descrizione_annuncio">
 						<p ><b>Nome del prodotto: </b> #nome</p>
 						<p ><b>Stato del prodotto: </b> NUOVO</p>
 						<p ><b>Garanzia: </b> Questo prodotto ha la garanzia</p>

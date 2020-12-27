@@ -1,0 +1,106 @@
+.container_imm {
+    position: relative;
+    /* width: 50%; */
+    max-width: 300px;
+}
+
+.btn-container_imm {
+    position: absolute;
+    top: 80%;			/*top: 50%;*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    /* background-color: #555; */
+    background-color: rgba(85, 85, 85, 0.301);
+    color: white;
+    /* font-size: 16px; */
+    /*padding: 5px 5px;			padding: 12px 24px;*/
+    border: none;
+    /* cursor: pointer; */
+    /* border-radius: 5px; */
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+.btn-container_imm:focus {
+    outline: none;
+}
+
+
+.image_p {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay_p {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.container_imm:hover .overlay {
+    opacity: 1;
+}
+
+.imm_dettagli {
+    width: 100% !important; 
+    margin-bottom: 10px; 
+    border: solid 2px; 
+    border-color: #FE980F !important; 
+    padding: 20px;
+    
+}
+
+.descrizione_annuncio{
+    color: #2b5164 !important; 
+    font-size: 16px;
+}
+
+.title1{
+    font-size: 30px; 
+    font-weight: 18px;
+}
+
+.title2{
+    display: inline-block !important; 
+    margin-bottom: 10px;
+}
+
+.box_descrizione_annuncio{
+    margin-bottom: 20px; 
+    background-color: #9bbe592e; 
+    color: #2b5164;
+}
+
+.stelle_valutazione{
+    color: #ffc107 !important; 
+    display: inline-block !important;
+}
+
+.btn_prodotto{
+    background-color: #ffa33d; 
+    color: white; 
+    margin-top: 25px; 
+    width: 100%;
+    border-radius: 0% !important;
+}
+
+.btn_prodotto:hover {
+    background-color: #9bbe592e !important; 
+    color: #2b5164 !important; 
+}
+
+.title_dettagli_prodotto{
+    margin-top: 25px !important; 
+    margin-bottom: none;
+}
