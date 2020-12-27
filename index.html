@@ -91,43 +91,16 @@
 						
 						<div id="main_menu_desktop" class="mainmenu pull-right">		<!--pull right anzichè pull left-->
 							<ul class="nav navbar-nav collapse navbar-collapse">
+							
 								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
 								<!-- <li><a href="annunciOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		 -->
-								<li><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li>
-								<li><a class="notification-bell dropbtn" onclick="myFunction()"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-	
+								<li><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+								
 							</ul>
 						</div>
-
-						<div id="myDropdown" class="dropdown-content pull-right">
-							<a href="#home">Home</a>
-							<a href="#about">About</a>
-							<a href="#contact">Contact</a>
-						  </div>
-						<script>
-							/* When the user clicks on the button, 
-							toggle between hiding and showing the dropdown content */
-							function myFunction() {
-							  document.getElementById("myDropdown").classList.toggle("show");
-							}
-							
-							// Close the dropdown if the user clicks outside of it
-							window.onclick = function(event) {
-							  if (!event.target.matches('.dropbtn')) {
-								var dropdowns = document.getElementsByClassName("dropdown-content");
-								var i;
-								for (i = 0; i < dropdowns.length; i++) {
-								  var openDropdown = dropdowns[i];
-								  if (openDropdown.classList.contains('show')) {
-									openDropdown.classList.remove('show');
-								  }
-								}
-							  }
-							}
-						</script>
-
 					</div>
 				</div>
 			</div>

@@ -54,8 +54,14 @@
     opacity: 1;
 }
 
-/*FINE INSERISCEI IMMAGINE*/
 
+/*FINE INSERISCEI IMMAGINE*/
+.modifica-password{
+    margin-bottom: 10px; 
+    background-color: #9bbe592e; 
+    color: #2b5164; 
+    width: 60%;
+}
 /*BOTTONI ACQUIRENTE VENDITORE*/
 .btn-a-v{
     width: 48% !important; 

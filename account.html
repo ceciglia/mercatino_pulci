@@ -14,6 +14,7 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/account.css" rel="stylesheet">
+	<link href="css/account_responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -53,11 +54,9 @@
 						
 						<div class="mainmenu pull-right">		
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="listaOsservati.html"><i class="fa fa-star"></i> Annunci Osservati</a></li>	
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Annunci Pubblicati</a></li>	
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Richiesta Acquisto</a></li>		
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
+								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -194,8 +193,8 @@
 							};
 						</script>
 						<p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
-						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nuova password" rows="1"  style="margin-bottom: 10px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
-						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Conferma password" rows="1"  style="margin-bottom: 30px; background-color: #9bbe592e; color: #2b5164; width: 60%;"></textarea ></div>
+						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nuova password" rows="1"  class="modifica-password"></textarea ></div>
+						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Conferma password" rows="1"  class="modifica-password"></textarea ></div>
 					</div>
 					<div class="col-sm-8" >
 						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="nomeutente@mail.com" rows="1"  class="profilo-data"></textarea >
@@ -598,6 +597,7 @@
 										<tr>
 											<th><img src="images/home/product1.jpg" alt="" style="width: 130px; margin: 10px;" /></th>
 											<th><p>Nome annuncio</p></th>
+										
 										</tr>
 									</table>
 								</div>
