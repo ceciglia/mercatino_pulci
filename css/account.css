@@ -205,6 +205,13 @@
 
 /*FINE ACQUIRENTE*/
 
+.richieste-responsive{
+    display: none; 
+    font-size: 16px;
+    margin-right: 10px;
+    color: #2b5164 !important;
+
+}
 
 
 

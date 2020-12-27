@@ -2529,7 +2529,7 @@ h2.title {
 }
 
 
-/*aggiunte CECI*/
+
 .signup {
   margin-top: 10px;
   margin-left: 30px;
@@ -2659,7 +2659,7 @@ h2.title {
 .sottomenu_profilo > li > a {
   display: inline !important;
   padding-left: 28px;
-  white-space: nowrap;    /*per non far andare a capo "miei annunci" in "risposte ai miei annunci*/
+  white-space: nowrap;    
 }
 
 .sottomenu_profilo > li > a:hover{
@@ -2945,7 +2945,7 @@ h2.title {
   height: 40px;
 }
 
-/*adattivo alla dimensione del contenitore in cui è contenuto*/
+
 .adattivo {
   display: grid;
 }
@@ -2973,11 +2973,11 @@ h2.title {
   width: inherit;
 }
 
-/*    border-radius: 0.25rem;     > SUGOSO*/
-/*FINE MODIFICHE CECI*/
 
 
-/*MODIFICHE ANNA*/
+
+
+
 /*Finestra valutazioni*/
 /* The Modal (background) */
 .modal {
@@ -3164,6 +3164,9 @@ input[name="metodop"]:checked + label:before {
 input[name="metodop"] + label:hover ~ input + label:before { 
    opacity: 0.6; 
 }
-/*FINE MODIFICHE ANNA*/
+
+.slider-index{
+  margin-bottom: 190px;
+}
 
 
