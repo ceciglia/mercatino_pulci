@@ -175,26 +175,60 @@
 	}
 
 	.mainmenu ul li{
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.5);	
 		/*padding-top: 0px;	padding-top: 15px;*/
-		padding-bottom: 15px;	/*padding-bottom: 0;*/
+		padding-bottom: 15px !important;	/*padding-bottom: 0;*/
+		padding-top: 15px;	/*aggiunta*/
+		border-top: 1px solid rgba(255, 255, 255, 0.5);
 	}
 
 	/*aggiunta*/
+
 	.mainmenu ul li:first-child{
-		padding-top: 10px;		/*padding-bottom: 15px;*/
 		padding-left: 15px;
 	}
-	/*fine aggiunta*/
 
-	.mainmenu ul li:last-child{
-		padding-bottom: 10px;		/*padding-bottom: 15px;*/
-	}
+
+	/*fine aggiunta*/
 
 	.mainmenu ul li a{
 		color: #fff !important;
 		padding-top: 0;	/*aggiunta*/
+		margin-top: 0 !important;	/*aggiunta*/
+		margin-bottom: 0;	/*aggiunta*/
 	}
+
+	.notification-bell {
+		width: min-content !important;
+	}
+
+	#login-1 {
+		display: none;
+	}
+
+	#login-2 {
+		display: block;
+	}
+
+	.or {
+		margin-top: 40px;
+		margin-bottom: 40px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.signup-form {
+		text-align: center;
+	}
+
+	.signup {
+		margin-left: 0;
+		margin-top: 0;
+	}
+	/*agg*/
+	
+
+	/*fine agg*/
 
 	.navbar-collapse.in{
 		overflow: inherit;
@@ -572,6 +606,18 @@
 		float: none;
 	}
 
+	/*aggiunte*/
+	.index-benvenuto > p {
+		font-size: 18px;
+	}
+
+	.index-benvenuto > a > button {
+		font-size: 13px;
+		margin-top: 0;
+	}
+
+	/*fine aggiunte*/
+
 }
 
 
@@ -583,6 +629,27 @@
 	}
 }
 
+@media(max-width: 1200px) {
+	.index-benvenuto {
+		margin-bottom: 50px;
+		width: auto;
+		height: auto;
+	}
+
+	.index-benvenuto > h1 {
+		margin-top: 90px;
+	}
+
+	.index-benvenuto > p {
+		text-align: center;
+	}
+
+	.index-benvenuto > a > button {
+		margin-bottom: 30px;
+	}
+	
+
+}
 
 	
 /*FINE AGGIUNTA*/

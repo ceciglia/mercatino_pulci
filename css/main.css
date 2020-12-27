@@ -250,7 +250,7 @@ a#scrollUp i{
 }
 
 .search_box input {
-  background: #F0F0E9;
+  background: #9bbe592e;                               /* background: #9bbe592e;  background: #F0F0E9; */
   border: medium none;
   color: #B2B2B2;
   font-family: 'roboto';
@@ -2752,8 +2752,10 @@ h2.title {
   height: 441px;
 }
 
+
 .index-benvenuto > h1 {
   font-size: 80px;
+  margin-top: 90px;
 }
 
 .index-benvenuto > p {
@@ -2791,11 +2793,11 @@ h2.title {
 .overlay-tendina .closebtn-tendina {
   position: absolute;
   cursor: pointer;        /*aggiunta*/
-  top: 330px;              /* top: 20px;*/
+  top: 335px;              /* top: 20px;*/
   right: 45px;            /*right: 45px;*/
   font-size: 30px;            /*font-size: 60px;*/
   text-decoration: none;  /*aggiunta*/
-  color:  #696763;
+  color: #2b5164;                        /*color:  #696763;*/
 }
 
 #main_menu_desktop  {           /*.nav-menu*/
@@ -2956,6 +2958,14 @@ h2.title {
 
 .copyright-style > p {
   color: #2b5164;
+}
+
+#login-2{
+  display: none;
+}
+
+.index-benvenuto > a {
+  width: inherit;
 }
 
 /*    border-radius: 0.25rem;     > SUGOSO*/
