@@ -114,7 +114,7 @@
 }
 
 .price-container{
-    background-color: #9bbe592e; 
+    background-color: #9bbe592e !important; 
     color:  #2b5164; 
     border-color: transparent; 
     width: 32%;
@@ -166,4 +166,36 @@
 
 .margine-nuovo{
     margin-bottom: 50px;
+}
+
+.matita{
+    margin-right: 10px; 
+    display: inline-block !important;
+    color: #2b5164;
+}
+
+.modifica_dati{
+    margin-bottom: 10px!important; 
+    background-color: #9bbe592e; 
+    color: #2b5164; 
+    display: inline-block !important; 
+    width: 90% !important;
+}
+
+.modifica_dati_margine{
+    margin-bottom: 50px!important; 
+    background-color: #9bbe592e; 
+    color: #2b5164; 
+    display: inline-block !important; 
+    width: 90% !important;
+    border: transparent;
+}
+
+.modifica_nuovo_usato{
+    margin-left: 20px !important; 
+}
+   
+.modifica_garanzia{
+    margin-top: 10px; 
+    margin-left: 20px;
 }
