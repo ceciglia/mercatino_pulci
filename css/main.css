@@ -2838,6 +2838,7 @@ h2.title {
   padding: 2px 5px !important; 
   border-radius: 0.25rem;
   margin-top: 35px !important;
+  cursor: pointer;
 }
 
 .notification-bell:hover {
