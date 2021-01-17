@@ -2974,6 +2974,11 @@ h2.title {
   width: inherit;
 }
 
+.info-footer:hover {
+  color: #2b5164 !important;
+  cursor: unset;
+}
+
 
 
 
