@@ -1,7 +1,7 @@
-<!DOCTYPE html> 			
+<!DOCTYPE html>
 <html lang="en">
-<head> 
-	
+<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -17,7 +17,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
 	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
 	<link rel="shortcut icon" href="images/ico/favicon1.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -27,62 +27,15 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image logo-position" src="images/home/logo_transparent.png" alt="" /></a>	<!--aggiungi class="logo-image" a img -->
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<!-- <div class="shop-menu pull-right">
-							<ul class="nav navbar-nav"> -->
-						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
-								<input type="text" placeholder="Search"/>
-							</div>
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						
-						
-						<div id="main_menu_desktop" class="mainmenu pull-right">	
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
-								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.html" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-	
-		<div class="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-					</div>
-				
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
-	
+	<?php include "php/navbar.php";?> 
+
 	<div id="myNav" class="overlay overlay-tendina">
         <div class="overlay-content overlay-tendina-content">
             <section id="form">
                 <div class="container login-line">
                     <div class="row ">
                         <a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-                       
+
                         <div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
                             <div class="login-form"><!--login form-->
                                 <h2>Login</h2>
@@ -90,7 +43,7 @@
                                     <input type="email" placeholder="Email" />
                                     <input type="password" placeholder="Password" />
                                     <span>
-                                        <input type="checkbox" class="checkbox"> 
+                                        <input type="checkbox" class="checkbox">
                                         Resta conness*
                                     </span>
                                     <button type="submit" class="btn btn-default">Accedi</button>
@@ -113,8 +66,8 @@
             </section><!--/form-->
         </div>
 	</div>
-	
-	
+
+
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -125,11 +78,11 @@
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
-						
+
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-9 index-benvenuto">
-									<h1>Benvenut* in <span>FR</span> Market</h1>		
+									<h1>Benvenut* in <span>FR</span> Market</h1>
 									<!-- <h2>Free E-Commerce Template</h2> -->
 									<p>Scorri per scoprire di più! </p>
 									<a href="registrazione.html"><button type="button" class="btn btn-default get">Registrati subito</button></a>
@@ -140,18 +93,18 @@
 									<h1><span>FR</span> Market</h1>
 									<h2>100% Made in Italy</h2>
 									<p class="slider-index">Prodotti made in Italy per ogni esigenza</p>
-									
+
 								</div>
-							
+
 							</div>
-							
+
 							<div class="item">
 								<div class="col-sm-6">
 									<h1><span>FR</span> Market</h1>
 									<h2>Nuovo e usato</h2>
 									<p class="slider-index">Prodotti nuovi e usati a tutti i prezzi</p>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>
@@ -160,7 +113,7 @@
 							<i class="fa fa-angle-right"></i>
 						</a>
 					</div>
-					
+
 				</div>
 				<div class="col-sm-3 pull-right" style="margin-top: 40px;">
 					<div class="search_box pull-right" id=search_2>		<!--aggiunto id=search_1-->
@@ -170,7 +123,7 @@
 			</div>
 		</div>
 	</section><!--/slider-->
-	
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -220,7 +173,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -265,8 +218,8 @@
 								</div>
 							</div>
 						</div><!--/category-products-->
-					
-						<div class="price-range adattivo">		
+
+						<div class="price-range adattivo">
 							<h2><span class="title-span">Area Geografica</span></h2>
 							<div class="well text-center">
 								<form>
@@ -304,29 +257,29 @@
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="99999" data-slider-step="5" data-slider-value="[40000,70500]" id="sl2" ><br />
 								 <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
 							</div>
-							
+
 							<a href="index.html" class="btn btn-default add-to-cart applica-btn">Applica</a>
-						</div>	
-					
+						</div>
+
 					</div>
 				</div>
-				
+
 
 				<div class="col-sm-9 padding-right">
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center"><span class="title-span">Più osservati</span></h2>
-						
-						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">		
-							<div id="carousel_piùosservati_inner" class="carousel-inner">			
-								<div class="item active">	
-									<div id="col-sm-4_piùosservati_1" class="col-sm-4">		
-										<div id="product-image-wrapper_piùosservati_1" class="product-image-wrapper">			
+
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div id="carousel_piùosservati_inner" class="carousel-inner">
+								<div class="item active">
+									<div id="col-sm-4_piùosservati_1" class="col-sm-4">
+										<div id="product-image-wrapper_piùosservati_1" class="product-image-wrapper">
 											<div class="single-products">
 												<div id="piùosservati_content_1" class="productinfo text-center" >
 													<img src="images/home/recommend1.jpg" alt="" />
 													<h2>€ 20</h2>
-													<p>Maglis grigia</p>			
-													<a href="index.html" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>				
+													<p>Maglis grigia</p>
+													<a href="index.html" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
 										</div>
@@ -340,7 +293,7 @@
 													<p>Vestito rosso</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -353,12 +306,12 @@
 													<p>Vestito rosa</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="item">	
+								<div class="item">
 									<div id="col-sm-4_piùosservati_4" class="col-sm-4">
 										<div id="product-image-wrapper_piùosservati_4" class="product-image-wrapper">
 											<div class="single-products">
@@ -368,7 +321,7 @@
 													<p>Maglia grigia</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -381,7 +334,7 @@
 													<p>Vestito rosso</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -394,7 +347,7 @@
 													<p>Vestito rosa</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -405,18 +358,18 @@
 							  </a>
 							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
 								<i class="fa fa-angle-right"></i>
-							  </a>			
+							  </a>
 						</div>
 					</div><!--/recommended_items-->
-					
-					
+
+
 					<div class="features_items index-margin-top"><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper" style="width: 400;">
 								<div class="single-products" >
 										<div class="productinfo text-center">
-											<div class="img-contenitore">	
+											<div class="img-contenitore">
 												<img src="images/mercatino/taylorGSmini.jpg" alt="" />
 											</div>
 											<h2>€ 600</h2>
@@ -434,7 +387,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-										
+
 									</ul>
 								</div>
 							</div>
@@ -461,7 +414,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-										
+
 									</ul>
 								</div>
 							</div>
@@ -488,7 +441,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-									
+
 									</ul>
 								</div>
 							</div>
@@ -516,7 +469,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-										
+
 									</ul>
 								</div>
 							</div>
@@ -544,7 +497,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-										
+
 									</ul>
 								</div>
 							</div>
@@ -576,9 +529,9 @@
 								</div>
 							</div>
 						</div>
-						
+
 					</div><!--features_items-->
-					
+
 					<div class="category-tab"><!--category-tab-->
 						<h2 class="title text-center index-margin-top"><span class="title-span">Venditori TOP</span></h2>
 					</div>		<!--/category-tab-->
@@ -586,10 +539,10 @@
 						<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">
 							<li class="nav-item">
 								<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">
-									<div class="col-sm-3 clickable">		
+									<div class="col-sm-3 clickable">
 										<div class="product-image-wrapper">
 											<div class="single-products">
-												<div class="productinfo text-center user-information">		
+												<div class="productinfo text-center user-information">
 													<img src="images/home/gallery1.jpg" alt="" />
 													<h2>Nome Cognome 1</h2>
 													<p>nomecognome@top.it</p>
@@ -623,7 +576,7 @@
 														<i class="fa fa-star"></i>
 													</div>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -646,7 +599,7 @@
 														<i class="fa fa-star"></i>
 													</div>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -669,7 +622,7 @@
 														<i class="fa fa-star"></i>
 													</div>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -678,9 +631,9 @@
 						</ul>
 
 						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane p-4 fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">	
+							<div class="tab-pane p-4 fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 1</span></h2>
-						
+
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -763,7 +716,7 @@
 
 							<div class="tab-pane p-4 fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 2</span></h2>
-						
+
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -772,7 +725,7 @@
 													<img src="images/mercatino/aspirapolvere_hoover.jpg" alt="" />
 												</div>
 												<h2>€ 69.98</h2>
-												<p>HOOVER Aspirapolvere a Traino Ciclonico</p>			
+												<p>HOOVER Aspirapolvere a Traino Ciclonico</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 											</div>
 											<div class="product-overlay">
@@ -845,7 +798,7 @@
 							</div>
 							<div class="tab-pane p-4 fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 3</span></h2>
-						
+
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -927,7 +880,7 @@
 							</div>
 							<div class="tab-pane p-4 fade" id="tab4" role="tabpanel" aria-labelledby="tab3-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 4</span></h2>
-						
+
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -1014,7 +967,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
@@ -1033,22 +986,22 @@
 					<div class="col-sm-2 pull-right">
 						<div class="companyinfo">
 							<h2><span>FR</span> Market</h2>
-						
+
 						</div>
 					</div>
-					
+
 					<div class="col-sm-3 pull-right">
 						<div class="address">
 							<img src="images/home/italia.png" alt="" />
-							<p>20131 Milano Lambrate, Lombardia (IT)</p>				
+							<p>20131 Milano Lambrate, Lombardia (IT)</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
-		
+
+
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row copyright-style">
@@ -1057,18 +1010,18 @@
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
-	
 
-  
+	</footer><!--/Footer-->
+
+
+
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/main.js"></script>
-	
+
 	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
 </body>
 </html>
