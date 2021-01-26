@@ -29,45 +29,6 @@
 <body>
 	<?php include "php/navbar.php";?> 
 
-	<div id="myNav" class="overlay overlay-tendina">
-        <div class="overlay-content overlay-tendina-content">
-            <section id="form">
-                <div class="container login-line">
-                    <div class="row ">
-                        <a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-
-                        <div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
-                            <div class="login-form"><!--login form-->
-                                <h2>Login</h2>
-                                <form action="#">
-                                    <input type="email" placeholder="Email" />
-                                    <input type="password" placeholder="Password" />
-                                    <span>
-                                        <input type="checkbox" class="checkbox">
-                                        Resta conness*
-                                    </span>
-                                    <button type="submit" class="btn btn-default">Accedi</button>
-                                </form>
-                            </div><!--/login form-->
-                        </div>
-                        <div class="col-sm-1">
-                            <h2 class="or">OR</h2>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="signup-form"><!--sign up form-->
-                                <h2>Registrati subito!</h2>
-                                <form action="#">
-                                   <a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
-                                </form>
-                            </div><!--/sign up form-->
-                        </div>
-                    </div>
-                </div>
-            </section><!--/form-->
-        </div>
-	</div>
-
-
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">

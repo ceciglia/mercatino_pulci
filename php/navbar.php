@@ -64,7 +64,7 @@
 											<div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
 													<div class="login-form"><!--login form-->
 															<h2>Login</h2>
-															<form action="login_execution.php">
+															<form action="php/login_execution.php" method="POST">
 																	<input type="email" placeholder="Email" name="email"/>
 																	<input type="password" placeholder="Password" name="psw"/>
 																	<span>
