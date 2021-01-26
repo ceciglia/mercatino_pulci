@@ -71,11 +71,11 @@
                                 // connessione al server
                                 include "php/connessione.php";
 
-                                $query_comune = "SELECT comune FROM areageografica ORDER BY comune;";
-                                $res_comune = $cid->query($query_comune);
+                                // $query_comune = "SELECT comune FROM areageografica ORDER BY comune;";
+                                // $res_comune = $cid->query($query_comune);
                                 //or die("<p>impossibile eseguire query</p>". "<p>codice errore ". $cid->error. ": " . $cid->error . "</p");
-                                $query_provincia = "SELECT DISTINCT provincia FROM areageografica ORDER BY provincia;";
-                                $res_provincia = $cid->query($query_provincia);
+                                // $query_provincia = "SELECT DISTINCT provincia FROM areageografica ORDER BY provincia;";
+                                // $res_provincia = $cid->query($query_provincia);
 
                                 $query_regione = "SELECT DISTINCT regione FROM areageografica ORDER BY regione;";
                                 $res_regione = $cid->query($query_regione);
@@ -86,13 +86,14 @@
                                   
 								  <select class='select-data' name='regione'>
 								  <option>-- Regione --</option>";
-                                        while ($row_comune = $res_comune->fetch_row())
-                                          echo "<option>$row_comune[0]</option>";
+                                        while ($row_regione = $res_regione->fetch_row())
+                                          echo "<option>$row_regione[0]</option>";
                                       echo"
                                     </select>
                                   
                                   <br>";
-
+								  $query_provincia = "SELECT DISTINCT provincia FROM areageografica WHERE ORDER BY provincia;";
+								  $res_provincia = $cid->query($query_provincia);
                                 echo"
                                  
 									<select class='select-data' name='provincia'>
@@ -103,13 +104,14 @@
                                     </select>
                                   </form>
                                   <br>";
-
+								  $query_comune = "SELECT comune FROM areageografica ORDER BY comune;";
+                                  $res_comune = $cid->query($query_comune);
                                   echo"
-                                  
+                                   
 								    <select class='select-data' name='comune'>
 								    <option>-- Comune --</option>";
-                                        while ($row_regione = $res_regione->fetch_row())
-                                          echo "<option>$row_regione[0]</option>";
+                                        while ($row_comune = $res_comune->fetch_row())
+                                          echo "<option>$row_comune[0]</option>";
                                       echo"
                                     </select>";
 
