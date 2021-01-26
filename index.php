@@ -57,7 +57,7 @@
                             <div class="signup-form"><!--sign up form-->
                                 <h2>Registrati subito!</h2>
                                 <form action="#">
-                                   <a href="registrazione.html" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
+                                   <a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
                                 </form>
                             </div><!--/sign up form-->
                         </div>

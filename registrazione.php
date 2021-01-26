@@ -67,25 +67,65 @@
 								<input type="text"  placeholder="via" rows="1" class="insert-data" name='via'></input> 
 								<input type="number"  placeholder="Numero civico" rows="1" class="insert-data n-cap" name='nCivico'></input> 
 								<input type="text"  placeholder="CAP" rows="1" class="insert-data n-cap" name='CAP'></input> 
-								<select class="select-data" name='regione'>
-									<option>-- Regione --</option>
-									<option>Regione1</option>
-									<option>Regione2</option>
-									<option>Regione3</option>
-								</select>
-								<select class="select-data" name='provincia'>
-									<option>-- Provincia --</option>
-									<option>Provincia1</option>
-									<option>Provincia2</option>
-									<option>Provincia3</option>
-								</select>
-								<select class="select-data" name='comune'>
-									<option>-- Comune --</option>
-									<option>Comune1</option>
-									<option>Comune2</option>
-									<option>Comune3</option>
-								
-								</select>
+								<?php
+                                // connessione al server
+                                include "php/connessione.php";
+
+                                $query_comune = "SELECT comune FROM areageografica ORDER BY comune;";
+                                $res_comune = $cid->query($query_comune);
+                                //or die("<p>impossibile eseguire query</p>". "<p>codice errore ". $cid->error. ": " . $cid->error . "</p");
+                                $query_provincia = "SELECT DISTINCT provincia FROM areageografica ORDER BY provincia;";
+                                $res_provincia = $cid->query($query_provincia);
+
+                                $query_regione = "SELECT DISTINCT regione FROM areageografica ORDER BY regione;";
+                                $res_regione = $cid->query($query_regione);
+                                  //echo "la query è stata eseguita";
+                                //while ($row = $res->fetch_row())
+
+                                  echo"
+                                  
+                                    <select name='comune'>
+                                      <option>Comune</option>";
+                                        while ($row_comune = $res_comune->fetch_row())
+                                          echo "<option>$row_comune[0]</option>";
+                                      echo"
+                                    </select>
+                                  </form>
+                                  <br>";
+
+                                echo"
+                                  <form>
+                                    <select name='provincia'>
+                                      <option>Provincia</option>";
+                                        while ($row_provincia = $res_provincia->fetch_row())
+                                          echo "<option>$row_provincia[0]</option>";
+                                      echo"
+                                    </select>
+                                  </form>
+                                  <br>";
+
+                                  echo"
+                                  <form>
+                                    <select name='regione'>
+                                      <option>Regione</option>";
+                                        while ($row_regione = $res_regione->fetch_row())
+                                          echo "<option>$row_regione[0]</option>";
+                                      echo"
+                                    </select>";
+
+                                Unset($row_comune);
+                                Unset($row_provincia);
+                                Unset($row_regione);
+                                $comune = mysqli_query("select comune FROM areageografica");
+                                $comune_selez=$_POST["selezione_comune"];
+                                $provincia_selez=$_POST["selezione_provincia"];
+                                $regione_selez=$_POST["selezione_regione"];
+
+                                $comune=$array["comune"];
+                                $provincia=$array["provincia"];
+                                $regione=$array["regione"];
+
+                                ?>
 
 								<button type="button" onclick="btnConferma('modifica')" class="btn pull-right btn-r" >Registrati</button>
 								<div id="modifica" class="modal">
