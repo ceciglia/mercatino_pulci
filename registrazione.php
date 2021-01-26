@@ -84,19 +84,19 @@
 
                                   echo"
                                   
-                                    <select name='comune'>
-                                      <option>Comune</option>";
+								  <select class='select-data' name='regione'>
+								  <option>-- Regione --</option>";
                                         while ($row_comune = $res_comune->fetch_row())
                                           echo "<option>$row_comune[0]</option>";
                                       echo"
                                     </select>
-                                  </form>
+                                  
                                   <br>";
 
                                 echo"
-                                  <form>
-                                    <select name='provincia'>
-                                      <option>Provincia</option>";
+                                 
+									<select class='select-data' name='provincia'>
+									<option>-- Provincia --</option>";
                                         while ($row_provincia = $res_provincia->fetch_row())
                                           echo "<option>$row_provincia[0]</option>";
                                       echo"
@@ -105,9 +105,9 @@
                                   <br>";
 
                                   echo"
-                                  <form>
-                                    <select name='regione'>
-                                      <option>Regione</option>";
+                                  
+								    <select class='select-data' name='comune'>
+								    <option>-- Comune --</option>";
                                         while ($row_regione = $res_regione->fetch_row())
                                           echo "<option>$row_regione[0]</option>";
                                       echo"
@@ -116,20 +116,20 @@
                                 Unset($row_comune);
                                 Unset($row_provincia);
                                 Unset($row_regione);
-                                $comune = mysqli_query("select comune FROM areageografica");
-                                $comune_selez=$_POST["selezione_comune"];
-                                $provincia_selez=$_POST["selezione_provincia"];
-                                $regione_selez=$_POST["selezione_regione"];
+                                // $comune = mysqli_query("select comune FROM areageografica");
+                                // $comune_selez=$_POST["selezione_comune"];
+                                // $provincia_selez=$_POST["selezione_provincia"];
+                                // $regione_selez=$_POST["selezione_regione"];
 
-                                $comune=$array["comune"];
-                                $provincia=$array["provincia"];
-                                $regione=$array["regione"];
+                                // $comune=$array["comune"];
+                                // $provincia=$array["provincia"];
+                                // $regione=$array["regione"];
 
                                 ?>
 
 								<button type="button" onclick="btnConferma('modifica')" class="btn pull-right btn-r" >Registrati</button>
 								<div id="modifica" class="modal">
-									<!--<form class="modal-content popup-modal-content">-->
+									<form class="modal-content popup-modal-content">
 										<div class="container popup-conferma">
 											<h4>Registrazione</h4>
 											<p>Stai per registrarti a FR Market.</p> 
@@ -139,7 +139,7 @@
 												<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 											</div>
 										</div>
-									<!--</form>-->
+									</form>
 								</div>
 							</div>
 						</form>
