@@ -1,70 +1,16 @@
+<?php
+	session_start();
+	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
+	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+?>
+
 <!DOCTYPE html> 			
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Mercatino delle pulci</title>			
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link href="css/account.css" rel="stylesheet">
-	<link href="css/account_responsive.css" rel="stylesheet">
-   
-	<link rel="shortcut icon" href="images/ico/logo5.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+	<?php include "common/head.php";?>
 
 <body>
-	<header id="header"><!--header-->
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>	
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<div class="navbar-header">
-							<div class="search_box pull-left" id=search_1 >	
-								<input type="text" placeholder="Search"/>
-							</div>
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="mainmenu pull-right">		
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>	
-								<li><a href="#"><i class="fa fa-lock"></i> Logout</a></li>
-								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-		<div class="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -786,57 +732,10 @@
 		</div>
 	</section>
 
-	<footer id="footer"><!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="single-widget">
-							<h2>Contatti</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<li><a class="info-footer" href="#"><b>Per ulteriori informazioni:</b></a></li>
-								<li><a href="#">anna.fusari@studenti.unimi.it</a></li>
-								<li><a href="#">cecilia.rossi4@studenti.unimi.it</a></li>
-							</ul>
-						</div>
-					</div>
+	<?php
+		include "common/footer.php"
+		include "common/jsimport.php"
+	?>
 
-					<div class="col-sm-2 pull-right">
-						<div class="companyinfo">
-							<h2><span>FR</span> Market</h2>
-						
-						</div>
-					</div>
-					
-					<div class="col-sm-3 pull-right">
-						<div class="address">
-							<img src="images/home/italia.png" alt="" />
-							<p>20131 Milano Lambrate, Lombardia (IT)</p>				
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row copyright-style">
-					<p class="pull-left">Copyright © 2021 FR Market Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a>Anna Fusari & Cecilia Rossi</a></span></p>
-				</div>
-			</div>
-		</div>
-		
-	</footer><!--/Footer-->
-
-    <script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/funzioni.js"></script>
 </body>
 </html>
