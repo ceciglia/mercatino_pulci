@@ -28,7 +28,7 @@
 									<h1>Benvenut* in <span>FR</span> Market</h1>
 									<!-- <h2>Free E-Commerce Template</h2> -->
 									<p>Scorri per scoprire di più! </p>
-									<a href="registrazione.html"><button type="button" class="btn btn-default get">Registrati subito</button></a>
+									<a href="registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>
 								</div>
 							</div>
 							<div class="item">
@@ -201,7 +201,7 @@
 								 <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
 							</div>
 
-							<a href="index.html" class="btn btn-default add-to-cart applica-btn">Applica</a>
+							<a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica</a>
 						</div>
 
 					</div>
@@ -222,7 +222,7 @@
 													<img src="images/home/recommend1.jpg" alt="" />
 													<h2>€ 20</h2>
 													<p>Maglis grigia</p>
-													<a href="index.html" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+													<a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
 										</div>
@@ -675,7 +675,7 @@
 												<div class="overlay-content">
 													<h2>€ 69.98</h2>
 													<p>HOOVER Aspirapolvere a Traino Ciclonico</p>
-													<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
 										</div>
@@ -757,7 +757,7 @@
 												<div class="overlay-content">
 													<h2>€ 99</h2>
 													<p>SHURE SM57</p>
-													<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
 										</div>
@@ -839,7 +839,7 @@
 												<div class="overlay-content">
 													<h2>€ 57</h2>
 													<p>Genesis - Sebastião Salgado (Ediz. inglese)</p>
-													<a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
 										</div>

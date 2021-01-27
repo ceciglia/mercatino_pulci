@@ -39,7 +39,7 @@
 								<div id="venditore" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav sottomenu_profilo">    
-											<li><a href="pubblicaAnnuncio.html"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+											<li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
 											<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
 											<li><a href="#" onclick="opensottomenu(event, 'mievendite')" >Le mie vendite</a></li>
 											<li><a href="#" onclick="opensottomenu(event, 'risposte')" >Risposte ai miei annunci</a></li>
@@ -719,7 +719,7 @@
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified blu">
-										<li><a href="modificaAnnuncio.html"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
+										<li><a href="modificaAnnuncio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
 									</ul>
 								</div>
 							</div>

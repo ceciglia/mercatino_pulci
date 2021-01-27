@@ -29,9 +29,9 @@
 					<?php if (isset($_SESSION["logged"])) {?>
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
 								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.html" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
+								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
 								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
@@ -39,7 +39,7 @@
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.html" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
+								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					<?php }?>
