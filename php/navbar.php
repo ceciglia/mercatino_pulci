@@ -1,5 +1,5 @@
 <?php
-	// session_start();
+	session_start();
 	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
 ?>
