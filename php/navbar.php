@@ -2,7 +2,6 @@
 	// session_start();
 	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
-	include "php/login_execution.php";
 ?>
 
 <!--NAVBAR PRINCIPALE-->
