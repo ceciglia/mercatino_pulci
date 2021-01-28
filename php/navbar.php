@@ -1,3 +1,10 @@
+<?php
+	// session_start();
+	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
+	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "php/login_execution.php";
+?>
+
 <!--NAVBAR PRINCIPALE-->
 <header id="header"><!--header-->
 	<div class="header-middle"><!--header-middle-->
@@ -26,39 +33,8 @@
 					</div>
 					<!--/Responsive-->
 
-					<?php if (isset($_SESSION["logged"])) {?>
-						<div id="main_menu_desktop" class="mainmenu pull-right">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
-								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
-								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					<?php } else { // chiudo if su variabile di sessione logged  ?>
-						<div id="main_menu_desktop" class="mainmenu pull-right">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-							</ul>
-						</div>
-					<?php }?>
-				</div>
-			</div>
-		</div>
-	</div><!--/header-middle-->
 
-	<!-- <div class="header-bottom">	header-bottom
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9">
-				</div>
-			</div>
-		</div>
-	</div>			/header-bottom
-	 -->
-</header> <!--fine header-->
-
+				<!--PROVA-->
 <div id="myNav" class="overlay overlay-tendina">
 	<div class="overlay-content overlay-tendina-content">
 		<section id="form"> <!--form-->
@@ -96,3 +72,41 @@
 		</section><!--/form-->
 	</div>
 </div>
+
+				<!--PROVA-->
+					
+					
+					<?php if ($_SESSION["logged"]==true) {?>
+						<?php echo "SIGNORI MIEI" ?>
+						<div id="main_menu_desktop" class="mainmenu pull-right">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
+								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li>
+								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
+								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					<?php } else { // chiudo if su variabile di sessione logged  ?>
+						<div id="main_menu_desktop" class="mainmenu pull-right">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
+								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
+							</ul>
+						</div>
+					<?php }?>
+				</div>
+			</div>
+		</div>
+	</div><!--/header-middle-->
+
+	<!-- <div class="header-bottom">	header-bottom
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+				</div>
+			</div>
+		</div>
+	</div>			/header-bottom
+	 -->
+</header> <!--fine header-->
+
