@@ -244,7 +244,7 @@ a#scrollUp i{
   /* padding-top: 40px;    aggiunta */
 }
 
-.mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
+.mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active {
 	background:none;
 	color:#fdb45e;
 }
@@ -1617,13 +1617,13 @@ h2.title {
 }
 
 #cart_items .cart_info .cart_description p {
-  color:#2b5164
+  color:#2b5164;
 }
 
 
 #cart_items .cart_info .cart_price p {
   color:#2b5164;
-  font-size: 18px
+  font-size: 18px;
 }
 
 
@@ -2825,6 +2825,32 @@ h2.title {
 }
 
 /*fine tendina login*/
+
+/*logout button*/
+.logout-button {
+  border-top-width: 0px !important;
+  padding-bottom: 0px !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  border-bottom-width: 0px !important;
+  border-right-width: 0px !important;
+  border-left-width: 0px !important;
+  padding-top: 0px !important;
+  background-color: unset !important;
+  font-weight: 300 !important;
+  color: #2b5164 !important;
+}
+
+.logout-button:hover {
+	background:unset !important;
+	color:#fdb45e !important;
+}
+
+.logout-button:focus {
+	outline: unset;
+}
+
+/*fine logout button*/
 
 .title-span{
   background: white;

@@ -1,5 +1,9 @@
 <?php
-	// session_start();
+	if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+	// $_SESSION["logged"]=false;
 	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
 ?>
@@ -31,55 +35,12 @@
 						</button>
 					</div>
 					<!--/Responsive-->
-
-
-				<!--PROVA-->
-				<div id="myNav" class="overlay overlay-tendina">
-					<div class="overlay-content overlay-tendina-content">
-						<section id="form"> <!--form-->
-							<div class="container login-line">
-								<div class="row ">
-									<a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-
-									<div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
-										<div class="login-form"><!--login form-->
-												<h2>Login</h2>
-												<form action="php/login_execution.php" method="POST">
-													<input type="email" placeholder="Email" name="email"/>
-													<input type="password" placeholder="Password" name="psw"/>
-													<span>
-														<input type="checkbox" class="checkbox">
-															Resta conness*
-													</span>
-													<a href="index.php"><button type="submit" class="btn btn-default">Accedi</button></a>
-												</form>
-										</div><!--/login form-->
-									</div>
-									<div class="col-sm-1">
-										<h2 class="or">OR</h2>
-									</div>
-									<div class="col-sm-4">
-										<div class="signup-form"><!--sign up form-->
-											<h2>Registrati subito!</h2>
-											<form action="#">
-												<a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>
-											</form>
-										</div><!--/sign up form-->
-									</div>
-								</div>
-							</div>
-						</section><!--/form-->
-					</div>
-				</div>
-
-				<!--PROVA-->
 					
-					<?php if ($_SESSION["logged"]) {?>
-						<?php echo "SIGNORI MIEI" ?>
+					<?php if (isset($_SESSION["logged"])) {?>
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
-								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li>
+								<li id="login-1"><a href="php/logout_execution.php"><button type="submit" class="logout-button"><i class="fa fa-lock"></i> Logout</button></a></li>
 								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
 								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
@@ -107,4 +68,45 @@
 	</div>			/header-bottom
 	 -->
 </header> <!--fine header-->
+
+<!--tendina login-->
+<div id="myNav" class="overlay overlay-tendina">
+					<div class="overlay-content overlay-tendina-content">
+						<section id="form"> <!--form-->
+							<div class="container login-line">
+								<div class="row ">
+									<a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+									<div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
+										<div class="login-form"><!--login form-->
+												<h2>Login</h2>
+												<form action="php/login_execution.php" method="POST">
+													<input type="email" placeholder="Email" name="email"/>
+													<input type="password" placeholder="Password" name="psw"/>
+													<span>
+														<input type="checkbox" class="checkbox">
+															Resta conness*
+													</span>
+													<a href="#"><button type="submit" class="btn btn-default">Accedi</button></a>
+												</form>
+										</div><!--/login form-->
+									</div>
+									<div class="col-sm-1">
+										<h2 class="or">OR</h2>
+									</div>
+									<div class="col-sm-4">
+										<div class="signup-form"><!--sign up form-->
+											<h2>Registrati subito!</h2>
+											<form action="#">
+												<a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>
+											</form>
+										</div><!--/sign up form-->
+									</div>
+								</div>
+							</div>
+						</section><!--/form-->
+					</div>
+				</div>
+
+<!--fine tendina login-->
 

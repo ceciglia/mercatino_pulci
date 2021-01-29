@@ -3,8 +3,8 @@
 	$email= $_POST["email"];
 	$psw = $_POST["psw"];
 
-	include_once("connessione.php");
-	include_once("funzioniFR.php");
+	include_once "connessione.php";
+	include_once "funzioniFR.php";
 
 
 	if ($cid)
@@ -23,7 +23,11 @@
 	   		// }
 			
 			$cid->close();		//chiude connessione al db
-			session_start();
+			// session_start();
+			if(!isset($_SESSION)) 
+			{ 
+				session_start(); 
+			}
 			$_SESSION["email"]=$email;
 			$_SESSION["logged"]=true;
 			header("Location:../index.php?status=ok&msg=". urlencode($result["msg"]));

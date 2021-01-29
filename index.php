@@ -2,7 +2,6 @@
 	session_start();
 	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
-	//CIAOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 ?>
 
 <!DOCTYPE html>
