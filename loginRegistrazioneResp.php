@@ -18,8 +18,8 @@
 					<div class="login-form"><!--login form-->
 						<h2>Login</h2>
 						<form action="#">
-							<input type="email" placeholder="Email" />
-							<input type="password" placeholder="Password" />
+							<input type="email" placeholder="Email" required/>
+							<input type="password" placeholder="Password" required/>
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Resta conness*

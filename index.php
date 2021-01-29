@@ -221,7 +221,7 @@
 												<div id="piùosservati_content_1" class="productinfo text-center" >
 													<img src="images/home/recommend1.jpg" alt="" />
 													<h2>€ 20</h2>
-													<p>Maglis grigia</p>
+													<p>Maglia ARANCIONE</p>
 													<a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
@@ -233,7 +233,7 @@
 												<div id="piùosservati_content_2" class="productinfo text-center">
 													<img src="images/home/recommend2.jpg" alt="" />
 													<h2>€ 10</h2>
-													<p>Vestito rosso</p>
+													<p>Vestito BLU</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 
@@ -246,7 +246,7 @@
 												<div id="piùosservati_content_3" class="productinfo text-center">
 													<img src="images/home/recommend3.jpg" alt="" />
 													<h2>€ 10</h2>
-													<p>Vestito rosa</p>
+													<p>Vestito VERDE</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 
