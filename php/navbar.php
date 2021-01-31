@@ -7,7 +7,6 @@
 	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
 	// $emailErr = $pswErr = "";
-	$prova="ci";
 ?>
 
 <!--NAVBAR PRINCIPALE-->
@@ -86,7 +85,7 @@
 													<input type="email" placeholder="Email" name="email" required>
 													<!-- <span>* <?php //echo $emailErr;?></span> -->
 													<input type="password" placeholder="Password" name="psw" required>
-													<!-- <span> <?php //echo $pswErr;?></span> -->
+													<span> <?php ?></span>
 													<span>
 														<input type="checkbox" class="checkbox">
 															Resta conness*
