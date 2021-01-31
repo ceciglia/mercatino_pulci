@@ -117,7 +117,7 @@
 
 	.address p {
 		font-size: 12px;
-		top: 5px;
+		/* top: 5px; */
 	}
 
 	/*aggiunta*/
@@ -256,6 +256,19 @@
 		margin-left: 0;
 		margin-top: 0;
 	}
+
+	.recommended_items {
+		margin-top: 50px;
+	}
+
+	.index-margin-top {
+		margin-top: 50px !important;
+	  }
+
+	.address p {
+		font-size: 12px;
+	}
+
 
 	/*fine aggiunte*/
 

@@ -1,11 +1,28 @@
 <?php
-
-	$email= $_POST["email"];
-	$psw = $_POST["psw"];
-
 	include_once "connessione.php";
 	include_once "funzioniFR.php";
 
+	// $email = "";
+	// $psw = "";
+
+	// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// 	if (empty($_POST["email"])) {
+	// 		$emailErr = "email is required";
+	// 		// return $emailErr;
+	// 	} else {
+	// 		$email = test_input($_POST["email"]);
+	// 	}
+
+	// 	if (empty($_POST["psw"])) {
+	// 		$pswErr = "password is required";
+	// 		// return $pswErr;
+	// 	} else {
+	// 		$psw = test_input($_POST["psw"]);
+	// 	}
+	// }
+
+	$email= test_input($_POST["email"]);
+	$psw = test_input($_POST["psw"]);
 
 	if ($cid)
 	{

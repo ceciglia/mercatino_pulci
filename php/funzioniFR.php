@@ -4,7 +4,6 @@ function isUser($cid,$email,$psw)
 {
 	$risultato= array("msg"=>"","status"=>"ok");
 
-   /* inserire controlli dell'input */
    $sql = "SELECT * FROM utente where email = '$email' and psw = '$psw'";
 
    $res = $cid->query($sql);
@@ -15,7 +14,7 @@ function isUser($cid,$email,$psw)
 			$risultato["msg"]=$msg;
 	}elseif($res->num_rows==0 || $res->num_rows>1)
 	{
-			$msg = "Login o password sbagliate";
+			$msg = "email o password sbagliate";
 			$risultato["status"]="ko";
 			$risultato["msg"]=$msg;
 	}elseif($res->num_rows==1)
@@ -24,7 +23,15 @@ function isUser($cid,$email,$psw)
 		$risultato["status"]="ok";
 		$risultato["msg"]=$msg;
 	}
-    return $risultato;
+	return $risultato;
+}
+
+/*controllo input login*/ 
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
 }
 
 ?>

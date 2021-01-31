@@ -2,7 +2,7 @@
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3">
+					<div class="col-sm-3 footer-information pull-left">
 						<div class="single-widget">
 							<h2>Contatti</h2>
 							<ul class="nav nav-pills nav-stacked">
@@ -13,17 +13,19 @@
 						</div>
 					</div>
 
-					<div class="col-sm-2 pull-right">
-						<div class="companyinfo">
-							<h2><span>FR</span> Market</h2>
+					<div class="footer-div">
+						<div class="col-sm-2 pull-right">
+							<div class="companyinfo">
+								<h2><span>FR</span> Market</h2>
 
+							</div>
 						</div>
-					</div>
 
-					<div class="col-sm-3 pull-right">
-						<div class="address">
-							<img src="images/home/italia.png" alt="" />
-							<p>20131 Milano Lambrate, Lombardia (IT)</p>
+						<div class="col-sm-3 pull-right">
+							<div class="address">
+								<img src="images/home/italia.png" alt="" />
+								<p>20131 Milano Lambrate, Lombardia (IT)</p>
+							</div>
 						</div>
 					</div>
 				</div>

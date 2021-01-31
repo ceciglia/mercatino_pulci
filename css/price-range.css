@@ -14,6 +14,7 @@
 .slider.slider-horizontal {
   width: 210px;
   height: 20px;
+  width: -webkit-fill-available !important; /*aggiunta*/
 }
 .slider.slider-horizontal .slider-track {
   height: 15px;
@@ -21,6 +22,7 @@
   margin-top: -5px;
   top: 50%;
   width: 100%;
+  max-block-size: fit-content; /*aggiunta*/
 }
 .slider.slider-horizontal .slider-selection {
   height: 100%;

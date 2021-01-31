@@ -6,6 +6,8 @@
 	// $_SESSION["logged"]=false;
 	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
 	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	// $emailErr = $pswErr = "";
+	$prova="ci";
 ?>
 
 <!--NAVBAR PRINCIPALE-->
@@ -81,8 +83,10 @@
 										<div class="login-form"><!--login form-->
 												<h2>Login</h2>
 												<form action="php/login_execution.php" method="POST">
-													<input type="email" placeholder="Email" name="email" required/>
-													<input type="password" placeholder="Password" name="psw" required/>
+													<input type="email" placeholder="Email" name="email" required>
+													<!-- <span>* <?php //echo $emailErr;?></span> -->
+													<input type="password" placeholder="Password" name="psw" required>
+													<!-- <span> <?php //echo $pswErr;?></span> -->
 													<span>
 														<input type="checkbox" class="checkbox">
 															Resta conness*
