@@ -7,4 +7,4 @@
    // if ($cid->connect_error){
    //    die(' ('. $cid->connect_error .')' . $cid->connect_error);}
    // else { echo '' . $cid->host_info . "\n";}
-?>
+

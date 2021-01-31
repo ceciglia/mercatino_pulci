@@ -83,10 +83,20 @@
 												<h2>Login</h2>
 												<form action="php/login_execution.php" method="POST">
 													<input type="email" placeholder="Email" name="email" required>
-													<!-- <span>* <?php //echo $emailErr;?></span> -->
 													<input type="password" placeholder="Password" name="psw" required>
-													<span> <?php ?></span>
-													<span>
+                                                    <?php
+                                                        if (isset($_GET["error"])){
+                                                            if ($_GET["error"]=="emptyInputEmail") {
+                                                                echo "<span>Non hai inserito l'email.</span>";
+                                                            } else if ($_GET["error"]=="emptyInputPsw") {
+                                                                echo "<span>Non hai inserito la password.</span>";
+                                                            } else if ($_GET["msg"]=="email o password sbagliate"){
+                                                                echo "<span>Email o password errate.</span>";
+                                                            }
+                                                        }
+                                                    ?>
+
+                                                    <span>
 														<input type="checkbox" class="checkbox">
 															Resta conness*
 													</span>
