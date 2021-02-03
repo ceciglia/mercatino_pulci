@@ -9,7 +9,7 @@
 	<?php include "common/head.php";?> 
 
 <body>
-	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE--> 
+	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
 	<section id="slider"><!--slider-->
 		<div class="container">
@@ -26,7 +26,6 @@
 							<div class="item active">
 								<div class="col-sm-9 index-benvenuto">
 									<h1>Benvenut* in <span>FR</span> Market</h1>
-									<!-- <h2>Free E-Commerce Template</h2> -->
 									<p>Scorri per scoprire di più! </p>
 									<a href="registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>
 								</div>
@@ -922,6 +921,7 @@
 	<script src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
+
 
 </body>
 </html>

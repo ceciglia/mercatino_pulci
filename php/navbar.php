@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.php"><img class="logo-image logo-position" src="images/home/logo_transparent.png" alt="" /></a>
+						<a href="index.php"><img class="logo-image logo-position" src="./images/home/logo_transparent.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="col-sm-8">
@@ -42,15 +42,15 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
 								<li id="login-1"><a href="php/logout_execution.php"><button type="submit" class="logout-button"><i class="fa fa-lock"></i> Logout</button></a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
+								<li id="login-2"><a href="loginRegistrazioneResp.php"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
 								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					<?php } else { // chiudo if su variabile di sessione logged  ?>
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li id="login-1"><a onclick="openNav()" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
-								<li id="login-2"><a href="loginRegistrazioneResp.php" style="cursor: pointer;"><i class="fa fa-lock"></i> Login</a></li>
+								<li id="login-1"><a onclick="openNav()"><i class="fa fa-lock"></i> Login</a></li>
+								<li id="login-2"><a href="loginRegistrazioneResp.php"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					<?php }?>
@@ -82,25 +82,31 @@
 										<div class="login-form"><!--login form-->
 												<h2>Login</h2>
 												<form action="php/login_execution.php" method="POST">
-													<input type="email" placeholder="Email" name="email" required>
-													<input type="password" placeholder="Password" name="psw" required>
-                                                    <?php
-                                                        if (isset($_GET["error"])){
-                                                            if ($_GET["error"]=="emptyInputEmail") {
-                                                                echo "<span>Non hai inserito l'email.</span>";
-                                                            } else if ($_GET["error"]=="emptyInputPsw") {
-                                                                echo "<span>Non hai inserito la password.</span>";
-                                                            } else if ($_GET["msg"]=="email o password sbagliate"){
-                                                                echo "<span>Email o password errate.</span>";
+                                                    <div class="loginInput">
+                                                        <label for="emailLogin"></label>
+                                                        <input type="email" placeholder="Email" name="email" required>
+                                                    </div>
+                                                    <div class="loginInput">
+                                                        <label for="pswLogin"></label>
+                                                        <input type="password" placeholder="Password" name="psw" required>
+                                                    </div>
+
+<!--                                                    <p id="errorLoginMessage"></p>-->
+                                                        <?php
+                                                        if (isset($_GET["msg"])){
+                                                            if ($_GET["msg"]=="email o password sbagliate") {
+                                                                echo '<script src="js/tendinalogin.js"></script>';
+                                                                echo '<script type="text/javascript"> openNav(); </script>';
+                                                                echo '<p class="error-message">Non hai inserito correttamente email o password.</p>';
                                                             }
                                                         }
-                                                    ?>
+                                                        ?>
 
                                                     <span>
 														<input type="checkbox" class="checkbox">
 															Resta conness*
 													</span>
-													<a href="#"><button type="submit" class="btn btn-default">Accedi</button></a>
+													<a href="#"><button type="submit" class="btn btn-default" onclick="invalidInput()">Accedi</button></a>
 												</form>
 										</div><!--/login form-->
 									</div>
@@ -120,6 +126,7 @@
 						</section><!--/form-->
 					</div>
 				</div>
+
 
 <!--fine tendina login-->
 

@@ -23,13 +23,13 @@ function isUser($cid,$email,$psw) {
 	return $risultato;
 }
 
-function emptyInput($field) {
-	$risultato = false;
-	if (empty($field)){
-		$risultato = true;
-	}
-	return $risultato;
-}
+//function emptyInput($field) {
+//	$risultato = false;
+//	if (empty($field)){
+//		$risultato = true;
+//	}
+//	return $risultato;
+//}
 
 function test_input($data) {
 	$data = trim($data);

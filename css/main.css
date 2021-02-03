@@ -1497,7 +1497,7 @@ h2.title {
 }
 
 .login-form label{
-
+  display: contents;  /*aggiunta*/
 }
 
 
@@ -2824,6 +2824,23 @@ h2.title {
   z-index: 3;
 }
 
+.loginInput {
+  box-sizing: unset;
+}
+
+#login-2{
+  display: none;
+  cursor:pointer !important;
+}
+
+#login-1 {
+  cursor:pointer !important;
+}
+
+.index-benvenuto > a {
+  width: inherit;
+}
+
 /*fine tendina login*/
 
 /*logout button*/
@@ -2994,13 +3011,7 @@ h2.title {
   color: #2b5164;
 }
 
-#login-2{
-  display: none;
-}
 
-.index-benvenuto > a {
-  width: inherit;
-}
 
 .info-footer:hover {
   color: #2b5164 !important;
@@ -3015,7 +3026,14 @@ h2.title {
   width: max-content;
 }
 
+/*ERRORI*/
+.error-message {
+  color: #ff0000 !important;
+  font-weight: 400 !important;
+  margin-bottom: 20px !important;
+}
 
+/*fine ERRORI*/
 
 
 

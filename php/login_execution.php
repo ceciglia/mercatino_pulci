@@ -9,13 +9,13 @@
 			$email= $_POST["email"];
 			$psw = $_POST["psw"];
 
-			if (emptyInput($email)==true) {
-				header("Location:../index.php?error=emptyInputEmail");
-				exit();	//check
-			} else if (emptyInput($psw)==true){
-				header("Location:../index.php?error=emptyInputPsw");
-				exit();	//check
-			}
+//			if (emptyInput($email)==true) {
+//				header("Location:../index.php?error=emptyInputEmail");
+//				exit();	//check
+//			} else if (emptyInput($psw)==true){
+//				header("Location:../index.php?error=emptyInputPsw");
+//				exit();	//check
+//			}
 
 			$result= isUser($cid,$email,$psw);
 			if ($result["status"]=="ok") {
