@@ -162,7 +162,7 @@
 						</div><!--/category-products-->
 
 						<div class="price-range adattivo">
-							<h2><span class="title-span">Area Geografica</span></h2>
+							<h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
 							<div class="well text-center">
 								<form>
 									<select>
@@ -193,22 +193,27 @@
 								</form>
 							</div>
 						</div>				<!-- /filtro comune provincia regione -->
+
 						<div class="price-range adattivo">		<!-- price-range -->
 							<h2><span class="title-span">Price Range</span></h2>
 							<div class="well text-center">
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="99999" data-slider-step="5" data-slider-value="[40000,70500]" id="sl2" ><br />
 								 <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
-							</div>
-
+							</div>  <!-- /price-range -->
+                            <!--bottone APPLICA-->
 							<a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica</a>
 						</div>
 
 					</div>
 				</div>
 
-
+                <?php
+//                    $prezzo1="";
+//                    $nomeAn1="";
+                    include "piùOsservati.php";
+                ?>
 				<div class="col-sm-9 padding-right">
-					<div class="recommended_items"><!--recommended_items-->
+					<div class="recommended_items">     <!--più osservati-->
 						<h2 class="title text-center"><span class="title-span">Più osservati</span></h2>
 
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -219,8 +224,8 @@
 											<div class="single-products">
 												<div id="piùosservati_content_1" class="productinfo text-center" >
 													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>€ 20</h2>
-													<p>Maglia ARANCIONE</p>
+													<h2><?php echo "€ ".$prezzo1;?></h2>       <!--€ 20-->
+													<p><?php echo $nomeAn1;?></p> <!--Maglia ARANCIONE-->
 													<a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 											</div>
@@ -302,7 +307,7 @@
 								<i class="fa fa-angle-right"></i>
 							  </a>
 						</div>
-					</div><!--/recommended_items-->
+					</div>  <!--/più osservati-->
 
 
 					<div class="features_items index-margin-top"><!--features_items-->
