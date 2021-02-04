@@ -98,17 +98,14 @@
 							<button onclick="nuovousatoris('usato')" class="btn-nuovo-usato-vis">Usato</button>
 							<button onclick="nuovousatoris('nuovo')" class="btn-nuovo-usato-vis">Nuovo</button>
 							<div id="usato" style="display: none;">
-								<select class="insert-data">
-									<option>-- Stato di usura --</option>
-									<option>Pari al nuovo</option>
-									<option>Buono</option>
-									<option>Medio</option>
-									<option>Usurato</option>
-								</select>
+                <p class="title-3">Inserisci lo stato di usura: </p>
+                <?php include "statoUsura.php";?>
+                <br>
 								<textarea type="text" placeholder="Indicare il periodo di utilizzo" rows="2" class="descrizione"></textarea>
 							</div>
 
 							<div id="nuovo" style="display: none;">
+
 
 								<input type="checkbox"  name="garanzia" onclick="nuovousatoris('garanzia')" style="margin-top: 10px; ">
 								<label for="garanzia" class="price" >Garanzia di copertura </label><br>
@@ -241,6 +238,11 @@
         document.getElementById("prov").addEventListener("change", function(){
             popolaComuni("prov","com");
         });
+
+        window.addEventListener("DOMContentLoaded", function(){
+            popolaUsura("usura");
+        });
+
 
     </script>
 </body>
