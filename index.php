@@ -208,8 +208,6 @@
 				</div>
 
                 <?php
-//                    $prezzo1="";
-//                    $nomeAn1="";
                     include "piùOsservati.php";
                 ?>
 				<div class="col-sm-9 padding-right">
@@ -236,8 +234,8 @@
 											<div class="single-products">
 												<div id="piùosservati_content_2" class="productinfo text-center">
 													<img src="images/home/recommend2.jpg" alt="" />
-													<h2>€ 10</h2>
-													<p>Vestito BLU</p>
+													<h2><?php echo "€ ".$prezzo2;?></h2>   <!--€ 10-->
+													<p><?php echo $nomeAn2;?></p>     <!--Vestito BLU-->
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 
@@ -249,8 +247,8 @@
 											<div class="single-products">
 												<div id="piùosservati_content_3" class="productinfo text-center">
 													<img src="images/home/recommend3.jpg" alt="" />
-													<h2>€ 10</h2>
-													<p>Vestito VERDE</p>
+													<h2><?php echo "€ ".$prezzo3;?></h2>       <!--€ 10-->
+													<p><?php echo $nomeAn3;?></p>     <!--Vestito VERDE-->
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
 
@@ -264,7 +262,7 @@
 											<div class="single-products">
 												<div id="piùosservati_content_4" class="productinfo text-center">
 													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>€ 10</h2>
+													<h2></h2>       <!--€ 10-->
 													<p>Maglia grigia</p>
 													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
 												</div>
