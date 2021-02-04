@@ -6,19 +6,19 @@ $password = '';
 $db = 'mercatino7_Fusari_Rossi';
 $cid = new mysqli ($hostmane, $username, $password, $db);
 
-
-$sql = "SELECT DISTINCT regione FROM areageografica ORDER BY regione";
+$provincia = mysqli_real_escape_string($cid, $_GET['regione']);
+$sql = "SELECT DISTINCT comune FROM areageografica WHERE provincia = '$provincia' ORDER BY comune";
 
 $res = $cid->query($sql);
 if ($res == null){
     $risultato["nessuna"]=true;
 }
 
-$regioni=array();
+$comuni=array();
 while($row=$res->fetch_row()){
-    $regioni[]=$row[0];
+    $comuni[]=$row[0];
 }
 
-$risultato["contenuto"]=$regioni;
+$risultato["contenuto"]=$comuni;
 echo json_encode($risultato);
 ?>

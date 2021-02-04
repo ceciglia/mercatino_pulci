@@ -7,18 +7,18 @@ $db = 'mercatino7_Fusari_Rossi';
 $cid = new mysqli ($hostmane, $username, $password, $db);
 
 
-$sql = "SELECT DISTINCT regione FROM areageografica ORDER BY regione";
+$sql = "SELECT DISTINCT nomeCategoria FROM categoria ORDER BY nomeCategoria";
 
 $res = $cid->query($sql);
 if ($res == null){
     $risultato["nessuna"]=true;
 }
 
-$regioni=array();
+$categoria=array();
 while($row=$res->fetch_row()){
-    $regioni[]=$row[0];
+    $categoria[]=$row[0];
 }
 
-$risultato["contenuto"]=$regioni;
+$risultato["contenuto"]=$categoria;
 echo json_encode($risultato);
 ?>
