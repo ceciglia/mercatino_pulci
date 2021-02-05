@@ -30,7 +30,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>
+							<a href="index.php"><img class="logo-image" src="images/home/logo_transparent.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -50,7 +50,7 @@
 
 						<div class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="account.html"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-lock"></i> Logout</a></li>
 								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
