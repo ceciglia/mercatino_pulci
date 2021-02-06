@@ -35,7 +35,6 @@ function getPiùOsservati($cid){
     $risultato = $cid->query($sql);
 
     $count=0;
-
     while($row=$risultato->fetch_assoc()){
         //!!!DA GESTIRE LA FOTOP e bottone DETTAGLI ANNUNCIO!!!
         $prezzoP = $row["prezzoP"];
@@ -66,6 +65,9 @@ function getPiùOsservati($cid){
     };
     echo "</div>";
 }
+
+
+
 
 
 

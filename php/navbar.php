@@ -72,60 +72,59 @@
 
 <!--tendina login-->
 <div id="myNav" class="overlay overlay-tendina">
-					<div class="overlay-content overlay-tendina-content">
-						<section id="form"> <!--form-->
-							<div class="container login-line">
-								<div class="row ">
-									<a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <div class="overlay-content overlay-tendina-content">
+        <section id="form"> <!--form-->
+            <div class="container login-line">
+                <div class="row">
+                    <a class="closebtn closebtn-tendina" onclick="closeNav()"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 
-									<div class="col-sm-4 col-sm-offset-1" style="margin-left: 200px;">
-										<div class="login-form"><!--login form-->
-												<h2>Login</h2>
-												<form action="php/login_execution.php" method="POST">
-                                                    <div class="loginInput">
-                                                        <label for="emailLogin"></label>
-                                                        <input type="email" placeholder="Email" name="email" required>
-                                                    </div>
-                                                    <div class="loginInput">
-                                                        <label for="pswLogin"></label>
-                                                        <input type="password" placeholder="Password" name="psw" required>
-                                                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 overlay-tendina-content-margin" >     <!--style="margin-left: 200px;"-->
+                        <div class="login-form"><!--login form-->
+                                <h2>Login</h2>
+                                <form action="php/login_execution.php" method="POST">
+                                    <div class="loginInput">
+                                        <label for="emailLogin"></label>
+                                        <input type="email" placeholder="Email" name="email" required>
+                                    </div>
+                                    <div class="loginInput">
+                                        <label for="pswLogin"></label>
+                                        <input type="password" placeholder="Password" name="psw" required>
+                                    </div>
 
-<!--                                                    <p id="errorLoginMessage"></p>-->
-                                                        <?php
-                                                        if (isset($_GET["msg"])){
-                                                            if ($_GET["msg"]=="email o password sbagliate") {
-                                                                echo '<script src="js/tendinalogin.js"></script>';
-                                                                echo '<script type="text/javascript"> openNav(); </script>';
-                                                                echo '<p class="error-message">Non hai inserito correttamente email o password.</p>';
-                                                            }
-                                                        }
-                                                        ?>
+                                    <?php
+                                    if (isset($_GET["msg"])){
+                                        if ($_GET["msg"]=="email o password sbagliate") {
+                                            echo '<script src="js/tendinalogin.js"></script>';
+                                            echo '<script type="text/javascript"> openNav(); </script>';
+                                            echo '<p class="error-message">Non hai inserito correttamente email o password.</p>';
+                                        }
+                                    }
+                                    ?>
 
-                                                    <span>
-														<input type="checkbox" class="checkbox">
-															Resta conness*
-													</span>
-													<a href="#"><button type="submit" class="btn btn-default" onclick="invalidInput()">Accedi</button></a>
-												</form>
-										</div><!--/login form-->
-									</div>
-									<div class="col-sm-1">
-										<h2 class="or">OR</h2>
-									</div>
-									<div class="col-sm-4">
-										<div class="signup-form"><!--sign up form-->
-											<h2>Registrati subito!</h2>
-											<form action="#">
-												<a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>
-											</form>
-										</div><!--/sign up form-->
-									</div>
-								</div>
-							</div>
-						</section><!--/form-->
-					</div>
-				</div>
+                                    <span>
+                                        <input type="checkbox" class="checkbox">
+                                            Resta conness*
+                                    </span>
+                                    <a href="#"><button type="submit" class="btn btn-default" onclick="invalidInput()">Accedi</button></a>
+                                </form>
+                        </div><!--/login form-->
+                    </div>
+                    <div class="col-sm-1">
+                        <h2 class="or">OR</h2>
+                    </div>
+                    <div class="col-sm-4 signup-form">
+                        <div><!--sign up form-->
+                            <h2>Registrati subito!</h2>
+                            <form action="#">
+                                <a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>
+                            </form>
+                        </div><!--/sign up form-->
+                    </div>
+                </div>
+            </div>
+        </section><!--/form-->
+    </div>
+</div>
 
 
 <!--fine tendina login-->

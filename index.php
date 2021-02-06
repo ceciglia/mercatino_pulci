@@ -57,8 +57,8 @@
 					</div>
 
 				</div>
-				<div class="col-sm-3 pull-right" style="margin-top: 40px;">
-					<div class="search_box pull-right" id=search_2>		<!--aggiunto id=search_1-->
+				<div class="col-sm-3 pull-right search2-margin">
+					<div class="search_box pull-right" id=search_2>
 						<input type="text" placeholder="Search"/>
 					</div>
 				</div>
@@ -214,89 +214,9 @@
 
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner piùosservati-inner">
-
-                                    <?php
-                                        getPiùOsservati($cid);
-                                    ?>
-<!--									<div class="col-sm-4 piùosservati">-->
-<!--										<div class="product-image-wrapper piùosservati-p-i-w">-->
-<!--											<div class="single-products">-->
-<!--												<div class="productinfo text-center piùosservati-content" >-->
-<!--													<img src="images/home/recommend1.jpg" alt="" />-->
-<!--													<h2><?php ////echo "€ ".$prezzo1;?></h2>    € 20-->
-<!--													<p><?php ////echo $nomeAn1;?></p> Maglia ARANCIONE
-    													<a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div id="col-sm-4_piùosservati_2" class="col-sm-4">-->
-<!--										<div id="product-image-wrapper_piùosservati_2" class="product-image-wrapper">-->
-<!--											<div class="single-products">-->
-<!--												<div id="piùosservati_content_2" class="productinfo text-center">-->
-<!--													<img src="images/home/recommend2.jpg" alt="" />-->
-<!--													<h2>--><?php ////echo "€ ".$prezzo2;?><!--</h2>   € 10
-													<p><?php ////echo $nomeAn2;?></p>     Vestito BLU
-													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!---->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div id="col-sm-4_piùosservati_3" class="col-sm-4">-->
-<!--										<div id="product-image-wrapper_piùosservati_3" class="product-image-wrapper">-->
-<!--											<div class="single-products">-->
-<!--												<div id="piùosservati_content_3" class="productinfo text-center">-->
-<!--													<img src="images/home/recommend3.jpg" alt="" />-->
-<!--													<h2>--><?php ////echo "€ ".$prezzo3;?><!--</h2>       € 10-->
-<!--													<p>--><?php ////echo $nomeAn3;?><!--</p>     Vestito VERDE-->
-<!--													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!---->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--								</div>-->
-<!--								<div class="item">-->
-<!--									<div id="col-sm-4_piùosservati_4" class="col-sm-4">-->
-<!--										<div id="product-image-wrapper_piùosservati_4" class="product-image-wrapper">-->
-<!--											<div class="single-products">-->
-<!--												<div id="piùosservati_content_4" class="productinfo text-center">-->
-<!--													<img src="images/home/recommend1.jpg" alt="" />-->
-<!--													<h2>--><?php ////echo "€ ".$prezzo4;?><!--</h2>       € 10-->
-<!--													<p>--><?php ////echo $nomeAn4;?><!--</p>         Maglia grigia-->
-<!--													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!---->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div id="col-sm-4_piùosservati_5" class="col-sm-4">-->
-<!--										<div id="product-image-wrapper_piùosservati_5" class="product-image-wrapper">-->
-<!--											<div class="single-products">-->
-<!--												<div id="piùosservati_content_5" class="productinfo text-center">-->
-<!--													<img src="images/home/recommend2.jpg" alt="" />-->
-<!--													<h2>--><?php ////echo "€ ".$prezzo5;?><!--</h2>       $ 20-->
-<!--													<p>--><?php ////echo $nomeAn5;?><!--</p>     Vestito rosso-->
-<!--													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!---->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div id="col-sm-4_piùosservati_6" class="col-sm-4">-->
-<!--										<div id="product-image-wrapper_piùosservati_6" class="product-image-wrapper">-->
-<!--											<div class="single-products">-->
-<!--												<div id="piùosservati_content_6" class="productinfo text-center">-->
-<!--													<img src="images/home/recommend3.jpg" alt="" />-->
-<!--													<h2>--><?php ////echo "€ ".$prezzo6;?><!--</h2>       € 10-->
-<!--													<p>--><?php ////echo $nomeAn6;?><!--</p>         Vestito rosa-->
-<!--													<a href="#" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
-<!--												</div>-->
-<!---->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
+                                <?php
+                                    getPiùOsservati($cid);
+                                ?>
 							</div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
@@ -311,7 +231,7 @@
 					<div class="features_items index-margin-top"><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
 						<div class="col-sm-4">
-							<div class="product-image-wrapper" style="width: 400;">
+							<div class="product-image-wrapper">
 								<div class="single-products" >
 										<div class="productinfo text-center">
 											<div class="img-contenitore">
@@ -512,8 +432,8 @@
 												<div class="productinfo text-center user-information">			<!--user-information-->
 													<img src="images/home/gallery2.jpg" alt="" />
 													<h2>Nome Cognome 2</h2>
-													<p style="margin-bottom: 10px; font-size: 13px !important;">nomecognome1@top.it</p>
-													<div style="margin-bottom: 20px;">
+													<p>nomecognome1@top.it</p>
+													<div>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
@@ -535,8 +455,8 @@
 												<div class="productinfo text-center user-information">				<!--user-information-->
 													<img src="images/home/gallery3.jpg" alt="" />
 													<h2>Nome Cognome 3</h2>
-													<p style="margin-bottom: 10px; font-size: 13px !important;">nomecognome2@top.it</p>
-													<div style="margin-bottom: 20px;">
+													<p>nomecognome2@top.it</p>
+													<div>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
@@ -558,8 +478,8 @@
 												<div class="productinfo text-center user-information">		<!--user-information-->
 													<img src="images/home/gallery4.jpg" alt="" />
 													<h2>Nome Cognome 4</h2>
-													<p style="margin-bottom: 10px; font-size: 13px !important;">nomecognome3@top.it</p>
-													<div style="margin-bottom: 20px;">
+													<p>nomecognome3@top.it</p>
+													<div>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>
 														<i class="fa fa-star"></i>

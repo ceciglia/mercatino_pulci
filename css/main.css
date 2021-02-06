@@ -167,6 +167,11 @@ a#scrollUp i{
   display: none;
 }
 
+.search2-margin {
+  margin-top: 40px;
+}
+
+
 
 /*FINE AGGIUNTA*/
 
@@ -1443,8 +1448,8 @@ h2.title {
 
 }
 
-.signup-form {
-
+.signup-form, .signup-form > div {
+  width: max-content;
 }
 
 .login-form h2, .signup-form h2 {
@@ -2829,6 +2834,16 @@ h2.title {
   text-decoration: none;  /*aggiunta*/
   color: #2b5164;                        /*color:  #696763;*/
 }
+
+.overlay-tendina-content-margin {
+  margin-left: 200px;
+}
+
+/*.tendina-row {*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*}*/
+
 
 #main_menu_desktop  {           /*.nav-menu*/
   /* min-height: 5em; */
