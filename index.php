@@ -163,7 +163,9 @@
 
 						<div class="price-range adattivo">
 							<h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
-							<?php include "areaGeografica.php";?>
+							<div class="well text-center">
+								<?php include "areaGeografica.php";?>
+							</div>
 						</div>				<!-- /filtro comune provincia regione -->
 
 						<div class="price-range adattivo">		<!-- price-range -->
