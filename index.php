@@ -163,35 +163,7 @@
 
 						<div class="price-range adattivo">
 							<h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
-							<div class="well text-center">
-								<form>
-									<select>
-										<option>-- Comune --</option>
-										<option>Comune1</option>
-										<option>Comune2</option>
-										<option>Comune3</option>
-										<option>Comune4</option>
-									</select>
-									<br>
-									<br>
-									<select>
-										<option>-- Provincia --</option>
-										<option>Provincia1</option>
-										<option>Provincia2</option>
-										<option>Provincia3</option>
-										<option>Provincia4</option>
-									</select>
-									<br>
-									<br>
-									<select>
-										<option>-- Regione --</option>
-										<option>Regione1</option>
-										<option>Regione2</option>
-										<option>Regione3</option>
-										<option>Regione4</option>
-									</select>
-								</form>
-							</div>
+							<?php include "areaGeografica.php";?>
 						</div>				<!-- /filtro comune provincia regione -->
 
 						<div class="price-range adattivo">		<!-- price-range -->
