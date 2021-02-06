@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "common/connessione.php";
+	include "common/funzioniFR.php";
 ?>
 
 <!DOCTYPE html> 			
@@ -9,7 +9,7 @@
 	<?php include "common/head.php";?>
 
 <body>
-	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
 	<section>
 		<div class="container">
@@ -537,7 +537,7 @@
 										<div id="annuncio1" class="panel-collapse collapse">
 											<div class="panel-body ">
 												<table class="table-risposte">
-													<theadb>
+													<thead>
 														<tr class="cart_menu cart-color-richieste" >
 															<td class="image" >Acquirente</td>
 															<td class="description"></td> 

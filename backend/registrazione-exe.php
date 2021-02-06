@@ -1,6 +1,6 @@
 <?php
 
-	 include "connessione.php";
+	 include "../common/connessione.php";
 
      if ($cid->connect_error){
        die(' ('. $cid->connect_error .')' . $cid->connect_error);}
@@ -22,7 +22,7 @@
 			 $comune=$_POST['comune'];
 			 $provincia=$_POST['provincia'];
 			 $regione=$_POST['regione'];
-			 $insert = "INSERT INTO utente (email, psw, nome, cognome, codFiscale, immagine, via, nCivico, CAP, venditore, acquirente, comune, provincia, regione) VALUES ('$email', '$psw', '$nome', '$cognome', '$codFiscale', '$immagini', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione');";
+			 $insert = "INSERT INTO utente (email, psw, nome, cognome, codFiscale, immagine, via, nCivico, CAP, venditore, acquirente, comune, provincia, regione) VALUES ('$email', '$psw', '$nome', '$cognome', '$codFiscale', '$immagine', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione');";
 			 $ris= $cid->query($insert);
 			 if($ris){
 				echo("<br>Inserimento riuscito");

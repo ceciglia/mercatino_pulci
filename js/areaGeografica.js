@@ -33,7 +33,7 @@ function popolaRegioni(reg){
 
     	}
     };
-	xttp.open("GET","php/getRegioni.php?",true);
+	xttp.open("GET","backend/getRegioni.php?",true);
 	xttp.send();
 }
 
@@ -58,7 +58,7 @@ function popolaProvince(reg,prov){
 
     	    }
         };
-    	xttp.open("GET","php/getProvince.php?regione="+regioneSelezionata,true);
+    	xttp.open("GET","backend/getProvince.php?regione="+regioneSelezionata,true);
     	xttp.send();
 	}
 }
@@ -83,7 +83,7 @@ function popolaComuni(prov,com){
 		        }
     	    }
         };
-    	xttp.open("GET","php/getComuni.php?regione="+provinciaSelezionata,true);
+    	xttp.open("GET","backend/getComuni.php?regione="+provinciaSelezionata,true);
     	xttp.send();
 	}
 }

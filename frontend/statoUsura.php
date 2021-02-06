@@ -8,7 +8,7 @@
 
 
 
-<script src="js/selectUsura.js"></script>
+<script src="../js/selectUsura.js"></script>
 
 
 

@@ -4,9 +4,8 @@
         session_start(); 
     }
 	// $_SESSION["logged"]=false;
-	include_once "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include_once "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
-	// $emailErr = $pswErr = "";
+	include_once "common/connessione.php";
+	include_once "common/funzioniFR.php";
 ?>
 
 <!--NAVBAR PRINCIPALE-->
@@ -16,7 +15,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.php"><img class="logo-image logo-position" src="./images/home/logo_transparent.png" alt="" /></a>
+						<a href="index.php"><img class="logo-image logo-position" src="images/home/logo_transparent.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="col-sm-8">
@@ -41,7 +40,7 @@
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
-								<li id="login-1"><a href="php/logout_execution.php"><button type="submit" class="logout-button"><i class="fa fa-lock"></i> Logout</button></a></li>
+								<li id="login-1"><a href="backend/logout_execution.php"><button type="submit" class="logout-button"><i class="fa fa-lock"></i> Logout</button></a></li>
 								<li id="login-2"><a href="loginRegistrazioneResp.php"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
 								<li><a class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
 							</ul>
@@ -81,7 +80,7 @@
                     <div class="col-sm-4 col-sm-offset-1 overlay-tendina-content-margin" >     <!--style="margin-left: 200px;"-->
                         <div class="login-form"><!--login form-->
                                 <h2>Login</h2>
-                                <form action="php/login_execution.php" method="POST">
+                                <form action="backend/login_execution.php" method="POST">
                                     <div class="loginInput">
                                         <label for="emailLogin"></label>
                                         <input type="email" placeholder="Email" name="email" required>

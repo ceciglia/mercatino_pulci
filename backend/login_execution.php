@@ -1,6 +1,6 @@
 <?php
-	include_once "connessione.php";
-	include_once "funzioniFR.php";
+	include_once "../common/connessione.php";
+	include_once "../common/funzioniFR.php";
 
 	$email="";
 	$psw="";

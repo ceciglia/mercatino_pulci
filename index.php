@@ -1,15 +1,15 @@
 <?php
 	session_start();
-	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "common/connessione.php";
+	include "common/funzioniFR.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php include "common/head.php";?> 
+	<?php include "common/head.php";?>
 
 <body>
-	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
 	<section id="slider"><!--slider-->
 		<div class="container">
@@ -164,7 +164,7 @@
 						<div class="price-range adattivo">
 							<h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
 							<div class="well text-center">
-								<?php include "areaGeografica.php";?>
+								<?php include "frontend/areaGeografica.php";?>
 							</div>
 						</div>				<!-- /filtro comune provincia regione -->
 

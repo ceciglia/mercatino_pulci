@@ -12,7 +12,7 @@
 </select>
 
 
-<script src="js/selectCategoria.js"></script>
+<script src="../js/selectCategoria.js"></script>
 
 
 </body>
