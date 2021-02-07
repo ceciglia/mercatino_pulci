@@ -750,17 +750,39 @@ h2.title:before{
   white-space: nowrap;
 }
 
-.panel-body ul{
+/*.panel-body ul{*/
+/*  padding-left: 20px;*/
+/*}*/
+
+
+/*.panel-body ul li a {*/
+/*  color: #2b5164;*/
+/*  font-family: 'Roboto', sans-serif;*/
+/*  font-size: 12px;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+.panel-body {
   padding-left: 20px;
 }
 
+.panel-body > label:hover {
+  color: #FE980F;
+}
 
-.panel-body ul li a {
+.panel-body > label{
+  padding-left: 10px;
   color: #2b5164;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
+  font-weight: unset;
 }
+
+.panel-body > label, .panel-body > input {
+  cursor: pointer;
+}
+
 
 .brands-name {
   border: 1px solid #F7F7F0;

@@ -70,115 +70,137 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2><span class="title-span">Categoria</span></h2>
-						<div class="panel-group category-products" id="accordian"><!--category-products-->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#elettrodomestici">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											ELETTRODOMESTICI
-										</a>
-									</h4>
-								</div>
-								<div id="elettrodomestici" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a class="account-click" href="#">Aspirapolveri </a></li>
-											<li><a class="account-click" href="#">Caffettiere </a></li>
-											<li><a class="account-click" href="#">Tostapane </a></li>
-											<li><a class="account-click" href="#">Frullatori</a></li>
-											<li><a class="account-click" href="#">Altro </a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#fotoevideo">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Foto e video
-										</a>
-									</h4>
-								</div>
-								<div id="fotoevideo" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a class="account-click" href="#">Macchine fotografiche</a></li>
-											<li><a class="account-click" href="#">Accessori</a></li>
-											<li><a class="account-click" href="#">Telecamere</a></li>
-											<li><a class="account-click" href="#">Microfoni</a></li>
-											<li><a class="account-click" href="#">Altro</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+                    <form>  <!--form per filtraggio annunci-->
+                        <div class="left-sidebar">
+                            <h2><span class="title-span">Categoria</span></h2>
+                            <div class="panel-group category-products" id="accordian"><!--category-products-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#elettrodomestici">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                ELETTRODOMESTICI
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="elettrodomestici" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <input type="radio" id="visualizzaTuttoEl" name="elettrodomestici" value="visualizzaTuttoEl">
+                                            <label for="visualizzaTuttoEl"><b>Visualizza tutto</b></label><br>
+                                            <input type="radio" id="aspirapolveri" name="elettrodomestici" value="aspirapolveri">
+                                            <label for="aspirapolveri">Aspirapolveri</label><br>
+                                            <input type="radio" id="caffettiere" name="elettrodomestici" value="caffettiere">
+                                            <label for="caffettiere">Caffettiere</label><br>
+                                            <input type="radio" id="tostapane" name="elettrodomestici" value="tostapane">
+                                            <label for="tostapane">Tostapane</label><br>
+                                            <input type="radio" id="frullatori" name="elettrodomestici" value="frullatori">
+                                            <label for="frullatori">Frullatori</label><br>
+                                            <input type="radio" id="altroEl" name="elettrodomestici" value="altroEl">
+                                            <label for="altroEl">Altro</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#fotoevideo">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                Foto e video
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="fotoevideo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <input type="radio" id="visualizzaTuttoFeV" name="fotoVideo" value="visualizzaTuttoFeV">
+                                            <label for="visualizzaTuttoFeV"><b>Visualizza tutto</b></label><br>
+                                            <input type="radio" id="macchineFotografiche" name="fotoVideo" value="macchineFotografiche">
+                                            <label for="macchineFotografiche">Macchine fotografiche</label><br>
+                                            <input type="radio" id="accessoriFev" name="fotoVideo" value="accessoriFev">
+                                            <label for="accessoriFev">Accessori</label><br>
+                                            <input type="radio" id="telecamere" name="fotoVideo" value="telecamere">
+                                            <label for="telecamere">Telecamere</label><br>
+                                            <input type="radio" id="microfoni" name="fotoVideo" value="microfoni">
+                                            <label for="microfoni">Microfoni</label><br>
+                                            <input type="radio" id="altroFeV" name="fotoVideo" value="altroFeV">
+                                            <label for="altroFeV">Altro</label>
+                                        </div>
+                                    </div>
+                                </div>
 
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#abbigliamento">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Abbigliamento
-										</a>
-									</h4>
-								</div>
-								<div id="abbigliamento" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a class="account-click" href="#">Vestiti</a></li>
-											<li><a class="account-click" href="#">Borse</a></li>
-											<li><a class="account-click" href="#">Scarpe</a></li>
-											<li><a class="account-click" href="#">Accessori</a></li>
-											<li><a class="account-click" href="#">Altro</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#abbigliamento">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                Abbigliamento
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="abbigliamento" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <input type="radio" id="visualizzaTuttoAb" name="abbigliamento" value="visualizzaTuttoAb">
+                                            <label for="visualizzaTuttoAb"><b>Visualizza tutto</b></label><br>
+                                            <input type="radio" id="vestiti" name="abbigliamento" value="vestiti">
+                                            <label for="vestiti">Vestiti</label><br>
+                                            <input type="radio" id="borse" name="abbigliamento" value="borse">
+                                            <label for="borse">Borse</label><br>
+                                            <input type="radio" id="scarpe" name="abbigliamento" value="scarpe">
+                                            <label for="scarpe">Scarpe</label><br>
+                                            <input type="radio" id="accessoriAb" name="abbigliamento" value="accessoriAb">
+                                            <label for="accessoriAb">Accessori</label><br>
+                                            <input type="radio" id="altroAb" name="abbigliamento" value="altroAb">
+                                            <label for="altroAb">Altro</label>
+                                        </div>
+                                    </div>
+                                </div>
 
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#hobby">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Hobby
-										</a>
-									</h4>
-								</div>
-								<div id="hobby" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a class="account-click" href="#">Giocattoli</a></li>
-											<li><a class="account-click" href="#">Film e DVD</a></li>
-											<li><a class="account-click" href="#">Musica</a></li>
-											<li><a class="account-click" href="#">Libri e riviste</a></li>
-											<li><a class="account-click" href="#">Altro</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div><!--/category-products-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#hobby">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                Hobby
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="hobby" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <input type="radio" id="visualizzaTuttoH" name="hobby" value="visualizzaTuttoH">
+                                            <label for="visualizzaTuttoH"><b>Visualizza tutto</b></label><br>
+                                            <input type="radio" id="giocattoli" name="hobby" value="giocattoli">
+                                            <label for="giocattoli">Giocattoli</label><br>
+                                            <input type="radio" id="filmDvd" name="hobby" value="filmDvd">
+                                            <label for="filmDvd">Film e dvd</label><br>
+                                            <input type="radio" id="musica" name="hobby" value="musica">
+                                            <label for="musica">Musica</label><br>
+                                            <input type="radio" id="libriRiviste" name="hobby" value="libriRiviste">
+                                            <label for="libriRiviste">libri e riviste</label><br>
+                                            <input type="radio" id="altroH" name="hobby" value="altroH">
+                                            <label for="altroH">Altro</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--/category-products-->
 
-						<div class="price-range adattivo">
-							<h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
-							<div class="well text-center">
-								<?php include "frontend/areaGeografica.php";?>
-							</div>
-						</div>				<!-- /filtro comune provincia regione -->
+                            <div class="price-range adattivo">
+                                <h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
+                                <div class="well text-center">
+                                    <?php include "frontend/areaGeografica.php";?>
+                                </div>
+                            </div>				<!-- /filtro comune provincia regione -->
 
-						<div class="price-range adattivo">		<!-- price-range -->
-							<h2><span class="title-span">Price Range</span></h2>
-							<div class="well text-center">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="99999" data-slider-step="5" data-slider-value="[40000,70500]" id="sl2" ><br />
-								 <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
-							</div>  <!-- /price-range -->
-                            <!--bottone APPLICA-->
-							<a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica</a>
-						</div>
+                            <div class="price-range adattivo">		<!-- price-range -->
+                                <h2><span class="title-span">Price Range</span></h2>
+                                <div class="well text-center">
+                                     <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="99999" data-slider-step="5" data-slider-value="[40000,70500]" id="sl2" ><br />
+                                     <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
+                                </div>  <!-- /price-range -->
+                                <!--bottone APPLICA-->
+                                <a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica</a>
+                            </div>
 
-					</div>
+                        </div>
+                    </form>
 				</div>
 
 

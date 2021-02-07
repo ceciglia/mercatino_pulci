@@ -19,7 +19,6 @@ function popolaRegioni(reg){
 	let xttp = new ajaxRequest();
 	xttp.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200){
-            console.log(this.response);
     		risposta = JSON.parse(this.response);
             regione = risposta.contenuto;
     	    regioneSelect = document.getElementById(reg);
@@ -44,7 +43,6 @@ function popolaProvince(reg,prov){
   	    let xttp = new ajaxRequest();
   	    xttp.onreadystatechange  = function(){
             if (this.readyState == 4 && this.status == 200){
-                console.log(this.response);
     		    risposta = JSON.parse(this.response);
                 province = risposta.contenuto;
 		        provinceSelect = document.getElementById(prov);
@@ -70,7 +68,6 @@ function popolaComuni(prov,com){
   	    let xttp = new ajaxRequest();
   	    xttp.onreadystatechange  = function(){
             if (this.readyState == 4 && this.status == 200){
-                console.log(this.response);
     		    risposta = JSON.parse(this.response);
                 comune = risposta.contenuto;
 		        comuneSelect = document.getElementById(com);
