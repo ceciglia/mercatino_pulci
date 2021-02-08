@@ -1,28 +1,35 @@
 <?php
-include_once "../common/connessione.php";
+include_once "common/connessione.php";
 
-if (isset($_GET["elettrodomestici"])){
-    $sottoCategoria=$_GET["elettrodomestici"];
+$sottoCategoria="";
+$categoria="";
 
+if (isset($_GET["elettrodomestici"])) {
+    $sottoCategoria = $_GET["elettrodomestici"];
+    $categoria = "Elettrodomestici";
+} else if (isset($_GET["fotoVideo"])){
+    $sottoCategoria = $_GET["fotoVideo"];
+    $categoria = "Foto e video";
+} else if (isset($_GET["abbigliamento"])){
+    $sottoCategoria = $_GET["abbigliamento"];
+    $categoria = "Abbigliamento";
+} else if (isset($_GET["hobby"])) {
+    $sottoCategoria = $_GET["hobby"];
+    $categoria = "Hobby";
 } else {
-    $elettrodomestici="Non è stata selezionata questa categoria.";
+    $sottoCategoria="";
+    $categoria="";
 }
 
-if (isset($_GET["fotoVideo"])){
-    $fotoVideo=$_GET["fotoVideo"];
-} else {
-    $fotoVideo="Non è stata selezionata questa categoria.";
-}
 
-if (isset($_GET["abbigliamento"])){
-    $abbigliamento=$_GET["abbigliamento"];
-} else {
-    $abbigliamento="Non è stata selezionata questa categoria.";
-}
+$regione = isset($_GET["regione"])?$_GET["regione"]:"";
+$provincia = isset($_GET["provincia"])?$_GET["provincia"]:"";
+$comune = isset($_GET["comune"])?$_GET["comune"]:"";
 
-if (isset($_GET["hobby"])){
-    $hobby=$_GET["hobby"];
-} else {
-    $hobby="Non è stata selezionata questa categoria.";
-}
+//getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune);
+//$cid, $categoria, $sottoCategoria, $regione, $provincia, $comune
+
+
+
+
 

@@ -80,7 +80,7 @@ function popolaComuni(prov,com){
 		        }
     	    }
         };
-    	xttp.open("GET","backend/getComuni.php?regione="+provinciaSelezionata,true);
+    	xttp.open("GET","backend/getComuni.php?provincia="+provinciaSelezionata,true);
     	xttp.send();
 	}
 }

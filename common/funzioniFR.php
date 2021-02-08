@@ -37,6 +37,7 @@ function getPiùOsservati($cid){
     $count=0;
     while($row=$risultato->fetch_assoc()){
         //!!!DA GESTIRE LA FOTOP e bottone DETTAGLI ANNUNCIO!!!
+//        $fotoP = ;
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
 
@@ -64,6 +65,61 @@ function getPiùOsservati($cid){
         ++$count;
     };
     echo "</div>";
+}
+
+//function filtroCategoria($cid, $categoria, $sottoCategoria){
+//    if ($sottoCategoria=="visualizzaTuttoEl" or $sottoCategoria=="visualizzaTuttoFeV" or $sottoCategoria=="visualizzaTuttoAb" or $sottoCategoria=="visualizzaTuttoH"){
+//        $sql="SELECT nomeCategoria, sottoCategoria FROM categoria WHERE nomeCategoria='$categoria'";
+////        $sql="SELECT nomeCategoria, sottoCategoria FROM categoria WHERE nomeCategoria='Abbigliamento' and (sottoCategoria='Vestiti' or sottoCategoria='Borse' or sottoCategoria='Scarpe' or sottoCategoria='Accessori' or sottoCategoria='Altro');"
+//    } else {
+//        $sql = "SELECT nomeCategoria, sottoCategoria FROM categoria WHERE nomeCategoria='$categoria' and sottoCategoria='$sottoCategoria'";
+//    }
+//
+//    $risultato = $cid->query($sql);
+//    while($row=$risultato->fetch_assoc()){
+//    }
+//}
+
+
+
+function getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune) {
+    //DA FARE controlli vari su input
+    $sql="SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+
+    $risultato = $cid->query($sql);
+
+    while($row=$risultato->fetch_assoch()){
+        $prezzoP = $row["prezzoP"];
+        $nomeAn = $row["nomeAnnuncio"];
+        echo'<div class="col-sm-4 annunci-dim">
+                <div class="product-image-wrapper">
+                    <div class="single-products" >
+                        <div class="productinfo text-center">
+                            <div class="img-contenitore">
+                                <img src="images/mercatino/taylorGSmini.jpg" alt="Impossibile caricare l\'immagine." />
+                            </div>
+                            <h2>€ '. $prezzoP .'</h2>
+                            <p>'. $nomeAn .'</p>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>€ '. $prezzoP .'</h2>
+                                <p>'. $nomeAn .'</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+    
+                        </ul>
+                    </div>
+                </div>
+             </div>';
+    }
+
 }
 
 

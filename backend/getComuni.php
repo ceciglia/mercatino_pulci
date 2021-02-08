@@ -6,7 +6,7 @@ $password = '';
 $db = 'mercatino7_Fusari_Rossi';
 $cid = new mysqli ($hostname, $username, $password, $db);
 
-$provincia = mysqli_real_escape_string($cid, $_GET['regione']);
+$provincia = mysqli_real_escape_string($cid, $_GET['provincia']);
 $sql = "SELECT DISTINCT comune FROM areageografica WHERE provincia = '$provincia' ORDER BY comune";
 
 $res = $cid->query($sql);

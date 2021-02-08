@@ -87,15 +87,15 @@
                                         <div class="panel-body">
                                             <input type="radio" id="visualizzaTuttoEl" name="elettrodomestici" value="visualizzaTuttoEl">
                                             <label for="visualizzaTuttoEl"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="aspirapolveri" name="elettrodomestici" value="aspirapolveri">
+                                            <input type="radio" id="aspirapolveri" name="elettrodomestici" value="Aspirapolveri">
                                             <label for="aspirapolveri">Aspirapolveri</label><br>
-                                            <input type="radio" id="caffettiere" name="elettrodomestici" value="caffettiere">
+                                            <input type="radio" id="caffettiere" name="elettrodomestici" value="Caffettiere">
                                             <label for="caffettiere">Caffettiere</label><br>
-                                            <input type="radio" id="tostapane" name="elettrodomestici" value="tostapane">
+                                            <input type="radio" id="tostapane" name="elettrodomestici" value="Tostapane">
                                             <label for="tostapane">Tostapane</label><br>
-                                            <input type="radio" id="frullatori" name="elettrodomestici" value="frullatori">
+                                            <input type="radio" id="frullatori" name="elettrodomestici" value="Frullatori">
                                             <label for="frullatori">Frullatori</label><br>
-                                            <input type="radio" id="altroEl" name="elettrodomestici" value="altroEl">
+                                            <input type="radio" id="altroEl" name="elettrodomestici" value="Altro">
                                             <label for="altroEl">Altro</label>
                                         </div>
                                     </div>
@@ -113,15 +113,15 @@
                                         <div class="panel-body">
                                             <input type="radio" id="visualizzaTuttoFeV" name="fotoevideo" value="visualizzaTuttoFeV">
                                             <label for="visualizzaTuttoFeV"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="macchineFotografiche" name="fotoevideo" value="macchineFotografiche">
+                                            <input type="radio" id="macchineFotografiche" name="fotoevideo" value="Macchine fotografiche">
                                             <label for="macchineFotografiche">Macchine fotografiche</label><br>
-                                            <input type="radio" id="accessoriFev" name="fotoevideo" value="accessoriFev">
+                                            <input type="radio" id="accessoriFev" name="fotoevideo" value="Accessori">
                                             <label for="accessoriFev">Accessori</label><br>
-                                            <input type="radio" id="telecamere" name="fotoevideo" value="telecamere">
+                                            <input type="radio" id="telecamere" name="fotoevideo" value="Telecamere">
                                             <label for="telecamere">Telecamere</label><br>
-                                            <input type="radio" id="microfoni" name="fotoevideo" value="microfoni">
+                                            <input type="radio" id="microfoni" name="fotoevideo" value="Microfoni">
                                             <label for="microfoni">Microfoni</label><br>
-                                            <input type="radio" id="altroFeV" name="fotoevideo" value="altroFeV">
+                                            <input type="radio" id="altroFeV" name="fotoevideo" value="Altro">
                                             <label for="altroFeV">Altro</label>
                                         </div>
                                     </div>
@@ -140,15 +140,15 @@
                                         <div class="panel-body">
                                             <input type="radio" id="visualizzaTuttoAb" name="abbigliamento" value="visualizzaTuttoAb">
                                             <label for="visualizzaTuttoAb"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="vestiti" name="abbigliamento" value="vestiti">
+                                            <input type="radio" id="vestiti" name="abbigliamento" value="Vestiti">
                                             <label for="vestiti">Vestiti</label><br>
-                                            <input type="radio" id="borse" name="abbigliamento" value="borse">
+                                            <input type="radio" id="borse" name="abbigliamento" value="Borse">
                                             <label for="borse">Borse</label><br>
-                                            <input type="radio" id="scarpe" name="abbigliamento" value="scarpe">
+                                            <input type="radio" id="scarpe" name="abbigliamento" value="Scarpe">
                                             <label for="scarpe">Scarpe</label><br>
-                                            <input type="radio" id="accessoriAb" name="abbigliamento" value="accessoriAb">
+                                            <input type="radio" id="accessoriAb" name="abbigliamento" value="Accessori">
                                             <label for="accessoriAb">Accessori</label><br>
-                                            <input type="radio" id="altroAb" name="abbigliamento" value="altroAb">
+                                            <input type="radio" id="altroAb" name="abbigliamento" value="Altro">
                                             <label for="altroAb">Altro</label>
                                         </div>
                                     </div>
@@ -167,23 +167,23 @@
                                         <div class="panel-body">
                                             <input type="radio" id="visualizzaTuttoH" name="hobby" value="visualizzaTuttoH">
                                             <label for="visualizzaTuttoH"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="giocattoli" name="hobby" value="giocattoli">
+                                            <input type="radio" id="giocattoli" name="hobby" value="Giocattoli">
                                             <label for="giocattoli">Giocattoli</label><br>
-                                            <input type="radio" id="filmDvd" name="hobby" value="filmDvd">
+                                            <input type="radio" id="filmDvd" name="hobby" value="Film e DVD">
                                             <label for="filmDvd">Film e dvd</label><br>
-                                            <input type="radio" id="musica" name="hobby" value="musica">
+                                            <input type="radio" id="musica" name="hobby" value="Musica">
                                             <label for="musica">Musica</label><br>
-                                            <input type="radio" id="libriRiviste" name="hobby" value="libriRiviste">
+                                            <input type="radio" id="libriRiviste" name="hobby" value="libri e riviste">
                                             <label for="libriRiviste">libri e riviste</label><br>
-                                            <input type="radio" id="altroH" name="hobby" value="altroH">
+                                            <input type="radio" id="altroH" name="hobby" value="Altro">
                                             <label for="altroH">Altro</label>
                                         </div>
                                     </div>
                                 </div>
                             </div><!--/category-products-->
 
-                            <div class="price-range adattivo">
-                                <h2><span class="title-span">Area Geografica</span></h2>    <!-- filtro comune provincia regione -->
+                            <div class="price-range adattivo">      <!-- filtro comune provincia regione -->
+                                <h2><span class="title-span">Area Geografica</span></h2>
                                 <div class="well text-center">
                                     <?php include "frontend/areaGeografica.php";?>
                                 </div>
@@ -196,7 +196,7 @@
                                      <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
                                 </div>  <!-- /price-range -->
                                 <!--bottone APPLICA-->
-                                <a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica filtri</a>
+                                <button type="submit" class="btn btn-default add-to-cart applica-btn">Applica filtri</button>
                             </div>
 
                         </div>
@@ -226,172 +226,178 @@
 
 					<div class="features_items index-margin-top"><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products" >
-										<div class="productinfo text-center">
-											<div class="img-contenitore">
-												<img src="images/mercatino/taylorGSmini.jpg" alt="" />
-											</div>
-											<h2>€ 600</h2>
-											<p>Taylor GS mini</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>€ 600</h2>
-												<p>Taylor GS mini</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+                        <?php
+//                            getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune);
+                        ?>
 
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products" >
-									<div class="productinfo text-center">
-										<div class="img-contenitore">
-											<img src="images/mercatino/bialettiMoka.jpg" alt="" />
-										</div>
-										<h2>€ 22.89</h2>
-										<p>Bialetti Moka express</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>€ 22.89</h2>
-											<p>Bialetti Moka express</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
 
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<div class="img-contenitore">
-											<img src="images/mercatino/borsa_chanel.jpg" alt="" />
-										</div>
-										<h2>€ 700</h2>
-										<p>Borsa chanel classic</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>€ 700</h2>
-											<p>Borsa chanel classic</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
 
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<div class="img-contenitore">
-											<img src="images/mercatino/canon.jpg" alt="" />
-										</div>
-										<h2>€ 376.50</h2>
-										<p>Macchina fotografica Canon</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>€ 376.50</h2>
-											<p>Macchina fotografica Canon</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<div class="img-contenitore">
-											<img src="images/mercatino/tostapaneSMEG.jpg" alt="" />
-										</div>
-										<h2>€ 70.80</h2>
-										<p>Tostapane SMEG</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>€ 70.80</h2>
-											<p>Tostapane SMEG</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<div class="img-contenitore">
-											<img src="images/mercatino/scarpe.jpg" alt="" />
-										</div>
-										<h2>€ 120.60</h2>
-										<p>Scarpe donna Dr. Martens</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>€ 120.60</h2>
-											<p>Scarpe donna Dr. Martens</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-										<!-- <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li> -->
-									</ul>
-								</div>
-							</div>
-						</div>
-
-					</div><!--features_items-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products" >-->
+<!--										<div class="productinfo text-center">-->
+<!--											<div class="img-contenitore">-->
+<!--												<img src="images/mercatino/taylorGSmini.jpg" alt="Impossibile caricare l'immagine." />-->
+<!--											</div>-->
+<!--											<h2>€ 600</h2>-->
+<!--											<p>Taylor GS mini</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--										<div class="product-overlay">-->
+<!--											<div class="overlay-content">-->
+<!--												<h2>€ 600</h2>-->
+<!--												<p>Taylor GS mini</p>-->
+<!--												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!---->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products" >-->
+<!--									<div class="productinfo text-center">-->
+<!--										<div class="img-contenitore">-->
+<!--											<img src="images/mercatino/bialettiMoka.jpg" alt="" />-->
+<!--										</div>-->
+<!--										<h2>€ 22.89</h2>-->
+<!--										<p>Bialetti Moka express</p>-->
+<!--										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--									</div>-->
+<!--									<div class="product-overlay">-->
+<!--										<div class="overlay-content">-->
+<!--											<h2>€ 22.89</h2>-->
+<!--											<p>Bialetti Moka express</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!---->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products">-->
+<!--									<div class="productinfo text-center">-->
+<!--										<div class="img-contenitore">-->
+<!--											<img src="images/mercatino/borsa_chanel.jpg" alt="" />-->
+<!--										</div>-->
+<!--										<h2>€ 700</h2>-->
+<!--										<p>Borsa chanel classic</p>-->
+<!--										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--									</div>-->
+<!--									<div class="product-overlay">-->
+<!--										<div class="overlay-content">-->
+<!--											<h2>€ 700</h2>-->
+<!--											<p>Borsa chanel classic</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!---->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products">-->
+<!--									<div class="productinfo text-center">-->
+<!--										<div class="img-contenitore">-->
+<!--											<img src="images/mercatino/canon.jpg" alt="" />-->
+<!--										</div>-->
+<!--										<h2>€ 376.50</h2>-->
+<!--										<p>Macchina fotografica Canon</p>-->
+<!--										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--									</div>-->
+<!--									<div class="product-overlay">-->
+<!--										<div class="overlay-content">-->
+<!--											<h2>€ 376.50</h2>-->
+<!--											<p>Macchina fotografica Canon</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<img src="images/home/new.png" class="new" alt="" />-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!---->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products">-->
+<!--									<div class="productinfo text-center">-->
+<!--										<div class="img-contenitore">-->
+<!--											<img src="images/mercatino/tostapaneSMEG.jpg" alt="" />-->
+<!--										</div>-->
+<!--										<h2>€ 70.80</h2>-->
+<!--										<p>Tostapane SMEG</p>-->
+<!--										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--									</div>-->
+<!--									<div class="product-overlay">-->
+<!--										<div class="overlay-content">-->
+<!--											<h2>€ 70.80</h2>-->
+<!--											<p>Tostapane SMEG</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									<img src="images/home/sale.png" class="new" alt="" />-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!---->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="col-sm-4 annunci-dim">-->
+<!--							<div class="product-image-wrapper">-->
+<!--								<div class="single-products">-->
+<!--									<div class="productinfo text-center">-->
+<!--										<div class="img-contenitore">-->
+<!--											<img src="images/mercatino/scarpe.jpg" alt="" />-->
+<!--										</div>-->
+<!--										<h2>€ 120.60</h2>-->
+<!--										<p>Scarpe donna Dr. Martens</p>-->
+<!--										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--									</div>-->
+<!--									<div class="product-overlay">-->
+<!--										<div class="overlay-content">-->
+<!--											<h2>€ 120.60</h2>-->
+<!--											<p>Scarpe donna Dr. Martens</p>-->
+<!--											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="choose">-->
+<!--									<ul class="nav nav-pills nav-justified">-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>-->
+<!--										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li> -->
+<!--									</ul>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!---->
+					</div>          <!--/features_items-->
 
 					<div class="category-tab"><!--category-tab-->
 						<h2 class="title text-center index-margin-top"><span class="title-span">Venditori TOP</span></h2>
@@ -495,7 +501,7 @@
 							<div class="tab-pane p-4 fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 1</span></h2>
 
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -521,7 +527,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -547,7 +553,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -578,7 +584,7 @@
 							<div class="tab-pane p-4 fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 2</span></h2>
 
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -604,7 +610,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -630,7 +636,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -660,7 +666,7 @@
 							<div class="tab-pane p-4 fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 3</span></h2>
 
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -686,7 +692,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -712,7 +718,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -742,7 +748,7 @@
 							<div class="tab-pane p-4 fade" id="tab4" role="tabpanel" aria-labelledby="tab3-tab">
 								<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">Venditore TOP 4</span></h2>
 
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -768,7 +774,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">
@@ -794,7 +800,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-sm-4 annunci-dim">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center annunci-vtop">

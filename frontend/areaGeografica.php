@@ -1,19 +1,17 @@
 <body>
 
-<form action="">
-  <select id="reg">
-    <option>Seleziona una regione:</option>
-  </select>
-</form>
+<select id="reg" name="regione">
+<option>Seleziona una regione:</option>
+</select>
 <br>
 <br>
-<select id="prov">
+<select id="prov" name="provincia">
   <option>Seleziona prima una regione: </option>
   <option>Nessuna</option>
 </select>
 <br>
 <br>
-<select id="com" >
+<select id="com" name="comune">
   <option>Seleziona prima una provincia: </option>
   <option>Nessuna</option>
 </select>
