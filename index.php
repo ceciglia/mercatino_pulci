@@ -70,7 +70,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3">
-                    <form>  <!--form per filtraggio annunci-->
+                    <form action="filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
                         <div class="left-sidebar">
                             <h2><span class="title-span">Categoria</span></h2>
                             <div class="panel-group category-products" id="accordian"><!--category-products-->
@@ -111,17 +111,17 @@
                                     </div>
                                     <div id="fotoevideo" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <input type="radio" id="visualizzaTuttoFeV" name="fotoVideo" value="visualizzaTuttoFeV">
+                                            <input type="radio" id="visualizzaTuttoFeV" name="fotoevideo" value="visualizzaTuttoFeV">
                                             <label for="visualizzaTuttoFeV"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="macchineFotografiche" name="fotoVideo" value="macchineFotografiche">
+                                            <input type="radio" id="macchineFotografiche" name="fotoevideo" value="macchineFotografiche">
                                             <label for="macchineFotografiche">Macchine fotografiche</label><br>
-                                            <input type="radio" id="accessoriFev" name="fotoVideo" value="accessoriFev">
+                                            <input type="radio" id="accessoriFev" name="fotoevideo" value="accessoriFev">
                                             <label for="accessoriFev">Accessori</label><br>
-                                            <input type="radio" id="telecamere" name="fotoVideo" value="telecamere">
+                                            <input type="radio" id="telecamere" name="fotoevideo" value="telecamere">
                                             <label for="telecamere">Telecamere</label><br>
-                                            <input type="radio" id="microfoni" name="fotoVideo" value="microfoni">
+                                            <input type="radio" id="microfoni" name="fotoevideo" value="microfoni">
                                             <label for="microfoni">Microfoni</label><br>
-                                            <input type="radio" id="altroFeV" name="fotoVideo" value="altroFeV">
+                                            <input type="radio" id="altroFeV" name="fotoevideo" value="altroFeV">
                                             <label for="altroFeV">Altro</label>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                      <b class="pull-left">0 €</b> <b class="pull-right">100000 €</b>
                                 </div>  <!-- /price-range -->
                                 <!--bottone APPLICA-->
-                                <a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica</a>
+                                <a href="index.php" class="btn btn-default add-to-cart applica-btn">Applica filtri</a>
                             </div>
 
                         </div>
