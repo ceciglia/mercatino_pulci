@@ -688,7 +688,10 @@
 	.index-benvenuto > a > button {
 		margin-bottom: 30px;
 	}
-	
+
+	.annunci-dim {
+		display: contents !important;
+	}
 
 }
 
