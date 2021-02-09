@@ -22,9 +22,17 @@ if (isset($_GET["elettrodomestici"])) {
 }
 
 
-$regione = isset($_GET["regione"])?$_GET["regione"]:"";
-$provincia = isset($_GET["provincia"])?$_GET["provincia"]:"";
-$comune = isset($_GET["comune"])?$_GET["comune"]:"";
+$regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
+$provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
+$comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
+
+if (isset($_GET["priceRange"])){
+    $price = $_GET["priceRange"];
+//    $minPrice=$_GET["priceRange"][0];
+//    $maxPrice=$_GET["priceRange"][1];
+}
+
+//mysqli_real_escape_string()
 
 //getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune);
 //$cid, $categoria, $sottoCategoria, $regione, $provincia, $comune

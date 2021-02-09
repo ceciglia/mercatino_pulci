@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
- 
+
 !function( $ ) {
 
 	var Slider = function(element, options) {
@@ -182,6 +182,10 @@
 					' : ' + 
 					this.formater(this.value[1])
 				);
+
+				// console.log(this.formater(this.value[0]));
+				// console.log(this.formater(this.value[1]));
+
 				this.tooltip[0].style[this.stylePos] = this.size * (this.percentage[0] + (this.percentage[1] - this.percentage[0])/2)/100 - (this.orientation === 'vertical' ? this.tooltip.outerHeight()/2 : this.tooltip.outerWidth()/2) +'px';
 			} else {
 				this.tooltipInner.text(
@@ -386,3 +390,4 @@
 	$.fn.slider.Constructor = Slider;
 
 }( window.jQuery );
+
