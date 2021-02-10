@@ -71,6 +71,15 @@
 			<div class="row">
 				<div class="col-sm-3">
                     <form action="filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
+<!--                        --><?php
+//                            $sottoCategoria = "";
+//                            $categoria = "";
+//                            $regione = "";
+//                            $provincia = "";
+//                            $comune = "";
+//                            $minPrice = "";
+//                            $maxPrice = "";
+//                        ?>
                         <div class="left-sidebar">
                             <h2><span class="title-span">Categoria</span></h2>
                             <div class="panel-group category-products" id="accordian"><!--category-products-->
@@ -85,17 +94,17 @@
                                     </div>
                                     <div id="elettrodomestici" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <input type="radio" id="visualizzaTuttoEl" name="elettrodomestici" value="visualizzaTuttoEl">
+                                            <input type="radio" id="visualizzaTuttoEl" name="sottoCategoria" value="Elettrodomestici-Tutto">
                                             <label for="visualizzaTuttoEl"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="aspirapolveri" name="elettrodomestici" value="Aspirapolveri">
+                                            <input type="radio" id="aspirapolveri" name="sottoCategoria" value="Elettrodomestici-Aspirapolveri">
                                             <label for="aspirapolveri">Aspirapolveri</label><br>
-                                            <input type="radio" id="caffettiere" name="elettrodomestici" value="Caffettiere">
+                                            <input type="radio" id="caffettiere" name="sottoCategoria" value="Elettrodomestici-Caffettiere">
                                             <label for="caffettiere">Caffettiere</label><br>
-                                            <input type="radio" id="tostapane" name="elettrodomestici" value="Tostapane">
+                                            <input type="radio" id="tostapane" name="sottoCategoria" value="Elettrodomestici-Tostapane">
                                             <label for="tostapane">Tostapane</label><br>
-                                            <input type="radio" id="frullatori" name="elettrodomestici" value="Frullatori">
+                                            <input type="radio" id="frullatori" name="sottoCategoria" value="Elettrodomestici-Frullatori">
                                             <label for="frullatori">Frullatori</label><br>
-                                            <input type="radio" id="altroEl" name="elettrodomestici" value="Altro">
+                                            <input type="radio" id="altroEl" name="sottoCategoria" value="Elettrodomestici-Altro">
                                             <label for="altroEl">Altro</label>
                                         </div>
                                     </div>
@@ -111,17 +120,17 @@
                                     </div>
                                     <div id="fotoevideo" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <input type="radio" id="visualizzaTuttoFeV" name="fotoevideo" value="visualizzaTuttoFeV">
+                                            <input type="radio" id="visualizzaTuttoFeV" name="sottoCategoria" value="Foto e Video-Tutto">
                                             <label for="visualizzaTuttoFeV"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="macchineFotografiche" name="fotoevideo" value="Macchine fotografiche">
+                                            <input type="radio" id="macchineFotografiche" name="sottoCategoria" value="Foto e Video-Macchine fotografiche">
                                             <label for="macchineFotografiche">Macchine fotografiche</label><br>
-                                            <input type="radio" id="accessoriFev" name="fotoevideo" value="Accessori">
+                                            <input type="radio" id="accessoriFev" name="sottoCategoria" value="Foto e Video-Accessori">
                                             <label for="accessoriFev">Accessori</label><br>
-                                            <input type="radio" id="telecamere" name="fotoevideo" value="Telecamere">
+                                            <input type="radio" id="telecamere" name="sottoCategoria" value="Foto e Video-Telecamere">
                                             <label for="telecamere">Telecamere</label><br>
-                                            <input type="radio" id="microfoni" name="fotoevideo" value="Microfoni">
+                                            <input type="radio" id="microfoni" name="sottoCategoria" value="Foto e Video-Microfoni">
                                             <label for="microfoni">Microfoni</label><br>
-                                            <input type="radio" id="altroFeV" name="fotoevideo" value="Altro">
+                                            <input type="radio" id="altroFeV" name="sottoCategoria" value="Foto e Video-Altro">
                                             <label for="altroFeV">Altro</label>
                                         </div>
                                     </div>
@@ -138,17 +147,17 @@
                                     </div>
                                     <div id="abbigliamento" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <input type="radio" id="visualizzaTuttoAb" name="abbigliamento" value="visualizzaTuttoAb">
+                                            <input type="radio" id="visualizzaTuttoAb" name="sottoCategoria" value="Abbigliamento-Tutto">
                                             <label for="visualizzaTuttoAb"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="vestiti" name="abbigliamento" value="Vestiti">
+                                            <input type="radio" id="vestiti" name="sottoCategoria" value="Abbigliamento-Vestiti">
                                             <label for="vestiti">Vestiti</label><br>
-                                            <input type="radio" id="borse" name="abbigliamento" value="Borse">
+                                            <input type="radio" id="borse" name="sottoCategoria" value="Abbigliamento-Borse">
                                             <label for="borse">Borse</label><br>
-                                            <input type="radio" id="scarpe" name="abbigliamento" value="Scarpe">
+                                            <input type="radio" id="scarpe" name="sottoCategoria" value="Abbigliamento-Scarpe">
                                             <label for="scarpe">Scarpe</label><br>
-                                            <input type="radio" id="accessoriAb" name="abbigliamento" value="Accessori">
+                                            <input type="radio" id="accessoriAb" name="sottoCategoria" value="Abbigliamento-Accessori">
                                             <label for="accessoriAb">Accessori</label><br>
-                                            <input type="radio" id="altroAb" name="abbigliamento" value="Altro">
+                                            <input type="radio" id="altroAb" name="sottoCategoria" value="Abbigliamento-Altro">
                                             <label for="altroAb">Altro</label>
                                         </div>
                                     </div>
@@ -165,17 +174,17 @@
                                     </div>
                                     <div id="hobby" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <input type="radio" id="visualizzaTuttoH" name="hobby" value="visualizzaTuttoH">
+                                            <input type="radio" id="visualizzaTuttoH" name="sottoCategoria" value="Hobby-Tutto">
                                             <label for="visualizzaTuttoH"><b>Visualizza tutto</b></label><br>
-                                            <input type="radio" id="giocattoli" name="hobby" value="Giocattoli">
+                                            <input type="radio" id="giocattoli" name="sottoCategoria" value="Hobby-Giocattoli">
                                             <label for="giocattoli">Giocattoli</label><br>
-                                            <input type="radio" id="filmDvd" name="hobby" value="Film e DVD">
+                                            <input type="radio" id="filmDvd" name="sottoCategoria" value="Hobby-Film e DVD">
                                             <label for="filmDvd">Film e dvd</label><br>
-                                            <input type="radio" id="musica" name="hobby" value="Musica">
+                                            <input type="radio" id="musica" name="sottoCategoria" value="Hobby-Musica">
                                             <label for="musica">Musica</label><br>
-                                            <input type="radio" id="libriRiviste" name="hobby" value="libri e riviste">
+                                            <input type="radio" id="libriRiviste" name="sottoCategoria" value="Hobby-libri e riviste">
                                             <label for="libriRiviste">libri e riviste</label><br>
-                                            <input type="radio" id="altroH" name="hobby" value="Altro">
+                                            <input type="radio" id="altroH" name="sottoCategoria" value="Hobby-Altro">
                                             <label for="altroH">Altro</label>
                                         </div>
                                     </div>
@@ -227,7 +236,7 @@
 					<div class="features_items index-margin-top"><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
                         <?php
-//                            getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune);
+
                         ?>
 
 

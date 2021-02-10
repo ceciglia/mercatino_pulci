@@ -1,7 +1,7 @@
 <body>
 
 <select id="reg" name="regione">
-<option>Seleziona una regione:</option>
+    <option>Seleziona una regione:</option>
 </select>
 <br>
 <br>
@@ -17,6 +17,5 @@
 </select>
 
 <script src="js/areaGeografica.js"></script>
-
 
 </body>

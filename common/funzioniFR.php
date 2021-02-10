@@ -83,8 +83,11 @@ function getPiùOsservati($cid){
 
 
 function getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune) {
-    //DA FARE controlli vari su input
-    $sql="SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+    if ($sottoCategoria=="Tutto") {
+        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria WHERE nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+    } else {
+        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+    }
 
     $risultato = $cid->query($sql);
 

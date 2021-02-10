@@ -1,36 +1,29 @@
 <?php
 include_once "common/connessione.php";
 
-$sottoCategoria="";
-$categoria="";
-
-if (isset($_GET["elettrodomestici"])) {
-    $sottoCategoria = $_GET["elettrodomestici"];
-    $categoria = "Elettrodomestici";
-} else if (isset($_GET["fotoVideo"])){
-    $sottoCategoria = $_GET["fotoVideo"];
-    $categoria = "Foto e video";
-} else if (isset($_GET["abbigliamento"])){
-    $sottoCategoria = $_GET["abbigliamento"];
-    $categoria = "Abbigliamento";
-} else if (isset($_GET["hobby"])) {
-    $sottoCategoria = $_GET["hobby"];
-    $categoria = "Hobby";
-} else {
-    $sottoCategoria="";
-    $categoria="";
+if (isset($_GET["sottoCategoria"])){
+    $filtroCat=explode("-", $_GET["sottoCategoria"]);
+    $categoria=$filtroCat[0];
+    $sottoCategoria=$filtroCat[1];
 }
-
 
 $regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
 $provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
 $comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
 
 if (isset($_GET["priceRange"])){
-    $price = $_GET["priceRange"];
-//    $minPrice=$_GET["priceRange"][0];
-//    $maxPrice=$_GET["priceRange"][1];
+    $price = explode(",",$_GET["priceRange"]);
+    $minPrice = $price[0];
+    $maxPrice = $price[1];
 }
+
+//echo $categoria;
+//echo "<br>";
+//echo $sottoCategoria;
+//echo "<br>";
+//echo $minPrice;
+//echo "<br>";
+//echo $maxPrice;
 
 //mysqli_real_escape_string()
 
