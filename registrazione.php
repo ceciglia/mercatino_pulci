@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,72 +32,122 @@
 	<?php include "php/navbar.php";?>
 
 	<section>
-		<div class="container">
-			<div class="row">
-				<h2 class="title text-center"><span class="title-span">Registrati</span></h2>
-				<h2 class="insert-title" >Inserisci i tuoi dati</h2>
-				<div class="col-sm-18 padding-right">
-					<div class="features_items">
-						<form action="php/registrazione.php" method="post">
-							<div class="col-sm-4">
-								<div class="container_imm">
-									<img src="images/pubblicaAnnuncio.jpg" alt="Avatar"  class="immagine-r-a">
-									<input type="file" id="file" class="invisibile" name='immagine'/>
-									<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"> Upload</button>
-								</div>
 
-								<div class="under-imm">
-									<p>Vuoi registrarti a FR Market come: </p>
-									<span>
-										<input type="checkbox" id="venditore" name="venditore" value="True">
-										<label for="venditore" > Venditore </label><br>
-										<input type="checkbox" id="acquirente" name="acquirente" value="True">
-										<label for="acquirente"> Acquirente </label><br>
-									</span>
+    	<div class="container">
+    		<div class="row">
+    			<h2 class="title text-center"><span class="title-span">Registrati</span></h2>
+    			<h2 class="insert-title" >Inserisci i tuoi dati</h2>
+    			<div class="col-sm-18 padding-right">
+    				<div class="features_items">
+    					<form action="backend/registrazione-exe.php" method="post">
+    						<div class="col-sm-4">
+    							<div class="container_imm">
+    								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar"  class="immagine-r-a">
+    								<input type="file" id="file" class="invisibile" name='immagine'/>
+    								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"> Upload</button>
+    							</div>
 
-								</div>
+    							<div class="under-imm">
+    								<p>Vuoi registrarti a FR Market come: </p>
+    								<span>
+    									<input type="checkbox" id="venditore" name="venditore" value="True">
+    									<label for="venditore"> Venditore </label><br>
+    									<input type="checkbox" id="acquirente" name="acquirente" value="True">
+    									<label for="acquirente"> Acquirente </label><br>
+    								</span>
+                    <?php
+                    if (isset($_GET["erroreacquirente"])){
+                        if ($_GET["erroreacquirente"] == true) {
+                            echo '<p class="error-message">Imposta un valore tra "acquirente", "venditore" o entrambi. </p>';
+                        }
+                    }
+                    ?>
+    							</div>
+    						</div>
+    						<div class="col-sm-6">
+                  <div class="inserimento-dati">Email:</div>
+    							<input type="email"  placeholder="Email*" rows="1" class="insert-data" name='email' required></input>
+                  <?php
+                  if (isset($_GET["erroreemail"])){
+                      if ($_GET["erroreemail"] == true) {
+                          echo '<p class="error-message">Email già esistente</p>';
+                      }
+                  }
+                  ?>
+                  <div class="inserimento-dati">Password:</div>
+    							<input type="password"  placeholder="Password*" rows="1" class="insert-data" name='psw' required></input>
+                  <div class="inserimento-dati">Conferma password:</div>
+                  <input type="password"  placeholder="Conferma password" rows="1" class="insert-data" name='pswconf' required></input>
+                  <?php
+                  if (isset($_GET["errorepsw"])){
+                      if ($_GET["errorepsw"] == true) {
+                          echo '<p class="error-message">I valori di password e conferma password non coincidono </p>';
+                      }
+                  }
+                  ?>
+                  <div class="inserimento-dati">Nome:</div>
+    							<input type="text"  placeholder="Nome*" rows="1" class="insert-data" name='nome' required></input>
+                  <div class="inserimento-dati">Cognome:</div>
+                  <input type="text"  placeholder="Cognome*" rows="1" class="insert-data" name='cognome' required></input>
+                  <div class="inserimento-dati">Codice fiscale:</div>
+                  <input type="text"  placeholder="Codice fiscale*" rows="1" class="insert-data" name='codFiscale' required></input>
+                  <div class="inserimento-dati">Via:</div>
+                	<input type="text"  placeholder="via*" rows="1" class="insert-data" name='via' required></input>
+                  <div class="inserimento-dati">Numero civico</div>
+                  <input type="number"  placeholder="Numero civico*" rows="1" class="insert-data n-cap" name='nCivico' required></input>
+                  <div class="inserimento-dati">CAP:</div>
+                  <input type="text"  placeholder="CAP*" rows="1" class="insert-data n-cap" name='CAP' required></input>
+                  <div class="inserimento-dati">Regione:</div>
+                  <select id="reg" name="reg" required>
+                    <option></option>
+                  </select>
+                  <br>
+                  <br>
+                  <div class="inserimento-dati">Provincia:</div>
+                  <select id="prov" name="prov" required>
+                    <option></option>
+                  </select>
+                  <br>
+                  <br>
+                  <div class="inserimento-dati">Comune:</div>
+                  <select id="com" name="com" required>
+                    <option></option>
 
-							</div>
+                  </select>
 
-							<div class="col-sm-6">
-								<input type="email"  placeholder="Email" rows="1" class="insert-data" name='emain'></input>
-								<input type="password"  placeholder="Password" rows="1" class="insert-data" name='psw'></input>
-								<input type="password"  placeholder="Conferma password" rows="1" class="insert-data" ></input>
-								<input type="text"  placeholder="Nome" rows="1" class="insert-data" name='nome'></input>
-								<input type="text"  placeholder="Cognome" rows="1" class="insert-data" name='cognome'></input>
-								<input type="text"  placeholder="Codice fiscale" rows="1" class="insert-data" name='codFiscale'></input>
-								<input type="text"  placeholder="via" rows="1" class="insert-data" name='via'></input>
-								<input type="number"  placeholder="Numero civico" rows="1" class="insert-data n-cap" name='nCivico'></input>
-								<input type="text"  placeholder="CAP" rows="1" class="insert-data n-cap" name='CAP'></input>
+                <script src="js/areaGeografica.js"></script>
 
-								<?php include "areaGeografica.php";?>
+    							<button type="submit"  class="btn pull-right btn-r">Registrati</button>   <!--onclick="btnConferma('modifica')"-->
+                  <?php
+                  if (isset($_GET["error"])){
+                      if ($_GET["error"] == false) {
+                          echo"
+                              <div id='modifica' class='modal'>
+                								<div class='modal-content popup-modal-content'>
+                									<div class='container popup-conferma'>
+                										<h4>Registrazione</h4>
+                										<p>Stai per registrarti a FR Market.</p>
+                										<p>Sei sicur* di voler proseguire?</p>
+                										<div class='clearfix'>
+                											<button type='submit' name='submit' class='popup-btn deletebtn'>Conferma</button>
+                											<button type='button' onclick='document.getElementById('modifica').style.display='none'' class='popup-btn cancelbtn'>Annulla</button>
+                										</div>
+                									</div>
+                								</div>
+                							</div>";
+                        }
+                    }
+                    ?>
+    						</div>
+    					</form>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
 
-								<button type="button" onclick="btnConferma('modifica')" class="btn pull-right btn-r" >Registrati</button>
-								<div id="modifica" class="modal">
-									<form class="modal-content popup-modal-content">
-										<div class="container popup-conferma">
-											<h4>Registrazione</h4>
-											<p>Stai per registrarti a FR Market.</p>
-											<p>Sei sicur* di voler proseguire?</p>
-											<div class="clearfix">
-												<button type="submit" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-												<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-
-
-			</div>
-		</div>
 	</section>
 	<br>
 	<br>
-
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
@@ -110,14 +162,11 @@
 							</ul>
 						</div>
 					</div>
-
 					<div class="col-sm-2 pull-right">
 						<div class="companyinfo">
 							<h2><span>FR</span> Market</h2>
-
 						</div>
 					</div>
-
 					<div class="col-sm-3 pull-right">
 						<div class="address">
 							<img src="images/home/italia.png" alt="" />
@@ -127,9 +176,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row copyright-style">
@@ -140,16 +186,13 @@
 		</div>
 
 	</footer><!--/Footer-->
-
-
-
     <script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/price-range.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/funzioni.js"></script>
+  	<script src="js/main.js"></script>
+  	<script src="js/funzioni.js"></script>
     <script>
         window.addEventListener("DOMContentLoaded", function(){
             popolaRegioni("reg");
