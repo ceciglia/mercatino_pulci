@@ -29,7 +29,7 @@
 </head><!--/head-->
 
 <body>
-	<?php include "php/navbar.php";?>
+	<?php include "common/navbar.php";?>
 
 	<section>
 
