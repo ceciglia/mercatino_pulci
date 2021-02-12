@@ -1,7 +1,6 @@
 <body>
 
 <select id="reg" name="regione">
-    <option>Seleziona una regione:</option>
 </select>
 <br>
 <br>

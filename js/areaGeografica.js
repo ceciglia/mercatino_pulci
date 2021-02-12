@@ -23,6 +23,10 @@ function popolaRegioni(reg){
             regione = risposta.contenuto;
     	    regioneSelect = document.getElementById(reg);
     	    regioneSelect.innerHTML="";
+    	    let a = document.createElement('option');
+    	    a.setAttribute("value", "Seleziona una regione: ");
+			a.innerText="Seleziona una regione: ";
+			regioneSelect.appendChild(a);
     	    for(let i=0; i < regione.length; i++){
     	        let item = document.createElement('option');
     	        item.setAttribute("value", regione[i]);
