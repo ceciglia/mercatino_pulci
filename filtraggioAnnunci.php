@@ -17,6 +17,9 @@ if (isset($_GET["priceRange"])){
     $maxPrice = $price[1];
 }
 
+header("Location:../index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
+
+
 //echo $categoria;
 //echo "<br>";
 //echo $sottoCategoria;

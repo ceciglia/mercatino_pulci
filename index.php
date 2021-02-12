@@ -237,6 +237,18 @@
 						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
                         <?php
 
+                            if (isset($_GET["categoria"]) and isset($_GET["sottoCategoria"]) and isset($_GET["regione"]) and isset($_GET["provincia"]) and isset($_GET["comune"]) and isset($_GET["minPrice"]) and isset($_GET["maxPrice"])){
+                                $categoria=$_GET["categoria"];
+                                $sottoCategoria=$_GET["sottoCategoria"];
+                                $regione=$_GET["regione"];
+                                $provincia=$_GET["provincia"];
+                                $comune=$_GET["comune"];
+                                $minPrice=$_GET["minPrice"];
+                                $maxPrice=$_GET["maxPrice"];
+                                getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune, $minPrice, $maxPrice);
+                            } else {
+                                getAnnunciPubblicati($cid);
+                            }
                         ?>
 
 

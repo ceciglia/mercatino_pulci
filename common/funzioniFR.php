@@ -3,7 +3,7 @@
 function isUser($cid,$email,$psw) {
 	$risultato= array("msg"=>"","status"=>"ok");
 
-   	$sql = "SELECT * FROM utente WHERE email='$email' and psw='$psw';";
+   	$sql = "SELECT * FROM utente WHERE email='$email' and psw='$psw'";
    	$res = $cid->query($sql);
 
 	if ($res==null){
@@ -80,18 +80,55 @@ function getPiùOsservati($cid){
 //    }
 //}
 
+function getAnnunciPubblicati($cid) {
+    $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio JOIN visibilita v on annuncio.visibilita = v.valoreVisibilita JOIN statoa s on annuncio.idAnnuncio = s.idAnnuncio JOIN valorestato vs on s.stato = vs.valoreS WHERE valoreVisibilita='pubblica' and valoreS='in vendita' LIMIT 9";
+    //non considero fotoP e visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
+    $risultato = $cid->query($sql);
+
+    while($row=$risultato->fetch_assoc()){
+        $prezzoP = $row["prezzoP"];
+        $nomeAn = $row["nomeAnnuncio"];
+        echo'<div class="col-sm-4 annunci-dim">
+                <div class="product-image-wrapper">
+                    <div class="single-products" >
+                        <div class="productinfo text-center">
+                            <div class="img-contenitore">
+                                <img src="images/mercatino/taylorGSmini.jpg" alt="Impossibile caricare l\'immagine." />
+                            </div>
+                            <h2>€ '. $prezzoP .'</h2>
+                            <p>'. $nomeAn .'</p>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>€ '. $prezzoP .'</h2>
+                                <p>'. $nomeAn .'</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+    
+                        </ul>
+                    </div>
+                </div>
+             </div>';
+    }
+}
 
 
-function getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune) {
+function getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune, $minPrice, $maxPrice) {
     if ($sottoCategoria=="Tutto") {
-        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria WHERE nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria WHERE nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
     } else {
-        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune'";
+        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
     }
 
     $risultato = $cid->query($sql);
 
-    while($row=$risultato->fetch_assoch()){
+    while($row=$risultato->fetch_assoc()){
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
         echo'<div class="col-sm-4 annunci-dim">
