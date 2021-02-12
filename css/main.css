@@ -3295,4 +3295,10 @@ input[name="metodop"] + label:hover ~ input + label:before {
   margin-bottom: 190px;
 }
 
+.inserimento-dati{
+  width: 100% !important;
+  margin-bottom: 5px !important;
+  font-size: 16px !important;
+  color: #2b5164 !important;
+}
 
