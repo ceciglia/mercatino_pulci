@@ -119,11 +119,58 @@ function getAnnunciPubblicati($cid) {
 }
 
 
-function getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune, $minPrice, $maxPrice) {
-    if ($sottoCategoria=="Tutto") {
-        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria WHERE nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+function getAnnunciFiltrati($cid) {
+    $categoria=$_GET["categoria"];
+    $sottoCategoria=$_GET["sottoCategoria"];
+    $regione=$_GET["regione"];
+    $provincia=$_GET["provincia"];
+    $comune=$_GET["comune"];
+    $minPrice=$_GET["minPrice"];
+    $maxPrice=$_GET["maxPrice"];
+
+
+    if ($categoria!="" and $sottoCategoria!="") {
+        if ($sottoCategoria == "Tutto") {
+            switch (true) {
+                case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                    break;
+                case ($minPrice != "" and $maxPrice != "" and $regione == "" and $provincia == "" and $comune == ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    break;
+                case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' LIMIT 9";
+                    break;
+                default:
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+            }
+        } else {
+            switch (true) {
+                case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                    break;
+                case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    break;
+                case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' LIMIT 9";
+                    break;
+                default:
+                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+            }
+        }
+
     } else {
-        $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN categoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+        switch(true) {
+            case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
+                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                break;
+            case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
+                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                break;
+            default:
+                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+        }
     }
 
     $risultato = $cid->query($sql);

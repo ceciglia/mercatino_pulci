@@ -71,15 +71,6 @@
 			<div class="row">
 				<div class="col-sm-3">
                     <form action="filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
-<!--                        --><?php
-//                            $sottoCategoria = "";
-//                            $categoria = "";
-//                            $regione = "";
-//                            $provincia = "";
-//                            $comune = "";
-//                            $minPrice = "";
-//                            $maxPrice = "";
-//                        ?>
                         <div class="left-sidebar">
                             <h2><span class="title-span">Categoria</span></h2>
                             <div class="panel-group category-products" id="accordian"><!--category-products-->
@@ -234,20 +225,21 @@
 
 
 					<div class="features_items index-margin-top"><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>
                         <?php
-                            $categoria = (isset($_GET["categoria"]))?$_GET["categoria"]:"";
-                            $sottoCategoria = (isset($_GET["sottoCategoria"]))?$_GET["sottoCategoria"]:"";
-                            $minPrice = (isset($_GET["minPrice"]))?$_GET["minPrice"]:"";
-                            $maxPrice =(isset($_GET["maxPrice"]))?$_GET["maxPrice"]:"";
-                            $regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
-                            $provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
-                            $comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
+//                            $categoria = (isset($_GET["categoria"]))?$_GET["categoria"]:"";
+//                            $sottoCategoria = (isset($_GET["sottoCategoria"]))?$_GET["sottoCategoria"]:"";
+//                            $minPrice = (isset($_GET["minPrice"]))?$_GET["minPrice"]:"";
+//                            $maxPrice =(isset($_GET["maxPrice"]))?$_GET["maxPrice"]:"";
+//                            $regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
+//                            $provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
+//                            $comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
 
-                            if ($categoria=="" || $sottoCategoria=="" || $regione=="" || $provincia=="" || $comune=="" || $minPrice=="" || $maxPrice==""){
+                            if (!isset($_GET["categoria"]) and !isset($_GET["sottoCategoria"]) and !isset($_GET["regione"]) and !isset($_GET["provincia"]) and !isset($_GET["comune"]) and !isset($_GET["minPrice"]) and !isset($_GET["maxPrice"])){
+                                echo '<h2 class="title text-center"><span class="title-span">Annunci</span></h2>';
                                 getAnnunciPubblicati($cid);
                             } else {
-                                getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune, $minPrice, $maxPrice);
+                                echo '<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>';
+                                getAnnunciFiltrati($cid);
                             }
 //                            if (isset($_GET["categoria"]) and isset($_GET["sottoCategoria"]) and isset($_GET["regione"]) and isset($_GET["provincia"]) and isset($_GET["comune"]) and isset($_GET["minPrice"]) and isset($_GET["maxPrice"])){
 //                                $categoria=$_GET["categoria"];

@@ -2,9 +2,12 @@
 include_once "common/connessione.php";
 
 if (isset($_GET["sottoCategoria"])){
-    $filtroCat=explode("-", $_GET["sottoCategoria"]);
-    $categoria=$filtroCat[0];
-    $sottoCategoria=$filtroCat[1];
+    $filtroCat = explode("-", $_GET["sottoCategoria"]);
+    $categoria = $filtroCat[0];
+    $sottoCategoria = $filtroCat[1];
+} else {
+    $categoria = "";
+    $sottoCategoria = "";
 }
 
 $regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
@@ -15,9 +18,12 @@ if (isset($_GET["priceRange"])){
     $price = explode(",",$_GET["priceRange"]);
     $minPrice = $price[0];
     $maxPrice = $price[1];
+} else {
+    $minPrice = "";
+    $maxPrice = "";
 }
 
-header("Location:../index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
+header("Location: ../mercatino_pulci/index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
 
 
 //echo $categoria;
