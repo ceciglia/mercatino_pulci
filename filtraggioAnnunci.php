@@ -10,9 +10,18 @@ if (isset($_GET["sottoCategoria"])){
     $sottoCategoria = "";
 }
 
-$regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
-$provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
-$comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
+if ($_GET["regione"] == "Seleziona una regione: " or $_GET["provincia"]=="Seleziona prima una regione: " or $_GET["comune"]=="Seleziona prima una provincia: ") {
+    $regione = "";
+    $provincia = "";
+    $comune = "";
+} else {
+    $regione = mysqli_real_escape_string($cid, $_GET["regione"]);
+    $provincia = mysqli_real_escape_string($cid, $_GET["provincia"]);
+    $comune = mysqli_real_escape_string($cid, $_GET["comune"]);
+}
+//$regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
+//$provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
+//$comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
 
 if (isset($_GET["priceRange"])){
     $price = explode(",",$_GET["priceRange"]);
