@@ -35,9 +35,7 @@
 									<h1><span>FR</span> Market</h1>
 									<h2>100% Made in Italy</h2>
 									<p class="slider-index">Prodotti made in Italy per ogni esigenza</p>
-
 								</div>
-
 							</div>
 
 							<div class="item">
@@ -226,14 +224,6 @@
 
 					<div class="features_items index-margin-top"><!--features_items-->
                         <?php
-//                            $categoria = (isset($_GET["categoria"]))?$_GET["categoria"]:"";
-//                            $sottoCategoria = (isset($_GET["sottoCategoria"]))?$_GET["sottoCategoria"]:"";
-//                            $minPrice = (isset($_GET["minPrice"]))?$_GET["minPrice"]:"";
-//                            $maxPrice =(isset($_GET["maxPrice"]))?$_GET["maxPrice"]:"";
-//                            $regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
-//                            $provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
-//                            $comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
-
                             if (!isset($_GET["categoria"]) and !isset($_GET["sottoCategoria"]) and !isset($_GET["regione"]) and !isset($_GET["provincia"]) and !isset($_GET["comune"]) and !isset($_GET["minPrice"]) and !isset($_GET["maxPrice"])){
                                 echo '<h2 class="title text-center"><span class="title-span">Annunci</span></h2>';
                                 getAnnunciPubblicati($cid);

@@ -81,11 +81,12 @@ function getPiùOsservati($cid){
 //}
 
 function getAnnunciPubblicati($cid) {
-    $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio JOIN visibilita v on annuncio.visibilita = v.valoreVisibilita JOIN statoa s on annuncio.idAnnuncio = s.idAnnuncio JOIN valorestato vs on s.stato = vs.valoreS WHERE valoreVisibilita='pubblica' and valoreS='in vendita' LIMIT 9";
+    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN visibilita v on annuncio.visibilita = v.valoreVisibilita JOIN statoa s on annuncio.idAnnuncio = s.idAnnuncio JOIN valorestato vs on s.stato = vs.valoreS WHERE valoreVisibilita='pubblica' and valoreS='in vendita' LIMIT 9";
     //non considero fotoP e visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
     $risultato = $cid->query($sql);
 
     while($row=$risultato->fetch_assoc()){
+        $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
         echo'<div class="col-sm-4 annunci-dim">
@@ -93,7 +94,7 @@ function getAnnunciPubblicati($cid) {
                     <div class="single-products" >
                         <div class="productinfo text-center">
                             <div class="img-contenitore">
-                                <img src="images/mercatino/taylorGSmini.jpg" alt="Impossibile caricare l\'immagine." />
+                                <img src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt=" Impossibile caricare l\'immagine." />
                             </div>
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>
