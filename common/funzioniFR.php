@@ -1,7 +1,7 @@
 <?php
 
 function isUser($cid,$email,$psw) {
-	$risultato= array("msg"=>"","status"=>"ok");
+	$risultato= array("msg"=>"","status"=>"ok", "venditore"=>"", "acquirente"=>"");
 
    	$sql = "SELECT * FROM utente WHERE email='$email' and psw='$psw'";
    	$res = $cid->query($sql);
