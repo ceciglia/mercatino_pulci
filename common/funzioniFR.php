@@ -19,6 +19,10 @@ function isUser($cid,$email,$psw) {
 		$msg = "Login effettuato con successo";
 		$risultato["status"]="ok";
 		$risultato["msg"]=$msg;
+
+		$row=$res->fetch_assoc();
+        $risultato["venditore"] = $row["venditore"];
+        $risultato["acquirente"] = $row["acquirente"];
 	}
 	return $risultato;
 }

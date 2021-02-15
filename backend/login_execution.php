@@ -28,6 +28,8 @@
 				}
 				$_SESSION["email"]=$email;
 				$_SESSION["logged"]=true;
+				$_SESSION["venditore"]=$result["venditore"];
+                $_SESSION["acquirente"]=$result["acquirente"];
 				header("Location:../index.php?status=ok&msg=". urlencode($result["msg"]));
 			} else {
 				header("Location:../index.php?status=ko&msg=" . urlencode($result["msg"]));
