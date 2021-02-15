@@ -37,7 +37,7 @@ function getPiùOsservati($cid){
     $count=0;
     while($row=$risultato->fetch_assoc()){
         //!!!DA GESTIRE LA FOTOP e bottone DETTAGLI ANNUNCIO!!!
-//        $fotoP = ;
+        $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
 
@@ -53,7 +53,7 @@ function getPiùOsservati($cid){
                 <div class="product-image-wrapper piùosservati-p-i-w">
                     <div class="single-products">
                         <div class="productinfo text-center piùosservati-content">
-                            <img src="images/home/recommend1.jpg" alt="Impossibile caricare l\'immagine.">
+                            <img class="piùosservati-img-resize" src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine.">
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>  
                             <a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
@@ -82,7 +82,7 @@ function getPiùOsservati($cid){
 
 function getAnnunciPubblicati($cid) {
     $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN visibilita v on annuncio.visibilita = v.valoreVisibilita JOIN statoa s on annuncio.idAnnuncio = s.idAnnuncio JOIN valorestato vs on s.stato = vs.valoreS WHERE valoreVisibilita='pubblica' and valoreS='in vendita' LIMIT 9";
-    //non considero fotoP e visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //non considero visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
     $risultato = $cid->query($sql);
 
     while($row=$risultato->fetch_assoc()){
@@ -134,49 +134,50 @@ function getAnnunciFiltrati($cid) {
         if ($sottoCategoria == "Tutto") {
             switch (true) {
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
                     break;
                 case ($minPrice != "" and $maxPrice != "" and $regione == "" and $provincia == "" and $comune == ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' LIMIT 9";
                     break;
                 default:
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
             }
         } else {
             switch (true) {
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' LIMIT 9";
                     break;
                 default:
-                    $sql = "SELECT prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
             }
         }
 
     } else {
         switch(true) {
             case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
-                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
+                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' LIMIT 9";
                 break;
             case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
-                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
                 break;
             default:
-                $sql = "SELECT prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
+                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' LIMIT 9";
         }
     }
 
     $risultato = $cid->query($sql);
 
     while($row=$risultato->fetch_assoc()){
+        $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
         echo'<div class="col-sm-4 annunci-dim">
@@ -184,7 +185,7 @@ function getAnnunciFiltrati($cid) {
                     <div class="single-products" >
                         <div class="productinfo text-center">
                             <div class="img-contenitore">
-                                <img src="images/mercatino/taylorGSmini.jpg" alt="Impossibile caricare l\'immagine." />
+                                <img src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine." />
                             </div>
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>
