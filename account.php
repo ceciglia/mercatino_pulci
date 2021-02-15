@@ -2,9 +2,10 @@
 	session_start();
 	include "common/connessione.php";
 	include "common/funzioniFR.php";
+	include "common/funzioni_account.php";
 ?>
 
-<!DOCTYPE html> 			
+<!DOCTYPE html>
 <html lang="en">
 	<?php include "common/head.php";?>
 
@@ -21,7 +22,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, 'profilo')">				
+										<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, 'profilo')">
 											Il mio profilo
 										</a>
 									</h4>
@@ -38,7 +39,7 @@
 								</div>
 								<div id="venditore" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul class="nav navbar-nav sottomenu_profilo">    
+										<ul class="nav navbar-nav sottomenu_profilo">
 											<li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
 											<li><a href="#" onclick="opensottomenu(event, 'annunciPubblicati')">Annunci pubblicati</a></li>
 											<li><a href="#" onclick="opensottomenu(event, 'mievendite')" >Le mie vendite</a></li>
@@ -57,7 +58,7 @@
 								</div>
 								<div id="acquirente" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul class="nav navbar-nav sottomenu_profilo" >    
+										<ul class="nav navbar-nav sottomenu_profilo" >
 												<li><a href="#" onclick="opensottomenu(event, 'annunciOsservati')">Annunci osservati</a></li>
 												<li><a href="#" onclick="opensottomenu(event, 'listaAcquistati')">I miei acquisti</a></li>
 												<li><a href="#" onclick="opensottomenu(event, 'richiesteAcquisto')">Richieste di acquisto</a></li>
@@ -68,47 +69,41 @@
 						</div>
 
 					</div>
-				</div> 
+				</div>
 				<!--PROFILO-->
 				<div class="col-sm-9 padding-right" id='profilo'>
 					<div class="features_items" >
 						<h2 class="title text-center"><span class="title-span">PROFILO</span></h2>
 					</div>
-					<p class="p_benvenuto" >Ciao Mitic*!</p>
+                    <?php
+                        ciao($cid);
+
+                    ?>
+
 					<div class="col-sm-4">
 						<div class="product-image-wrapper-profilo" >
 							<div class="single-products">
-								<img src="images/home/product1.jpg" alt="" class="immagine-profilo" />		
+								<img src="images/home/product1.jpg" alt="" class="immagine-profilo" />
 							</div>
 						</div>
-						<p class="valutazione-profilo">Valutazione: </p>
-						<div class="stelle-valutazione-profilo">
-							<i class="fa fa-star" aria-hidden="true" ></i>
-							<i class="fa fa-star" aria-hidden="true" ></i>
-							<i class="fa fa-star" aria-hidden="true" ></i>
-							<i class="fa fa-star" aria-hidden="true" ></i>
-							<i class="fa fa-star-half-o" aria-hidden="true" class="stelle-valutazione-profilo"></i>
-						</div>
+                        <?php
+                            valutazione($cid);
+
+                        ?>
+
 						<div style="margin-bottom: 30px;">
-							<button type="submit" class="btn btn-profilo pull-left btn-a-v" ><i class="fa fa-shopping-cart" aria-hidden="true"></i>   Acquirente</button>
-							<button type="submit" class="btn btn-profilo pull-right btn-a-v" ><i class="fa fa-credit-card" aria-hidden="true"></i>   Venditore</button>
+							<?php
+									acquirente_venditore($cid);
+
+							?>
 						</div>
 					</div>
-					<div class="col-sm-8" >
-						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="nomeutente@mail.com" rows="1" disabled class="profilo-data"></textarea >
-						<textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="Nome" rows="1" disabled class="profilo-data"></textarea >
-						<textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><textarea name="text"  placeholder="Cognome" rows="1" disabled class="profilo-data"></textarea >
-						
-						<textarea name="text"  placeholder="CF: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Codice fiscale" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="via" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="N° civico" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="CAP" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Comune" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Provincia" rows="1" disabled class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name"></textarea><textarea name="text"  placeholder="Regione" rows="1" disabled class="profilo-data"></textarea> 
-						
+							<?php
+									utenteinfo($cid);
+							?>
+					<div>
 						<button type="submit" onclick="opensottomenu(event, 'modificaProfilo')" class="btn btn-profilo modificaprofilo pull-right" ><i class="fa fa-pencil" aria-hidden="true"></i>   Modifica profilo</button>
-					
+
 					</div>
 
 				</div>
@@ -131,36 +126,36 @@
 						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="nomeutente@mail.com" rows="1"  class="profilo-data"></textarea >
 						<textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nome" rows="1"  class="profilo-data"></textarea >
 						<textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Cognome" rows="1"  class="profilo-data"></textarea >
-						
-						<textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Codice fiscale" rows="1"  class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="via" rows="1"  class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="N° civico" rows="1" class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="CAP" rows="1" class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Comune" rows="1" class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Provincia" rows="1"  class="profilo-data"></textarea> 
-						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name "></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Regione" rows="1"  class="profilo-data"></textarea> 
-						
+
+						<textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Codice fiscale" rows="1"  class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="via" rows="1"  class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="N° civico" rows="1" class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="CAP" rows="1" class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Comune" rows="1" class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Provincia" rows="1"  class="profilo-data"></textarea>
+						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name "></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Regione" rows="1"  class="profilo-data"></textarea>
+
 						<button type="submit"  onclick="btnConferma('modifica')" class="btn btn-profilo pull-right btn-salvamodifiche" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
 						<div id="modifica" class="modal">
 							<form class="modal-content popup-modal-content">
 								<div class="container popup-conferma">
 									<h4>Modifica profilo</h4>
-									<p>Stai per modificare il tuo profilo.</p> 
-									<p>Sei sicur* di voler proseguire?</p>      
+									<p>Stai per modificare il tuo profilo.</p>
+									<p>Sei sicur* di voler proseguire?</p>
 									<div class="clearfix">
 										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 									</div>
 								</div>
 							</form>
-						</div>	
+						</div>
 						<button type="submit"  onclick="btnConferma('elimina')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
 						<div id="elimina" class="modal">
 							<form class="modal-content popup-modal-content">
 								<div class="container popup-conferma">
 									<h4>Elimina profilo</h4>
-									<p>Stai per eliminare il tuo profilo.</p> 
-									<p>Sei sicur* di voler proseguire?</p>      
+									<p>Stai per eliminare il tuo profilo.</p>
+									<p>Sei sicur* di voler proseguire?</p>
 									<div class="clearfix">
 										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -170,7 +165,7 @@
 						</div>
 					</div>
 				</div>
-				<!--ACQUIRENTE--> 
+				<!--ACQUIRENTE-->
 				<!--ANNUNCI OSSERVATI-->
 				<div class="col-sm-9 padding-right" id='annunciOsservati'>
 					<div class="features_items" ><!--features_items-->
@@ -184,9 +179,9 @@
 										</div>
 										<h2>€ 22.89</h2>
 										<p>Bialetti Moka express</p>
-									
+
 									</div>
-									
+
 									<div  class="product-overlay">
 										<div class="overlay-content">
 											<a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
@@ -198,7 +193,7 @@
 										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#richiestaA"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
 										<div id="richiestaA" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >    
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >
 													<div >
 														<p><b>Metodo di pagamento: </b></p>
 													    <div class="demo-content">
@@ -217,9 +212,9 @@
 																<form class="modal-content popup-modal-content">
 																	<div class="container popup-conferma">
 																		<h4>Metodo di pagamento</h4>
-																		<p>Stai per confermare il metodo di pagamento.</p> 
+																		<p>Stai per confermare il metodo di pagamento.</p>
 																		<p>Sei sicur* di voler proseguire?</p>
-																		
+
 																		<div class="clearfix">
 																			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																			<button type="button" onclick="document.getElementById('id02').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -229,7 +224,7 @@
 															</div>
 													</div>
 												</ul>
-											</div>					
+											</div>
 										</div>
 									</ul>
 								</div>
@@ -242,7 +237,7 @@
 				<!--I MIEI ACQUISTI-->
 				<div class="col-sm-9 padding-right" id='listaAcquistati'>
 					<div class="features_items" ><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">I miei acquisti</span></h2> 
+						<h2 class="title text-center"><span class="title-span">I miei acquisti</span></h2>
 						<div class="col-sm-4" >
 							<div class="product-image-wrapper" >
 								<div class="single-products">
@@ -252,7 +247,7 @@
 										</div>
 										<h2>€ 50</h2>
 										<p>Tostapane Smeg</p>
-									
+
 									</div>
 									<div  class="product-overlay">
 										<div class="overlay-content">
@@ -265,26 +260,26 @@
 										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valutaV"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
 										<div id="valutaV" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">    
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
 													<div>
 														<p>Valuta la <b >serietà</b> :</p>
 														<div class="demo-content">
 															<div class="serieta">
 																<input name="serieta" type="radio" id="stellaV1" value="1" />
 																<label for="stellaV1"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaV2" value="2" />
 																<label for="stellaV2"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaV3" value="3" />
 																<label for="stellaV3"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaV4" value="4" />
 																<label for="stellaV4"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaV5" value="5" checked />
 																<label for="stellaV5"></label>
-																
+
 															</div>
 														</div>
 														<p>Valuta la <b >puntualità</b> :</p>
@@ -292,28 +287,28 @@
 															<div class="puntualita">
 																<input name="puntualita" type="radio" id="stellaV6" value="1" />
 																<label for="stellaV6"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaV7" value="2" />
 																<label for="stellaV7"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaV8" value="3" />
 																<label for="stellaV8"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaV9" value="4" />
 																<label for="stellaV9"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaV10" value="5" checked />
 																<label for="stellaV10"></label>
-																
+
 															</div>
 															<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma('id04')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
 																<div id="id04" class="modal">
 																	<form class="modal-content popup-modal-content">
 																		<div class="container popup-conferma">
 																			<h4>Valutazione</h4>
-																			<p>Stai per confermare la valutazione.</p> 
+																			<p>Stai per confermare la valutazione.</p>
 																			<p>Sei sicur* di voler proseguire?</p>
-																			
+
 																			<div class="clearfix">
 																				<button type="button" onclick="document.getElementById('id04').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																				<button type="button" onclick="document.getElementById('id04').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -324,8 +319,8 @@
 														</div>
 													</div>
 												</ul>
-											</div>					
-										</div>						
+											</div>
+										</div>
 									</ul>
 								</div>
 							</div>
@@ -339,13 +334,13 @@
 						<h2 class="title text-center"><span class="title-span">Richieste di acquisto</span></h2>
 						<div class="col-sm-12">
 							<div class="product-image-wrapper" >
-								<table style="width: 100%;"> 
+								<table style="width: 100%;">
 									<thead>
 										<tr class="cart_menu cart-color-richieste " >
 											<td class="image" >Annuncio</td>
-											<td class="description"></td> 
+											<td class="description"></td>
 											<td class="price">Venditore</td>
-											<td class="quantity">Prezzo</td> 
+											<td class="quantity">Prezzo</td>
 											<td class="total">Stato</td>
 											<td></td>
 										</tr>
@@ -366,11 +361,11 @@
 											<td class="cart_price blu">
 												<p class="richieste-responsive"><b>Prezzo:</b></p><p style="display: inline-block;">50 €</p>
 											</td>
-										
+
 											<td class="cart_total blu">
 												<p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">In elaborazione</p>
 											</td>
-											
+
 										</tr>
 										<tr>
 											<td class="cart_product">
@@ -387,11 +382,11 @@
 											<td class="cart_price blu">
 												<p class="richieste-responsive"><b>Prezzo:</b></p><p style="display: inline-block;">50 €</p>
 											</td>
-										
+
 											<td class="cart_total blu">
 												<p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">In elaborazione</p>
 											</td>
-											
+
 										</tr>
 										<tr>
 											<td class="cart_product">
@@ -408,11 +403,11 @@
 											<td class="cart_price blu">
 												<p class="richieste-responsive"><b>Prezzo:</b></p><p style="display: inline-block;">50 €</p>
 											</td>
-										
+
 											<td class="cart_total blu">
 												<p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">In elaborazione</p>
 											</td>
-											
+
 										</tr>
 									</tbody>
 								</table>
@@ -436,7 +431,7 @@
 										</div>
 										<h2>€ 700</h2>
 										<p>Borsa vintage chanel</p>
-									
+
 									</div>
 									<div  class="product-overlay">
 										<div class="overlay-content">
@@ -449,23 +444,23 @@
 										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valutaA"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta acquirente</a></li>
 										<div id="valutaA" class="panel-collapse collapse">
 											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo sottomenu-vendite" >    
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-vendite" >
 													<div>
 														<p>Valuta la <b >serietà</b> :</p>
 														<div class="demo-content">
 															<div class="serieta">
 																<input name="serieta" type="radio" id="stellaA1" value="1" />
 																<label for="stellaA1"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaA2" value="2" />
 																<label for="stellaA2"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaA3" value="3" />
 																<label for="stellaA3"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaA4" value="4" />
 																<label for="stellaA4"></label>
-															
+
 																<input name="serieta" type="radio" id="stellaA5" value="5" checked />
 																<label for="stellaA5"></label>
 															</div>
@@ -475,16 +470,16 @@
 															<div class="puntualita">
 																<input name="puntualita" type="radio" id="stellaA6" value="1" />
 																<label for="stellaA6"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaA7" value="2" />
 																<label for="stellaA7"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaA8" value="3" />
 																<label for="stellaA8"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaA9" value="4" />
 																<label for="stellaA9"></label>
-															
+
 																<input name="puntualita" type="radio" id="stellaA10" value="5" checked />
 																<label for="stellaA10"></label>
 														</div>
@@ -493,20 +488,20 @@
 															<form class="modal-content popup-modal-content">
 																<div class="container popup-conferma">
 																	<h4>Valutazione</h4>
-																	<p>Stai per confermare la valutazione.</p> 
+																	<p>Stai per confermare la valutazione.</p>
 																	<p>Sei sicur* di voler proseguire?</p>
-																	
+
 																	<div class="clearfix">
 																		<button type="button" onclick="document.getElementById('id01').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																		<button type="button" onclick="document.getElementById('id01').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
 																	</div>
 																</div>
 															</form>
-														</div>										
+														</div>
 													</div>
 												</ul>
-											</div>					
-										</div>						
+											</div>
+										</div>
 									</ul>
 								</div>
 							</div>
@@ -540,13 +535,13 @@
 													<thead>
 														<tr class="cart_menu cart-color-richieste" >
 															<td class="image" >Acquirente</td>
-															<td class="description"></td> 
+															<td class="description"></td>
 															<td class="price">Metodo di pagamento</td>
 															<td class="total">Stato</td>
 															<td></td>
 														</tr>
 													</thead>
-											
+
 													<tbody classe="table-risposte">
 														<tr >
 															<td class="cart_product">
@@ -559,7 +554,7 @@
 															<td class="cart_price">
 																<p class="richieste-responsive"><b>Metodo di pagamento: </b></p><p style="display: inline-block;">Carta di credito</p>
 															</td>
-															
+
 															<td class="cart_total">
 																<p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">In elaborazione</p>
 															</td>
@@ -569,9 +564,9 @@
 																	<form class="modal-content popup-modal-content">
 																		<div class="container popup-conferma">
 																			<h4>Risposte ai miei annunci</h4>
-																			<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																			<p>Stai per CONFERMARE la richiesta d'acquisto.</p>
 																			<p>Sei sicur* di voler proseguire?</p>
-																			
+
 																			<div class="clearfix">
 																				<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																				<button type="button" onclick="document.getElementById('thumb1a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -584,9 +579,9 @@
 																	<form class="modal-content popup-modal-content">
 																		<div class="container popup-conferma">
 																			<h4>Risposte ai miei annunci</h4>
-																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p>
 																			<p>Sei sicur* di voler proseguire?</p>
-																			
+
 																			<div class="clearfix">
 																				<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																				<button type="button" onclick="document.getElementById('thumb1b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -607,7 +602,7 @@
 															<td class="cart_price">
 																<p class="richieste-responsive"><b>Metodo di pagamento: </b></p><p style="display: inline-block;">Carta di credito</p>
 															</td>
-															
+
 															<td class="cart_total">
 																<p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">In elaborazione</p>
 															</td>
@@ -617,9 +612,9 @@
 																		<form class="modal-content popup-modal-content">
 																			<div class="container popup-conferma">
 																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p>
 																				<p>Sei sicur* di voler proseguire?</p>
-																				
+
 																				<div class="clearfix">
 																					<button type="button" onclick="document.getElementById('thumb2a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																					<button type="button" onclick="document.getElementById('thumb2a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -632,7 +627,7 @@
 																	<form class="modal-content popup-modal-content">
 																		<div class="container popup-conferma ">
 																			<h4>Risposte ai miei annunci</h4>
-																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																			<p>Stai per RIFIUTARE la richiesta d'acquisto.</p>
 																			<p>Sei sicur* di voler proseguire?</p>
 																			<div class="clearfix">
 																				<button type="button" onclick="document.getElementById('thumb2b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
@@ -654,7 +649,7 @@
 															<td class="cart_price">
 																<p class="richieste-responsive"><b>Metodo di pagamento: </b></p><p style="display: inline-block;">Carta di credito</p>
 															</td>
-															
+
 															<td class="cart_total">
 																<p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">In elaborazione</p>
 															</td>
@@ -664,9 +659,9 @@
 																		<form class="modal-content popup-modal-content">
 																			<div class="container popup-conferma">
 																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p> 
+																				<p>Stai per CONFERMARE la richiesta d'acquisto.</p>
 																				<p>Sei sicur* di voler proseguire?</p>
-																				
+
 																				<div class="clearfix">
 																					<button type="button" onclick="document.getElementById('thumb3a').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																					<button type="button" onclick="document.getElementById('thumb3a').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -679,9 +674,9 @@
 																		<form class="modal-content popup-modal-content">
 																			<div class="container popup-conferma">
 																				<h4>Risposte ai miei annunci</h4>
-																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p> 
+																				<p>Stai per RIFIUTARE la richiesta d'acquisto.</p>
 																				<p>Sei sicur* di voler proseguire?</p>
-																				
+
 																				<div class="clearfix">
 																					<button type="button" onclick="document.getElementById('thumb3b').style.display='none'" class="popup-btn deletebtn">Conferma</button>
 																					<button type="button" onclick="document.getElementById('thumb3b').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
@@ -714,7 +709,7 @@
 										</div>
 										<h2>€ 600</h2>
 										<p>Taylor GS Mini</p>
-									
+
 									</div>
 								</div>
 								<div class="choose">
@@ -724,7 +719,7 @@
 								</div>
 							</div>
 						</div>
-				
+
 					</div>
 				</div>
 				<!--FINE ACQUIRENTE -->
@@ -735,7 +730,7 @@
 	<?php
 		include "common/footer.php"
 	?>
-	
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
