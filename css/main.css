@@ -750,17 +750,17 @@ h2.title:before{
   white-space: nowrap;
 }
 
-/*.panel-body ul{*/
-/*  padding-left: 20px;*/
-/*}*/
+.panel-body ul{
+  padding-left: 10px;
+}
 
 
-/*.panel-body ul li a {*/
-/*  color: #2b5164;*/
-/*  font-family: 'Roboto', sans-serif;*/
-/*  font-size: 12px;*/
-/*  text-transform: uppercase;*/
-/*}*/
+.panel-body ul li a {
+  color: #2b5164;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 
 .panel-body {
   padding-left: 20px;
