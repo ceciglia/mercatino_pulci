@@ -89,6 +89,8 @@ function getAnnunciPubblicati($cid) {
     //non considero visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
     $risultato = $cid->query($sql);
 
+    echo '<h2 class="title text-center"><span class="title-span">Annunci</span></h2>';
+
     while($row=$risultato->fetch_assoc()){
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
@@ -180,6 +182,8 @@ function getAnnunciFiltrati($cid) {
 
     $risultato = $cid->query($sql);
 
+    echo '<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>';
+
     while($row=$risultato->fetch_assoc()){
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
@@ -206,7 +210,6 @@ function getAnnunciFiltrati($cid) {
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
-    
                         </ul>
                     </div>
                 </div>
@@ -215,6 +218,70 @@ function getAnnunciFiltrati($cid) {
 
 }
 
+function getVenditoriTop($cid){
+    $sql = "SELECT nome, cognome, immagine, venditore AS venditoreTop, fotoP, prezzoP, nomeAnnuncio, COUNT(*) AS nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio
+            FROM utente NATURAL JOIN annuncio NATURAL JOIN richiestaacquisto NATURAL JOIN statoa 
+            WHERE stato='venduto' AND approvato=True 
+              AND (dataStato BETWEEN SUBDATE(CURRENT_TIMESTAMP(), INTERVAL 1 MONTH) AND NOW()) 
+            GROUP BY venditoreTOP 
+            ORDER BY nVendite, punteggioMedio DESC";
+
+    $risultato = $cid->query($sql);
+
+    echo '<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">';
+
+    $count=0;
+    while($row=$risultato->fetch_assoc()){
+        $venditoreTop = $row["venditoreTop"];
+        $nome = $row["nome"];
+        $cognome = $row["cognome"];
+        $immagine = $row["immagine"];
+        $fotoP = $row["fotoP"];
+        $prezzoP = $row["prezzoP"];
+        $nomeAn = $row["nomeAnnuncio"];
+
+        echo '<li class="nav-item">';
+
+        switch($count){
+            case 0:
+                echo '<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">';
+                break;
+            case 1:
+                echo '<a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">';
+                break;
+            case 2:
+                echo '<a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">';
+                break;
+            default:
+                echo '<a class="nav-link disabled" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false" aria-disabled="true"  tabindex="-1">';
+        }
+
+        echo        '<div class="col-sm-3 clickable">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center user-information">
+                                    <img src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine." />
+                                    <h2>'. $nome .';'. $cognome .'</h2>
+                                    <p>'. $venditoreTop .'</p>
+                                    <div>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+              </li>';
+
+        ++$count;
+    }
+    echo '</ul>';
+
+}
 
 
 

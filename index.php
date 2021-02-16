@@ -225,19 +225,20 @@
 					<div class="features_items index-margin-top"><!--features_items-->
                         <?php
                             if (!isset($_GET["categoria"]) and !isset($_GET["sottoCategoria"]) and !isset($_GET["regione"]) and !isset($_GET["provincia"]) and !isset($_GET["comune"]) and !isset($_GET["minPrice"]) and !isset($_GET["maxPrice"])){
-                                echo '<h2 class="title text-center"><span class="title-span">Annunci</span></h2>';
                                 getAnnunciPubblicati($cid);
                             } else {
-                                echo '<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>';
                                 getAnnunciFiltrati($cid);
                             }
                         ?>
-					</div>          <!--/features_items-->
+					</div>      <!--/features_items-->
 
-					<div class="category-tab"><!--category-tab-->
+					<div class="category-tab">      <!--category-tab-->
 						<h2 class="title text-center index-margin-top"><span class="title-span">Venditori TOP</span></h2>
 					</div>		<!--/category-tab-->
 					<div>
+<!--                        --><?php
+//                            getVenditoriTop($cid);
+//                        ?>
 						<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">
 							<li class="nav-item">
 								<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">
@@ -245,7 +246,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center user-information">
-													<img src="images/home/gallery1.jpg" alt="" />
+													<img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />
 													<h2>Nome Cognome 1</h2>
 													<p>nomecognome@top.it</p>
 													<div>
