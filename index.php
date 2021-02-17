@@ -47,6 +47,9 @@
 									<h2>Nuovo e usato</h2>
 									<p class="slider-index">Prodotti nuovi e usati a tutti i prezzi</p>
 								</div>
+                                <div class="col-sm-6">
+                                    <img src="images/home/footprint_eco_index.jpg" class="girl img-responsive" alt="" />
+                                </div>
 							</div>
 						</div>
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
