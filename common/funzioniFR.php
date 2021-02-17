@@ -220,12 +220,15 @@ function getAnnunciFiltrati($cid) {
 }
 
 function getVenditoriTop($cid){
-    $sql = "SELECT nome, cognome, immagine, venditore AS venditoreTop, fotoP, prezzoP, nomeAnnuncio, COUNT(*) AS nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio
-            FROM utente NATURAL JOIN annuncio NATURAL JOIN richiestaacquisto NATURAL JOIN statoa 
-            WHERE stato='venduto' AND approvato=True 
-              AND (dataStato BETWEEN SUBDATE(CURRENT_TIMESTAMP(), INTERVAL 1 MONTH) AND NOW()) 
-            GROUP BY venditoreTOP 
-            ORDER BY nVendite, punteggioMedio DESC";
+//    $sql = "SELECT nome, cognome, immagine, venditore AS venditoreTop, fotoP, prezzoP, nomeAnnuncio, COUNT(*) AS nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio
+//            FROM utente NATURAL JOIN annuncio NATURAL JOIN richiestaacquisto NATURAL JOIN statoa
+//            WHERE stato='venduto' AND approvato=True
+//              AND (dataStato BETWEEN SUBDATE(CURRENT_TIMESTAMP(), INTERVAL 1 MONTH) AND NOW())
+//            GROUP BY venditoreTOP
+//            ORDER BY nVendite, punteggioMedio DESC";
+
+//    $sql = "SELECT nome, cognome, immagine, email AS venditoreTop, COUNT(*) as nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio FROM utente JOIN annuncio ON utente.email=annuncio.venditore JOIN richiestaacquisto ON annuncio.idAnnuncio=richiestaacquisto.idAnnuncio JOIN statoa ON annuncio.idAnnuncio=statoa.idAnnuncio WHERE richiestaacquisto.approvato=1 AND (dataStato BETWEEN SUBDATE(CURRENT_TIMESTAMP(), INTERVAL 1 MONTH) AND NOW()) GROUP BY venditoreTop ORDER BY punteggioMedio DESC, nVendite DESC LIMIT 4";
+    $sql = "SELECT nome, cognome, email AS venditoreTop, COUNT(*) as nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio FROM utente JOIN annuncio ON utente.email=annuncio.venditore JOIN richiestaacquisto ON annuncio.idAnnuncio=richiestaacquisto.idAnnuncio JOIN statoa ON annuncio.idAnnuncio=statoa.idAnnuncio WHERE richiestaacquisto.approvato=1 AND (dataStato BETWEEN SUBDATE(CURRENT_TIMESTAMP(), INTERVAL 1 MONTH) AND NOW()) GROUP BY venditoreTop ORDER BY punteggioMedio DESC, nVendite DESC LIMIT 4";
 
     $risultato = $cid->query($sql);
 
@@ -236,10 +239,11 @@ function getVenditoriTop($cid){
         $venditoreTop = $row["venditoreTop"];
         $nome = $row["nome"];
         $cognome = $row["cognome"];
-        $immagine = $row["immagine"];
-        $fotoP = $row["fotoP"];
-        $prezzoP = $row["prezzoP"];
-        $nomeAn = $row["nomeAnnuncio"];
+//        $immagine = $row["immagine"];
+//        $punteggioMedio = $row["punteggioMedio"];
+//        $fotoP = $row["fotoP"];
+//        $prezzoP = $row["prezzoP"];
+//        $nomeAn = $row["nomeAnnuncio"];
 
         echo '<li class="nav-item">';
 
@@ -261,8 +265,8 @@ function getVenditoriTop($cid){
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center user-information">
-                                    <img src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine." />
-                                    <h2>'. $nome .';'. $cognome .'</h2>
+                                    <img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />
+                                    <h2>'. $nome .' '. $cognome .'</h2>
                                     <p>'. $venditoreTop .'</p>
                                     <div>
                                         <i class="fa fa-star"></i>

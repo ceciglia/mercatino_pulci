@@ -36,6 +36,9 @@
 									<h2>100% Made in Italy</h2>
 									<p class="slider-index">Prodotti made in Italy per ogni esigenza</p>
 								</div>
+                                <div class="col-sm-6">
+                                    <img src="images/home/index_1.jpg" class="girl img-responsive" alt="" />
+                                </div>
 							</div>
 
 							<div class="item">
@@ -236,102 +239,102 @@
 						<h2 class="title text-center index-margin-top"><span class="title-span">Venditori TOP</span></h2>
 					</div>		<!--/category-tab-->
 					<div>
-<!--                        --><?php
-//                            getVenditoriTop($cid);
-//                        ?>
-						<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">
-							<li class="nav-item">
-								<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">
-									<div class="col-sm-3 clickable">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center user-information">
-													<img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />
-													<h2>Nome Cognome 1</h2>
-													<p>nomecognome@top.it</p>
-													<div>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">
-									<div class="col-sm-3 clickable">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center user-information">			<!--user-information-->
-													<img src="images/home/gallery2.jpg" alt="" />
-													<h2>Nome Cognome 2</h2>
-													<p>nomecognome1@top.it</p>
-													<div>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">
-									<div class="col-sm-3 clickable">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center user-information">				<!--user-information-->
-													<img src="images/home/gallery3.jpg" alt="" />
-													<h2>Nome Cognome 3</h2>
-													<p>nomecognome2@top.it</p>
-													<div>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false" aria-disabled="true"  tabindex="-1">
-									<div class="col-sm-3 clickable">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center user-information">		<!--user-information-->
-													<img src="images/home/gallery4.jpg" alt="" />
-													<h2>Nome Cognome 4</h2>
-													<p>nomecognome3@top.it</p>
-													<div>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</a>
-							</li>
-						</ul>
+                        <?php
+                            getVenditoriTop($cid);
+                        ?>
+<!--						<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">-->
+<!--							<li class="nav-item">-->
+<!--								<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">-->
+<!--									<div class="col-sm-3 clickable">-->
+<!--										<div class="product-image-wrapper">-->
+<!--											<div class="single-products">-->
+<!--												<div class="productinfo text-center user-information">-->
+<!--													<img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />-->
+<!--													<h2>Nome Cognome 1</h2>-->
+<!--													<p>nomecognome@top.it</p>-->
+<!--													<div>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</a>-->
+<!--							</li>-->
+<!--							<li class="nav-item">-->
+<!--								<a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">-->
+<!--									<div class="col-sm-3 clickable">-->
+<!--										<div class="product-image-wrapper">-->
+<!--											<div class="single-products">-->
+<!--												<div class="productinfo text-center user-information">			<!--user-information-->-->
+<!--													<img src="images/home/gallery2.jpg" alt="" />-->
+<!--													<h2>Nome Cognome 2</h2>-->
+<!--													<p>nomecognome1@top.it</p>-->
+<!--													<div>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--													</div>-->
+<!--												</div>-->
+<!---->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</a>-->
+<!--							</li>-->
+<!--							<li class="nav-item">-->
+<!--								<a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">-->
+<!--									<div class="col-sm-3 clickable">-->
+<!--										<div class="product-image-wrapper">-->
+<!--											<div class="single-products">-->
+<!--												<div class="productinfo text-center user-information">				<!--user-information-->-->
+<!--													<img src="images/home/gallery3.jpg" alt="" />-->
+<!--													<h2>Nome Cognome 3</h2>-->
+<!--													<p>nomecognome2@top.it</p>-->
+<!--													<div>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--													</div>-->
+<!--												</div>-->
+<!---->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</a>-->
+<!--							</li>-->
+<!--							<li class="nav-item">-->
+<!--								<a class="nav-link disabled" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false" aria-disabled="true"  tabindex="-1">-->
+<!--									<div class="col-sm-3 clickable">-->
+<!--										<div class="product-image-wrapper">-->
+<!--											<div class="single-products">-->
+<!--												<div class="productinfo text-center user-information">		<!--user-information-->-->
+<!--													<img src="images/home/gallery4.jpg" alt="" />-->
+<!--													<h2>Nome Cognome 4</h2>-->
+<!--													<p>nomecognome3@top.it</p>-->
+<!--													<div>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--														<i class="fa fa-star"></i>-->
+<!--													</div>-->
+<!--												</div>-->
+<!---->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</a>-->
+<!--							</li>-->
+<!--						</ul>-->
 
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane p-4 fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
