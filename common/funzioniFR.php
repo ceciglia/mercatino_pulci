@@ -15,6 +15,7 @@ function isUser($cid,$email,$psw) {
 		$msg = "email o password sbagliate";
 		$risultato["status"]="ko";
 		$risultato["msg"]=$msg;
+		$risultato["email"]=$email;
 	}elseif($res->num_rows==1) {
 		$msg = "Login effettuato con successo";
 		$risultato["status"]="ok";

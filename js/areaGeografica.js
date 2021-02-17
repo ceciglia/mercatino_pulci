@@ -23,10 +23,10 @@ function popolaRegioni(reg){
             regione = risposta.contenuto;
     	    regioneSelect = document.getElementById(reg);
     	    regioneSelect.innerHTML="";
-    	    let a = document.createElement('option');
-    	    a.setAttribute("value", "Seleziona una regione: ");
-			a.innerText="Seleziona una regione: ";
-			regioneSelect.appendChild(a);
+    	    let optionR = document.createElement('option');
+			optionR.setAttribute("value", "Seleziona una regione: ");
+			optionR.innerText="Seleziona una regione: ";
+			regioneSelect.appendChild(optionR);
     	    for(let i=0; i < regione.length; i++){
     	        let item = document.createElement('option');
     	        item.setAttribute("value", regione[i]);
@@ -51,6 +51,10 @@ function popolaProvince(reg,prov){
                 province = risposta.contenuto;
 		        provinceSelect = document.getElementById(prov);
 		        provinceSelect.innerHTML="";
+				let optionP = document.createElement('option');
+				optionP.setAttribute("value", "Seleziona una provincia: ");
+				optionP.innerText="Seleziona una provincia: ";
+				provinceSelect.appendChild(optionP);
 		        for(let i=0; i < province.length; i++){
 		           let item = document.createElement('option');
 		           item.setAttribute("value", province[i]);
@@ -76,6 +80,10 @@ function popolaComuni(prov,com){
                 comune = risposta.contenuto;
 		        comuneSelect = document.getElementById(com);
 		        comuneSelect.innerHTML="";
+				let optionC = document.createElement('option');
+				optionC.setAttribute("value", "Seleziona un comune: ");
+				optionC.innerText="Seleziona una comune: ";
+				comuneSelect.appendChild(optionC);
 		        for(let i=0; i < comune.length; i++){
 		           let item = document.createElement('option');
 		           item.setAttribute("value", comune[i]);
