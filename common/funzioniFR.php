@@ -220,6 +220,7 @@ function getAnnunciFiltrati($cid) {
 }
 
 function getVenditoriTop($cid){
+    $listaVenditoriTop=array();
 //    $sql = "SELECT nome, cognome, immagine, venditore AS venditoreTop, fotoP, prezzoP, nomeAnnuncio, COUNT(*) AS nVendite, AVG((serietaV+puntualitaV)/2) AS punteggioMedio
 //            FROM utente NATURAL JOIN annuncio NATURAL JOIN richiestaacquisto NATURAL JOIN statoa
 //            WHERE stato='venduto' AND approvato=True
@@ -234,20 +235,18 @@ function getVenditoriTop($cid){
 
     echo '<ul class="nav nav-tabs tab-menu" id="myTab" role="tablist">';
 
-    $count=0;
-    while($row=$risultato->fetch_assoc()){
+    $count = 0;
+    while ($row = $risultato->fetch_assoc()) {
         $venditoreTop = $row["venditoreTop"];
+        array_push($listaVenditoriTop, $venditoreTop);
         $nome = $row["nome"];
         $cognome = $row["cognome"];
 //        $immagine = $row["immagine"];
 //        $punteggioMedio = $row["punteggioMedio"];
-//        $fotoP = $row["fotoP"];
-//        $prezzoP = $row["prezzoP"];
-//        $nomeAn = $row["nomeAnnuncio"];
 
         echo '<li class="nav-item">';
 
-        switch($count){
+        switch ($count) {
             case 0:
                 echo '<a id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">';
                 break;
@@ -257,38 +256,120 @@ function getVenditoriTop($cid){
             case 2:
                 echo '<a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">';
                 break;
-            default:
+            case 3:
                 echo '<a class="nav-link disabled" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false" aria-disabled="true"  tabindex="-1">';
+                break;
         }
 
-        echo        '<div class="col-sm-3 clickable">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center user-information">
-                                    <img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />
-                                    <h2>'. $nome .' '. $cognome .'</h2>
-                                    <p>'. $venditoreTop .'</p>
-                                    <div>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
+        echo '<div class="col-sm-3 clickable">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center user-information">
+                            <img src="images/home/gallery1.jpg" alt="Impossibile caricare l\'immagine." />
+                            <h2>' . $nome . ' ' . $cognome . '</h2>
+                            <p>' . $venditoreTop . '</p>
+                            <div>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
+              </div>
+              </a>
               </li>';
 
         ++$count;
     }
     echo '</ul>';
 
+    return $listaVenditoriTop;
 }
 
 
+
+function getAnnunciVenditoriTop($cid, $listaVenditoriTop){
+    echo '<div class="tab-content" id="myTabContent">';
+
+    for($i=0; $i<4; $i++) {
+        $sql1 = "SELECT fotoP, prezzoP, nomeAnnuncio, nome, cognome FROM annuncio JOIN utente ON annuncio.venditore = utente.email WHERE annuncio.venditore='$listaVenditoriTop[$i]' LIMIT 3";
+
+        $risultato1 = $cid->query($sql1);
+
+        $count1 = 0;
+        while ($row = $risultato1->fetch_assoc()) {
+            $nome = $row["nome"];
+            $cognome = $row["cognome"];
+            $fotoP = $row["fotoP"];
+            $prezzoP = $row["prezzoP"];
+            $nomeAn = $row["nomeAnnuncio"];
+
+            if ($count1==0) {
+                switch ($i) {
+                    case 0:
+                        echo '<div class="tab-pane p-4 fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">';
+                        echo '<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">' . $nome . ' ' . $cognome . '</span></h2>';
+                        break;
+                    case 1:
+                        echo '<div class="tab-pane p-4 fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">';
+                        echo '<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">' . $nome . ' ' . $cognome . '</span></h2>';
+                        break;
+                    case 2:
+                        echo '<div class="tab-pane p-4 fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">';
+                        echo '<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">' . $nome . ' ' . $cognome . '</span></h2>';
+                        break;
+                    case 3:
+                        echo '<div class="tab-pane p-4 fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">';        //aria-labelledby="tab3-tab"
+                        echo '<h2 class="title text-center index-margin-top testo-normale"><span class="title-span">' . $nome . ' ' . $cognome . '</span></h2>';
+                        break;
+                }
+            }
+
+            echo '<div class="col-sm-4 annunci-dim">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center annunci-vtop">
+                                <div class="img-contenitore">
+                                    <img src="data:image/jpg;base64,' . base64_encode($fotoP) . '" alt="Impossibile caricare l\'immagine." />
+                                </div>
+                                <h2>' . $prezzoP . '</h2>
+                                <p>' . $nomeAn . '</p>
+                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            </div>
+                            <div class="product-overlay">
+                                <div class="overlay-content">
+                                    <h2>' . $prezzoP . '</h2>
+                                    <p>' . $nomeAn . '</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>';
+
+
+            ++$count1;
+
+            if ($count1==3){
+                echo '</div>';
+            }
+
+        }
+
+        if ($i==3){
+            echo '</div>';
+        }
+    }
+    echo '</div>';
+}
 
 
 
