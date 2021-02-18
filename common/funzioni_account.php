@@ -13,6 +13,27 @@ function ciao($cid){
     }
 }
 
+function immagine($cid){
+    if($_SESSION["logged"]==true){
+        $email_sessione=$_SESSION["email"];
+        $sql = "SELECT immagine FROM utente WHERE email = '$email_sessione' ";
+        $risultato = $cid->query($sql);
+        $row=$risultato->fetch_array();
+
+        echo'
+            <div class="product-image-wrapper-profilo" >
+                <div class="single-products">
+                <div class="img-contenitore">
+                    <img src="data:image/jpg;base64,'. base64_encode($row["immagine"]) .'" alt="" class="immagine-profilo-resize" />
+                </div>
+                </div>
+            </div>
+        ';
+    }
+
+
+}
+
 function utenteinfo($cid){
     if($_SESSION["logged"]==true){
         $email_sessione=$_SESSION["email"];
@@ -53,13 +74,11 @@ function utenteinfo($cid){
 
 function acquirente_venditore($cid){
   if($_SESSION["logged"]==true){
-      $email_sessione=$_SESSION["email"];
-      $sql="SELECT acquirente, venditore FROM utente WHERE email = '$email_sessione' ";
-      $risultato = $cid->query($sql);
-      $row=$risultato->fetch_array();
+      $acquirente=$_SESSION["acquirente"];
+      $venditore=$_SESSION["venditore"];
 
       //controllo su acquirente
-      if($row["acquirente"]==1){
+      if($acquirente==1){
         echo'
             <button type="submit" class="btn btn-profilo pull-left btn-a-v" disabled><i class="fa fa-check" aria-hidden="true"></i>   Acquirente</button>
         ';
@@ -69,7 +88,7 @@ function acquirente_venditore($cid){
         ';
       }
       //controllo su venditore
-      if($row["venditore"]==1){
+      if($venditore==1){
         echo'
             <button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-check" aria-hidden="true"></i>   Venditore</button>
         ';
@@ -84,11 +103,10 @@ function acquirente_venditore($cid){
 function valutazione($cid){
   if($_SESSION["logged"]==true){
     $email_sessione=$_SESSION["email"];
-    $sql="SELECT acquirente, venditore FROM utente WHERE email = '$email_sessione' ";
-    $risultato = $cid->query($sql);
-    $row=$risultato->fetch_array();
+    $acquirente=$_SESSION["acquirente"];
+    $venditore=$_SESSION["venditore"];
 
-    if(($row["acquirente"]==1) and ($row["venditore"]==0)){
+    if(($acquirente=="1") and ($venditore=="0")){
           $sqlA="SELECT AVG((serietaA+puntualitaA)/2) AS mediaA, COUNT(*) AS nVal FROM `richiestaacquisto` WHERE acquirenteRA = '$email_sessione' AND serietaA is not null AND puntualitaA is not null";
           $resA = $cid->query($sqlA);
           $rowA=$resA->fetch_array();
@@ -111,9 +129,9 @@ function valutazione($cid){
               $iA = $iA + 1;
 
           }
-        echo'<p class="stelle-valutazione-profilo numero-valutazioni">( '. $mediaA. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i>'. $nValA. ')</p>';
+        echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaA. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValA. ')</p>';   #<i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i>
           echo'</div>';
-    }elseif(($row["acquirente"]==0) and ($row["venditore"]==1)){
+    }elseif(($acquirente=="0") and ($venditore=="1")){
           $sqlV="SELECT AVG((serietaV+puntualitaV)/2) AS mediaV, COUNT(*) AS nVal FROM `annuncio` WHERE venditore = '$email_sessione' AND serietaV is not null AND puntualitaV is not null";
           $resV = $cid->query($sqlV);
           $rowV=$resV->fetch_array();
@@ -137,7 +155,7 @@ function valutazione($cid){
 
           }
 
-          echo'<p class="stelle-valutazione-profilo numero-valutazioni">( '. $mediaV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i>'. $nValV. ')</p>';
+          echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValV. ')</p>';
           echo'</div>';
 
     }else{
@@ -163,7 +181,7 @@ function valutazione($cid){
               $iAV = $iAV + 1;
 
           }
-        echo'<p class="stelle-valutazione-profilo numero-valutazioni">( '. $mediaAV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i>'. $nValAV. ')</p>';
+        echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaAV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValAV. ')</p>';
           echo'</div>';
 
           $sqlVA="SELECT AVG((serietaV+puntualitaV)/2) AS mediaV, COUNT(*) AS nVal FROM `annuncio` WHERE venditore = '$email_sessione' AND serietaV is not null AND puntualitaV is not null";
@@ -188,7 +206,7 @@ function valutazione($cid){
               $iVA = $iVA + 1;
 
           }
-          echo'<p class="stelle-valutazione-profilo numero-valutazioni">( '. $mediaVA. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i>'. $nValVA. ')</p>';
+          echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaVA. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValVA. ')</p>';
           echo'</div>';
     }
 
@@ -197,5 +215,658 @@ function valutazione($cid){
 
 }
 
+function menulaterale($cid){
+    if($_SESSION["logged"]==true) {
+        $email_sessione = $_SESSION["email"];
+        $acquirente = $_SESSION["acquirente"];
+        $venditore = $_SESSION["venditore"];
 
- ?>
+        if(($acquirente=="1") and ($venditore=="0")){
+            $sqlAnnunci="SELECT COUNT(*) AS nAnn FROM annuncio WHERE venditore='$email_sessione'";
+            $res=$cid->query($sqlAnnunci);
+            $rowA=$res->fetch_array();
+
+            if($rowA["nAnn"]!=0){
+                echo'<div class="panel panel-default">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#acquirente">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Acquirente
+                                </a></h4>
+                            </div>
+                        </div>
+                        <div id="acquirente" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav sottomenu_profilo" >
+                                        <li><a href="#" onclick="opensottomenu(event, \'annunciOsservati\')">Annunci osservati</a></li>
+                                        <li><a href="#" onclick="opensottomenu(event, \'listaAcquistati\')">I miei acquisti</a></li>
+                                        <li><a href="#" onclick="opensottomenu(event, \'richiesteAcquisto\')">Richieste di acquisto</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#venditore">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Venditore
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="venditore" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav sottomenu_profilo">
+                                    <li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+                                    <li><a href="#" onclick="opensottomenu(event, \'annunciPubblicati\')">Annunci pubblicati</a></li>
+                                    <li><a href="#" onclick="opensottomenu(event, \'mievendite\')" >Le mie vendite</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                     </div>
+                ';
+            }else{
+                echo'<div class="panel panel-default">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#acquirente">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Acquirente
+                                </a></h4>
+                            </div>
+                        </div>
+                        <div id="acquirente" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav sottomenu_profilo" >
+                                        <li><a href="#" onclick="opensottomenu(event, \'annunciOsservati\')">Annunci osservati</a></li>
+                                        <li><a href="#" onclick="opensottomenu(event, \'listaAcquistati\')">I miei acquisti</a></li>
+                                        <li><a href="#" onclick="opensottomenu(event, \'richiesteAcquisto\')">Richieste di acquisto</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                     </div>
+                ';
+            }
+        }elseif(($acquirente=="0") and ($venditore=="1")){
+            $sqlAcquisti="SELECT COUNT(*) AS nAcq FROM richiestaacquisto WHERE acquirenteRA = '$email_sessione' AND approvato = 1";
+            $resAcq=$cid->query($sqlAcquisti);
+            $rowAcq=$resAcq->fetch_array();
+
+            if($rowAcq["nAcq"]!=0){
+                echo'
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#venditore">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Venditore
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="venditore" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav sottomenu_profilo">
+                                    <li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+                                    <li><a href="#" onclick="opensottomenu(event, \'annunciPubblicati\')">Annunci pubblicati</a></li>
+                                    <li><a href="#" onclick="opensottomenu(event, \'mievendite\')" >Le mie vendite</a></li>
+                                    <li><a href="#" onclick="opensottomenu(event, \'risposte\')" >Risposte ai miei annunci</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#acquirente">
+                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                    Acquirente
+                                </a></h4>
+                            </div>
+                        </div>
+                        <div id="acquirente" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav sottomenu_profilo" >                          
+                                     <li><a href="#" onclick="opensottomenu(event, \'listaAcquistati\')">I miei acquisti</a></li>  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }else{
+                echo'
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#venditore">
+                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                Venditore
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="venditore" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="nav navbar-nav sottomenu_profilo">
+                                <li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+                                <li><a href="#" onclick="opensottomenu(event, \'annunciPubblicati\')">Annunci pubblicati</a></li>
+                                <li><a href="#" onclick="opensottomenu(event, \'mievendite\')" >Le mie vendite</a></li>
+                                <li><a href="#" onclick="opensottomenu(event, \'risposte\')" >Risposte ai miei annunci</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>';
+            }
+        }else{
+            echo' <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#venditore">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Venditore
+                        </a>
+                    </h4>
+                </div>
+                <div id="venditore" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav sottomenu_profilo">
+                            <li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+                            <li><a href="#" onclick="opensottomenu(event, \'annunciPubblicati\')">Annunci pubblicati</a></li>
+                            <li><a href="#" onclick="opensottomenu(event, \'mievendite\')" >Le mie vendite</a></li>
+                            <li><a href="#" onclick="opensottomenu(event, \'risposte\')" >Risposte ai miei annunci</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#acquirente">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Acquirente
+                        </a></h4>
+                    </div>
+                </div>
+                <div id="acquirente" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav sottomenu_profilo" >
+                                <li><a href="#" onclick="opensottomenu(event, \'annunciOsservati\')">Annunci osservati</a></li>
+                                <li><a href="#" onclick="opensottomenu(event, \'listaAcquistati\')">I miei acquisti</a></li>
+                                <li><a href="#" onclick="opensottomenu(event, \'richiesteAcquisto\')">Richieste di acquisto</a></li>
+                        </ul>
+                    </div>
+                </div>
+			  </div>';
+        }
+
+
+    }
+
+
+}
+
+function annunciOsservatiUtente($cid){
+    if($_SESSION["logged"]==true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT a.idAnnuncio, nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore FROM osserva AS o JOIN annuncio AS a ON o.idAnnuncio = a.IdAnnuncio JOIN statoa AS s ON a.idAnnuncio = s.idAnnuncio WHERE acquirenteO='$email_sessione' AND s.stato='in vendita'";
+        $res = $cid->query($sqlAnnunci);
+        while($row = $res->fetch_array()){
+            echo'<div class="col-sm-4" >
+                 <div class="product-image-wrapper" >
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <div class="img-contenitore">
+                                <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                            </div>
+                            <h2>'. $row["prezzoP"] .'€</h2>
+                            <p>'. $row["nomeAnnuncio"] .'</p>
+
+                        </div>
+
+                        <div  class="product-overlay">
+                            <div class="overlay-content">
+                                <a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#acquista'.$row["idAnnuncio"] .'"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
+                            <div id="acquista'.$row["idAnnuncio"] .'" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >
+                                        <div >
+                                            <p><b>Metodo di pagamento: </b></p>
+                                            <div class="demo-content">
+                                                <div class="metodop">
+                                                    <ul	class="nav paddingsinistra" >
+                                                        <input name="metodop" type="radio" id="carta" value="1" />
+                                                        <label for="carta" style="display: inline-block;"><p >Carta di credito</p></label>
+                                                        <input name="metodop" type="radio" id="contanti" value="2" />
+                                                        <label for="contanti" style="display: inline-block;"><p >Contanti alla consegna</p></label>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id02\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                            <div id="id02" class="modal">
+                                                <form class="modal-content popup-modal-content">
+                                                    <div class="container popup-conferma">
+                                                        <h4>Metodo di pagamento</h4>
+                                                        <p>Stai per confermare il metodo di pagamento.</p>
+                                                        <p>Sei sicur* di voler proseguire?</p>
+
+                                                        <div class="clearfix">
+                                                            <button type="button" onclick="document.getElementById(\'id02\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                                            <button type="button" onclick="document.getElementById(\'id02\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+				</div>
+			</div>
+			';
+        }
+    }
+}
+
+function acquistiUtente($cid){
+    if($_SESSION["logged"]==true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT a.idAnnuncio, nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore FROM richiestaacquisto AS r JOIN annuncio AS a ON r.idAnnuncio = a.IdAnnuncio WHERE acquirenteRA='$email_sessione' AND approvato=1";
+        $res = $cid->query($sqlAnnunci);
+        while($row = $res->fetch_array()){
+            echo'
+            <div class="col-sm-4" >
+                <div class="product-image-wrapper" >
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <div class="img-contenitore">
+                                <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                            </div>
+                            <h2>'. $row["prezzoP"] .'€</h2>
+                            <p>'. $row["nomeAnnuncio"] .'</p>
+
+                        </div>
+                        <div  class="product-overlay">
+                            <div class="overlay-content">
+                                <a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valuta'. $row["idAnnuncio"] .'"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
+                            <div id="valuta'. $row["idAnnuncio"] .'" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
+                                        <div>
+                                            <p>Valuta la <b >serietà</b> :</p>
+                                            <div class="demo-content">
+                                                <div class="serieta">
+                                                    <input name="serieta" type="radio" id="stellaV1'.$row["idAnnuncio"] .'" value="1" />
+                                                    <label for="stellaV1'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="serieta" type="radio" id="stellaV2'.$row["idAnnuncio"] .'" value="2" />
+                                                    <label for="stellaV2'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="serieta" type="radio" id="stellaV3'.$row["idAnnuncio"] .'" value="3" />
+                                                    <label for="stellaV3'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="serieta" type="radio" id="stellaV4'.$row["idAnnuncio"] .'" value="4" />
+                                                    <label for="stellaV4'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="serieta" type="radio" id="stellaV5'.$row["idAnnuncio"] .'" value="5" checked />
+                                                    <label for="stellaV5'.$row["idAnnuncio"] .'"></label>
+
+                                                </div>
+                                            </div>
+                                            <p>Valuta la <b >puntualità</b> :</p>
+                                            <div class="demo-content">
+                                                <div class="puntualita">
+                                                    <input name="puntualita" type="radio" id="stellaV6'.$row["idAnnuncio"] .'" value="1" />
+                                                    <label for="stellaV6'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="puntualita" type="radio" id="stellaV7'.$row["idAnnuncio"] .'" value="2" />
+                                                    <label for="stellaV7'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="puntualita" type="radio" id="stellaV8'.$row["idAnnuncio"] .'" value="3" />
+                                                    <label for="stellaV8'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="puntualita" type="radio" id="stellaV9'.$row["idAnnuncio"] .'" value="4" />
+                                                    <label for="stellaV9'.$row["idAnnuncio"] .'"></label>
+
+                                                    <input name="puntualita" type="radio" id="stellaV10'.$row["idAnnuncio"] .'" value="5" checked />
+                                                    <label for="stellaV10'.$row["idAnnuncio"] .'"></label>
+
+                                                </div>
+                                                <button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id04\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                    <div id="id04" class="modal">
+                                                        <form class="modal-content popup-modal-content">
+                                                            <div class="container popup-conferma">
+                                                                <h4>Valutazione</h4>
+                                                                <p>Stai per confermare la valutazione.</p>
+                                                                <p>Sei sicur* di voler proseguire?</p>
+
+                                                                <div class="clearfix">
+                                                                    <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                                                    <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+			</div>';
+        }
+    }
+}
+
+function richiesteAcquistoUtente($cid){
+    if ($_SESSION["logged"] == true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT r.idAnnuncio, metodoPagamento, approvato, a.nomeAnnuncio, a.prezzoP, a.fotoP, a.venditore FROM richiestaacquisto AS r JOIN annuncio AS a ON r.idAnnuncio = a.idAnnuncio WHERE acquirenteRA = '$email_sessione' ";
+        $res = $cid->query($sqlAnnunci);
+
+        while($row = $res->fetch_array()){
+            echo '
+            <tr>
+                <td class="cart_product">
+                    <a href=""><img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" class="imm-richieste"/></a> 
+                </td>
+                <td class="cart_description blu">
+                    <h4><a>' . $row["nomeAnnuncio"] . '</a></h4>
+        
+                    <p class="richieste-responsive"><b>ID annuncio:</b></p><p style="display: inline-block">' . $row["idAnnuncio"] . '</p>
+                </td>
+                <td class="cart_price blu">
+                    <p class="richieste-responsive"><b>Venditore:</b></p><p style="display: inline-block; ">' . $row["venditore"] . '</p>
+                </td>
+                <td class="cart_price blu">
+                    <p class="richieste-responsive"><b>Prezzo:</b></p><p style="display: inline-block;">' . $row["prezzoP"] . '€</p>
+                </td>';
+                if ($row["approvato"]==null) {
+                    echo '  
+                                <td class="cart_total blu">
+                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">In elaborazione</p>
+                                </td>';
+                } elseif ($row["approvato"] == 1) {
+                    echo '  
+                                <td class="cart_total blu">
+                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">Approvato</p>
+                                </td>';
+                } else {
+                    echo '  
+                                <td class="cart_total blu">
+                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">Respinto</p>
+                                </td>';
+                }
+                echo '</tr>';
+        }
+    }
+}
+
+
+function leMieVendite($cid){
+    if($_SESSION["logged"]==true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT * FROM annuncio AS a JOIN richiestaacquisto AS r ON a.idAnnuncio=r.idAnnuncio WHERE venditore='$email_sessione' AND approvato=1";
+        $res = $cid->query($sqlAnnunci);
+        while($row = $res->fetch_array()){
+            echo'
+                <div class="col-sm-4" >
+							<div class="product-image-wrapper" >
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<div class="img-contenitore">
+											<img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+										</div>
+										<h2>' . $row["prezzoP"] . ' €</h2>
+										<p>' . $row["nomeAnnuncio"] . '</p>
+
+									</div>
+									<div  class="product-overlay">
+										<div class="overlay-content">
+											<a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+										</div>
+									</div>
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valutaA' . $row["idAnnuncio"] . '"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta acquirente</a></li>
+										<div id="valutaA' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+											<div class="panel-body">
+												<ul class="nav navbar-nav sottomenu_profilo sottomenu-vendite" >
+													<div>
+														<p>Valuta la <b >serietà</b> :</p>
+														<div class="demo-content">
+															<div class="serieta">
+																<input name="serieta' . $row["idAnnuncio"] . '" type="radio" id="stellaA1' . $row["idAnnuncio"] . '" value="1" />
+																<label for="stellaA1' . $row["idAnnuncio"] . '"></label>
+
+																<input name="serieta" type="radio" id="stellaA2' . $row["idAnnuncio"] . '" value="2" />
+																<label for="stellaA2' . $row["idAnnuncio"] . '"></label>
+
+																<input name="serieta" type="radio" id="stellaA3' . $row["idAnnuncio"] . '" value="3" />
+																<label for="stellaA3' . $row["idAnnuncio"] . '"></label>
+
+																<input name="serieta" type="radio" id="stellaA4' . $row["idAnnuncio"] . '" value="4" />
+																<label for="stellaA4' . $row["idAnnuncio"] . '"></label>
+
+																<input name="serieta" type="radio" id="stellaA5' . $row["idAnnuncio"] . '" value="5" checked />
+																<label for="stellaA5' . $row["idAnnuncio"] . '"></label>
+															</div>
+														</div>
+														<p>Valuta la <b >puntualità</b> :</p>
+														<div class="demo-content">
+															<div class="puntualita">
+																<input name="puntualita" type="radio" id="stellaA6' . $row["idAnnuncio"] . '" value="1" />
+																<label for="stellaA6' . $row["idAnnuncio"] . '"></label>
+
+																<input name="puntualita" type="radio" id="stellaA7' . $row["idAnnuncio"] . '" value="2" />
+																<label for="stellaA7' . $row["idAnnuncio"] . '"></label>
+
+																<input name="puntualita" type="radio" id="stellaA8' . $row["idAnnuncio"] . '" value="3" />
+																<label for="stellaA8' . $row["idAnnuncio"] . '"></label>
+
+																<input name="puntualita" type="radio" id="stellaA9' . $row["idAnnuncio"] . '" value="4" />
+																<label for="stellaA9' . $row["idAnnuncio"] . '"></label>
+
+																<input name="puntualita" type="radio" id="stellaA10' . $row["idAnnuncio"] . '" value="5" checked />
+																<label for="stellaA10' . $row["idAnnuncio"] . '"></label>
+														</div>
+														<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id01\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+														<div id="id01" class="modal">
+															<form class="modal-content popup-modal-content">
+																<div class="container popup-conferma">
+																	<h4>Valutazione</h4>
+																	<p>Stai per confermare la valutazione.</p>
+																	<p>Sei sicur* di voler proseguire?</p>
+
+																	<div class="clearfix">
+																		<button type="button" onclick="document.getElementById(\'id01\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+																		<button type="button" onclick="document.getElementById(\'id01\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+																	</div>
+																</div>
+															</form>
+														</div>
+													</div>
+												</ul>
+											</div>
+										</div>
+									</ul>
+								</div>
+							</div>
+						</div>
+            ';
+        }
+    }
+
+}
+
+function annunciPubblicati($cid){
+    if ($_SESSION["logged"] == true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione'";
+        $res = $cid->query($sqlAnnunci);
+        while ($row = $res->fetch_array()) {
+            echo'
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <div class="img-contenitore">
+                                    <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                                </div>
+                                <h2>' . $row["prezzoP"] . ' €</h2>
+                                <p>' . $row["nomeAnnuncio"] . '</p>
+
+                            </div>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified blu">
+                                <li><a href="modificaAnnuncio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            ';
+
+        }
+    }
+
+}
+
+function risposteAnnunci($cid){
+    if ($_SESSION["logged"] == true) {
+        $email_sessione = $_SESSION["email"];
+        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione'";
+        $res = $cid->query($sqlAnnunci);
+        while ($row = $res->fetch_array()) {
+            echo'
+            <div class="col-sm-12">
+                <div class="product-image-wrapper" >
+                    <div class="single-products">
+                        <table>
+                            <tr>
+                                <th><img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" style="width: 130px; margin: 10px;" /></th>
+                                <th>
+                                    <p class="cart_description blu">' . $row["nomeAnnuncio"] . '</p>
+                                    <p>ID: ' . $row["idAnnuncio"] . '</p>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                                           
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#annuncio1' . $row["idAnnuncio"] . '"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>Hai 3 richieste d\'acquisto</a></li>
+                            <div id="annuncio1' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+                                <div class="panel-body ">
+                                    <table class="table-risposte">
+                                        <thead>
+                                            <tr class="cart_menu cart-color-richieste" >
+                                                <td class="image" >Acquirente</td>
+                                                <td class="description"></td>
+                                                <td class="price">Metodo di pagamento</td>
+                                                <td class="total">Stato</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        
+                                        
+                                        
+                                        <tbody classe="table-risposte">';
+                                            $idAnnunio=$row["idAnnuncio"];
+                                            $sqlutenti = "SELECT email, immagine, nome, cognome, metodoPagamento, approvato FROM richiestaacquisto JOIN utente ON acquirenteRA=email WHERE idAnnuncio='$idAnnunio'";
+                                            $utenti = $cid->query($sqlutenti);
+                                            while ($u = $utenti->fetch_array()) {
+                                            echo'
+                                            <tr >
+                                                <td class="cart_product">
+                                                    <a href=""><img src="data:image/jpg;base64,'. base64_encode($u["immagine"]) .'"  alt="" class="imm-richieste" ></a>
+                                                </td>
+                                                <td class="cart_description">
+                                                    <h4><a href="">' . $u["nome"] . ' ' . $u["cognome"] . '</a></h4>
+                                                    <p class="richieste-responsive"><b>Email: </b></p><p style="display: inline-block;">' . $u["email"] . '</p>
+                                                </td>
+                                                <td class="cart_price">
+                                                    <p class="richieste-responsive"><b>Metodo di pagamento: </b></p><p style="display: inline-block;">' . $u["metodoPagamento"] . '</p>
+                                                </td>
+                                                ';
+                                                if($u["approvato"]==null){
+                                                    echo'
+                                                    <td class="cart_total">
+                                                        <p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">In elaborazione</p>
+                                                    </td>';
+                                                } elseif($u["approvato"]==0){
+                                                echo'
+                                                    <td class="cart_total">
+                                                        <p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">Rifiutato</p>
+                                                    </td>';
+                                                }else{
+                                                echo'
+                                                    <td class="cart_total">
+                                                        <p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">Accettato</p>
+                                                    </td>';
+                                                }
+
+                                                echo'
+                                                <td class="cart_delete approvato">
+                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1a\')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                                                    <div id="thumb1a" class="modal">
+                                                        <form class="modal-content popup-modal-content">
+                                                            <div class="container popup-conferma">
+                                                                <h4>Risposte ai miei annunci</h4>
+                                                                <p>Stai per CONFERMARE la richiesta d\'acquisto.</p>
+                                                                <p>Sei sicur* di voler proseguire?</p>
+
+                                                                <div class="clearfix">
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1a\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1a\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1b\')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+                                                    <div id="thumb1b" class="modal">
+                                                        <form class="modal-content popup-modal-content">
+                                                            <div class="container popup-conferma">
+                                                                <h4>Risposte ai miei annunci</h4>
+                                                                <p>Stai per RIFIUTARE la richiesta d\'acquisto.</p>
+                                                                <p>Sei sicur* di voler proseguire?</p>
+
+                                                                <div class="clearfix">
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1b\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1b\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>';
+                                            }
+                                            echo'
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    
+                </div>
+           </div>';
+
+       }
+    }
+}
+
+?>
