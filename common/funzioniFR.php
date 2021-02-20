@@ -283,7 +283,11 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop){
     echo '<div class="tab-content" id="myTabContent">';
 
     for($i=0; $i<4; $i++) {
-        $sql1 = "SELECT fotoP, prezzoP, nomeAnnuncio, nome, cognome FROM annuncio JOIN utente ON annuncio.venditore = utente.email WHERE annuncio.venditore='$listaVenditoriTop[$i]' LIMIT 3";
+//        $sql1 = "SELECT fotoP, prezzoP, nomeAnnuncio, nome, cognome FROM annuncio JOIN utente ON annuncio.venditore = utente.email NATURAL JOIN richiestaacquisto NATURAL JOIN statoa WHERE annuncio.venditore='$listaVenditoriTop[$i]' and approvato=1 and stato='in vendita' LIMIT 3";
+        $sql1 = "SELECT AV.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, annuncio.idAnnuncio, nome, cognome, s1.stato FROM utente JOIN annuncio ON utente.email=annuncio.venditore JOIN statoa s1 ON annuncio.idAnnuncio=s1.idAnnuncio WHERE annuncio.venditore='$listaVenditoriTop[$i]' and s1.dataStato IN (SELECT MAX(s2.dataStato) FROM statoa s2 WHERE s2.idAnnuncio=s1.idAnnuncio GROUP BY s2.idAnnuncio)) AS AV WHERE AV.stato='in vendita'";
+
+
+
 
         $risultato1 = $cid->query($sql1);
 
