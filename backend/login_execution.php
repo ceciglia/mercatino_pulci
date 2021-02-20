@@ -30,6 +30,8 @@
 				$_SESSION["logged"]=true;
 				$_SESSION["venditore"]=$result["venditore"];
                 $_SESSION["acquirente"]=$result["acquirente"];
+                $_SESSION["nome"] = $result["nome"];
+                $_SESSION["cognome"] = $result["cognome"];
 				header("Location:../index.php?status=ok&msg=". urlencode($result["msg"]));
 			} else {
 				header("Location:../index.php?status=ko&msg=" . urlencode($result["msg"]));

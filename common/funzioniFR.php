@@ -24,6 +24,8 @@ function isUser($cid,$email,$psw) {
 		$row=$res->fetch_assoc();
         $risultato["venditore"] = $row["venditore"];
         $risultato["acquirente"] = $row["acquirente"];
+        $risultato["nome"] = $row["nome"];
+        $risultato["cognome"] = $row["cognome"];
 	}
 	return $risultato;
 }

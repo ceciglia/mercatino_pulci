@@ -26,10 +26,12 @@
 							<div class="item active">
 								<div class="col-sm-9 index-benvenuto">
                                     <?php
-                                        if ($_SESSION["logged"]==True){
-                                            echo '<h1>Ciao<span>'.$_SESSION["email"].'</span></h1>
-									              <p>Siamo felici di riaverti tra noi! </p>
-									              <a href="account.php"><button type="button" class="btn btn-default get">Vai al mio profilo!</button></a>';
+                                        if (isset($_SESSION["logged"])){
+                                            if ($_SESSION["logged"]==True){
+                                                echo '<h1>Ciao <span>'.$_SESSION["nome"].' '.$_SESSION["cognome"].'</span>!</h1>
+									                  <p>Siamo felici di riaverti tra noi! </p>
+									                  <a href="account.php"><button type="button" class="btn btn-default get">Vai al mio profilo!</button></a>';
+                                            }
                                         } else {
                                             echo '<h1>Benvenut* in <span>FR</span> Market</h1>
 									              <p>Scorri per scoprire di più! </p>
