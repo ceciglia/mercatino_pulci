@@ -24,6 +24,9 @@ function isUser($cid,$email,$psw) {
 		$row=$res->fetch_assoc();
         $risultato["venditore"] = $row["venditore"];
         $risultato["acquirente"] = $row["acquirente"];
+        if (isset($row["acquirente"]) and $row["acquirente"]==1){
+
+        }
         $risultato["nome"] = $row["nome"];
         $risultato["cognome"] = $row["cognome"];
 	}
@@ -38,6 +41,9 @@ function test_input($data) {
 }
 
 function getPiùOsservati($cid){
+    if (isset($_SESSION)){
+
+    }
     $sql = "SELECT fotoP, nomeAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
     $risultato = $cid->query($sql);
 
