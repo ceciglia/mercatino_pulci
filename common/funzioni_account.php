@@ -154,7 +154,6 @@ function valutazione($cid){
                 $iV = $iV + 1;
 
           }
-
           echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValV. ')</p>';
           echo'</div>';
 
@@ -182,7 +181,8 @@ function valutazione($cid){
 
           }
         echo'<p class="stelle-valutazione-profilo numero-valutazioni">('. $mediaAV. ' / 5 -- <i class="fa fa-users" aria-hidden="true" class="numero-valutazioni"></i> '. $nValAV. ')</p>';
-          echo'</div>';
+          echo'</div>
+                <br>';
 
           $sqlVA="SELECT AVG((serietaV+puntualitaV)/2) AS mediaV, COUNT(*) AS nVal FROM `annuncio` WHERE venditore = '$email_sessione' AND serietaV is not null AND puntualitaV is not null";
           $resVA = $cid->query($sqlVA);
@@ -257,7 +257,7 @@ function menulaterale($cid){
                         <div id="venditore" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav sottomenu_profilo">
-                                    <li><a href="pubblicaAnnuncio.php"><i class="fa fa-plus-square" aria-hidden="true"></i><b>  Nuovo annuncio</b></a></li>
+                                  
                                     <li><a href="#" onclick="opensottomenu(event, \'annunciPubblicati\')">Annunci pubblicati</a></li>
                                     <li><a href="#" onclick="opensottomenu(event, \'mievendite\')" >Le mie vendite</a></li>
                                 </ul>
@@ -868,5 +868,143 @@ function risposteAnnunci($cid){
        }
     }
 }
+
+
+function modificaProfilo($cid){
+    if($_SESSION["logged"]==true) {
+        $email_sessione = $_SESSION["email"];
+        $sql = "SELECT email,nome,cognome,codFiscale,immagine,via,nCivico,CAP,comune,provincia,regione,acquirente,venditore FROM utente WHERE email = '$email_sessione' ";
+        $risultato = $cid->query($sql);
+
+        //variabili contenenti i risultati della query
+        $row = $risultato->fetch_array();
+        $email = $row["email"];
+        $nome = $row["nome"];
+        $cognome = $row["cognome"];
+        $codFiscale = $row["codFiscale"];
+        $via = $row["via"];
+        $nCivico = $row["nCivico"];
+        $CAP = $row["CAP"];
+        $comune = $row["comune"];
+        $provincia = $row["provincia"];
+        $regione = $row["regione"];
+        $immagine = $row["immagine"];
+        $venditore=$row["venditore"];
+        $acquirente=$row["acquirente"];
+
+        echo '<div class="features_items" >
+                <h2 class="title text-center"><span class="title-span">Modifica profilo</span></h2>
+                </div>
+                <form method="POST" action="backend/modificaAccount-exe.php">
+                <p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
+                <div class="col-sm-4">
+                    <div class="container_imm" style="max-width: none;">
+                        
+                        <img src="data:image/jpg;base64,'. base64_encode($immagine) .'" class="image_p immagine-profilo-resize" >
+                        <input type="file" id="file" style="display:none;" />
+                        <button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica immagine</button>
+                    </div>
+                    <div class="modifica-ruolo">
+                            <p>Modifica il tuo ruolo: </p>
+                            <span>';
+                                if($venditore==1){
+                                    echo'
+                                        <input type="checkbox" id="venditore" name="venditore" value="True"  onclick="return ValidateAcquirenteVenditore();" checked >
+                                        <label for="venditore" class="color-v-a"> Venditore </label><br>';
+                                }else{
+                                    echo'
+                                        <input type="checkbox" id="venditore" name="venditore" value="True" onclick="return ValidateAcquirenteVenditore();">
+                                        <label for="venditore" class="color-v-a"> Venditore </label><br>';
+                                }
+
+                                if($acquirente==1){
+                                    echo'
+                                        <input type="checkbox" id="acquirente" name="acquirente" value="True"  onclick="return ValidateAcquirenteVenditore();" checked>
+                                        <label for="acquirente" class="color-v-a"> Acquirente </label><br>';
+                                }else{
+                                    echo'
+                                        <input type="checkbox" id="acquirente" name="acquirente" value="True"  onclick="return ValidateAcquirenteVenditore();" >
+                                        <label for="acquirente" class="color-v-a"> Acquirente </label><br>';
+                                }
+                                echo'
+                            </span>
+                            <script type="text/javascript">  
+                            function ValidateAcquirenteVenditore() {  
+                                var checkacquirente = document.getElementsByName("acquirente");  
+                                var checkvenditore = document.getElementsByName("venditore"); 
+            
+                                if((checkacquirente.checked) and (checkvenditore.checked)){
+                                        alert("You can\'t select more than two favorite pets!");  
+                                }  
+                            }
+                            </script>
+                    </div>
+                    <p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
+                    <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="password"  placeholder="Password attuale" rows="1"  class="modifica-password"></input ></div>
+                    <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="npassword"  placeholder="Nuova password" rows="1"  class="modifica-password"></input ></div>
+                    <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="confnpassword"  placeholder="Conferma password" rows="1"  class="modifica-password"></input ></div>
+                </div>
+                <div class="col-sm-8" >
+                    <textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><input type="email" name="text"  placeholder="' . $email . '" rows="1"  class="profilo-data" maxlength="50" disabled>
+                    <textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="nome"  id="nome" placeholder="' . $nome . '" rows="1"  class="profilo-data" maxlength="20">
+                    <textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" style="margin-right: 10px;"></i><input name="cognome"  placeholder="' . $cognome . '" rows="1"  class="profilo-data" maxlength="20">
+    
+                    <textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="codFiscale"  placeholder="' . $codFiscale . '" rows="1"  class="profilo-data" maxlength="16" minlength="16" >
+                    <textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="via"  placeholder="' . $via . '" rows="1"  class="profilo-data" maxlength="50">
+                    <textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="nCivico"  placeholder="' . $nCivico . '" rows="1" class="profilo-data">
+                    <textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="CUP"  placeholder="' . $CAP . '" rows="1"  class="profilo-data" maxlength="50">
+                   
+                    <textarea name="text"  placeholder="Regione:" rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i>
+                    <select id="reg" name="regione" class="profilo-data">
+                        <option >'. $regione .'</option>
+                    </select>
+                    <br>
+                   
+                    <textarea name="text"  placeholder="Provincia:" rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i>
+                    <select id="prov" name="provincia" class="profilo-data">
+                      <option >' . $provincia . '</option>
+                      
+                    </select>
+                    <br>
+                    
+                    <textarea name="text"  placeholder="Comune:" rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i>
+                    <select id="com" name="comune" class="profilo-data">
+                      <option >' . $comune . '</option>
+                    </select>
+                    <script src="js/areaGeografica.js"></script>
+    
+                    <button type="button"  onclick="btnConferma(\'modifica\')" class="btn btn-profilo pull-right btn-salvamodifiche" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
+                    <div id="modifica" class="modal">
+                        <div class="modal-content popup-modal-content">
+                            <div class="container popup-conferma">
+                                <h4>Modifica profilo</h4>
+                                <p>Stai per modificare il tuo profilo.</p>
+                                <p>Sei sicur* di voler proseguire?</p>
+                                <div class="clearfix">
+                                    <button type="submit" name="conferma" class="popup-btn deletebtn">Conferma</button>
+                                    <button type="submit" name="annulla" class="popup-btn cancelbtn">Annulla</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    <button type="submit"  onclick="btnConferma(\'elimina\')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
+                    <div id="elimina" class="modal">
+                        <div class="modal-content popup-modal-content">
+                            <div class="container popup-conferma">
+                                <h4>Elimina profilo</h4>
+                                <p>Stai per eliminare il tuo profilo.</p>
+                                <p>Sei sicur* di voler proseguire?</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="document.getElementById(\'elimina\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                    <button type="button" onclick="document.getElementById(\'elimina\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
+}
+
 
 ?>

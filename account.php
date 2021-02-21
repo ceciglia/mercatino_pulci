@@ -70,62 +70,10 @@
 
 				</div>
 				<div class="col-sm-9 padding-right" id='modificaProfilo'>
-					<div class="features_items" >
-						<h2 class="title text-center"><span class="title-span">Modifica profilo</span></h2>
-					</div>
-					<p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
-					<div class="col-sm-4">
-						<div class="container_imm" style="max-width: none;">
-							<img src="images/home/product1.jpg" alt="Avatar" class="image_p immagine-profilo" >
-							<input type="file" id="file" style="display:none;" />
-							<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica immagine</button>
-						</div>
-						<p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
-						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nuova password" rows="1"  class="modifica-password"></textarea ></div>
-						<div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Conferma password" rows="1"  class="modifica-password"></textarea ></div>
-					</div>
-					<div class="col-sm-8" >
-						<textarea name="text"  placeholder="E-mail: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="nomeutente@mail.com" rows="1"  class="profilo-data"></textarea >
-						<textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nome" rows="1"  class="profilo-data"></textarea >
-						<textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" style="margin-right: 10px;"></i><textarea name="text"  placeholder="Cognome" rows="1"  class="profilo-data"></textarea >
 
-						<textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Codice fiscale" rows="1"  class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="via" rows="1"  class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="N° civico" rows="1" class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="CAP" rows="1" class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="Comune: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Comune" rows="1" class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="Provincia: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Provincia" rows="1"  class="profilo-data"></textarea>
-						<textarea name="text"  placeholder="Regione: " rows="1" disabled class="profilo-name "></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><textarea name="text"  placeholder="Regione" rows="1"  class="profilo-data"></textarea>
-
-						<button type="submit"  onclick="btnConferma('modifica')" class="btn btn-profilo pull-right btn-salvamodifiche" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
-						<div id="modifica" class="modal">
-							<form class="modal-content popup-modal-content">
-								<div class="container popup-conferma">
-									<h4>Modifica profilo</h4>
-									<p>Stai per modificare il tuo profilo.</p>
-									<p>Sei sicur* di voler proseguire?</p>
-									<div class="clearfix">
-										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-									</div>
-								</div>
-							</form>
-						</div>
-						<button type="submit"  onclick="btnConferma('elimina')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
-						<div id="elimina" class="modal">
-							<form class="modal-content popup-modal-content">
-								<div class="container popup-conferma">
-									<h4>Elimina profilo</h4>
-									<p>Stai per eliminare il tuo profilo.</p>
-									<p>Sei sicur* di voler proseguire?</p>
-									<div class="clearfix">
-										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-										<button type="button" onclick="document.getElementById('elimina').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
+                    <?php
+                        modificaProfilo($cid);
+                    ?>
 				</div>
 				<!--ACQUIRENTE-->
 				<!--ANNUNCI OSSERVATI-->
@@ -225,6 +173,17 @@
 	<script src="js/main.js"></script>
 	<script src="js/funzioni.js"></script>
 	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
+    <script>
+        document.getElementById("reg").addEventListener("focus", function(){
+            popolaRegioni("reg");
+        });
+        document.getElementById("reg").addEventListener("change", function(){
+            popolaProvince("reg","prov");
+        });
+        document.getElementById("prov").addEventListener("change", function(){
+            popolaComuni("prov","com");
+        });
+    </script>
 
 </body>
 </html>
