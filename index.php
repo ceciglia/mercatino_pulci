@@ -28,7 +28,7 @@
                                     <?php
                                         if (isset($_SESSION["logged"])){
                                             if ($_SESSION["logged"]==True){
-                                                echo '<h1>Ciao <span>'.$_SESSION["nome"].' '.$_SESSION["cognome"].'</span>!</h1>
+                                                echo '<h1>Ciao <span>'.$_SESSION["nome"].' '.$_SESSION["cognome"].'</span></h1>
 									                  <p>Siamo felici di riaverti tra noi <i class="fa fa-smile-o" aria-hidden="true"></i></p>
 									                  <a href="account.php"><button type="button" class="btn btn-default get">Vai al mio profilo</button></a>';
                                             }
