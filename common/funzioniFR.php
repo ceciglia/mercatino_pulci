@@ -184,7 +184,7 @@ function getAnnunciFiltrati($cid) {
 
     $risultato = $cid->query($sql);
 
-    echo '<h2 class="title text-center"><span class="title-span">Annunci filtrati</span></h2>';
+    echo '<h2 id="anFiltrati" class="title text-center"><span class="title-span">Annunci filtrati</span></h2>';
 
     while($row=$risultato->fetch_assoc()){
         $fotoP = $row["fotoP"];
@@ -218,6 +218,8 @@ function getAnnunciFiltrati($cid) {
              </div>';
     }
 
+
+    echo '<script>autoScrollRefresh("anFiltrati");</script>';
 }
 
 function getVenditoriTop($cid){
@@ -369,6 +371,8 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
         }
     }
 }
+
+echo '<script src="js/funzioni.js"></script>';
 
 
 

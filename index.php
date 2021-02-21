@@ -274,6 +274,7 @@
 	<script src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
+    <script src="js/funzioni.js"></script>          <!--aggiunta-->
 	<script>
         window.addEventListener("DOMContentLoaded", function(){
             popolaRegioni("reg");

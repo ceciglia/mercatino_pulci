@@ -63,11 +63,11 @@ function btnConferma(id) {
 		popup.style.display = "block";
 	}
 	// When the user clicks anywhere outside of the modal, close it
-	// window.onclick = function(event) {
-	// 	if (event.target == modal) {
-	// 		modal.style.display = "none";
-	// 	}
-	// }
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
 }
 
 function thisFileUpload() {
@@ -82,4 +82,9 @@ function nuovousatoris(id) {
 	}else{
 	  x.style.display = "none";
 	}
-  }
+};
+
+function autoScrollRefresh(id){
+	var elmnt = document.getElementById(id);
+	elmnt.scrollIntoView();
+}
