@@ -58,6 +58,7 @@
 /*FINE INSERISCEI IMMAGINE*/
 .modifica-password{
     margin-bottom: 10px;
+    border-color:transparent;
     background-color: #9bbe592e;
     color: #2b5164;
     width: 60%;
@@ -104,6 +105,8 @@
     background-color: #9bbe592e;
     color: #2b5164;
     width: 60%;
+    border-color:transparent;
+    height: 30px;
 }
 
 .modificaprofilo{
@@ -231,4 +234,16 @@
     padding-left: 10px !important;
 
     font-size: small;
+}
+
+.modifica-ruolo{
+    margin-top: 10px;
+    width: 100% !important;
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    color: #2b5164;
+}
+.color-v-a{
+    color: #FE980F !important;
 }
