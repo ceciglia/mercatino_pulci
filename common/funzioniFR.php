@@ -24,8 +24,10 @@ function isUser($cid,$email,$psw) {
 		$row=$res->fetch_assoc();
         $risultato["venditore"] = $row["venditore"];
         $risultato["acquirente"] = $row["acquirente"];
-        if (isset($row["acquirente"]) and $row["acquirente"]==1){
-
+        if ($risultato["acquirente"]==1){
+            $risultato["regione"] = $row["regione"];
+            $risultato["provincia"] = $row["provincia"];
+            $risultato["comune"] = $row["comune"];
         }
         $risultato["nome"] = $row["nome"];
         $risultato["cognome"] = $row["cognome"];
@@ -377,6 +379,8 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
         }
     }
 }
+
+
 
 echo '<script src="js/funzioni.js"></script>';
 
