@@ -10,18 +10,18 @@ if (isset($_GET["sottoCategoria"])){
     $sottoCategoria = "";
 }
 
-if ($_GET["regione"] == "Seleziona una regione: " and $_GET["provincia"]=="Seleziona prima una regione: " and $_GET["comune"]=="Seleziona prima una provincia: ") {
+if (mysqli_real_escape_string($cid, $_GET["regione"]) == "Seleziona una regione: " and mysqli_real_escape_string($cid, $_GET["provincia"]) == "Seleziona prima una regione:" and mysqli_real_escape_string($cid, $_GET["comune"]) == "Seleziona prima una provincia:") {
     $regione = "";
     $provincia = "";
     $comune = "";
-} else if ($_GET["regione"] != "Seleziona una regione: " and $_GET["provincia"]=="Seleziona prima una regione: " and $_GET["comune"]=="Seleziona prima una provincia: "){
+} else if ((mysqli_real_escape_string($cid, $_GET["regione"])) != "Seleziona una regione: " and (mysqli_real_escape_string($cid, $_GET["provincia"])) == "Seleziona una provincia: " and (mysqli_real_escape_string($cid, $_GET["comune"]))=="Seleziona prima una provincia:"){
     $regione = mysqli_real_escape_string($cid, $_GET["regione"]);
-    $provincia = "";
-    $comune = "";
-} else if ($_GET["regione"] != "Seleziona una regione: " and $_GET["provincia"] != "Seleziona prima una regione: " and $_GET["comune"]=="Seleziona prima una provincia: "){
+    $provincia = "NoProvincia";
+    $comune = "NoComune";
+} else if (mysqli_real_escape_string($cid, $_GET["regione"]) != "Seleziona una regione: " and mysqli_real_escape_string($cid, $_GET["provincia"]) != "Seleziona prima una regione:" and mysqli_real_escape_string($cid, $_GET["comune"]) == "Seleziona un comune: "){
     $regione = mysqli_real_escape_string($cid, $_GET["regione"]);
     $provincia = mysqli_real_escape_string($cid, $_GET["provincia"]);
-    $comune = "";
+    $comune = "NoComune";
 } else {
     $regione = mysqli_real_escape_string($cid, $_GET["regione"]);
     $provincia = mysqli_real_escape_string($cid, $_GET["provincia"]);
