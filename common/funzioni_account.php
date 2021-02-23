@@ -952,7 +952,7 @@ function modificaProfilo($cid){
                     <textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="codFiscale"  placeholder="' . $codFiscale . '" rows="1"  class="profilo-data" maxlength="16" minlength="16" >
                     <textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="via"  placeholder="' . $via . '" rows="1"  class="profilo-data" maxlength="50">
                     <textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="nCivico"  placeholder="' . $nCivico . '" rows="1" class="profilo-data">
-                    <textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="CUP"  placeholder="' . $CAP . '" rows="1"  class="profilo-data" maxlength="50">
+                    <textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="CAP"  placeholder="' . $CAP . '" rows="1"  class="profilo-data" >
                    
                     <textarea name="text"  placeholder="Regione:" rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i>
                     <select id="reg" name="regione" class="profilo-data">
