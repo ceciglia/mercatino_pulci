@@ -409,23 +409,32 @@ function annunciOsservatiUtente($cid){
         $res = $cid->query($sqlAnnunci);
         while($row = $res->fetch_array()){
             echo'<div class="col-sm-4" >
-                 <div class="product-image-wrapper" >
-                    <div class="single-products">
-                        <div class="productinfo text-center">
-                            <div class="img-contenitore">
-                                <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                 
+                     <div class="product-image-wrapper" >
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <div class="img-contenitore">
+                                    <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                                </div>
+                                <h2>'. $row["prezzoP"] .'€</h2>
+                                <p>'. $row["nomeAnnuncio"] .'</p>
+                                
+    
                             </div>
-                            <h2>'. $row["prezzoP"] .'€</h2>
-                            <p>'. $row["nomeAnnuncio"] .'</p>
-
-                        </div>
-
-                        <div  class="product-overlay">
-                            <div class="overlay-content">
-                                <a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                            
+                            <div  class="product-overlay">
+                                <div class="overlay-content">
+                                    <a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</button></a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <script>
+                        function dettagli() {
+                            var e = document.getElementById("idAnnuncio");
+                        }
+                        </script>
+                 
+                 <form>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
                             <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#acquista'.$row["idAnnuncio"] .'"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Invia richiesta di acquisto</a></li>
@@ -437,9 +446,9 @@ function annunciOsservatiUtente($cid){
                                             <div class="demo-content">
                                                 <div class="metodop">
                                                     <ul	class="nav paddingsinistra" >
-                                                        <input name="metodop" type="radio" id="carta" value="1" />
+                                                        <input name="metodop" type="radio" name="carta" value="1" />
                                                         <label for="carta" style="display: inline-block;"><p >Carta di credito</p></label>
-                                                        <input name="metodop" type="radio" id="contanti" value="2" />
+                                                        <input name="metodop" type="radio" name="contanti" value="2" />
                                                         <label for="contanti" style="display: inline-block;"><p >Contanti alla consegna</p></label>
                                                     </ul>
                                                 </div>
@@ -466,7 +475,8 @@ function annunciOsservatiUtente($cid){
                         </ul>
                     </div>
 				</div>
-			</div>
+			</form>
+		    </div>
 			';
         }
     }
@@ -492,7 +502,7 @@ function acquistiUtente($cid){
                         </div>
                         <div  class="product-overlay">
                             <div class="overlay-content">
-                                <a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</button></a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
                             </div>
                         </div>
                     </div>
@@ -635,7 +645,7 @@ function leMieVendite($cid){
 									</div>
 									<div  class="product-overlay">
 										<div class="overlay-content">
-											<a  class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+											<a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</button></a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
 										</div>
 									</div>
 								</div>
@@ -949,10 +959,20 @@ function modificaProfilo($cid){
                     <textarea name="text"  placeholder="Nome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="nome"  id="nome" placeholder="' . $nome . '" rows="1"  class="profilo-data" maxlength="20">
                     <textarea name="text"  placeholder="Cognome: " rows="1" disabled class="profilo-name"></textarea ><i class="fa fa-pencil marginematita" aria-hidden="true" style="margin-right: 10px;"></i><input name="cognome"  placeholder="' . $cognome . '" rows="1"  class="profilo-data" maxlength="20">
     
-                    <textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="codFiscale"  placeholder="' . $codFiscale . '" rows="1"  class="profilo-data" maxlength="16" minlength="16" >
+                    <textarea name="text"  placeholder="FC: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="codFiscale"  placeholder="' . $codFiscale . '" rows="1"  class="profilo-data" >
+                    ';
+
+                    if (isset($_GET["erroreCF"])){
+                        if ($_GET["erroreCF"] == true) {
+
+                            echo '<p class="error-message">Il codice fiscale deve avere 16 caratteri</p>';
+                        }
+                    }
+
+                    echo'
                     <textarea name="text"  placeholder="Via: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="via"  placeholder="' . $via . '" rows="1"  class="profilo-data" maxlength="50">
                     <textarea name="text"  placeholder="N° civico: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="nCivico"  placeholder="' . $nCivico . '" rows="1" class="profilo-data">
-                    <textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="CAP"  placeholder="' . $CAP . '" rows="1"  class="profilo-data" >
+                    <textarea name="text"  placeholder="CAP: " rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input name="CAP"  placeholder="' . $CAP . '" rows="1"  class="profilo-data" maxlength="50">
                    
                     <textarea name="text"  placeholder="Regione:" rows="1" disabled class="profilo-name"></textarea><i class="fa fa-pencil marginematita" aria-hidden="true" ></i>
                     <select id="reg" name="regione" class="profilo-data">
@@ -972,7 +992,7 @@ function modificaProfilo($cid){
                       <option >' . $comune . '</option>
                     </select>
                     <script src="js/areaGeografica.js"></script>
-    
+                    
                     <button type="button"  onclick="btnConferma(\'modifica\')" class="btn btn-profilo pull-right btn-salvamodifiche" ><i class="fa fa-check" aria-hidden="true"></i>  Salva le modifiche</button>
                     <div id="modifica" class="modal">
                         <div class="modal-content popup-modal-content">
