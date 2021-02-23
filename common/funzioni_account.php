@@ -516,19 +516,19 @@ function acquistiUtente($cid){
                                             <p>Valuta la <b >serietà</b> :</p>
                                             <div class="demo-content">
                                                 <div class="serieta">
-                                                    <input name="serieta" type="radio" id="stellaV1'.$row["idAnnuncio"] .'" value="1" />
+                                                    <input name="serieta" type="radio" id="stellaV1'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV1'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="serieta" type="radio" id="stellaV2'.$row["idAnnuncio"] .'" value="2" />
+                                                    <input name="serieta" type="radio" id="stellaV2'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV2'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="serieta" type="radio" id="stellaV3'.$row["idAnnuncio"] .'" value="3" />
+                                                    <input name="serieta" type="radio" id="stellaV3'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV3'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="serieta" type="radio" id="stellaV4'.$row["idAnnuncio"] .'" value="4" />
+                                                    <input name="serieta" type="radio" id="stellaV4'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV4'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="serieta" type="radio" id="stellaV5'.$row["idAnnuncio"] .'" value="5" checked />
+                                                    <input name="serieta" type="radio" id="stellaV5'.$row["idAnnuncio"] .'"/>
                                                     <label for="stellaV5'.$row["idAnnuncio"] .'"></label>
 
                                                 </div>
@@ -536,25 +536,25 @@ function acquistiUtente($cid){
                                             <p>Valuta la <b >puntualità</b> :</p>
                                             <div class="demo-content">
                                                 <div class="puntualita">
-                                                    <input name="puntualita" type="radio" id="stellaV6'.$row["idAnnuncio"] .'" value="1" />
+                                                    <input name="puntualita" type="radio" id="stellaV6'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV6'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="puntualita" type="radio" id="stellaV7'.$row["idAnnuncio"] .'" value="2" />
+                                                    <input name="puntualita" type="radio" id="stellaV7'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV7'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="puntualita" type="radio" id="stellaV8'.$row["idAnnuncio"] .'" value="3" />
+                                                    <input name="puntualita" type="radio" id="stellaV8'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV8'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="puntualita" type="radio" id="stellaV9'.$row["idAnnuncio"] .'" value="4" />
+                                                    <input name="puntualita" type="radio" id="stellaV9'.$row["idAnnuncio"] .'"  />
                                                     <label for="stellaV9'.$row["idAnnuncio"] .'"></label>
 
-                                                    <input name="puntualita" type="radio" id="stellaV10'.$row["idAnnuncio"] .'" value="5" checked />
+                                                    <input name="puntualita" type="radio" id="stellaV10'.$row["idAnnuncio"] .'"  checked />
                                                     <label for="stellaV10'.$row["idAnnuncio"] .'"></label>
 
                                                 </div>
                                                 <button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id04\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
                                                     <div id="id04" class="modal">
-                                                        <form class="modal-content popup-modal-content">
+                                                        <div class="modal-content popup-modal-content">
                                                             <div class="container popup-conferma">
                                                                 <h4>Valutazione</h4>
                                                                 <p>Stai per confermare la valutazione.</p>
@@ -565,7 +565,7 @@ function acquistiUtente($cid){
                                                                     <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
                                                                 </div>
                                                             </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                             </div>
                                         </div>
@@ -580,48 +580,51 @@ function acquistiUtente($cid){
     }
 }
 
+
 function richiesteAcquistoUtente($cid){
     if ($_SESSION["logged"] == true) {
         $email_sessione = $_SESSION["email"];
         $sqlAnnunci = "SELECT r.idAnnuncio, metodoPagamento, approvato, a.nomeAnnuncio, a.prezzoP, a.fotoP, a.venditore FROM richiestaacquisto AS r JOIN annuncio AS a ON r.idAnnuncio = a.idAnnuncio WHERE acquirenteRA = '$email_sessione' ";
         $res = $cid->query($sqlAnnunci);
+        while ($row = $res->fetch_array()) {
+            echo'
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <div class="img-contenitore">
+                                    <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                                </div>
+                                <h2>' . $row["prezzoP"] . ' €</h2>
+                                <p>' . $row["nomeAnnuncio"] . '</p>
+                                
+                                <div  class="product-overlay">
+                                     <div class="overlay-content">
+                                        <p class="richieste-responsive"><b>Venditore:</b></p><p style="display: inline-block; ">' . $row["venditore"] . '</p>
+                                        <a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</button></a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified blu centro">';
+                                if ($row["approvato"]==null) {
+                                    echo'<p><a class="statoA-inelaborazione">In elaborazione</a ></p >';
+                                 }elseif ($row["approvato"] == 1) {
+                                    echo'<p><a class="statoA-accettato">Approvato</a ></p >';
+                                }else{
+                                    echo'<p><a class="statoA-rifiutato">Respinto</a ></p >';
+                                }
+                            echo'   
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            ';
 
-        while($row = $res->fetch_array()){
-            echo '
-            <tr>
-                <td class="cart_product">
-                    <a href=""><img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" class="imm-richieste"/></a> 
-                </td>
-                <td class="cart_description blu">
-                    <h4><a>' . $row["nomeAnnuncio"] . '</a></h4>
-        
-                    <p class="richieste-responsive"><b>ID annuncio:</b></p><p style="display: inline-block">' . $row["idAnnuncio"] . '</p>
-                </td>
-                <td class="cart_price blu">
-                    <p class="richieste-responsive"><b>Venditore:</b></p><p style="display: inline-block; ">' . $row["venditore"] . '</p>
-                </td>
-                <td class="cart_price blu">
-                    <p class="richieste-responsive"><b>Prezzo:</b></p><p style="display: inline-block;">' . $row["prezzoP"] . '€</p>
-                </td>';
-                if ($row["approvato"]==null) {
-                    echo '  
-                                <td class="cart_total blu">
-                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">In elaborazione</p>
-                                </td>';
-                } elseif ($row["approvato"] == 1) {
-                    echo '  
-                                <td class="cart_total blu">
-                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">Approvato</p>
-                                </td>';
-                } else {
-                    echo '  
-                                <td class="cart_total blu">
-                                    <p class="richieste-responsive"><b>Stato:</b></p><p class="cart_total_price blu" style="display: inline-block; ">Respinto</p>
-                                </td>';
-                }
-                echo '</tr>';
         }
     }
+
 }
 
 

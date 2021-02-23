@@ -44,10 +44,12 @@ echo'
                                 valutazione($cid, $row["venditore"]);
 							echo'
                             
-							<button type="submit" class="btn pull-right btn_prodotto" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
-							
+							<button type="submit" class="btn pull-right btn_prodotto" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>';
+						    if(isset($_SESSION["logged"]) and ($_SESSION["logged"]==true)){
+
+                            echo'
 							<div id="richiesta" class="modal">
-								<form class="modal-content popup-modal-content">
+								<div class="modal-content popup-modal-content">
 									<div class="container popup-conferma">
 										<h4>Richiesta d\'acquisto</h4>
 										<p>Stai per inviare una richiesta d\'acquisto per questo articolo.</p> 
@@ -65,8 +67,24 @@ echo'
 											<button type="button" onclick="document.getElementById(\'richiesta\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
 										</div>
 									</div>
-								</form>
-							</div>	
+								</div>
+							</div>	';
+							}else{
+                                echo'
+                                    <div id="richiesta" class="modal">
+                                        <div class="modal-content popup-modal-content">
+                                            <div class="container popup-conferma">
+                                                <h4>Richiesta d\'acquisto</h4>
+                                                <p>Registrati o effettua il login per inviare una richiesta d\'acquisto</p> 
+                                                
+                                                <div class="clearfix-dettagli">
+                                                    <a href="index.php"><button type="button" class="popup-btn deletebtn">Via a login</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>	';
+                            }
+						    echo'
 						</div>
 					</div>';
                     if($row["nuovo"]==0){

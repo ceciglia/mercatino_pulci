@@ -102,25 +102,12 @@
 					<div class="features_items" ><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Richieste di acquisto</span></h2>
 						<div class="col-sm-12">
-							<div class="product-image-wrapper" >
-								<table style="width: 100%;">
-									<thead>
-										<tr class="cart_menu cart-color-richieste " >
-											<td class="image" >Annuncio</td>
-											<td class="description"></td>
-											<td class="price">Venditore</td>
-											<td class="quantity">Prezzo</td>
-											<td class="total">Stato</td>
-											<td></td>
-										</tr>
-									</thead>
-									<tbody style="width: 100%;">
+
+
                                     <?php
                                         richiesteAcquistoUtente($cid);
                                     ?>
-									</tbody>
-								</table>
-							</div>
+
 						</div>
 					</div>
 				</div>
