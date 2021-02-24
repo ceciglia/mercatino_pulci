@@ -43,16 +43,16 @@ function test_input($data) {
 }
 
 function getPiùOsservati($cid){
-    $sql = "SELECT fotoP, nomeAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
+    $sql = "SELECT fotoP, nomeAnnuncio, idAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
     //NON considero ancora visibilità ristretta
     $risultato = $cid->query($sql);
 
     $count=0;
     while($row=$risultato->fetch_assoc()){
-        //!!!DA GESTIRE bottone DETTAGLI ANNUNCIO!!!
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
+        $idAn = $row["idAnnuncio"];
 
         if ($count==0){
             echo'<div class="item active">';
@@ -69,7 +69,7 @@ function getPiùOsservati($cid){
                             <img class="piùosservati-img-resize" src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine.">
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>  
-                            <a href="index.php" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ function getAnnunciPubblicati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -248,13 +248,13 @@ function getAnnunciFiltrati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><button class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</button></li>
+                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
                         </ul>
                     </div>
                 </div>
@@ -378,6 +378,7 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
             $fotoP = $row["fotoP"];
             $prezzoP = $row["prezzoP"];
             $nomeAn = $row["nomeAnnuncio"];
+            $idAn = $row["idAnnuncio"];
 
             echo '<div class="col-sm-4 annunci-dim">
                 <div class="product-image-wrapper">
@@ -394,13 +395,13 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
                             <div class="overlay-content">
                                 <h2>' . $prezzoP . '</h2>
                                 <p>' . $nomeAn . '</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><button class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</button></li>
+                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
                         </ul>
                     </div>
                 </div>

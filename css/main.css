@@ -2963,8 +2963,8 @@ h2.title {
 
 /*notifiche*/
 .notification-bell {
-  border: 2px solid; 
-  padding: 2px 5px !important; 
+  border: 2px solid;
+  padding: 3px 3px !important;
   border-radius: 0.25rem;
   margin-top: 35px !important;
   cursor: pointer;
@@ -3135,8 +3135,8 @@ h2.title {
 
 /*ERRORI*/
 .warning-message {
-  color: #ff0000 !important;
-  font-weight: 400 !important;
+  color: #FE980F !important;
+  font-weight: 700 !important;
   margin-bottom: 20px !important;
 }
 
