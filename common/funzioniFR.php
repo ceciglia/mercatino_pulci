@@ -44,11 +44,12 @@ function test_input($data) {
 
 function getPiùOsservati($cid){
     $sql = "SELECT fotoP, nomeAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
+    //NON considero ancora visibilità ristretta
     $risultato = $cid->query($sql);
 
     $count=0;
     while($row=$risultato->fetch_assoc()){
-        //!!!DA GESTIRE LA FOTOP e bottone DETTAGLI ANNUNCIO!!!
+        //!!!DA GESTIRE bottone DETTAGLI ANNUNCIO!!!
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
@@ -80,6 +81,7 @@ function getPiùOsservati($cid){
 }
 
 
+
 function getAnnunciPubblicati($cid) {
     $sql = "SELECT AP.* FROM (SELECT a.fotoP, a.prezzoP, a.nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE a.visibilita='pubblica' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio = s1.idAnnuncio)) AS AP WHERE AP.stato = 'in vendita' LIMIT 9";
     //non considero visibilità ristretta per ora!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -91,6 +93,7 @@ function getAnnunciPubblicati($cid) {
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
+        $idAn = $row["idAnnuncio"];
         echo'<div class="col-sm-4 annunci-dim">
                 <div class="product-image-wrapper">
                     <div class="single-products" >
@@ -105,6 +108,7 @@ function getAnnunciPubblicati($cid) {
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>€ '. $prezzoP .'</h2>
+                                <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
@@ -112,7 +116,7 @@ function getAnnunciPubblicati($cid) {
                     </div>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,24 +140,24 @@ function getAnnunciFiltrati($cid) {
             switch (true) {
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
                     if ($provincia=="NoProvincia" and $comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else if ($comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else {
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     }
                     break;
                 case ($minPrice != "" and $maxPrice != "" and $regione == "" and $provincia == "" and $comune == ""):
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato='in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato='in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s1.idAnnuncio=s.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s1.idAnnuncio=s.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and s.stato='in vendita' LIMIT 9";
                     break;
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice != "" and $maxPrice != ""):
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     break;
             }
@@ -161,29 +165,29 @@ function getAnnunciFiltrati($cid) {
             switch (true) {
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
                     if ($provincia=="NoProvincia" and $comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else if ($comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else {
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     }
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     break;
                 case ($regione == "" and $provincia == "" and $comune == "" and $minPrice == "" and $maxPrice == ""):
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     break;
                 case ($regione != "" and $provincia != "" and $comune != "" and $minPrice != "" and $maxPrice != ""):
                     if ($provincia=="NoProvincia" and $comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else if ($comune=="NoComune"){
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                     } else {
-                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                        $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                    $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM categoria JOIN annuncio a on categoria.nomeCategoria = a.nomeCategoria and categoria.sottoCategoria = a.sottoCategoria JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE categoria.nomeCategoria='$categoria' and categoria.sottoCategoria='$sottoCategoria' and regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                     }
                     break;
@@ -194,25 +198,25 @@ function getAnnunciFiltrati($cid) {
         switch(true) {
             case ($regione != "" and $provincia != "" and $comune != "" and $minPrice == "" and $maxPrice == ""):
                 if ($provincia=="NoProvincia" and $comune=="NoComune"){
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                 } else if ($comune=="NoComune"){
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                 } else {
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                 }
                 break;
             case ($regione == "" and $provincia == "" and $comune == "" and $minPrice != "" and $maxPrice != ""):
-                $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                 break;
             case ($regione != "" and $provincia != "" and $comune != "" and $minPrice != "" and $maxPrice != ""):
                 if ($provincia=="NoProvincia" and $comune=="NoComune"){
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                 } else if ($comune=="NoComune"){
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
                 } else {
-                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
+                    $sql = "SELECT SEL.* FROM (SELECT fotoP, prezzoP, nomeAnnuncio, a.idAnnuncio, s.stato FROM annuncio a JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS SEL WHERE SEL.stato = 'in vendita' LIMIT 9";
 //                $sql = "SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio JOIN statoa s on a.idAnnuncio = s.idAnnuncio WHERE regione='$regione' and provincia='$provincia' and comune='$comune' and prezzoP>'$minPrice' and prezzoP<'$maxPrice' and s.stato='in vendita' and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) LIMIT 9";
                 }
                 break;
@@ -227,6 +231,7 @@ function getAnnunciFiltrati($cid) {
         $fotoP = $row["fotoP"];
         $prezzoP = $row["prezzoP"];
         $nomeAn = $row["nomeAnnuncio"];
+        $idAn = $row["idAnnuncio"];
         echo'<div class="col-sm-4 annunci-dim">
                 <div class="product-image-wrapper">
                     <div class="single-products" >
@@ -241,6 +246,7 @@ function getAnnunciFiltrati($cid) {
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>€ '. $prezzoP .'</h2>
+                                <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
@@ -248,7 +254,7 @@ function getAnnunciFiltrati($cid) {
                     </div>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+                            <li><button class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</button></li>
                         </ul>
                     </div>
                 </div>
@@ -394,7 +400,7 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
                     </div>
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Osservati</a></li>
+                            <li><button class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</button></li>
                         </ul>
                     </div>
                 </div>
@@ -411,7 +417,9 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
 
 
 
+
 echo '<script src="js/funzioni.js"></script>';
+echo '<script src="js/ajax-functions.js"></script>';
 
 
 

@@ -75,7 +75,7 @@ function thisFileUpload() {
 }
 
 function nuovousatoris(id) {
-	var x = document.getElementById(id);
+	let x = document.getElementById(id);
 	
 	if (window.getComputedStyle(x).display === "none") {
 	  x.style.display = "block";
@@ -85,6 +85,10 @@ function nuovousatoris(id) {
 }
 
 function autoScrollRefresh(id){
-	var elmnt = document.getElementById(id);
+	let elmnt = document.getElementById(id);
 	elmnt.scrollIntoView();
+}
+
+function fullHeart(cuore){
+	cuore.firstChild.classList.replace("fa-heart-o","fa-heart");
 }

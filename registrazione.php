@@ -58,7 +58,7 @@
                     <?php
                     if (isset($_GET["erroreacquirente"])){
                         if ($_GET["erroreacquirente"] == true) {
-                            echo '<p class="error-message">Imposta un valore tra "acquirente", "venditore" o entrambi. </p>';
+                            echo '<p class="warning-message">Imposta un valore tra "acquirente", "venditore" o entrambi. </p>';
                         }
                     }
                     ?>
@@ -70,7 +70,7 @@
                   <?php
                   if (isset($_GET["erroreemail"])){
                       if ($_GET["erroreemail"] == true) {
-                          echo '<p class="error-message">Email già esistente</p>';
+                          echo '<p class="warning-message">Email già esistente</p>';
                       }
                   }
                   ?>
@@ -81,7 +81,7 @@
                   <?php
                   if (isset($_GET["errorepsw"])){
                       if ($_GET["errorepsw"] == true) {
-                          echo '<p class="error-message">I valori di password e conferma password non coincidono </p>';
+                          echo '<p class="warning-message">I valori di password e conferma password non coincidono </p>';
                       }
                   }
                   ?>

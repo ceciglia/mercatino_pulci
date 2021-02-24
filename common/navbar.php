@@ -95,7 +95,7 @@
                                         if ($_GET["msg"]=="email o password sbagliate") {
                                             echo '<script src="js/tendinalogin.js"></script>';
                                             echo '<script type="text/javascript"> openNav(); </script>';
-                                            echo '<p class="error-message">Non hai inserito correttamente email o password.</p>';
+                                            echo '<p class="warning-message">Non hai inserito correttamente email o password.</p>';
                                         }
                                     }
                                     ?>

@@ -949,6 +949,12 @@ h2.title {
   width: 100%;
 }
 
+.overlay-content > h4 {
+  color: white;
+  font-weight: lighter;
+  font-family: 'Roboto', sans-serif;
+}
+
 .product-overlay .add-to-cart {
   background:#fff;
   border: 0 none;
@@ -3044,6 +3050,27 @@ h2.title {
   background-color: #FE980F;
 }
 
+/*bottone OSSERVA*/
+.osserva-btn {
+  color: #2b5164;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  margin-bottom: 0;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  cursor: pointer !important;
+  border: none;
+  text-align: center !important;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: unset;
+}
+
+.osserva-btn:focus{
+  outline: none;
+  background-color: unset !important;
+}
 
 /*immagini annunci*/
 .img-contenitore {
@@ -3107,7 +3134,7 @@ h2.title {
 }
 
 /*ERRORI*/
-.error-message {
+.warning-message {
   color: #ff0000 !important;
   font-weight: 400 !important;
   margin-bottom: 20px !important;

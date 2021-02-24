@@ -968,7 +968,7 @@ function modificaProfilo($cid){
                     if (isset($_GET["erroreCF"])){
                         if ($_GET["erroreCF"] == true) {
 
-                            echo '<p class="error-message">Il codice fiscale deve avere 16 caratteri</p>';
+                            echo '<p class="warning-message">Il codice fiscale deve avere 16 caratteri</p>';
                         }
                     }
 
