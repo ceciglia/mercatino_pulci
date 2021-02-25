@@ -442,32 +442,36 @@ function annunciOsservatiUtente($cid){
                                 <div class="panel-body">
                                     <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati" >
                                         <div >
+                                        <form method="POST" action="">
                                             <p><b>Metodo di pagamento: </b></p>
                                             <div class="demo-content">
-                                                <div class="metodop">
-                                                    <ul	class="nav paddingsinistra" >
-                                                        <input name="metodop" type="radio" name="carta" value="1" />
-                                                        <label for="carta" style="display: inline-block;"><p >Carta di credito</p></label>
-                                                        <input name="metodop" type="radio" name="contanti" value="2" />
-                                                        <label for="contanti" style="display: inline-block;"><p >Contanti alla consegna</p></label>
-                                                    </ul>
-                                                </div>
+                                                
+                                                    <div class="metodop">
+                                                        <ul	class="nav paddingsinistra">
+                                                            <input name="metodop" type="radio" id="carta'.$row["idAnnuncio"] .'" value="1" />
+                                                            <label for="carta'.$row["idAnnuncio"] .'" style="display: inline-block;"><p >Carta di credito</p></label>
+                                                            <input name="metodop" type="radio"  id="contanti'.$row["idAnnuncio"] .'" value="2" />
+                                                            <label for="contanti'.$row["idAnnuncio"] .'" style="display: inline-block;"><p >Contanti alla consegna</p></label>
+                                                        </ul>
+                                                    </div>
+                                                
                                             </div>
-                                            <button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id02\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                            <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id02\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
                                             <div id="id02" class="modal">
-                                                <form class="modal-content popup-modal-content">
+                                                <div class="modal-content popup-modal-content">
                                                     <div class="container popup-conferma">
                                                         <h4>Metodo di pagamento</h4>
                                                         <p>Stai per confermare il metodo di pagamento.</p>
                                                         <p>Sei sicur* di voler proseguire?</p>
 
                                                         <div class="clearfix">
-                                                            <button type="button" onclick="document.getElementById(\'id02\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                                            <button type="submit" class="popup-btn deletebtn">Conferma</button>
                                                             <button type="button" onclick="document.getElementById(\'id02\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
                                                         </div>
                                                     </div>
-                                                </form>
+                                                </div>
                                             </div>
+                                            </form>
                                         </div>
                                     </ul>
                                 </div>

@@ -2796,8 +2796,6 @@ h2.title {
 
 .tab-menu > li {
   width: 215px !important;
-  display: inline-block;
-  float: unset;
 }
 
 .tab-menu > li, .tab-menu > li > a {
@@ -3225,7 +3223,7 @@ h2.title {
 
 }
 
-/*stelle serieta */
+/*stelle serieta
 input[name="serieta"] { 
   display: none; 
 }
@@ -3253,9 +3251,9 @@ input[name="serieta"]:checked + label:before {
 }
 input[name="serieta"] + label:hover ~ input + label:before { 
    opacity: 0.6; 
-}
+}*/
 
-/*stelle puntualita */
+/*stelle puntualita
 input[name="puntualita"] { 
   display: none; 
 }
@@ -3283,7 +3281,7 @@ input[name="puntualita"]:checked + label:before {
 }
 input[name="puntualita"] + label:hover ~ input + label:before { 
    opacity: 0.6; 
-}
+}*/
 
 /* Demo style only */
 .demo-content {
@@ -3302,17 +3300,17 @@ input[name="puntualita"] + label:hover ~ input + label:before {
   cursor: pointer;
 }
 
-/*metodo di pagamento*/
-input[name="metodop"] { 
+/*metodo di pagamento
+input[name="metodopcc"] {
   display: none; 
 }
-input[name="metodop"] + label:after {
+input[name="metodopcc"] + label:after {
   content: none; 
 }
-input[name="metodop"] + label {
+input[name="metodopcc"] + label {
   font-family: 'FontAwesome'; 
 }
-input[name="metodop"] + label:before {
+input[name="metodopcc"] + label:before {
   background-color: transparent;
   border: none !important;
   color: #ffc107;
@@ -3320,16 +3318,16 @@ input[name="metodop"] + label:before {
   font-size: 1.33333333em;
   transition: none;
 }
-input[name="metodop"]:checked ~ label:before {
+input[name="metodopcc"]:checked ~ label:before {
   background-color: transparent;
   border: none !important;
   color: #607d8b;
 }
-input[name="metodop"]:checked + label:before {
+input[name="metodopcc"]:checked + label:before {
    color: #ffc107; 
    content: '\f046';
-}
-input[name="metodop"] + label:hover ~ input + label:before { 
+}*/
+input[name="metodopcc"] + label:hover ~ input + label:before {
    opacity: 0.6; 
 }
 

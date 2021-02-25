@@ -247,3 +247,146 @@
 .color-v-a{
     color: #FE980F !important;
 }
+
+/*metodo di pagamento*/
+input[name="metodop"] {
+    display: none;
+}
+input[name="metodop"] + label:after {
+    content: none;
+}
+input[name="metodop"] + label {
+    font-family: 'FontAwesome';
+}
+input[name="metodop"] + label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #ffc107;
+    content: '\f096';
+    font-size: 1.33333333em;
+    transition: none;
+}
+input[name="metodop"]:checked ~ label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #607d8b;
+}
+input[name="metodop"]:checked + label:before {
+    color: #ffc107;
+    content: '\f046';
+}
+input[name="metodop"] + label:hover ~ input + label:before {
+    opacity: 0.6;
+}
+
+
+/*stelle serieta */
+input[name="serieta"] {
+    display: none;
+}
+input[name="serieta"] + label:after {
+    content: none;
+}
+input[name="serieta"] + label {
+    font-family: 'FontAwesome';
+}
+input[name="serieta"] + label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #ffc107;
+    content: '\f005';
+    font-size: 1.33333333em;
+    transition: none;
+}
+input[name="serieta"]:checked ~ label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #607d8b;
+}
+input[name="serieta"]:checked + label:before {
+    color: #ffc107;
+}
+input[name="serieta"] + label:hover ~ input + label:before {
+    opacity: 0.6;
+}
+
+/*stelle puntualita */
+input[name="puntualita"] {
+    display: none;
+}
+input[name="puntualita"] + label:after {
+    content: none;
+}
+input[name="puntualita"] + label {
+    font-family: 'FontAwesome';
+}
+input[name="puntualita"] + label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #ffc107;
+    content: '\f005';
+    font-size: 1.33333333em;
+    transition: none;
+}
+input[name="puntualita"]:checked ~ label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #607d8b;
+}
+input[name="puntualita"]:checked + label:before {
+    color: #ffc107;
+}
+input[name="puntualita"] + label:hover ~ input + label:before {
+    opacity: 0.6;
+}
+
+
+input[name="puntualita"] {
+    display: none;
+}
+input[name="puntualita"] + label:after {
+    content: none;
+}
+input[name="puntualita"] + label {
+    font-family: 'FontAwesome';
+}
+input[name="puntualita"] + label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #ffc107;
+    content: '\f005';
+    font-size: 1.33333333em;
+    transition: none;
+}
+input[name="puntualita"]:checked ~ label:before {
+    background-color: transparent;
+    border: none !important;
+    color: #607d8b;
+}
+input[name="puntualita"]:checked + label:before {
+    color: #ffc107;
+}
+input[name="puntualita"] + label:hover ~ input + label:before {
+    opacity: 0.6;
+}
+
+
+.statoA-inelaborazione{
+    color: #2b5164 !important;
+
+}
+
+.statoA-rifiutato{
+    color: #e00000 !important;
+}
+
+.statoA-accettato{
+    color: #4cad4e !important;
+
+}
+
+.centro{
+    text-align: center !important;
+    margin-top: 5px !important;
+}
+

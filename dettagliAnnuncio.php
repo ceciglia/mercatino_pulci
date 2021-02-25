@@ -3,14 +3,16 @@
 	include "common/connessione.php";
 	include "common/funzioniFR.php";
 	include "common/valutazione.php";
+    include "common/funzioni_dettagli_annuncio.php";
 
     $idAnnuncio = $_GET['idAnnuncio'];
 
     $sql="SELECT * FROM annuncio AS o JOIN statoa AS s ON o.idAnnuncio=s.idAnnuncio WHERE s.idAnnuncio='$idAnnuncio' ORDER BY dataStato DESC limit 1";
     $res=$cid->query($sql);
     $row = $res->fetch_array();
-
-
+    $sqlo="SELECT COUNT(*) AS numOss FROM osserva WHERE idAnnuncio='$idAnnuncio'";
+    $reso=$cid->query($sqlo);
+    $rowo = $reso->fetch_array();
 echo'
 
 <!DOCTYPE html> 			
@@ -35,57 +37,22 @@ echo'
 						</div> 
 						<div class="col-sm-5 descrizione_annuncio"  >
 							<h2 class="title1" style="margin-top: auto">' .$row["nomeAnnuncio"] .'</h2>
+							
 							<p class="title2"></p>ID annuncio: ' .$row["idAnnuncio"] .'</p>
+							
 							<p><b>Prezzo: </b>' .$row["prezzoP"] .' €</p>
 
 							<p><b>Stato annuncio: </b>' .$row["stato"] .'  </p>
 							<textarea name="text"  placeholder="" rows="4" disabled class="box_descrizione_annuncio">' .$row["descrizioneAnnuncio"] .' </textarea> 
 							<p ><b>Venditore: </b> ' .$row["venditore"] .'</p>';
 
-                                valutazione($cid, $row["venditore"]);
-							echo'
-							<button type="submit" class="btn btn-profilo pull-left btn-a-v" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
-                            <a href="#0" onclick="aggiungiOsservati(\''. $row["idAnnuncio"] .'\'); fullHeart(this)" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
-							if(isset($_SESSION["logged"]) and ($_SESSION["logged"]==true)){
 
-                            echo'
-							<div id="richiesta" class="modal">
-								<div class="modal-content popup-modal-content">
-									<div class="container popup-conferma">
-										<h4>Richiesta d\'acquisto</h4>
-										<p>Stai per inviare una richiesta d\'acquisto per questo articolo.</p> 
-										<p>Sei sicur* di voler proseguire?</p>
-										
-										
-										<input type="radio" id="cd" name="pagamento" value="cd">
-										<label for="cd">Carta di credito</label><br>
-										<input type="radio" id="cc" name="pagamento" value="cc">
-										<label for="cc">Contanti alla consegna</label><br>
-									
-										<p>Sei sicuro di voler proseguire? </p>
-										<div class="clearfix-dettagli">
-											<button type="button" onclick="document.getElementById(\'richiesta\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
-											<button type="button" onclick="document.getElementById(\'richiesta\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
-										</div>
-									</div>
-								</div>
-							</div>	';
-							}else{
-                                echo'
-                                    <div id="richiesta" class="modal">
-                                        <div class="modal-content popup-modal-content">
-                                            <div class="container popup-conferma">
-                                                <h4>Richiesta d\'acquisto</h4>
-                                                <p>Registrati o effettua il login per inviare una richiesta d\'acquisto</p> 
-                                                
-                                                <div class="clearfix-dettagli">
-                                                    <a href="index.php"><button type="button" class="popup-btn deletebtn">Via a login</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>	';
-                            }
-						    echo'
+                                valutazione($cid, $row["venditore"]);
+                                echo'<p class="title3"></p><i class="fa fa-eye" aria-hidden="true"></i>  ' .$rowo["numOss"] .' (osservatori)</p>';
+                                richiestaacquistobtn($cid, $row["idAnnuncio"], $row["stato"]);
+                                osservaannunciobtn($cid, $row["idAnnuncio"]);
+							echo'
+							
 						</div>
 					</div>';
                     if($row["nuovo"]==0){
@@ -142,7 +109,8 @@ echo'
 	<script src="../js/main.js"></script>
 	<script src="../js/funzioni.js"></script>
 	<script src="../js/tendinalogin.js"></script>
-	<script src="../js/ajax-function.js"></script><!--aggiunta-->
+	<script src="../js/ajax-function.js"></script>
+	<!--aggiunta-->
 </body>
 </html>
     
