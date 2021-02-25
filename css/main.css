@@ -2796,6 +2796,8 @@ h2.title {
 
 .tab-menu > li {
   width: 215px !important;
+  display: inline-block;
+  float: unset;
 }
 
 .tab-menu > li, .tab-menu > li > a {

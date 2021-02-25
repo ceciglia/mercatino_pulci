@@ -44,3 +44,16 @@ function aggiungiOsservati(idAn){
             // }
     });
 }
+
+function verifyScadenza(idAn){
+    let xttp = new ajaxRequest();
+    xttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            risposta = JSON.parse(this.response);
+
+        }
+    };
+    xmlhttp.open("GET", "verifyScadenza-exe.php?idAn=" + idAn, true);
+    xmlhttp.send();
+
+}
