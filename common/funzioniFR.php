@@ -42,6 +42,20 @@ function test_input($data) {
 	return $data;
 }
 
+function verifyOsservati($cid, $idAn){
+    if (isset($_SESSION["acquirente"]) and $_SESSION["acquirente"]==1){
+        $acquirente=$_SESSION["email"];
+        $sql = "SELECT idAnnuncio, acquirenteO FROM osserva WHERE idAnnuncio='$idAn' and acquirenteO='$acquirente'";
+        $result=$cid->query($sql);
+        $row=$result->fetch_assoc();
+        if (empty($row)){
+            echo '<li><a href="#0" id="cuore'. $idAn .'" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(\'cuore'. $idAn .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+        } else {
+            echo '<li><a href="#0" class="osserva-btn"><i class="fa fa-heart" aria-hidden="true"></i> Osservato</a></li>';
+        }
+    }
+}
+
 function getPiùOsservati($cid){
     $sql = "SELECT fotoP, nomeAnnuncio, idAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
     //NON considero ancora visibilità ristretta
@@ -115,9 +129,9 @@ function getAnnunciPubblicati($cid) {
                         </div>
                     </div>
                     <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
-                        </ul>
+                        <ul class="nav nav-pills nav-justified">';
+                            verifyOsservati($cid, $idAn);
+                        echo '</ul>
                     </div>
                 </div>
              </div>';
@@ -253,9 +267,9 @@ function getAnnunciFiltrati($cid) {
                         </div>
                     </div>
                     <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
-                        </ul>
+                        <ul class="nav nav-pills nav-justified">';
+                            verifyOsservati($cid, $idAn);
+                        echo '</ul>
                     </div>
                 </div>
              </div>';
@@ -400,9 +414,9 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
                         </div>
                     </div>
                     <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="#0" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(this)" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>
-                        </ul>
+                        <ul class="nav nav-pills nav-justified">';
+                            verifyOsservati($cid, $idAn);
+                        echo '</ul>
                     </div>
                 </div>
               </div>';

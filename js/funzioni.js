@@ -89,6 +89,7 @@ function autoScrollRefresh(id){
 	elmnt.scrollIntoView();
 }
 
-function fullHeart(cuore){
-	cuore.firstChild.classList.replace("fa-heart-o","fa-heart");
+function fullHeart(idCuore){
+	cuore=document.getElementById(idCuore);
+	cuore.innerHTML =  "<i class=\"fa fa-heart\" aria-hidden=\"true\"></i> Osservato";
 }
