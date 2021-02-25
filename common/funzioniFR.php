@@ -83,7 +83,7 @@ function verifyOsservati($cid, $idAn){
 }
 
 function getPiùOsservati($cid){
-    $sql = "SELECT fotoP, nomeAnnuncio, idAnnuncio, prezzoP, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC LIMIT 6";
+    $sql = "SELECT OS.* FROM (SELECT fotoP, nomeAnnuncio, idAnnuncio, prezzoP, s.stato, COUNT(*) AS nOsservatori, (serietaV+puntualitaV)/2 AS punteggioMedio FROM osserva NATURAL JOIN annuncio NATURAL JOIN statoa s WHERE s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio) GROUP BY idAnnuncio ORDER BY nOsservatori DESC, punteggioMedio DESC) AS OS WHERE OS.stato='in vendita' LIMIT 6";
     //NON considero ancora visibilità ristretta!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111
     $risultato = $cid->query($sql);
 
