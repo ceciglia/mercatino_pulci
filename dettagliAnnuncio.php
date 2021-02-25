@@ -44,9 +44,9 @@ echo'
 
                                 valutazione($cid, $row["venditore"]);
 							echo'
-                            
-							<button type="submit" class="btn pull-right btn_prodotto" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>';
-						    if(isset($_SESSION["logged"]) and ($_SESSION["logged"]==true)){
+							<button type="submit" class="btn btn-profilo pull-left btn-a-v" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+                            <a href="#0" onclick="aggiungiOsservati(\''. $row["idAnnuncio"] .'\'); fullHeart(this)" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+							if(isset($_SESSION["logged"]) and ($_SESSION["logged"]==true)){
 
                             echo'
 							<div id="richiesta" class="modal">
@@ -141,7 +141,8 @@ echo'
     <script src="../js/jquery.prettyPhoto.js"></script>
 	<script src="../js/main.js"></script>
 	<script src="../js/funzioni.js"></script>
-	<script src="../js/tendinalogin.js"></script>		<!--aggiunta-->
+	<script src="../js/tendinalogin.js"></script>
+	<script src="../js/ajax-function.js"></script><!--aggiunta-->
 </body>
 </html>
     
