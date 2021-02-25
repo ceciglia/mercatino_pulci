@@ -10,6 +10,7 @@
     $res=$cid->query($sql);
     $row = $res->fetch_array();
 
+
 echo'
 
 <!DOCTYPE html> 			
