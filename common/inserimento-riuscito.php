@@ -1,15 +1,15 @@
 <?php
 	session_start();
-	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "connessione.php";		//DA SPOSTARE IN CARTELLA common
+	include "funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-	<?php include "common/head.php";?>
+	<?php include "head.php";?>
 
 <body>
-	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+	<?php include "navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
@@ -27,7 +27,7 @@
 				</div>
 
 	<?php
-    include "common/footer.php"
+    include "footer.php"
 	?>
 
 	<script src="../js/jquery.js"></script>

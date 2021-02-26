@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include "php/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include "php/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "common/connessione.php";
+	include "common/funzioniFR.php";
 ?>
 
 <!DOCTYPE html> 			
@@ -9,7 +9,7 @@
 	<?php include "common/head.php";?>
 
 <body>
-	<?php include "php/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 	
 	<section id="form"><!--form-->
 		<div class="container">
@@ -35,7 +35,7 @@
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registrati subito!</h2>
 						<form action="#">
-					       <a href="../frontend/registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
+					       <a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
 						</form>
 					</div><!--/sign up form-->
 				</div>
@@ -47,11 +47,11 @@
     include "common/footer.php"
 	?>
   
-    <script src="../js/jquery.js"></script>
-	<script src="../js/price-range.js"></script>
-    <script src="../js/jquery.scrollUp.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.prettyPhoto.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/jquery.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

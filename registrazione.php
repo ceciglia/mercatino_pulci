@@ -1,27 +1,14 @@
-
+<?php
+    session_start();
+    include "common/connessione.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Mercatino delle pulci</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/price-range.css" rel="stylesheet">
-	<link href="../css/main.css" rel="stylesheet">
-	<link href="../css/responsive.css" rel="stylesheet">
-	<link href="../css/registraAnnuncio.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="../js/html5shiv.js"></script>
-    <![endif]-->
-	<link rel="shortcut icon" href="../images/ico/favicon1.ico">
-</head><!--/head-->
+<?php include "common/head.php";?>
 
 <body>
-	<?php include "common/navbar.php";?>
+<?php include "common/navbar.php";?>
 
 	<section>
 
@@ -31,10 +18,10 @@
     			<h2 class="insert-title" >Inserisci i tuoi dati</h2>
     			<div class="col-sm-18 padding-right">
     				<div class="features_items">
-    					<form action="../backend/registrazione-exe.php" method="post">
+    					<form action="backend/registrazione-exe.php" method="post">
     						<div class="col-sm-4">
     							<div class="container_imm">
-    								<img src="../images/pubblicaAnnuncio.jpg" alt="Avatar" class="immagine-r-a">
+    								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="immagine-r-a">
     								<input type="file" id="file" class="invisibile" name='immagine'/>
     								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"> Upload</button>
     							</div>
@@ -107,7 +94,7 @@
 
                   </select>
 
-                <script src="../js/areaGeografica.js"></script>
+                <script src="js/areaGeografica.js"></script>
 
     							<button type="submit"  class="btn pull-right btn-r">Registrati</button>   <!--onclick="btnConferma('modifica')"-->
                   <?php
@@ -178,13 +165,13 @@
 		</div>
 
 	</footer><!--/Footer-->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.scrollUp.min.js"></script>
-    <script src="../js/price-range.js"></script>
-    <script src="../js/jquery.prettyPhoto.js"></script>
-  	<script src="../js/main.js"></script>
-  	<script src="../js/funzioni.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+  	<script src="js/main.js"></script>
+  	<script src="js/funzioni.js"></script>
     <script>
         window.addEventListener("DOMContentLoaded", function(){
             popolaRegioni("reg");
