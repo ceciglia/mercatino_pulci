@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include "common/connessione.php";		//DA SPOSTARE IN CARTELLA common
-	include "common/funzioniFR.php";		//DA SPOSTARE IN CARTELLA common
+	include "common/connessione.php";
+	include "common/funzioniFR.php";
 ?>
 
 <!DOCTYPE html> 			

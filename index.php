@@ -216,7 +216,6 @@
                     </form>
 				</div>
 
-
 				<div class="col-sm-9 padding-right colonna-annunci-filtrati">
 					<div class="recommended_items">     <!--più osservati-->
 						<h2 class="title text-center"><span class="title-span">Più osservati</span></h2>
