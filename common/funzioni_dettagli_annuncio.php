@@ -79,7 +79,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
 
 
         } else {
-            echo '<a href="index.php"><button type="submit" class="btn btn-profilo pull-left btn-a-v" > Accedi o registrati per acquistare</button></a>';
+            echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a href="index.php" class="osserva-btn"><i class="fa fa-ban" aria-hidden="true"></i> Accedi o registrati</a></button>';
         }
     }
 
@@ -139,7 +139,7 @@ function osservaannunciobtn($cid, $idAnnuncio){
             }
         }
     } else {
-        echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
+        echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v btn-dettagliAnnuncio"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
     }
 
 }
