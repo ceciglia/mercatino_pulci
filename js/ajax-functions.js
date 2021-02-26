@@ -27,8 +27,9 @@ function ajaxRequest(){
 //     xmlhttp.send();
 // }
 
-function aggiungiOsservati(idAn){
-    $.ajax({
+function aggiungiOsservati(num, idAn){
+    if (num===1){
+        $.ajax({
             type: 'GET',
             url: 'backend/aggiungiOsservati-exe.php',
             data: {
@@ -42,7 +43,27 @@ function aggiungiOsservati(idAn){
             //         alert("OHNO")
             // $("#result").html("Error");
             // }
-    });
+        });
+    }
+
+    if (num===2){
+        $.ajax({
+            type: 'GET',
+            url: '../backend/aggiungiOsservati-exe.php',
+            data: {
+                id: idAn
+            }
+            // success: function (data) {
+            //         alert("Maracaibo")
+            // $("#result").html(response);
+            // },
+            // error: function (data) {
+            //         alert("OHNO")
+            // $("#result").html("Error");
+            // }
+        });
+    }
+
 }
 
 // function verifyScadenza(idAn){

@@ -69,7 +69,7 @@ function verifyOsservati($cid, $idAn){
 
             if (empty($row)) {
                 if (empty($row1)) {
-                    echo '<li><a href="#0" id="cuore' . $idAn . '" onclick="aggiungiOsservati(\'' . $idAn . '\'); fullHeart(\'cuore' . $idAn . '\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+                    echo '<li><a href="#0" id="cuore' . $idAn . '" onclick="aggiungiOsservati(1,\'' . $idAn . '\'); fullHeart(\'cuore' . $idAn . '\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
                 } else {
                     echo '<li><a href="#0" id="cuore' . $idAn . '" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
                 }

@@ -130,16 +130,16 @@ function osservaannunciobtn($cid, $idAnnuncio){
 
             if (empty($row)) {
                 if(empty($rowv)){
-                    echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeartBtnOsserva(\'cuore' . $idAnnuncio . '\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+                    echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="aggiungiOsservati(2,'. $idAnnuncio .'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
                 } else {
-                    echo '<a href="#0" class="osserva-btn"><button type="hidden" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+                    echo '<button type="hidden" class="btn btn-profilo pull-right btn-a-v"><a href="#0" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
                 }
             } else {
-                echo '<a><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
+                echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><a><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </a></button>';
             }
         }
     } else {
-        echo '<a href="#0" onclick="fullHeartBtnOsserva(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+        echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
     }
 
 }

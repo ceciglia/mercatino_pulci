@@ -93,8 +93,3 @@ function fullHeart(idCuore){
 	cuore=document.getElementById(idCuore);
 	cuore.innerHTML =  "<i class=\"fa fa-heart\" aria-hidden=\"true\"></i> Osservato";
 }
-
-function fullHeartBtnOsserva(idCuore){		//NON VAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!!!
-	cuore=document.getElementById(idCuore);
-	cuore.innerHTML="<button type=\"submit\" class=\"btn btn-profilo pull-right btn-a-v\"><i class=\"fa fa-heart\" aria-hidden=\"true\"></i> Osservato </button>";
-}
