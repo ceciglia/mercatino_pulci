@@ -85,35 +85,65 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
 
 }
 
-function osservaannunciobtn($cid, $idAnnuncio){
-    if (isset($_SESSION["logged"]) and ($_SESSION["logged"] == true)) {
-        if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 0){
-            $email = $_SESSION["email"];
-            $sql = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
-            $res = $cid->query($sql);
-            $row = $res->fetch_array();
-            if(empty($row)) {
-                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(this)" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
-            }else {
-                echo '<a ><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
-            }
-        }if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 1){
-            $email = $_SESSION["email"];
-            $sqlo = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
-            $reso = $cid->query($sqlo);
-            $rowo = $reso->fetch_array();
-            $sqlv = "SELECT venditore, idAnnuncio FROM annuncio WHERE idAnnuncio='$idAnnuncio' AND venditore='$email'";
-            $resv = $cid->query($sqlv);
-            $rowv = $resv->fetch_array();
-            if((empty($rowo)) and (empty($rowv))){
-                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(this)" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
-            }elseif((!empty($rowo)) and (empty($rowv))){
-                echo '<a ><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
+//function osservaannunciobtn($cid, $idAnnuncio){
+//    if (isset($_SESSION["logged"]) and ($_SESSION["logged"] == true)) {
+//        if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 0){
+//            $email = $_SESSION["email"];
+//            $sql = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
+//            $res = $cid->query($sql);
+//            $row = $res->fetch_array();
+//            if(empty($row)) {
+//                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+//            }else {
+//                echo '<a><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
+//            }
+//        }if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 1){
+//            $email = $_SESSION["email"];
+//            $sqlo = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
+//            $reso = $cid->query($sqlo);
+//            $rowo = $reso->fetch_array();
+//            $sqlv = "SELECT venditore, idAnnuncio FROM annuncio WHERE idAnnuncio='$idAnnuncio' AND venditore='$email'";
+//            $resv = $cid->query($sqlv);
+//            $rowv = $resv->fetch_array();
+//            if((empty($rowo)) and (empty($rowv))){
+//                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+//            }elseif((!empty($rowo)) and (empty($rowv))){
+//                echo '<a ><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
+//
+//            }
+//        }
+//    }
+//
+//}
 
+function osservaannunciobtn($cid, $idAnnuncio){
+    if (isset($_SESSION["logged"])) {
+        if (isset($_SESSION["acquirente"]) and $_SESSION["acquirente"] == 1) {
+            $acquirente = $_SESSION["email"];
+            $sql = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$acquirente'";
+            $res = $cid->query($sql);
+            $row = $res->fetch_assoc();
+
+            $sqlv = "SELECT venditore, idAnnuncio FROM annuncio WHERE idAnnuncio='$idAnnuncio' AND venditore='$acquirente'";
+            $resv = $cid->query($sqlv);
+            $rowv = $resv->fetch_assoc();
+
+            if (empty($row)) {
+                if(empty($rowv)){
+                    echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore' . $idAnnuncio . '\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+                } else {
+                    echo '<a href="#0" class="osserva-btn"><button type="hidden" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+                }
+            } else {
+                echo '<a><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
             }
         }
+    } else {
+        echo '<a href="#0" onclick="fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
     }
 
 }
 
-?>
+
+echo '<script src="../js/funzioni.js"></script>';
+echo '<script src="../js/ajax-functions.js"></script>';

@@ -701,6 +701,10 @@
 		display: contents !important;
 	}
 
+	.panel-body {
+		display: inline-table;
+	}
+
 }
 
 

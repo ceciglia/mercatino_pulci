@@ -56,28 +56,28 @@ function test_input($data) {
 //}
 
 function verifyOsservati($cid, $idAn){
-    if (isset($_SESSION["acquirente"]) and $_SESSION["acquirente"]==1){
-        $acquirente=$_SESSION["email"];
-        $sql = "SELECT o.idAnnuncio, acquirenteO, venditore FROM osserva o JOIN annuncio a on o.idAnnuncio = a.idAnnuncio WHERE o.idAnnuncio='$idAn' and acquirenteO='$acquirente'";
-        $result=$cid->query($sql);
-        $row=$result->fetch_assoc();
+    if (isset($_SESSION["logged"])) {
+        if (isset($_SESSION["acquirente"]) and $_SESSION["acquirente"] == 1) {
+            $acquirente = $_SESSION["email"];
+            $sql = "SELECT idAnnuncio, acquirenteO FROM osserva WHERE idAnnuncio='$idAn' and acquirenteO='$acquirente'";
+            $result = $cid->query($sql);
+            $row = $result->fetch_assoc();
 
-        $sql1 = "SELECT venditore FROM annuncio WHERE idAnnuncio='$idAn'";
-        $result1=$cid->query($sql1);
-        $row1=$result1->fetch_assoc();
-        $venditore=$row1["venditore"];
+            $sql1 = "SELECT venditore FROM annuncio WHERE idAnnuncio='$idAn' and venditore='$acquirente'";
+            $result1 = $cid->query($sql1);
+            $row1 = $result1->fetch_assoc();
 
-        if (empty($row)){
-            if ($venditore==$acquirente){
-                echo '<li><a href="#0" id="cuore'. $idAn .'" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+            if (empty($row)) {
+                if (empty($row1)) {
+                    echo '<li><a href="#0" id="cuore' . $idAn . '" onclick="aggiungiOsservati(\'' . $idAn . '\'); fullHeart(\'cuore' . $idAn . '\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+                } else {
+                    echo '<li><a href="#0" id="cuore' . $idAn . '" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+                }
             } else {
-                echo '<li><a href="#0" id="cuore'. $idAn .'" onclick="aggiungiOsservati(\''. $idAn .'\'); fullHeart(\'cuore'. $idAn .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+                echo '<li><a href="#0" class="osserva-btn"><i class="fa fa-heart" aria-hidden="true"></i> Osservato</a></li>';
             }
-        } else {
-            echo '<li><a href="#0" class="osserva-btn"><i class="fa fa-heart" aria-hidden="true"></i> Osservato</a></li>';
         }
-    }
-    if (!isset($_SESSION["email"])){
+    } else {
         echo '<li><a href="#0" id="cuore'. $idAn .'" onclick="fullHeart(\'cuore'. $idAn .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
     }
 }
@@ -109,7 +109,7 @@ function getPiùOsservati($cid){
                             <img class="piùosservati-img-resize" src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine.">
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>  
-                            <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ function getAnnunciPubblicati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +277,7 @@ function getAnnunciFiltrati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -423,7 +423,7 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
                             <div class="overlay-content">
                                 <h2>' . $prezzoP . '</h2>
                                 <p>' . $nomeAn . '</p>
-                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -445,10 +445,7 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
 }
 
 
-
-
 echo '<script src="js/funzioni.js"></script>';
-echo '<script src="js/ajax-functions.js"></script>';
 
 
 

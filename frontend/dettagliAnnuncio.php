@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	include "common/connessione.php";
-	include "common/funzioniFR.php";
-	include "common/valutazione.php";
-    include "common/funzioni_dettagli_annuncio.php";
+	include "../common/connessione.php";
+	include "../common/funzioniFR.php";
+	include "../common/valutazione.php";
+    include "../common/funzioni_dettagli_annuncio.php";
 
     $idAnnuncio = $_GET['idAnnuncio'];
 
@@ -13,14 +13,42 @@
     $sqlo="SELECT COUNT(*) AS numOss FROM osserva WHERE idAnnuncio='$idAnnuncio'";
     $reso=$cid->query($sqlo);
     $rowo = $reso->fetch_array();
+
 echo'
 
 <!DOCTYPE html> 			
-<html lang="en">';
-	include "common/head.php";
+<html lang="en">
+<head> <!--head-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mercatino delle pulci</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="css/prettyPhoto.css" rel="stylesheet"> -->
+    <link href="../css/price-range.css" rel="stylesheet">
+    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+	<link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/account.css" rel="stylesheet">
+    <link href="../css/dettagliAnnuncio.css" rel="stylesheet">
+    <link href="../css/registraAnnuncio.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+	<!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
+	<link rel="shortcut icon" href="../images/ico/favicon1.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->';
+//	include "../common/head.php";
 echo'
 <body>';
-	include "common/navbar.php";
+	include "../common/navbar.php";
 
 echo'
 	<section>
@@ -89,18 +117,16 @@ echo'
                         <p ><b>Sottocategoria: </b>' .$row["sottoCategoria"] .'</p>
                     </div>';
                     }
-                    echo'
+                    echo '
 				</div>
 			</div>
 		</div>
 	</section>
 	<br>
-	<br>
-	
-	<?php
-    include "common/footer.php"
-	?>
-  
+	<br>';
+
+    include "../common/footer.php";
+  echo'
     <script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/jquery.scrollUp.min.js"></script>
@@ -109,11 +135,8 @@ echo'
 	<script src="../js/main.js"></script>
 	<script src="../js/funzioni.js"></script>
 	<script src="../js/tendinalogin.js"></script>
-	<script src="../js/ajax-function.js"></script>
+	<script src="../js/ajax-functions.js"></script>
 	<!--aggiunta-->
 </body>
-</html>
+</html>';
     
-';
-
-?>
