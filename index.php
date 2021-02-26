@@ -105,7 +105,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-3 colonna-filtraggio">
                     <form action="filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
                         <div class="left-sidebar">
                             <h2><span class="title-span">Categoria</span></h2>
@@ -240,7 +240,7 @@
 				</div>
 
 
-				<div class="col-sm-9 padding-right">
+				<div class="col-sm-9 padding-right colonna-annunci-filtrati">
 					<div class="recommended_items">     <!--più osservati-->
 						<h2 class="title text-center"><span class="title-span">Più osservati</span></h2>
 

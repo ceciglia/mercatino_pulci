@@ -2976,6 +2976,17 @@ h2.title {
   border: 2px solid #FE980F;
 }
 
+.notification-bell>span {
+  position: absolute;
+  font-size: 12px;
+  top: -10px;
+  right: -10px;
+  padding: 0px 6px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
 /*popup conferma*/
 .popup-conferma {
   width: 100%;

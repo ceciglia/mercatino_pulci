@@ -130,7 +130,7 @@ function osservaannunciobtn($cid, $idAnnuncio){
 
             if (empty($row)) {
                 if(empty($rowv)){
-                    echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore' . $idAnnuncio . '\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+                    echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeartBtnOsserva(\'cuore' . $idAnnuncio . '\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
                 } else {
                     echo '<a href="#0" class="osserva-btn"><button type="hidden" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
                 }
@@ -139,11 +139,9 @@ function osservaannunciobtn($cid, $idAnnuncio){
             }
         }
     } else {
-        echo '<a href="#0" onclick="fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
+        echo '<a href="#0" onclick="fullHeartBtnOsserva(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
     }
 
 }
 
 
-echo '<script src="../js/funzioni.js"></script>';
-echo '<script src="../js/ajax-functions.js"></script>';
