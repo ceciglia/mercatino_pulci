@@ -236,7 +236,6 @@
 						</div>
 					</div>  <!--/più osservati-->
 
-
 					<div class="features_items index-margin-top"><!--features_items-->
                         <?php
                             if (!isset($_GET["categoria"]) and !isset($_GET["sottoCategoria"]) and !isset($_GET["regione"]) and !isset($_GET["provincia"]) and !isset($_GET["comune"]) and !isset($_GET["minPrice"]) and !isset($_GET["maxPrice"])){
@@ -265,7 +264,7 @@
 	<?php
 		include "common/footer.php"
 	?>
-	
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
@@ -286,6 +285,5 @@
             popolaComuni("prov","com");
         });
     </script>
-
 </body>
 </html>
