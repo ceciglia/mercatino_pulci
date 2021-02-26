@@ -47,7 +47,7 @@ echo'
 							<p ><b>Venditore: </b> ' .$row["venditore"] .'</p>';
 
 
-                                valutazione($cid, $row["venditore"]);
+                                valutazioneDettagliAnnuncio($cid, $row["venditore"]);
                                 echo'<p class="title3"></p><i class="fa fa-eye" aria-hidden="true"></i>  ' .$rowo["numOss"] .' (osservatori)</p>';
                                 richiestaacquistobtn($cid, $row["idAnnuncio"], $row["stato"]);
                                 osservaannunciobtn($cid, $row["idAnnuncio"]);

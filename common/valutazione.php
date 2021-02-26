@@ -1,6 +1,6 @@
 <?php
 
-function valutazioned($cid, $venditore){
+function valutazioneDettagliAnnuncio($cid, $venditore){
 
           $sqlV="SELECT AVG((serietaV+puntualitaV)/2) AS mediaV, COUNT(*) AS nVal FROM `annuncio` WHERE venditore = '$venditore' AND serietaV is not null AND puntualitaV is not null";
           $resV = $cid->query($sqlV);
