@@ -19,7 +19,7 @@
 										<h1>Operazione fallita</h1>
 										<p>Qualcosa è andato storto nella registrazione</p>
 										<p>Torna alla pagina principale</p>
-										<a href="index.php"><button type="button" class="btn btn-default get">Pagina principale</button></a>
+										<a href="../index.php"><button type="button" class="btn btn-default get">Pagina principale</button></a>
 									</div>
 								</div>
 							</div>
@@ -28,16 +28,16 @@
 				</div>
 
 	<?php
-		include "common/footer.php"
+    include "common/footer.php"
 	?>
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.scrollUp.min.js"></script>
+	<script src="../js/price-range.js"></script>
+	<script src="../js/jquery.prettyPhoto.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/tendinalogin.js"></script>		<!--aggiunta-->
 
 
 </body>

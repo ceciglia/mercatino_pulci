@@ -69,7 +69,7 @@ function verifyOsservati($cid, $idAn){
 
             if (empty($row)) {
                 if (empty($row1)) {
-                    echo '<li><a href="#0" id="cuore' . $idAn . '" onclick="aggiungiOsservati(1,\'' . $idAn . '\'); fullHeart(\'cuore' . $idAn . '\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+                    echo '<li><a href="#0" id="cuore' . $idAn . '" onclick="aggiungiOsservati(\'' . $idAn . '\'); fullHeart(\'cuore' . $idAn . '\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
                 } else {
                     echo '<li><a href="#0" id="cuore' . $idAn . '" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
                 }
@@ -109,7 +109,7 @@ function getPiùOsservati($cid){
                             <img class="piùosservati-img-resize" src="data:image/jpg;base64,'. base64_encode($fotoP) .'" alt="Impossibile caricare l\'immagine.">
                             <h2>€ '. $prezzoP .'</h2>
                             <p>'. $nomeAn .'</p>  
-                            <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart piùosservati-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ function getAnnunciPubblicati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +277,7 @@ function getAnnunciFiltrati($cid) {
                                 <h2>€ '. $prezzoP .'</h2>
                                 <h4>ID: '. $idAn .'</h4>
                                 <p>'. $nomeAn .'</p>
-                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>
@@ -423,7 +423,7 @@ function getAnnunciVenditoriTop($cid, $listaVenditoriTop) {
                             <div class="overlay-content">
                                 <h2>' . $prezzoP . '</h2>
                                 <p>' . $nomeAn . '</p>
-                                <a href="frontend/dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $idAn .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
                             </div>
                         </div>
                     </div>

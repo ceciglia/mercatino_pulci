@@ -33,7 +33,7 @@ function popolaCategorie(categoria){
 
     	}
     };
-	xttp.open("GET","php/getCategorie.php?",true);
+	xttp.open("GET","backend/getCategorie.php?",true);
 	xttp.send();
 }
 
@@ -59,7 +59,7 @@ function popolaSottocategorie(categoria,sottocat){
 
     	    }
         };
-    	xttp.open("GET","php/getSottocategorie.php?categoria="+categoriaSelezionata,true);
+    	xttp.open("GET","backend/getSottocategorie.php?categoria="+categoriaSelezionata,true);
     	xttp.send();
 	}
 }

@@ -130,7 +130,7 @@ function osservaannunciobtn($cid, $idAnnuncio){
 
             if (empty($row)) {
                 if(empty($rowv)){
-                    echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="aggiungiOsservati(2,'. $idAnnuncio .'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
+                    echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="aggiungiOsservati('. $idAnnuncio .'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
                 } else {
                     echo '<button type="hidden" class="btn btn-profilo pull-right btn-a-v"><a href="#0" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
                 }

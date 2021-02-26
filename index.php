@@ -6,30 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head> <!--head-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Mercatino delle pulci</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- <link href="css/prettyPhoto.css" rel="stylesheet"> -->
-    <link href="css/price-range.css" rel="stylesheet">
-    <!-- <link href="css/animate.css" rel="stylesheet"> -->
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/account.css" rel="stylesheet">
-    <link href="css/dettagliAnnuncio.css" rel="stylesheet">
-    <link href="css/registraAnnuncio.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <![endif]-->
-    <!--<link rel="shortcut icon" href="images/ico/favicon.ico"> -->
-    <link rel="shortcut icon" href="images/ico/favicon1.ico">
-</head><!--/head-->
-<!--	--><?php //include "common/head.php";?>
-
+	<?php include "common/head.php";?>
 <body>
 	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
@@ -50,14 +27,14 @@
                                     <?php
                                         if (isset($_SESSION["logged"])){
                                             if ($_SESSION["logged"]==True){
-                                                echo '<h1>Ciao <span>'.$_SESSION["nome"].' '.$_SESSION["cognome"].'</span></h1>
+                                                echo '<h1>Ciao <span>'.$_SESSION["nome"].' '.$_SESSION["cognome"]. '</span></h1>
 									                  <p>Siamo felici di riaverti tra noi <i class="fa fa-smile-o" aria-hidden="true"></i></p>
 									                  <a href="account.php"><button type="button" class="btn btn-default get">Vai al mio profilo</button></a>';
                                             }
                                         } else {
                                             echo '<h1>Benvenut* in <span>FR</span> Market</h1>
 									              <p>Scorri per scoprire di più! </p>
-									              <a href="registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>';
+									              <a href="common/registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>';
                                         }
                                     ?>
 								</div>
@@ -106,7 +83,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 colonna-filtraggio">
-                    <form action="filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
+                    <form action="backend/filtraggioAnnunci.php" method="get">  <!--form per filtraggio annunci-->
                         <div class="left-sidebar">
                             <h2><span class="title-span">Categoria</span></h2>
                             <div class="panel-group category-products" id="accordian"><!--category-products-->
@@ -221,7 +198,7 @@
                             <div class="price-range adattivo">      <!-- filtro comune provincia regione -->
                                 <h2><span class="title-span">Area Geografica</span></h2>
                                 <div class="well text-center">
-                                    <?php include "frontend/areaGeografica.php";?>
+                                    <?php include "common/areaGeografica.php";?>
                                 </div>
                             </div>				<!-- /filtro comune provincia regione -->
 

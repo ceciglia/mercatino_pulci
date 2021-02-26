@@ -35,7 +35,7 @@
 					<div class="signup-form"><!--sign up form-->
 						<h2>Registrati subito!</h2>
 						<form action="#">
-					       <a href="registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
+					       <a href="../frontend/registrazione.php" type="submit" class="btn btn-default signup">Registrati</a>	<!--aggiunto id="signup"-->
 						</form>
 					</div><!--/sign up form-->
 				</div>
@@ -44,14 +44,14 @@
 	</section><!--/form-->
 		
 	<?php
-		include "common/footer.php"
+    include "common/footer.php"
 	?>
   
-    <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery.js"></script>
+	<script src="../js/price-range.js"></script>
+    <script src="../js/jquery.scrollUp.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

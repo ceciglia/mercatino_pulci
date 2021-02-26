@@ -18,7 +18,7 @@
 									<div class="col-sm-9 index-benvenuto">
 										<h1>Operazione riuscita </h1>
 										<p>Torna alla pagina principale per effettuare il login</p>
-										<a href="index.php"><button type="button" class="btn btn-default get">Pagina principale</button></a>
+										<a href="../index.php"><button type="button" class="btn btn-default get">Pagina principale</button></a>
 									</div>
 								</div>
 							</div>
@@ -27,16 +27,16 @@
 				</div>
 
 	<?php
-		include "common/footer.php"
+    include "common/footer.php"
 	?>
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/tendinalogin.js"></script>		<!--aggiunta-->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.scrollUp.min.js"></script>
+	<script src="../js/price-range.js"></script>
+	<script src="../js/jquery.prettyPhoto.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/tendinalogin.js"></script>		<!--aggiunta-->
 
 
 </body>

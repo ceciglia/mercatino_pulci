@@ -33,6 +33,6 @@ function popolaUsura(usura){
 
     	}
     };
-	xttp.open("GET","php/getUsura.php?",true);
+	xttp.open("GET","backend/getUsura.php?",true);
 	xttp.send();
 }
