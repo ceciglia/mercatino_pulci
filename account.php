@@ -103,12 +103,9 @@
 					<div class="features_items" ><!--features_items-->
 						<h2 class="title text-center"><span class="title-span">Richieste di acquisto</span></h2>
 						<div class="col-sm-12">
-
-
-                                    <?php
-                                        richiesteAcquistoUtente($cid);
-                                    ?>
-
+                            <?php
+                                richiesteAcquistoUtente($cid);
+                            ?>
 						</div>
 					</div>
 				</div>
