@@ -3,6 +3,7 @@
 	include "common/connessione.php";
 	include "common/funzioniFR.php";
 	include "common/funzioni_account.php";
+    include "common/valutazione.php";
 ?>
 
 <!DOCTYPE html>
@@ -149,7 +150,7 @@
 	</section>
 
 	<?php
-    include "common/footer.php"
+		include "common/footer.php"
 	?>
 
 	<script src="js/jquery.js"></script>
