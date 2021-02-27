@@ -1703,10 +1703,10 @@ h2.title {
 
 
 .cart_delete a {
-  background:#F0F0E9;
+  background:#edf3e1;
   color: #FFFFFF;
   padding: 5px 7px;
-  font-size: 16px
+  font-size: 18px
 }
 
 .cart_delete a:hover {
@@ -3081,23 +3081,6 @@ h2.title {
 .osserva-btn:focus{
   outline: none;
   background-color: unset !important;
-}
-
-.btn-dettagliAnnuncio{
-  width: fit-content;
-}
-
-.btn-dettagliAnnuncio > a {
-  color: white;
-  font-size: 14px;
-}
-
-.btn-dettagliAnnuncio > a:hover {
-  color: #2b5164;
-}
-
-.btn-dettagliAnnuncio > a:focus {
-  text-decoration: unset;
 }
 
 /*immagini annunci*/
