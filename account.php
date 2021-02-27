@@ -5,7 +5,7 @@
 	include "common/funzioni_account.php";
     include "common/valutazione.php";
 ?>
-
+ciao
 <!DOCTYPE html>
 <html lang="en">
 	<?php include "common/head.php";?>
