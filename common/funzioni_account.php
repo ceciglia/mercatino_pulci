@@ -612,7 +612,7 @@ function acquistiUtente($cid){
                                     <form method="POST" action="backend/acq_valuta_ven.php?idAnnuncio=' . $row["idAnnuncio"] . '">
                                         <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
                                             <div>';
-                                                valutazionesemplice($cid, $row["idAnnuncio"]);
+                                                valutazioneVenditore($cid, $row["idAnnuncio"]);
                                         echo'</div>
                                         </ul>
                                     </div>
@@ -680,7 +680,7 @@ function richiesteAcquistoUtente($cid){
 function leMieVendite($cid){
     if($_SESSION["logged"]==true) {
         $email_sessione = $_SESSION["email"];
-        $sqlAnnunci = "SELECT * FROM annuncio AS a JOIN richiestaacquisto AS r ON a.idAnnuncio=r.idAnnuncio WHERE venditore='$email_sessione' AND approvato=1";
+        $sqlAnnunci = "SELECT a.fotoP, a.prezzoP, a.idAnnuncio, a.nomeAnnuncio, r.acquirenteRA, r.serietaA, r.puntualitaA FROM annuncio AS a JOIN richiestaacquisto AS r ON a.idAnnuncio=r.idAnnuncio WHERE venditore='$email_sessione' AND approvato=1";
         $res = $cid->query($sqlAnnunci);
         while($row = $res->fetch_array()){
             echo'
@@ -691,84 +691,115 @@ function leMieVendite($cid){
 										<div class="img-contenitore">
 											<img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
 										</div>
-										<h2>' . $row["prezzoP"] . ' €</h2>
-										<p>' . $row["nomeAnnuncio"] . '</p>
+										<h2 style="font-size: 18px">Venduto a:</h2>
+										<p style="font-size: 16px">' . $row["acquirenteRA"] . '</p>
 
 									</div>
 									<div  class="product-overlay">
 										<div class="overlay-content">
-											<a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</button></a>			<!--<i class="fa fa-shopping-cart"></i>   id="myBtn"-->
-										</div>
+                                        <h2>'. $row["prezzoP"] .'€</h2>
+                                        <h4>ID: '. $row["idAnnuncio"] .'</h4>
+                                        <p>'. $row["nomeAnnuncio"] .'</p>
+                                        <a href="dettagliAnnuncio.php?idAnnuncio='. $row["idAnnuncio"] .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                                </div>
 									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valutaA' . $row["idAnnuncio"] . '"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta acquirente</a></li>
-										<div id="valutaA' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
-											<div class="panel-body">
-												<ul class="nav navbar-nav sottomenu_profilo sottomenu-vendite" >
-													<div>
-														<p>Valuta la <b >serietà</b> :</p>
-														<div class="demo-content">
-															<div class="serieta">
-																<input name="serieta' . $row["idAnnuncio"] . '" type="radio" id="stellaA1' . $row["idAnnuncio"] . '" value="1" />
-																<label for="stellaA1' . $row["idAnnuncio"] . '"></label>
+								</div>';
+								if(($row["serietaA"]==NULL) and (($row["puntualitaA"])==NULL)){
+								echo '
+                                    <div class="choose">
+                                                <ul class="nav nav-pills nav-justified">
+                                                    <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valuta' . $row["idAnnuncio"] . '"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Valuta venditore</a></li>
+                                                    <div id="valuta' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                        <form method="POST" action="backend/ven_valuta_acq.php?idAnnuncio=' . $row["idAnnuncio"] . '&acquirente=' . $row["acquirenteRA"] . '">
+                                                            <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
+                                                                <div>
+                                                                    <p>Valuta la <b >serietà</b> :</p>
+                                                                    <div class="demo-content">
+                                                                        <div class="serieta">
+                                                                            <input name="serieta" type="radio" id="stellaA1' . $row["idAnnuncio"] . '"  value=1 />
+                                                                            <label for="stellaA1' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="serieta" type="radio" id="stellaA2' . $row["idAnnuncio"] . '"  value=2 />
+                                                                            <label for="stellaA2' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="serieta" type="radio" id="stellaA3' . $row["idAnnuncio"] . '"  value=3 />
+                                                                            <label for="stellaA3' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="serieta" type="radio" id="stellaA4' . $row["idAnnuncio"] . '"  value=4 />
+                                                                            <label for="stellaA4' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="serieta" type="radio" id="stellaA5' . $row["idAnnuncio"] . '" value=5 />
+                                                                            <label for="stellaA5' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                        </div>
+                                                                    </div>
+                                                                    <p>Valuta la <b >puntualità</b> :</p>
+                                                                    <div class="demo-content">
+                                                                        <div class="puntualita">
+                                                                            <input name="puntualita" type="radio" id="stellaA6' . $row["idAnnuncio"] . '"  value=1 />
+                                                                            <label for="stellaA6' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="puntualita" type="radio" id="stellaA7' . $row["idAnnuncio"] . '"  value=2 />
+                                                                            <label for="stellaA7' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="puntualita" type="radio" id="stellaA8' . $row["idAnnuncio"] . '"  value=3 />
+                                                                            <label for="stellaA8' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="puntualita" type="radio" id="stellaA9' . $row["idAnnuncio"] . '"  value=4 />
+                                                                            <label for="stellaA9' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                            <input name="puntualita" type="radio" id="stellaA10' . $row["idAnnuncio"] . '"  value=5 />
+                                                                            <label for="stellaA10' . $row["idAnnuncio"] . '"></label>
+                        
+                                                                        </div>
+                                                                        <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id04\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                                            <div id="id04" class="modal">
+                                                                                <div class="modal-content popup-modal-content">
+                                                                                    <div class="container popup-conferma">
+                                                                                        <h4>Valutazione</h4>
+                                                                                        <p>Stai per confermare la valutazione.</p>
+                                                                                        <p>Sei sicur* di voler proseguire?</p>
+                        
+                                                                                        <div class="clearfix">
+                                                                                            <button type="submit" class="popup-btn deletebtn">Conferma</button>
+                                                                                            <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </ul>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </ul>
+                                            </div>';
+                                        }else{
 
-																<input name="serieta" type="radio" id="stellaA2' . $row["idAnnuncio"] . '" value="2" />
-																<label for="stellaA2' . $row["idAnnuncio"] . '"></label>
+                                        echo'
+                                            <div class="choose">
+                                                <ul class="nav nav-pills nav-justified">
+                                                    <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#valuta' . $row["idAnnuncio"] . '"><i class="fa fa-check" aria-hidden="true"></i>Valutazione effettuata</a></li>
+                                                    <div id="valuta' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                        <form method="POST" action="backend/acq_valuta_ven.php?idAnnuncio=' . $row["idAnnuncio"] . '">
+                                                            <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
+                                                                <div>';
+                                                                    valutazioneAcquirente($cid, $row["idAnnuncio"], $row["acquirenteRA"]);
+                                                            echo'</div>
+                                                            </ul>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </ul>
+                                            </div>';
+                                        }
 
-																<input name="serieta" type="radio" id="stellaA3' . $row["idAnnuncio"] . '" value="3" />
-																<label for="stellaA3' . $row["idAnnuncio"] . '"></label>
-
-																<input name="serieta" type="radio" id="stellaA4' . $row["idAnnuncio"] . '" value="4" />
-																<label for="stellaA4' . $row["idAnnuncio"] . '"></label>
-
-																<input name="serieta" type="radio" id="stellaA5' . $row["idAnnuncio"] . '" value="5" checked />
-																<label for="stellaA5' . $row["idAnnuncio"] . '"></label>
-															</div>
-														</div>
-														<p>Valuta la <b >puntualità</b> :</p>
-														<div class="demo-content">
-															<div class="puntualita">
-																<input name="puntualita" type="radio" id="stellaA6' . $row["idAnnuncio"] . '" value="1" />
-																<label for="stellaA6' . $row["idAnnuncio"] . '"></label>
-
-																<input name="puntualita" type="radio" id="stellaA7' . $row["idAnnuncio"] . '" value="2" />
-																<label for="stellaA7' . $row["idAnnuncio"] . '"></label>
-
-																<input name="puntualita" type="radio" id="stellaA8' . $row["idAnnuncio"] . '" value="3" />
-																<label for="stellaA8' . $row["idAnnuncio"] . '"></label>
-
-																<input name="puntualita" type="radio" id="stellaA9' . $row["idAnnuncio"] . '" value="4" />
-																<label for="stellaA9' . $row["idAnnuncio"] . '"></label>
-
-																<input name="puntualita" type="radio" id="stellaA10' . $row["idAnnuncio"] . '" value="5" checked />
-																<label for="stellaA10' . $row["idAnnuncio"] . '"></label>
-														</div>
-														<button type="submit" class="btn pull-left btn-profilo" onclick="btnConferma(\'id01\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
-														<div id="id01" class="modal">
-															<form class="modal-content popup-modal-content">
-																<div class="container popup-conferma">
-																	<h4>Valutazione</h4>
-																	<p>Stai per confermare la valutazione.</p>
-																	<p>Sei sicur* di voler proseguire?</p>
-
-																	<div class="clearfix">
-																		<button type="button" onclick="document.getElementById(\'id01\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
-																		<button type="button" onclick="document.getElementById(\'id01\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
-																	</div>
-																</div>
-															</form>
-														</div>
-													</div>
-												</ul>
-											</div>
-										</div>
-									</ul>
-								</div>
+                            echo'
 							</div>
-						</div>
-            ';
+						</div>';
         }
     }
 
@@ -810,7 +841,7 @@ function annunciPubblicati($cid){
 function risposteAnnunci($cid){
     if ($_SESSION["logged"] == true) {
         $email_sessione = $_SESSION["email"];
-        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione'";
+        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione' ORDER BY idAnnuncio DESC";
         $res = $cid->query($sqlAnnunci);
         while ($row = $res->fetch_array()) {
             echo'
@@ -823,6 +854,8 @@ function risposteAnnunci($cid){
                                 <th>
                                     <p class="cart_description blu">' . $row["nomeAnnuncio"] . '</p>
                                     <p>ID: ' . $row["idAnnuncio"] . '</p>
+                                    
+                                    
                                 </th>
                             </tr>
                         </table>
@@ -830,7 +863,7 @@ function risposteAnnunci($cid){
                                            
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#annuncio1' . $row["idAnnuncio"] . '"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>Hai 3 richieste d\'acquisto</a></li>
+                            <li><a class="account-click" data-toggle="collapse" data-parent="#accordian" href="#annuncio1' . $row["idAnnuncio"] . '"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i>Clicca per visualizzare le risposte</a></li>
                             <div id="annuncio1' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
                                 <div class="panel-body ">
                                     <table class="table-risposte">
@@ -843,9 +876,6 @@ function risposteAnnunci($cid){
                                                 <td></td>
                                             </tr>
                                         </thead>
-                                        
-                                        
-                                        
                                         <tbody classe="table-risposte">';
                                             $idAnnunio=$row["idAnnuncio"];
                                             $sqlutenti = "SELECT email, immagine, nome, cognome, metodoPagamento, approvato FROM richiestaacquisto JOIN utente ON acquirenteRA=email WHERE idAnnuncio='$idAnnunio'";
@@ -859,6 +889,8 @@ function risposteAnnunci($cid){
                                                 <td class="cart_description">
                                                     <h4><a href="">' . $u["nome"] . ' ' . $u["cognome"] . '</a></h4>
                                                     <p class="richieste-responsive"><b>Email: </b></p><p style="display: inline-block;">' . $u["email"] . '</p>
+                                                    <p>'; valutazioneRichiestaAcquisto($cid, $u["email"]);  echo' </p>
+                                                   
                                                 </td>
                                                 <td class="cart_price">
                                                     <p class="richieste-responsive"><b>Metodo di pagamento: </b></p><p style="display: inline-block;">' . $u["metodoPagamento"] . '</p>
@@ -866,9 +898,43 @@ function risposteAnnunci($cid){
                                                 ';
                                                 if($u["approvato"]==null){
                                                     echo'
+                                                    <form method="POST" action="backend/accetta_rifiuta_richiesta.php?idAnnuncio=' . $idAnnunio . ' &acquirente=' . $u["email"] . '">
                                                     <td class="cart_total">
                                                         <p class="richieste-responsive"><b>Stato: </b></p><p class="cart_total_price" style="display: inline-block;">In elaborazione</p>
-                                                    </td>';
+                                                    </td>
+                                                    <td class="cart_delete approvato">
+                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1a\')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                                                    <div id="thumb1a" class="modal">
+                                                        <div class="modal-content popup-modal-content">
+                                                            <div class="container popup-conferma">
+                                                                <h4>Risposte ai miei annunci</h4>
+                                                                <p>Stai per CONFERMARE la richiesta d\'acquisto.</p>
+                                                                <p>Sei sicur* di voler proseguire?</p>
+
+                                                                <div class="clearfix">
+                                                                    <button type="submit"  id="accetta" name="accetta" class="popup-btn deletebtn">Conferma</button>
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1a\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1b\')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
+                                                    <div id="thumb1b" class="modal">
+                                                        <div class="modal-content popup-modal-content">
+                                                            <div class="container popup-conferma">
+                                                                <h4>Risposte ai miei annunci</h4>
+                                                                <p>Stai per RIFIUTARE la richiesta d\'acquisto.</p>
+                                                                <p>Sei sicur* di voler proseguire?</p>
+
+                                                                <div class="clearfix">
+                                                                    <button type="submit" name="rifiuta" class="popup-btn deletebtn">Conferma</button>
+                                                                    <button type="button" onclick="document.getElementById(\'thumb1b\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                </td>';
                                                 } elseif($u["approvato"]==0){
                                                 echo'
                                                     <td class="cart_total">
@@ -882,38 +948,7 @@ function risposteAnnunci($cid){
                                                 }
 
                                                 echo'
-                                                <td class="cart_delete approvato">
-                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1a\')"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-                                                    <div id="thumb1a" class="modal">
-                                                        <form class="modal-content popup-modal-content">
-                                                            <div class="container popup-conferma">
-                                                                <h4>Risposte ai miei annunci</h4>
-                                                                <p>Stai per CONFERMARE la richiesta d\'acquisto.</p>
-                                                                <p>Sei sicur* di voler proseguire?</p>
-
-                                                                <div class="clearfix">
-                                                                    <button type="button" onclick="document.getElementById(\'thumb1a\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
-                                                                    <button type="button" onclick="document.getElementById(\'thumb1a\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <a class="cart_quantity_delete" onclick="btnConferma(\'thumb1b\')"><i class="fa fa-thumbs-down" aria-hidden="true"></i></i></a>
-                                                    <div id="thumb1b" class="modal">
-                                                        <form class="modal-content popup-modal-content">
-                                                            <div class="container popup-conferma">
-                                                                <h4>Risposte ai miei annunci</h4>
-                                                                <p>Stai per RIFIUTARE la richiesta d\'acquisto.</p>
-                                                                <p>Sei sicur* di voler proseguire?</p>
-
-                                                                <div class="clearfix">
-                                                                    <button type="button" onclick="document.getElementById(\'thumb1b\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
-                                                                    <button type="button" onclick="document.getElementById(\'thumb1b\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </td>
+                                                
                                             </tr>';
                                             }
                                             echo'
