@@ -42,14 +42,22 @@ function thisFileUpload() {
 	document.getElementById("file").click();
 }
 
-function nuovousatoris(id) {
-	let x = document.getElementById(id);
-	
-	if (window.getComputedStyle(x).display === "none") {
-	  x.style.display = "block";
-	}else{
-	  x.style.display = "none";
+function visualizzaDiv(id1="", id2="") {
+	if(id1 !== ""){
+		let x = document.getElementById(id1);
+		if (window.getComputedStyle(x).display === "none") {
+			x.style.display = "block";
+		}else{
+			x.style.display = "none";
+		}
 	}
+	if(id2 !== ""){
+		let y = document.getElementById(id2);
+		if(window.getComputedStyle(y).display === "block"){
+			y.style.display = "none";
+		}
+	}
+
 }
 
 function autoScrollRefresh(id){

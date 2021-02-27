@@ -1,8 +1,9 @@
+<?php
+include "common/head.php";
+
+echo'    
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    include "common/head.php";
-?>
 <body>
 	<header id="header"><!--header-->
 		<div class="header-middle"><!--header-middle-->
@@ -51,10 +52,11 @@
 	</header><!--/header-->
 
 	<section>
+	    <form action="backend/pubblicaAnnuncio-exe.php" method="POST" >
 		<div class="container">
 			<div class="row">
 				<h2 class="title text-center"><span class="title-span">Nuovo annuncio</span></h2>
-				<h2 class="insert-title" >Inserisci i dettagli dell'annuncio</h2>
+				<h2 class="insert-title" >Inserisci i dettagli dell\'annuncio</h2>
 				<div class="col-sm-18 padding-right" style="padding-left: 0;"> <!--col-sm-36-->
 					<div class="features_items">
 
@@ -71,60 +73,113 @@
 						</div>
 
 						<div class="col-sm-6">
-							<input name="text"  placeholder="Nome annuncio" rows="1" class="insert-data"></input>
-							<textarea name="text"  placeholder="Descrizione annuncio" rows="9" class="descrizione"></textarea>
+							<input name="nomeAnnuncio"  placeholder="Nome annuncio" rows="1" class="insert-data" maxlength="50" required></input>
+							<textarea name="descrizioneAnnuncio"  placeholder="Descrizione annuncio" rows="9" class="descrizione" maxlength="300" required></textarea>
 
-							<input name="text"  placeholder="Nome prodotto" rows="1" class="insert-data"></input>
-							<button onclick="nuovousatoris('usato')" class="btn-nuovo-usato-vis">Usato</button>
-							<button onclick="nuovousatoris('nuovo')" class="btn-nuovo-usato-vis">Nuovo</button>
+							<input name="nomeProdotto"  placeholder="Nome prodotto" rows="1" class="insert-data" maxlength="100" required></input>
+							
+							<p class="title-3">Inserisci lo stato del prodotto: </p>
+							<!--<button onclick="nuovousatoris(\'usato\')" class="btn-nuovo-usato-vis">Usato</button>
+							<button onclick="nuovousatoris(\'nuovo\')" class="btn-nuovo-usato-vis">Nuovo</button>-->
+							 <div style="display: flow-root; color:#2a5164;">
+                                    <input name="condizione" type="radio" id="nuovobtn" value="1" onclick="visualizzaDiv(\'nuovo\', \'usato\')" />
+                                    <label for="nuovobtn" style="display: inline-block;"><p style="margin-right: 20px;">Nuovo</p></label>
+                                    <input name="condizione" type="radio"  id="usatobtn" value="0" onclick="visualizzaDiv(\'usato\', \'nuovo\')" />
+                                    <label for="usatobtn" style="display: inline-block;"><p style="margin-right: 20px;">Usato</p></label>
+                             </div>';
+                             if (isset($_GET["errorenuovousato"])){
+                                  if ($_GET["errorenuovousato"] == true) {
+                                      echo '<p class="warning-message">Inserisci lo stato del prodotto </p>';
+                                  }
+                              }
+                             echo'
 							<div id="usato" style="display: none;">
-                <p class="title-3">Inserisci lo stato di usura: </p>
-                <?php include "common/statoUsura.php";?>
-                <br>
-								<textarea type="text" placeholder="Indicare il periodo di utilizzo" rows="2" class="descrizione"></textarea>
+                            <p class="title-3 add-margin-top">Inserisci lo stato di usura: </p>';
+
+                            include "common/statoUsura.php";
+                            echo'
+                            <br>
+								<textarea name="periodoUtilizzo" placeholder="Indicare il periodo di utilizzo" rows="2" class="descrizione" maxlength="30"></textarea>
 							</div>
 
 							<div id="nuovo" style="display: none;">
 
-
-								<input type="checkbox"  name="garanzia" onclick="nuovousatoris('garanzia')" style="margin-top: 10px; ">
+								<input type="checkbox"  name="garanzia" onclick="visualizzaDiv(\'garanzia\')" style="margin-top: 10px; ">
 								<label for="garanzia" class="price" >Garanzia di copertura </label><br>
+								
 								<div id="garanzia" style="display: none;" class="margine-nuovo">
 									<p class="price scadenza">Indica la scadenza:  </p>
-									<input type="date" class="insert-data"/>
+									<input name="periodoCopertura" type="date" class="insert-data"/>
 								</div>
 							</div>
+							<p class="title-3 add-margin-top">Inserisci categoria e sottocategoria: </p>';
 
-							<?php include "common/selectCategoria.php";?>
+							include "common/selectCategoria.php";
+                            if (isset($_GET["errorecategoria"])){
+                                if (($_GET["errorecategoria"]) == true) {
+                                    echo '<p class="warning-message">Inserisci la categoria e la sottovategoria </p>';
+                                }
+                            }
+							echo'
 
-							<p class="title-3">Inseire la collocazione geografica: </p>
+							<p class="title-3 add-margin-top">Inserisci la collocazione geografica: </p>';
 
-							<?php include "common/areaGeografica.php";?>
+							include "common/areaGeografica.php";
+                            if (isset($_GET["erroreregione"])){
+                                if (($_GET["erroreregione"]) == true) {
+                                    echo '<p class="warning-message">Inserisci una regione </p>';
+                                }
+                            }
+                            if (isset($_GET["erroreprovincia"])){
+                                if (($_GET["erroreprovincia"]) == true) {
+                                    echo '<p class="warning-message">Inserisci una provincia </p>';
+                                }
+                            }
+                            if (isset($_GET["errorecomune"])){
+                                if (($_GET["errorecomune"]) == true) {
+                                    echo '<p class="warning-message">Inserisci un comune </p>';
+                                }
+                            }
+							echo'
 
-							<p class="title-3">Seleziona la visibilità: </p>
-							<button class="btn-nuovo-usato-vis">Pubblica</button>
-							<button class="btn-nuovo-usato-vis">Privata</button>
-							<button onclick="nuovousatoris('ristretta')" class="btn-nuovo-usato-vis">Ristretta</button>
+							<p class="title-3 add-margin-top">Seleziona la visibilità: </p>
+							<!--<button name="pubblica" class="btn-nuovo-usato-vis">Pubblica</button>
+							<button name="Privata" class="btn-nuovo-usato-vis">Privata</button>-->
+                            <div style="display: flow-root; color:#2a5164;">
+                                    <input name="visibilita" type="radio" id="pubblica" value="pubblica" onclick="visualizzaDiv(id1=\'\',id2=\'ristretta\')"/>
+                                    <label for="pubblica" style="display: inline-block;"><p style="margin-right: 20px;">Pubblica</p></label>
+                                    <input name="visibilita" type="radio"  id="privata" value="privata" onclick="visualizzaDiv(id1=\'\', id2=\'ristretta\')" />
+                                    <label for="privata" style="display: inline-block;"><p style="margin-right: 20px;">Privata</p></label>
+                                    <input name="visibilita" type="radio"  id="ristrettabtn" value="ristretta" onclick="visualizzaDiv(id1=\'ristretta\', id2=\'\')"/>
+                                    <label for="ristrettabtn" style="display: inline-block;"><p style="margin-right: 20px;">Ristretta</p></label>
+                             </div>';
+                            if (isset($_GET["errorevisibilita"])){
+                                if (($_GET["errorevisibilita"]) == true) {
+                                    echo '<p class="warning-message">Inserisci la visibilità </p>';
+                                }
+                            }
+                            echo'
+                             
+							<!--<button name="Privata" onclick="nuovousatoris(\'ristretta\')" class="btn-nuovo-usato-vis">Ristretta</button>-->
 							<div id="ristretta" style="display: none;" class="blu">
-								<p class="title-3"> Inserisci l'area di visibilità: </p>
-								<select class="select-data ristr">
-									<option>-- Provincia --</option>
-									<option>Provincia1</option>
-									<option>Provincia2</option>
-									<option>Provincia3</option>
+								<p class="title-3"> Inserisci l\'area di visibilità: </p>
+								<select id="regioneRistr" name="regione">
 								</select>
-								<select class="select-data ristr">
-									<option>-- Regione --</option>
-									<option>Regione1</option>
-									<option>Regione2</option>
-									<option>Regione3</option>
-
-								</select>
-								<p><i class="fa fa-plus-square" aria-hidden="true"></i>  Aggiungi area di visibilità</p>
-							</div>
-
-
-							<button type="submit" onclick="btnConferma('modifica')" class="btn btn-pa" >Pubblica nuovo annuncio</button>
+								<br>
+								<br>
+								<select id="provinciaRistr" name="provincia">
+                                  <option>Seleziona prima una regione: </option>
+                                  <option>Nessuna</option>
+                                </select>
+							</div>';
+                            if (isset($_GET["erroreristretta"])){
+                                if (($_GET["erroreristretta"]) == true) {
+                                    echo '<p class="warning-message">Inserisci un\'area di visibilità </p>';
+                                }
+                            }
+                            echo'
+							
+							<button type="submit"  class="btn btn-pa" >Pubblica nuovo annuncio</button>
 							<div id="modifica" class="modal">
 							<form class="modal-content popup-modal-content">
 								<div class="container popup-conferma">
@@ -132,8 +187,8 @@
 									<p>Stai per pubblicare un nuovo annuncio.</p>
 									<p>Sei sicur* di voler proseguire?</p>
 									<div class="clearfix">
-										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn deletebtn">Conferma</button>
-										<button type="button" onclick="document.getElementById('modifica').style.display='none'" class="popup-btn cancelbtn">Annulla</button>
+										<button type="button" onclick="document.getElementById(\'modifica\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+										<button type="button" onclick="document.getElementById(\'modifica\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
 									</div>
 								</div>
 							</form>
@@ -143,6 +198,7 @@
 
 			</div>
 		</div>
+		</form>
 	</section>
 	<br>
 	<br>
@@ -201,6 +257,7 @@
     <script src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/funzioni.js"></script>
+	<script src="js/selectCategoria.js"></script>
     <script>
 
         window.addEventListener("DOMContentLoaded", function(){
@@ -215,6 +272,7 @@
         document.getElementById("reg").addEventListener("change", function(){
             popolaProvince("reg","prov");
         });
+        
         document.getElementById("prov").addEventListener("change", function(){
             popolaComuni("prov","com");
         });
@@ -222,8 +280,17 @@
         window.addEventListener("DOMContentLoaded", function(){
             popolaUsura("usura");
         });
+        
+        window.addEventListener("DOMContentLoaded", function(){
+            popolaRegioni("regioneRistr");
+        });
+        document.getElementById("regioneRistr").addEventListener("change", function(){
+            popolaProvince("regioneRistr","provinciaRistr");
+        });
 
 
     </script>
 </body>
-</html>
+</html>';
+
+?>
