@@ -1,14 +1,6 @@
 <?php
 include "../common/connessione.php";
 
-$imgData="";
-if(count($_FILES) > 0) {
-    if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
-        $imgData =addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
-    }
-}
-
-
 // aggiungere controllo dei dati
 $email = $_POST["email"];
 $psw = $_POST["psw"];
@@ -28,6 +20,26 @@ $errore=false;
 $errorevendacq =false;
 $errorepsw =false;
 $erroreemail= false;
+
+//upload immagine profilo
+$imgData="";
+$erroreImg="";
+if(count($_FILES) > 0) {
+    if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
+        $imgData = addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
+        $imgName = $_FILES['immagine']['name'];
+        $imgNameCmps = explode(".", $imgName);
+        $imgExtension = strtolower(end($imgNameCmps));
+
+        $allowedImgExtensions = array('jpg');
+        if (in_array($imgExtension, $allowedImgExtensions)) {
+            $erroreImg='';
+        } else {
+            $erroreImg= 'Upload non riuscito.' . '<br>' . 'Tipi di estensioni consentite: ' . implode(',', $allowedImgExtensions);
+            $errore=true;
+        }
+    }
+}
 
 //controllo sul venditore aquirente
 if(!isset($_POST["venditore"])){
@@ -61,18 +73,18 @@ if(!empty($row)){
 }
 
 if($errore == false){
-  $pswmd5=md5($psw);
-  $inserimento="INSERT INTO utente (email, psw, nome, cognome, codFiscale, immagine, via, nCivico, CAP, venditore, acquirente, comune, provincia, regione)
-                VALUES ('$email', '$pswmd5', '$nome', '$cognome', '$codFiscale', '{$imgData}', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione')";
-  $ins=$cid->query($inserimento);
-  if(empty($cid->error)){
-    header("Location:../inserimento-riuscito.php");
-  } else {
-    header("Location:../inserimento-non-riuscito.php");
-  }
-  echo $cid->error;
+      $pswmd5=md5($psw);
+      $inserimento="INSERT INTO utente (email, psw, nome, cognome, codFiscale, immagine, via, nCivico, CAP, venditore, acquirente, comune, provincia, regione)
+                    VALUES ('$email', '$pswmd5', '$nome', '$cognome', '$codFiscale', '{$imgData}', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione')";
+      $ins=$cid->query($inserimento);
+      if(empty($cid->error)){
+        header("Location:../inserimento-riuscito.php");
+      } else {
+        header("Location:../inserimento-non-riuscito.php");
+      }
+      echo $cid->error;
 } else {
-  header("Location:../registrazione.php?erroreacquirente=". urlencode($errorevendacq). "&errorepsw=". urlencode($errorepsw). "&erroreemail=". urlencode($erroreemail) );
+  header("Location:../registrazione.php?erroreacquirente=". urlencode($errorevendacq). "&errorepsw=". urlencode($errorepsw). "&erroreemail=". urlencode($erroreemail). "&erroreImg=" .urlencode($erroreImg));
 }
 
 
