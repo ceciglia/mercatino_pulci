@@ -7,8 +7,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include "common/head.php";?>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <body>
 	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
@@ -266,7 +264,7 @@
 		include "common/footer.php"
 	?>
 
-<!--    <script src="js/jquery.js"></script>-->
+    <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
