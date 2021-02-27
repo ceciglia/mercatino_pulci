@@ -32,10 +32,40 @@ function valutazioneDettagliAnnuncio($cid, $venditore){
 
 }
 
-function valutazionesemplice($cid, $idAnnuncio){
-    $sqlV="SELECT serietaV, puntualitaV  FROM annuncio WHERE idAnnuncio='$idAnnuncio'";
-    $resV = $cid->query($sqlV);
-    $rowV=$resV->fetch_array();
+function valutazioneRichiestaAcquisto($cid, $acquirente){
+
+    $sqlA="SELECT AVG((serietaA+puntualitaA)/2) AS mediaA, COUNT(*) AS nVal FROM `richiestaacquisto` WHERE acquirenteRA = '$acquirente' AND serietaA is not null AND puntualitaA is not null";
+    $resA = $cid->query($sqlA);
+    $rowA=$resA->fetch_array();
+    $mediaA=round($rowA["mediaA"], 2);
+    $nValA=$rowA["nVal"];
+
+
+    echo'<div class="stelle-valutazione-profilo">';
+    $iA=0;
+    while($iA <= 4){
+        if($mediaA > ($iA + 0.75)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($mediaA < ($iA + 0.25)) and ($mediaA > $iA)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($mediaA > ($iA + 0.25)) and ($mediaA < ($iA + 0.75))){
+            echo'<i class="fa fa-star-half-o" aria-hidden="true" class="stelle-valutazione-profilo"></i>';
+        }else{
+            echo'<i class="fa fa-star-o" aria-hidden="true"  class="stelle-valutazione-profilo"></i>';
+        }
+        $iA = $iA + 1;
+
+    }
+
+
+}
+
+function valutazioneVenditore($cid, $idAnnuncio){
+
+        $sqlV = "SELECT serietaV, puntualitaV  FROM annuncio WHERE idAnnuncio='$idAnnuncio'";
+        $resV = $cid->query($sqlV);
+        $rowV = $resV->fetch_array();
+
     echo'
         <p>Hai valutato la <b >serietà</b> con:</p>
             <div class="demo-content">';
@@ -71,6 +101,50 @@ function valutazionesemplice($cid, $idAnnuncio){
 
             }
             echo'</div';
+
+}
+
+function valutazioneAcquirente($cid, $idAnnuncio, $acquirente){
+
+    $sqlA = "SELECT serietaA, puntualitaA  FROM richiestaacquisto WHERE idAnnuncio='$idAnnuncio' AND acquirenteRA='$acquirente'";
+    $resA = $cid->query($sqlA);
+    $rowA = $resA->fetch_array();
+
+    echo'
+        <p>Hai valutato la <b >serietà</b> con:</p>
+            <div class="demo-content">';
+    $iS=0;
+    while($iS <= 4){
+        if($rowA["serietaA"] > ($iS + 0.75)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($rowA["serietaA"] < ($iS + 0.25)) and ($rowA["serietaA"] > $iS)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($rowA["serietaA"] > ($iS + 0.25)) and ($rowA["serietaA"] < ($iS + 0.75))){
+            echo'<i class="fa fa-star-half-o" aria-hidden="true" class="stelle-valutazione-profilo"></i>';
+        }else{
+            echo'<i class="fa fa-star-o" aria-hidden="true"  class="stelle-valutazione-profilo"></i>';
+        }
+        $iS = $iS + 1;
+
+    }
+    echo'</div>
+        <p>Hai valutato la <b >serietà</b> con:</p>
+            <div class="demo-content">';
+    $iP=0;
+    while($iP <= 4){
+        if($rowA["puntualitaA"] > ($iP + 0.75)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($rowA["puntualitaA"] < ($iP + 0.25)) and ($rowA["puntualitaA"] > $iP)) {
+            echo '<i class="fa fa-star" aria-hidden="true" ></i>';
+        }elseif(($rowA["puntualitaA"] > ($iP + 0.25)) and ($rowA["puntualitaA"] < ($iP + 0.75))){
+            echo'<i class="fa fa-star-half-o" aria-hidden="true" class="stelle-valutazione-profilo"></i>';
+        }else{
+            echo'<i class="fa fa-star-o" aria-hidden="true"  class="stelle-valutazione-profilo"></i>';
+        }
+        $iP = $iP + 1;
+
+    }
+    echo'</div';
 
 }
 
