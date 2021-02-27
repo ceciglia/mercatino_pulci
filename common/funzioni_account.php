@@ -1025,16 +1025,7 @@ function modificaProfilo($cid){
                                 }
                                 echo'
                             </span>
-                            <script type="text/javascript">  
-                            function ValidateAcquirenteVenditore() {  
-                                var checkacquirente = document.getElementsByName("acquirente");  
-                                var checkvenditore = document.getElementsByName("venditore"); 
-            
-                                if((checkacquirente.checked) and (checkvenditore.checked)){
-                                        alert("You can\'t select more than two favorite pets!");  
-                                }  
-                            }
-                            </script>
+                            
                     </div>
                     <p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
                     <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="password"  placeholder="Password attuale" rows="1"  class="modifica-password"></input ></div>
