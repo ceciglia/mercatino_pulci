@@ -5,10 +5,14 @@ if(!isset($_SESSION)) {
 }
 
 $idAn = $_GET["id"];
-//if (isset($_SESSION["acquirente"]) and $_SESSION["acquirente"]==1){
-//    $acquirente = $_SESSION["email"];
-//}
 $acquirente = $_SESSION["email"];
 
 $inserimentoOss="INSERT INTO osserva(idAnnuncio, acquirenteO) VALUES ('$idAn', '$acquirente')";
 $result=$cid->query($inserimentoOss);
+//$error=$cid->error($inserimentoOss);
+//
+//if (empty($error)) {
+//    echo json_encode(array("res"=>'Inserimento corretto'));
+//} else {
+//    echo json_encode(array("res"=>'Inserimento fallito'));
+//}

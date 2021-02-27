@@ -34,13 +34,15 @@ function aggiungiOsservati(idAn){
         data: {
             id: idAn
         }
-        // success: function (data) {
-        //         alert("Maracaibo")
+        // success: function () {
+                // alert("Maracaibo")
         // $("#result").html(response);
+        //     return true;
         // },
-        // error: function (data) {
-        //         alert("OHNO")
+        // error: function () {
+                // alert("OHNO")
         // $("#result").html("Error");
+        //     return false;
         // }
     });
 }
