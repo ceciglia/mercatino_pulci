@@ -1,9 +1,12 @@
 <?php
-$hostmane = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'mercatino7_Fusari_Rossi';
-$cid = new mysqli ($hostmane, $username, $password, $db);
+include "../common/connessione.php";
+
+$imgData="";
+if(count($_FILES) > 0) {
+    if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
+        $imgData =addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
+    }
+}
 
 
 // aggiungere controllo dei dati
@@ -18,7 +21,7 @@ $nCivico = $_POST["nCivico"];
 $CAP = $_POST["CAP"];
 $comune = $_POST["com"];
 $provincia = $_POST["prov"];
-$immagine = $_POST["immagine"];
+
 $regione = $_POST["reg"];
 
 $errore=false;
@@ -58,9 +61,9 @@ if(!empty($row)){
 }
 
 if($errore == false){
-  $pswmd5=md5($password);
+  $pswmd5=md5($psw);
   $inserimento="INSERT INTO utente (email, psw, nome, cognome, codFiscale, immagine, via, nCivico, CAP, venditore, acquirente, comune, provincia, regione)
-                VALUES ('$email', '$pswmd5', '$nome', '$cognome', '$codFiscale', '$immagine', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione')";
+                VALUES ('$email', '$pswmd5', '$nome', '$cognome', '$codFiscale', '{$imgData}', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione')";
   $ins=$cid->query($inserimento);
   if(empty($cid->error)){
     header("Location:../inserimento-riuscito.php");

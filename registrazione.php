@@ -18,14 +18,12 @@
     			<h2 class="insert-title" >Inserisci i tuoi dati</h2>
     			<div class="col-sm-18 padding-right">
     				<div class="features_items">
-    					<form action="backend/registrazione-exe.php" method="post">
+    					<form action="backend/registrazione-exe.php" method="post" enctype="multipart/form-data">
     						<div class="col-sm-4">
-    							<div class="container_imm">
-    								<img src="images/pubblicaAnnuncio.jpg" alt="Avatar" class="immagine-r-a">
-    								<input type="file" id="file" class="invisibile" name='immagine'/>
-    								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"> Upload</button>
-    							</div>
-
+                                <div class="container_imm">
+                                    <img src="images/pubblicaAnnuncio.jpg" alt="Impossibile caricare l\'immagine." class="immagine-r-a">
+                                    <input class="btn-container_imm" type="file" id="file" name="immagine">
+                                </div>
     							<div class="under-imm">
     								<p>Vuoi registrarti a FR Market come: </p>
     								<span>

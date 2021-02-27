@@ -3108,6 +3108,12 @@ h2.title {
   margin-bottom: 0px !important;
 }
 
+.add-margin{
+  margin-bottom: 20px;
+  margin-left: 70%;
+}
+
+
 /*immagini annunci*/
 .img-contenitore {
   width: 242px;
