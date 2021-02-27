@@ -1,3 +1,12 @@
+function myRichiesta(id, idbtn) {
+	var checkBox = document.getElementById(id);
+	var text = document.getElementById(idbtn);
+	if (checkBox.checked == true){
+		text.disabled = false;
+	} else {
+		text.disabled = true;
+	}
+}
 
 function opensottomenu(evt, comando) {
 	var i, content, links;
@@ -52,3 +61,5 @@ function fullHeart(idCuore){
 	cuore=document.getElementById(idCuore);
 	cuore.innerHTML =  "<i class=\"fa fa-heart\" aria-hidden=\"true\"></i> Osservato";
 }
+
+
