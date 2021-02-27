@@ -3083,6 +3083,23 @@ h2.title {
   background-color: unset !important;
 }
 
+.btn-dettagliAnnuncio{
+  width: fit-content;
+}
+
+.btn-dettagliAnnuncio > a {
+  color: white;
+  font-size: 14px;
+}
+
+.btn-dettagliAnnuncio > a:hover {
+  color: #2b5164;
+}
+
+.btn-dettagliAnnuncio > a:focus {
+  text-decoration: unset;
+}
+
 /*immagini annunci*/
 .img-contenitore {
   width: 242px;

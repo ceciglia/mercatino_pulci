@@ -3,7 +3,8 @@
 function isUser($cid,$email,$psw) {
 	$risultato= array("msg"=>"","status"=>"ok", "venditore"=>"", "acquirente"=>"");
 
-   	$sql = "SELECT * FROM utente WHERE email='$email' and psw='$psw'";
+    $pswcriptata=md5($psw);
+   	$sql = "SELECT * FROM utente WHERE email='$email' and psw='$pswcriptata'";
    	$res = $cid->query($sql);
 
 	if ($res==null){
@@ -41,19 +42,6 @@ function test_input($data) {
 	$data = htmlspecialchars($data);
 	return $data;
 }
-
-//function verifyScadenza($cid, $idAn){
-//    $sql = "SELECT a.idAnnuncio, a.dataPubblicazione, a.nuovo FROM annuncio a WHERE a.idAnnuncio='$idAn'";
-//    $result=$cid->query($sql);
-//    $row=$result->fetch_assoc();
-//    $idAn = $row["idAnnuncio"];
-//    $dataP = $row["dataPubblicazione"];
-//    $condizione = $row["nuovo"];
-//
-//    if (){
-//
-//    }
-//}
 
 function verifyOsservati($cid, $idAn){
     if (isset($_SESSION["logged"])) {

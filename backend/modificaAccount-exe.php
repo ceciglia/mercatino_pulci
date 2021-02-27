@@ -1,12 +1,7 @@
 
 <?php
 session_start();
-$hostmane = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'mercatino7_Fusari_Rossi';
-$cid = new mysqli ($hostmane, $username, $password, $db);
-
+include "../common/connessione.php";
 
 // aggiungere controllo dei dati
 $email = $_SESSION["email"];
