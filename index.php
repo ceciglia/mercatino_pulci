@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php include "common/head.php";?>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <body>
 	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
 
@@ -34,7 +36,7 @@
                                         } else {
                                             echo '<h1>Benvenut* in <span>FR</span> Market</h1>
 									              <p>Scorri per scoprire di più! </p>
-									              <a href="common/registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>';
+									              <a href="registrazione.php"><button type="button" class="btn btn-default get">Registrati subito</button></a>';
                                         }
                                     ?>
 								</div>
@@ -264,7 +266,7 @@
 		include "common/footer.php"
 	?>
 
-	<script src="js/jquery.js"></script>
+<!--    <script src="js/jquery.js"></script>-->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
@@ -283,6 +285,10 @@
         document.getElementById("prov").addEventListener("change", function(){
             popolaComuni("prov","com");
         });
+
+        setInterval(verifyScadenza, 10000);
+        setInterval(reloadAnnunci, 10000);
+
     </script>
 </body>
 </html>

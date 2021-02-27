@@ -1,5 +1,5 @@
 <?php
-include_once "common/connessione.php";
+include_once "../common/connessione.php";
 
 if (isset($_GET["sottoCategoria"])){
     $filtroCat = explode("-", $_GET["sottoCategoria"]);
@@ -40,7 +40,7 @@ if (isset($_GET["priceRange"])){
     $maxPrice = "";
 }
 
-header("Location: ../mercatino_pulci/index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
+header("Location: ../index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
 
 
 //echo $categoria;

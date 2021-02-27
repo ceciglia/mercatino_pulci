@@ -174,7 +174,6 @@ function getAnnunciFiltrati($cid) {
     $minPrice=$_GET["minPrice"];
     $maxPrice=$_GET["maxPrice"];
 
-
     if ($categoria!="" and $sottoCategoria!="") {
         if ($sottoCategoria == "Tutto") {
             switch (true) {

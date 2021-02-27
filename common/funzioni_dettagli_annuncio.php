@@ -2,7 +2,7 @@
 
 function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
     if($statoA=="venduto"){
-        echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v" disabled><i class="fa fa-times" aria-hidden="true"></i> Prodotto già venduto</button>';
+        echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-times" aria-hidden="true"></i> Prodotto già venduto</a></button>';
     }else {
         if (isset($_SESSION["logged"]) and ($_SESSION["logged"] == true)) {
             if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"] == 0)) {
@@ -11,7 +11,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                 $res = $cid->query($sql);
                 $row = $res->fetch_array();
                 if (empty($row)) {
-                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" onclick="btnConferma(\'richiesta\')" ><a class="osserva-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</a></button>
                     <div id="richiesta" class="modal">
                         <div class="modal-content popup-modal-content">
                             <div class="container popup-conferma">
@@ -36,7 +36,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                         </div>
                     </div>	';
                 } else {
-                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v" disabled><i class="fa fa-check" aria-hidden="true"></i> Richiesta d\'acquisto effettuata</button>';
+                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-check" aria-hidden="true"></i> Richiesta d\'acquisto effettuata</a></button>';
                 }
             } elseif (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"] == 1)) {
                 $email = $_SESSION["email"];
@@ -47,7 +47,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                 $resv = $cid->query($sqlv);
                 $rowv = $resv->fetch_array();
                 if ((empty($rowa)) and (empty($rowv))) {
-                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v" onclick="btnConferma(\'richiesta\')" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</button>
+                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" onclick="btnConferma(\'richiesta\')" ><a class="osserva-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</a></button>
                     <div id="richiesta" class="modal">
                         <div class="modal-content popup-modal-content">
                             <div class="container popup-conferma">
@@ -73,48 +73,18 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                         </div>
                     </div>	';
                 } elseif ((!empty($rowa)) and (empty($rowv))) {
-                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v" disabled><i class="fa fa-check" aria-hidden="true"></i> Richiesta d\'acquisto effettuata</button>';
+                    echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-check" aria-hidden="true"></i> Richiesta effettuata</a></button>';
                 }
             }
 
 
         } else {
-            echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a href="index.php" class="osserva-btn"><i class="fa fa-ban" aria-hidden="true"></i> Accedi o registrati</a></button>';
+            echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-ban" aria-hidden="true"></i> Accedi o registrati</a></button>';
         }
     }
 
 }
 
-//function osservaannunciobtn($cid, $idAnnuncio){
-//    if (isset($_SESSION["logged"]) and ($_SESSION["logged"] == true)) {
-//        if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 0){
-//            $email = $_SESSION["email"];
-//            $sql = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
-//            $res = $cid->query($sql);
-//            $row = $res->fetch_array();
-//            if(empty($row)) {
-//                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
-//            }else {
-//                echo '<a><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
-//            }
-//        }if (($_SESSION["acquirente"] == 1) and ($_SESSION["venditore"]) == 1){
-//            $email = $_SESSION["email"];
-//            $sqlo = "SELECT acquirenteO, idAnnuncio FROM osserva WHERE idAnnuncio='$idAnnuncio' AND acquirenteO='$email'";
-//            $reso = $cid->query($sqlo);
-//            $rowo = $reso->fetch_array();
-//            $sqlv = "SELECT venditore, idAnnuncio FROM annuncio WHERE idAnnuncio='$idAnnuncio' AND venditore='$email'";
-//            $resv = $cid->query($sqlv);
-//            $rowv = $resv->fetch_array();
-//            if((empty($rowo)) and (empty($rowv))){
-//                echo '<a href="#0" onclick="aggiungiOsservati(\'. $idAnnuncio .\'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><button type="submit" class="btn btn-profilo pull-right btn-a-v"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </button></a>';
-//            }elseif((!empty($rowo)) and (empty($rowv))){
-//                echo '<a ><button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </button></a>';
-//
-//            }
-//        }
-//    }
-//
-//}
 
 function osservaannunciobtn($cid, $idAnnuncio){
     if (isset($_SESSION["logged"])) {
@@ -130,12 +100,10 @@ function osservaannunciobtn($cid, $idAnnuncio){
 
             if (empty($row)) {
                 if(empty($rowv)){
-                    echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="aggiungiOsservati('. $idAnnuncio .'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
-                } else {
-                    echo '<button type="hidden" class="btn btn-profilo pull-right btn-a-v"><a href="#0" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
+                    echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v btn-dettagliAnnuncio"><a id="cuore'. $idAnnuncio .'" href="#0" onclick="aggiungiOsservati('. $idAnnuncio .'); fullHeart(\'cuore'. $idAnnuncio .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i>  Osserva </a></button>';
                 }
             } else {
-                echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v" disabled><a><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </a></button>';
+                echo '<button type="submit" class="btn btn-profilo pull-right btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-heart" aria-hidden="true"></i>  Osservato </a></button>';
             }
         }
     } else {
