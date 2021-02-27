@@ -39,6 +39,25 @@ $errorevisibilita=false;
 
 $erroreristretta=false;
 
+$imgData="";
+$erroreImg="";
+if(count($_FILES) > 0) {
+    if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
+        $imgData = addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
+        $imgName = $_FILES['immagine']['name'];
+        $imgNameCmps = explode(".", $imgName);
+        $imgExtension = strtolower(end($imgNameCmps));
+
+        $allowedImgExtensions = array('jpg');
+        if (in_array($imgExtension, $allowedImgExtensions)) {
+            $erroreImg='';
+        } else {
+            $erroreImg= 'Upload non riuscito.' . '<br>' . 'Tipi di estensioni consentite: ' . implode(',', $allowedImgExtensions);
+            $errore=true;
+        }
+    }
+}
+
 //controllo sul venditore aquirente
 if(!isset($_POST["condizione"])){
     $errore=true;
@@ -75,7 +94,7 @@ if(($visibilita=="ristretta") and (($regioneRistr=="") or ($provinciaRistr==""))
     $errore=true;
     $erroreristretta= true;
 }
-header("Location:../pubblicaAnnuncio.php?errorenuovousato=". urlencode($errorenuovousato). "&errorecategoria=". urlencode($errorecategoria). "&erroreregione=". urlencode($erroreregione). "&erroreprovincia=". urlencode($erroreprovincia). "&errorecomune=". urlencode($errorecomune). "&errorevisibilita=". urlencode($errorevisibilita). "&erroreristretta=". urlencode($erroreristretta) );
+header("Location:../pubblicaAnnuncio.php?errorenuovousato=". urlencode($errorenuovousato). "&errorecategoria=". urlencode($errorecategoria). "&erroreregione=". urlencode($erroreregione). "&erroreprovincia=". urlencode($erroreprovincia). "&errorecomune=". urlencode($errorecomune). "&errorevisibilita=". urlencode($errorevisibilita). "&erroreristretta=". urlencode($erroreristretta). "&erroreImg=" .urlencode($erroreImg));
 /*
 if($errore == false){
   $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore)
