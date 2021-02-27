@@ -1,5 +1,5 @@
 <?php
-ciaoooo
+
 function ciao($cid){
     if($_SESSION["logged"]==true) {
         $email_sessione = $_SESSION["email"];
