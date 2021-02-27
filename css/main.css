@@ -3100,6 +3100,14 @@ h2.title {
   text-decoration: unset;
 }
 
+.non-consentito {
+  cursor: not-allowed;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0px !important;
+}
+
 /*immagini annunci*/
 .img-contenitore {
   width: 242px;

@@ -11,7 +11,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                 $res = $cid->query($sql);
                 $row = $res->fetch_array();
                 if (empty($row)) {
-                    echo '<form method="POST" action="backend/richiestaacquisto-exe.php?idAnnuncio='. $idAnnuncio .'"> 
+                    echo '<form class="no-margin-bottom" method="POST" action="backend/richiestaacquisto-exe.php?idAnnuncio='. $idAnnuncio .'"> 
                     <button type="button" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" onclick="btnConferma(\'richiesta\')" ><a class="osserva-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</a></button>
                     
                     <div id="richiesta" class="modal">
@@ -50,7 +50,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
                 $resv = $cid->query($sqlv);
                 $rowv = $resv->fetch_array();
                 if ((empty($rowa)) and (empty($rowv))) {
-                    echo '<form method="POST" action="backend/richiestaacquisto-exe.php?idAnnuncio='. $idAnnuncio .'">
+                    echo '<form class="no-margin-bottom" method="POST" action="backend/richiestaacquisto-exe.php?idAnnuncio='. $idAnnuncio .'">
                     <button type="button" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" onclick="btnConferma(\'richiesta\')" ><a class="osserva-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Acquista il prodotto</a></button>
                     
                     <div id="richiesta" class="modal">
@@ -84,7 +84,7 @@ function richiestaacquistobtn($cid, $idAnnuncio, $statoA){
 
 
         } else {
-            echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn"><i class="fa fa-ban" aria-hidden="true"></i> Accedi o registrati</a></button>';
+            echo '<button type="submit" class="btn btn-profilo pull-left btn-a-v btn-dettagliAnnuncio" disabled><a class="osserva-btn non-consentito"><i class="fa fa-ban" aria-hidden="true"></i> Accedi o registrati</a></button>';
         }
     }
 
