@@ -27,9 +27,6 @@ if (mysqli_real_escape_string($cid, $_GET["regione"]) == "Seleziona una regione:
     $provincia = mysqli_real_escape_string($cid, $_GET["provincia"]);
     $comune = mysqli_real_escape_string($cid, $_GET["comune"]);
 }
-//$regione = mysqli_real_escape_string($cid,isset($_GET["regione"]))?$_GET["regione"]:"";
-//$provincia = mysqli_real_escape_string($cid,isset($_GET["provincia"]))?$_GET["provincia"]:"";
-//$comune = mysqli_real_escape_string($cid,isset($_GET["comune"]))?$_GET["comune"]:"";
 
 if (isset($_GET["priceRange"])){
     $price = explode(",",$_GET["priceRange"]);
@@ -41,20 +38,6 @@ if (isset($_GET["priceRange"])){
 }
 
 header("Location: ../index.php?categoria=" . urlencode($categoria). "&sottoCategoria=". urlencode($sottoCategoria)."&regione=". urlencode($regione)."&provincia=". urlencode($provincia)."&comune=". urlencode($comune)."&minPrice=". urlencode($minPrice)."&maxPrice=". urlencode($maxPrice));
-
-
-//echo $categoria;
-//echo "<br>";
-//echo $sottoCategoria;
-//echo "<br>";
-//echo $minPrice;
-//echo "<br>";
-//echo $maxPrice;
-
-//mysqli_real_escape_string()
-
-//getAnnunciFiltrati($cid, $categoria, $sottoCategoria, $regione, $provincia, $comune);
-//$cid, $categoria, $sottoCategoria, $regione, $provincia, $comune
 
 
 

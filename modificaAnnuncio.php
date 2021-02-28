@@ -24,10 +24,8 @@
 						<div class="col-sm-4">
 							
 							<div class="container_imm" >
-								<img src="../images/pubblicaAnnuncio.jpg" alt="Avatar" class="image_p immagine-r-a" >
-							
-								<input type="file" id="file" style="display:none;" />
-								<button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true" ></i> Modifica immagine</button>
+                                <img src="images/pubblicaAnnuncio.jpg" alt="Impossibile caricare l\'immagine." class="immagine-r-a">
+                                <input class="btn-container_imm" type="file" id="file" name="immagine">
 							</div>
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><input type="number" required name="price" placeholder="Prezzo" min="0"  step=".01" class="price-container"><p class="price"> €</p></div>						
 						</div> 
