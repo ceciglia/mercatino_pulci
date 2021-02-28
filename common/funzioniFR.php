@@ -526,7 +526,6 @@ function getVenditoriTop($cid){
         $listaVenditoriTop["cognome"][$count] = $cognome;
 
         $immagine = $row["immagine"];
-//        $punteggioMedio = $row["punteggioMedio"];
 
         echo '<li class="nav-item">';
 
@@ -551,15 +550,9 @@ function getVenditoriTop($cid){
                         <div class="productinfo text-center user-information">
                             <img src="data:image/jpg;base64,' . base64_encode($immagine) . '" alt="Impossibile caricare l\'immagine." />
                             <h2>' . $nome . ' ' . $cognome . '</h2>
-                            <p>' . $venditoreTop . '</p>
-                            <div>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
+                            <p>' . $venditoreTop . '</p>';
+                            valutazioneDettagliAnnuncio($cid, $venditoreTop);
+    echo                '</div>
                     </div>
                 </div>
               </div>

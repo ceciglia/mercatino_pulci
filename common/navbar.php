@@ -19,14 +19,9 @@
 					</div>
 				</div>
 				<div class="col-sm-8">
-					<!-- <div class="shop-menu pull-right">
-						<ul class="nav navbar-nav"> -->
 					
 					<!--Responsive-->
 					<div class="navbar-header">
-						<div class="search_box pull-left" id=search_1 >	<!--aggiunto id=search_1; pull-left anzichè pull-right-->
-							<input type="text" placeholder="Search"/>
-						</div>
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
@@ -42,7 +37,6 @@
 								<li><a href="account.php"><i class="fa fa-user"></i> Account</a></li>
 								<li id="login-1"><a href="backend/logout_execution.php"><button type="submit" class="logout-button"><i class="fa fa-lock"></i> Logout</button></a></li>
 								<li id="login-2"><a href="backend/logout_execution.php"><i class="fa fa-lock"></i> Logout</a></li> <!--login e registrazione in responsive-->
-								<li><a href="account.php" class="notification-bell"><i class="fa fa-bell" aria-hidden="true"></i><span>!</span></a></li>
 							</ul>
 						</div>
 					<?php } else { // chiudo if su variabile di sessione logged  ?>
@@ -91,10 +85,6 @@
                                     }
                                     ?>
 
-                                    <span>
-                                        <input type="checkbox" class="checkbox">
-                                            Resta conness*
-                                    </span>
                                     <a href="#"><button type="submit" class="btn btn-default" onclick="invalidInput()">Accedi</button></a>
                                 </form>
                         </div><!--/login form-->

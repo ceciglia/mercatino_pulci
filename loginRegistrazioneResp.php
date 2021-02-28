@@ -84,10 +84,6 @@
                                 }
                             }
                             ?>
-                            <span>
-                                <input type="checkbox" class="checkbox">
-                                Resta conness*
-                            </span>
                             <button type="submit" class="btn btn-default">Accedi</button>
                         </form>
                     </div><!--/login form-->

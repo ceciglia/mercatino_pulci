@@ -2,6 +2,7 @@
 	session_start();
 	include "common/connessione.php";
 	include "common/funzioniFR.php";
+	include "common/valutazione.php";
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +70,6 @@
 						</a>
 					</div>
 
-				</div>
-				<div class="col-sm-3 pull-right search2-margin">
-					<div class="search_box pull-right" id=search_2>
-						<input type="text" placeholder="Search"/>
-					</div>
 				</div>
 			</div>
 		</div>
