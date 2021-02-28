@@ -890,10 +890,10 @@ function annunciPubblicati($cid){
 
                             <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica\' . $row["idAnnuncio"] . \'"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
-                                <div id="modifica\' . $row["idAnnuncio"] . \'" class="panel-collapse collapse">
+                                <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica'. $id .'"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
+                                <div id="modifica'. $id .'" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                    <form method="POST" action="backend/modificaStatoAnnuncio.php?idAnnuncio=' . $row["idAnnuncio"] . ' &statoattuale=' . $stato["stato"] . ' ">
+                                    <form method="POST" action="backend/modificaStatoAnnuncio.php?idAnnuncio=' . $id . ' &statoattuale=' . $stato["stato"] . ' ">
                                         <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
                                             <div>
                                                 <p class="title-3">Scegli uno stato:</p>
@@ -903,8 +903,8 @@ function annunciPubblicati($cid){
                                                     <option>venduto</option>
                                                     <option>eliminato</option>
                                                 </select>
-                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
-                                                        <div id="id06" class="modal">
+                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06'. $id .'\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                        <div id="id06'. $id .'" class="modal">
                                                             <div class="modal-content popup-modal-content">
                                                                 <div class="container popup-conferma">
                                                                     <h4>Stato</h4>
@@ -913,7 +913,7 @@ function annunciPubblicati($cid){
     
                                                                     <div class="clearfix">
                                                                         <button type="submit" class="popup-btn deletebtn">Conferma</button>
-                                                                        <button type="button" onclick="document.getElementById(\'id06\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                        <button type="button" onclick="document.getElementById(\'id06'. $id .'\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
