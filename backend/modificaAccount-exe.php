@@ -126,7 +126,7 @@ if(isset($_POST["conferma"])) {
 
 //controllo sulla password
 //controllo sulla vecchia password
-  if(($pswctrl=="") and ($npassword == "") and ($confnpassword == "")){
+  if(($pswctrl!="") and ($npassword != "") and ($confnpassword != "")){
     $pswctrl = (md5($psw));
     if ($row["psw"] == $pswctrl) {
       if ($npassword == $confnpassword){
