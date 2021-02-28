@@ -54,7 +54,7 @@ include "common/head.php";
 	</header><!--/header-->
 
 	<section>
-	    <form action="backend/pubblicaAnnuncio-exe.php" method="POST" >
+	    <form action="backend/pubblicaAnnuncio-exe.php" method="POST" enctype="multipart/form-data">
 		<div class="container">
 			<div class="row">
 				<h2 class="title text-center"><span class="title-span">Nuovo annuncio</span></h2>
@@ -65,7 +65,7 @@ include "common/head.php";
 						<div class="col-sm-4">
 							<div class="container_imm" >
 								<img src="images/pubblicaAnnuncio.jpg" alt="Impossibile caricare l'immagine." class="immagine-r-a">
-                                <input class="btn-container_imm" type="file" id="file" name="immagine">
+                                <input class="btn-container_imm" type="file" id="file" name="fotoP">
 							</div>
 							<div>
                                 <?php

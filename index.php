@@ -285,7 +285,6 @@
         });
 
         setInterval(verifyScadenza, 10000);
-        setInterval(reloadAnnunci, 10000);
 
     </script>
 </body>

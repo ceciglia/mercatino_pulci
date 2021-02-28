@@ -108,8 +108,8 @@ if($errore == false){
           $cid->query($inserimento);
 
       }else{
-          $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, garanzia, periodoCopertura, comune, provincia, regione, venditore)
-                        VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$categoria', '$sottocat', '$visibilita', '$nomeProdotto', '{$imgData}', '$prezzoP', '$condizione', '0' , '$periodoCopertura', '$comune', '$provincia', '$regione', '$venditore')";
+          $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, garanzia, comune, provincia, regione, venditore)
+                        VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$categoria', '$sottocat', '$visibilita', '$nomeProdotto', '{$imgData}', '$prezzoP', '$condizione', '0' , '$comune', '$provincia', '$regione', '$venditore')";
           $cid->query($inserimento);
       }
 

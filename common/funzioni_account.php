@@ -1119,7 +1119,7 @@ function modificaProfilo($cid){
         echo '<div class="features_items" >
                 <h2 class="title text-center"><span class="title-span">Modifica profilo</span></h2>
                 </div>
-                <form method="POST" action="backend/modificaAccount-exe.php">
+                <form method="POST" action="backend/modificaAccount-exe.php" enctype="multipart/form-data">
                 <p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
                 <div class="col-sm-4">
                     <div class="container_imm" style="max-width: none;">
