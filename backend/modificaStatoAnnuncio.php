@@ -21,3 +21,4 @@ if(empty($cid->error)){
 }else{
     header("Location:../account.php");
 }
+ciao
