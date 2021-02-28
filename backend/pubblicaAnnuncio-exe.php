@@ -32,10 +32,10 @@ $erroreperiodoutilizzo=false;
 $imgData="";
 $erroreImg="";
 if(count($_FILES) > 0) {
-    if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
-        $imgData = addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
-        $imgName = $_FILES['immagine']['name'];
-        $imgSize = $_FILES['immagine']['size'];
+    if(is_uploaded_file($_FILES['fotoP']['tmp_name'])) {
+        $imgData = addslashes(file_get_contents($_FILES['fotoP']['tmp_name']));
+        $imgName = $_FILES['fotoP']['name'];
+        $imgSize = $_FILES['fotoP']['size'];
         $imgNameCmps = explode(".", $imgName);
         $imgExtension = strtolower(end($imgNameCmps));
 
@@ -85,18 +85,16 @@ if(!isset($_POST["visibilita"])){
 }
 
 $visibilita = $_POST["visibilita"];
-$visibilitaP=0;
+$visibilitaP=1;
 if(($visibilita=="ristretta") and ($regioneRistr=="Seleziona una regione: ")){
     $errore=true;
     $erroreristretta= true;
 }else{
     if($provinciaRistr=="Seleziona una provincia: "){
-        $visibilitaP=1;
+        $visibilitaP=0;
         $cercaprov="SELECT provincia FROM areaGeografica WHERE regione='$regioneRistr' LIMIT 1";
         $ris=$cid->query($cercaprov);
         $provinciaRistr=$ris->fetch_assoc();
-    }else{
-        $ristretta=0;
     }
 }
 

@@ -1124,7 +1124,7 @@ function modificaProfilo($cid){
                 <div class="col-sm-4">
                     <div class="container_imm" style="max-width: none;">
                         <img src="data:image/jpg;base64,'. base64_encode($immagine) .'" class="image_p immagine-profilo-resize" alt="Impossibile visualizzare l\'immagine">
-                        <input class="btn-container_imm" type="file" id="file" name="immagine">
+                        <input class="btn-container_imm" type="file" id="file" name="immagineUpdate">
                     </div>
                     <div class="modifica-ruolo">
                             <p>Modifica il tuo ruolo: </p>
