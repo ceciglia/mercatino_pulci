@@ -54,7 +54,6 @@ if(isset($_POST["conferma"])) {
 
   if ($nome != "") {
     $cid->query("UPDATE utente SET nome='$nome' WHERE email='$email'");
-
   }
   if (!empty($cognome)) {
     $cid->query("UPDATE utente SET cognome='$cognome' WHERE email='$email'");
@@ -157,8 +156,6 @@ if(isset($_POST["annulla"])){
   header("Location:../account.php");
 }
 
-if(isset($_POST["elimina"])){
-  
-}
+
 ?>
 
