@@ -33,6 +33,9 @@ function immagine($cid){
                 </div>
             </div>
         ';
+        if (isset($_GET["erroreImg"]) and $_GET["erroreImg"]==true){
+            echo 'Upload non riuscito.' . '<br>' . 'Le immagini non devono superare i 4096 MB.'. '<br>' . 'Tipi di estensioni consentite: jpg, png.';
+        }
     }
 
 
@@ -1120,10 +1123,8 @@ function modificaProfilo($cid){
                 <p  class="btn-modificaprofilo" >Modifica i tuoi dati</p>
                 <div class="col-sm-4">
                     <div class="container_imm" style="max-width: none;">
-                        
-                        <img src="data:image/jpg;base64,'. base64_encode($immagine) .'" class="image_p immagine-profilo-resize" >
-                        <input type="file" id="file" style="display:none;" />
-                        <button class="btn-container_imm" id="button" name="button" value="Upload" onclick="thisFileUpload();"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica immagine</button>
+                        <img src="data:image/jpg;base64,'. base64_encode($immagine) .'" class="image_p immagine-profilo-resize" alt="Impossibile visualizzare l\'immagine">
+                        <input class="btn-container_imm" type="file" id="file" name="immagine">
                     </div>
                     <div class="modifica-ruolo">
                             <p>Modifica il tuo ruolo: </p>

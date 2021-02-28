@@ -19,13 +19,37 @@ if(isset($_POST["conferma"])) {
   $CAP = $_POST["CAP"];
   $comune = $_POST["comune"];
   $provincia = $_POST["provincia"];
-//$immagine = $_POST["immagine"];
   $regione = $_POST["regione"];
 
-  $errore = false;
   $errorevendacq = false;
   $errorepsw = false;
   $erroreemail = false;
+
+  $imgDataUpdate="";
+  $erroreImgUpdate="";
+  if(count($_FILES) > 0) {
+    if(is_uploaded_file($_FILES['immagineUpdate']['tmp_name'])) {
+      $imgDataUpdate = addslashes(file_get_contents($_FILES['immagineUpdate']['tmp_name']));
+      $imgNameUpdate = $_FILES['immagineUpdate']['name'];
+      $imgSizeUpdate = $_FILES['immagineUpdate']['size'];
+      $imgNameCmpsUpdate = explode(".", $imgNameUpdate);
+      $imgExtensionUpdate = strtolower(end($imgNameCmpsUpdate));
+
+      if ($imgSizeUpdate>500000000){
+        $erroreImgUpdate= true;
+      }
+      $allowedImgExtensionsUpdate = array('jpg');
+      if (in_array($imgExtensionUpdate, $allowedImgExtensionsUpdate)) {
+        $erroreImgUpdate=false;
+      } else {
+        $erroreImgUpdate= true;
+      }
+    }
+  }
+
+  if (isset($imgDataUpdate)){
+    $cid->query("UPDATE utente SET immagine='{$imgDataUpdate}' WHERE email='$email'");
+  }
 
 
   if ($nome != "") {
@@ -120,13 +144,15 @@ if(isset($_POST["conferma"])) {
   }
 
  if (empty($cid->error)) {
-    header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg));
-  }
+   header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
+  } else {
+   header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
+ }
 
 }
 
 if(isset($_POST["annulla"])){
-  header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg));
+  header("Location:../account.php");
 }
 ?>
 

@@ -36,7 +36,7 @@ if(count($_FILES) > 0) {
             $erroreImg= 'Upload non riuscito.' . '<br>' . 'Le immagini non devono superare i 4096 MB.';
             $errore=true;
         }
-        $allowedImgExtensions = array('jpg', 'png');
+        $allowedImgExtensions = array('jpg');
         if (in_array($imgExtension, $allowedImgExtensions)) {
             $erroreImg='';
         } else {
