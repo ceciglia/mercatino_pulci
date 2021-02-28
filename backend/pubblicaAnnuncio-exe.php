@@ -1,43 +1,33 @@
 <?php
-$hostmane = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'mercatino7_Fusari_Rossi';
-$cid = new mysqli ($hostmane, $username, $password, $db);
+session_start();
+include "../common/connessione.php";
 
 
-// aggiungere controllo dei dati
-$nomeAnnuncio = $_POST["nomeAnnuncio"];
-$descrizioneAnnuncio = $_POST["descrizioneAnnuncio"];
-$nomeProdotto = $_POST["nomeProdotto"];
-$prezzoP= $_POST["prezzoP"];
-//$condizione = $_POST["condizione"];
-$periodoUtilizzo = $_POST["periodoUtilizzo"];
-$garanzia = $_POST["garanzia"];
-$periodoCopertura = $_POST["periodoCopertura"];
-$categoria = $_POST["categoria"];
-$sottocat = $_POST["sottocat"];
-$visibilita = $_POST["visibilita"];
-$reg = $_POST["reg"];
-$prov = $_POST["prov"];
-$com = $_POST["com"];
-$regioneRistr = $_POST["regioneRistr"];
-$provinciaRistr = $_POST["provinciaRistr"];
+$nomeAnnuncio=$_POST["nomeAnnuncio"];
+$descrizioneAnnuncio=$_POST["descrizioneAnnuncio"];
+$nomeProdotto=$_POST["nomeProdotto"];
+$prezzoP=$_POST["price"];
+$categoria=$_POST["categoria"];
+$sottocat=$_POST["sottocat"];
+$visibilita=$_POST["visibilita"];
+$regioneRistr=$_POST["regioneRistr"];
+$provinciaRistr=$_POST["provinciaRistr"];
+$comune=$_POST["com"];
+$provincia=$_POST["prov"];
+$regione=$_POST["reg"];
 
 
 $errore=false;
-
 $errorenuovousato =false;
 $errorecategoria=false;
-
-
 $erroreregione= false;
 $erroreprovincia= false;
 $errorecomune= false;
-
 $errorevisibilita=false;
-
 $erroreristretta=false;
+$erroregaranzia=false;
+$erroreperiodoutilizzo=false;
+
 
 $imgData="";
 $erroreImg="";
@@ -58,57 +48,97 @@ if(count($_FILES) > 0) {
     }
 }
 
-//controllo sul venditore aquirente
+
+
 if(!isset($_POST["condizione"])){
     $errore=true;
     $errorenuovousato = true;
-}
-$condizione = $_POST["condizione"];
-if($categoria==""){
-    $errore=true;
-    $errorecategoria=true;
-}
+}else{
+    $condizione = $_POST["condizione"];
+    if($condizione == 1){
+        if(isset($_POST["garanzia"])){
+            if(($_POST["periodoCopertura"])==""){
+                $errore=true;
+                $erroregaranzia = true;
+            }else{
+                $periodoCopertura = $_POST["periodoCopertura"];
+            }
+        }
+    }else{
+        $periodoUtilizzo = $_POST["periodoUtilizzo"];
+        if($periodoUtilizzo==""){
+            $errore=true;
+            $erroreperiodoutilizzo = true;
+        }
+        $usura = $_POST["usura"];
 
-if($reg==""){
-    $errore=true;
-    $erroreregione=true;
 }
-
-if($prov==""){
-    $errore=true;
-    $erroreprovincia=true;
 }
-
-if($com==""){
-    $errore=true;
-    $errorecomune=true;
-}
-
 if(!isset($_POST["visibilita"])){
     $errore=true;
     $errorevisibilita = true;
 }
-$visibilita = $_POST["visibilita"];
 
-if(($visibilita=="ristretta") and (($regioneRistr=="") or ($provinciaRistr==""))){
+$visibilita = $_POST["visibilita"];
+$visibilitaP=0;
+if(($visibilita=="ristretta") and ($regioneRistr=="Seleziona una regione: ")){
     $errore=true;
     $erroreristretta= true;
+}else{
+    if($provinciaRistr=="Seleziona una provincia: "){
+        $visibilitaP=1;
+        $cercaprov="SELECT provincia FROM areaGeografica WHERE regione='$regioneRistr' LIMIT 1";
+        $ris=$cid->query($cercaprov);
+        $provinciaRistr=$ris->fetch_assoc();
+    }else{
+        $ristretta=0;
+    }
 }
-header("Location:../pubblicaAnnuncio.php?errorenuovousato=". urlencode($errorenuovousato). "&errorecategoria=". urlencode($errorecategoria). "&erroreregione=". urlencode($erroreregione). "&erroreprovincia=". urlencode($erroreprovincia). "&errorecomune=". urlencode($errorecomune). "&errorevisibilita=". urlencode($errorevisibilita). "&erroreristretta=". urlencode($erroreristretta). "&erroreImg=" .urlencode($erroreImg));
-/*
+
+$venditore=$_SESSION["email"];
+
 if($errore == false){
-  $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore)
-                VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$nomeCategoria', '$cognome', '$sottoCategorias', '$visibilita', '$nomeP', '$fotoP', '$prezzoP', '$condizione', '$periodoUtilizzo', '$comune', '$provincia', '$regione', )";
-  $ins=$cid->query($inserimento);
+  if($condizione==1) {
+      if(isset($_POST["garanzia"])){
+          $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, garanzia, periodoCopertura, comune, provincia, regione, venditore)
+                        VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$categoria', '$sottocat', '$visibilita', '$nomeProdotto', '{$imgData}', '$prezzoP', '$condizione', '1' , '$periodoCopertura', '$comune', '$provincia', '$regione', '$venditore')";
+          $cid->query($inserimento);
+
+      }else{
+          $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, garanzia, periodoCopertura, comune, provincia, regione, venditore)
+                        VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$categoria', '$sottocat', '$visibilita', '$nomeProdotto', '{$imgData}', '$prezzoP', '$condizione', '0' , '$periodoCopertura', '$comune', '$provincia', '$regione', '$venditore')";
+          $cid->query($inserimento);
+      }
+
+  }else{
+      $inserimento="INSERT INTO annuncio (nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, visibilita, nomeP, fotoP, prezzoP, nuovo, usura, periodoUtilizzo, comune, provincia, regione, venditore)
+                        VALUES ('$nomeAnnuncio', '$descrizioneAnnuncio', '$categoria', '$sottocat', '$visibilita', '$nomeProdotto', '{$imgData}', '$prezzoP', '$condizione','$usura', '$periodoUtilizzo', '$comune', '$provincia', '$regione', '$venditore')";
+      $cid->query($inserimento);
+  }
+
+
   if(empty($cid->error)){
-    header("Location:../inserimento-riuscito.php");
+      $idquery=$cid->query("SELECT MAX(idAnnuncio) AS id FROM annuncio WHERE venditore='$venditore'");
+      $id=$idquery->fetch_assoc();
+      $idAnn=$id["id"];
+      $cid->query("INSERT INTO statoa (idAnnuncio, stato) VALUES ('$idAnn', 'in vendita')");
+      if($visibilita=="ristretta"){
+          $cid->query("INSERT INTO luogovisibilita (idAnnuncio, comune, provincia, regione, visibilitaP) VALUES ('$idAnn', '$provinciaRistr', '$provinciaRistr', '$regioneRistr', '$visibilitaP')");
+      }
+      if(empty($cid->error)){
+         header("Location:../inserimento-riuscito.php");
+      }else{
+         echo $cid->error;
+         /*header("Location:../inserimento-non-riuscito.php");*/
+      }
   } else {
-    header("Location:../inserimento-non-riuscito.php");
+      echo $cid->error;
+      /*header("Location:../inserimento-non-riuscito.php");*/
   }
   echo $cid->error;
 } else {
-  header("Location:../registrazione.php?erroreacquirente=". urlencode($errorevendacq). "&errorepsw=". urlencode($errorepsw). "&erroreemail=". urlencode($erroreemail) );
-}*/
+     header("Location:../pubblicaAnnuncio.php?errorenuovousato=". urlencode($errorenuovousato). "&errorecategoria=". urlencode($errorecategoria).  "&errorevisibilita=". urlencode($errorevisibilita). "&erroreristretta=". urlencode($erroreristretta). "&erroreImg=" .urlencode($erroreImg). "&erroregaranzia=" .urlencode($erroregaranzia). "&erroreperiodoutilizzo=" .urlencode($erroreperiodoutilizzo) );
+}
 
 
 ?>

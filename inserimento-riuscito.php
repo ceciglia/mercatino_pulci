@@ -10,6 +10,10 @@
 
 <body>
 	<?php include "common/navbar.php";?>	<!--NAVBAR PRINCIPALE-->
+                <?php
+                if (isset($_GET["messaggio"]) and $_GET["messaggio"]!="registrazione"){
+
+                echo'
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
@@ -24,9 +28,27 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>';
+				}else{
 
-	<?php
+				echo'
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="col-sm-9 index-benvenuto">
+                                        <h1>Operazione riuscita </h1>
+                                        <p>Torna alla pagina principale</p>
+                                        <a href="index.php"><button type="button" class="btn btn-default get">Pagina principale</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+				}
+
     include "common/footer.php"
 	?>
 
