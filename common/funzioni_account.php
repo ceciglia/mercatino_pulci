@@ -216,7 +216,7 @@ function valutazione($cid){
 }
 
 function menulaterale($cid){
-    if($_SESSION["logged"]==true) {
+    if(isset($_SESSION["logged"])) {
         $email_sessione = $_SESSION["email"];
         $acquirente = $_SESSION["acquirente"];
         $venditore = $_SESSION["venditore"];
@@ -398,12 +398,10 @@ function menulaterale($cid){
 
 
     }
-
-
 }
 
 function annunciOsservatiUtente($cid){
-    if($_SESSION["logged"]==true) {
+    if(isset($_SESSION["logged"])) {
         $email_sessione = $_SESSION["email"];
         $sqlAnnunci = "SELECT OS.* FROM (SELECT a.idAnnuncio, nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore, s.stato FROM osserva AS o JOIN annuncio AS a ON o.idAnnuncio = a.IdAnnuncio JOIN statoa AS s ON a.idAnnuncio = s.idAnnuncio WHERE acquirenteO='$email_sessione'and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS OS WHERE OS.stato='in vendita'";
         $res = $cid->query($sqlAnnunci);
@@ -498,6 +496,43 @@ function annunciOsservatiUtente($cid){
 		    </div>
 			';
         }
+    } else {    //utente visitatore
+        if (isset($_COOKIE['cookie'])) {
+            foreach ($_COOKIE['cookie'] as $name => $value) {
+                $value = htmlspecialchars($value);
+
+                $sql="SELECT fotoP, prezzoP, nomeAnnuncio FROM annuncio WHERE idAnnuncio='$value'";
+                $result=$cid->query($sql);
+                $row = $result->fetch_array();
+
+                echo'<div class="col-sm-4" >
+                <div class="product-image-wrapper" >
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <div class="img-contenitore">
+                                <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+                            </div>
+                            <h2>'. $row["prezzoP"] .'€</h2>
+                            <p>'. $row["nomeAnnuncio"] .'</p>
+                            <a href="dettagliAnnuncio.php?idAnnuncio='. $value .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                        </div>
+                        
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>'. $row["prezzoP"] .'€</h2>
+                                <h4>ID: '. $value .'</h4>
+                                <p>'. $row["nomeAnnuncio"] .'</p>
+                                <a href="dettagliAnnuncio.php?idAnnuncio='. $value .'" class="btn btn-default add-to-cart"><i class="fa fa-info-circle" aria-hidden="true"></i>Dettagli annuncio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		    </div>
+			';
+
+            }
+        }
+
     }
 }
 

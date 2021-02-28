@@ -23,9 +23,17 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, 'profilo')">
-											Il mio profilo
-										</a>
+                                        <?php
+                                            if(isset($_SESSION["logged"])){
+                                                echo '<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, \'profilo\')">
+                                                            Il mio profilo
+                                                      </a> ';
+                                            } else {    //utente visitatore
+                                                echo '<a class="account-click" id="profilo_click" href="#" onclick="opensottomenu(event, \'annunciOsservati\')">
+                                                            Annunci osservati
+                                                      </a> ';
+                                            }
+                                        ?>
 									</h4>
 								</div>
 							</div>

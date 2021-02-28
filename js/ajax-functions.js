@@ -57,3 +57,13 @@ function reloadAnnunci(){
     // $('#anFiltrati').load(document.URL +  ' #anFiltrati');
     $('#anFiltrati').load(document.URL + ' #anFiltrati');
 }
+
+function aggiungiOsservatiVisitor(idAn){
+    $.ajax({
+        type: 'GET',
+        url: 'backend/setCookieOsservati.php',
+        data: {
+            id: idAn
+        }
+    });
+}

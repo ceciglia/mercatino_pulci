@@ -21,8 +21,7 @@
 				// 	setcookie('user', null, -1, '/');
 				// }
 
-				$cid->close();		//chiude connessione al db
-				// session_start();
+				$cid->close();
 				if(!isset($_SESSION)) {
 					session_start();
 				}

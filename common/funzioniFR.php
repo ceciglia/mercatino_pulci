@@ -66,7 +66,7 @@ function verifyOsservati($cid, $idAn){
             }
         }
     } else {
-        echo '<li><a href="#0" id="cuore'. $idAn .'" onclick="fullHeart(\'cuore'. $idAn .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
+        echo '<li><a href="#0" id="cuore'. $idAn .'" onclick="aggiungiOsservatiVisitor(\'' . $idAn . '\'); fullHeart(\'cuore'. $idAn .'\')" class="osserva-btn"><i class="fa fa-heart-o" aria-hidden="true"></i> Osserva</a></li>';
     }
 }
 

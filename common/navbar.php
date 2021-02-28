@@ -48,7 +48,7 @@
 					<?php } else { // chiudo if su variabile di sessione logged  ?>
 						<div id="main_menu_desktop" class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="account.php" onclick="document.getElementById('annunciOsservati').style.display='block'"><i class="fa fa-heart"></i> Osservati</a></li>
+                                <li><a href="account.php"><i class="fa fa-heart"></i> Osservati</a></li>       <!--onclick="document.getElementById('annunciOsservati').style.display='block'"-->
 								<li id="login-1"><a onclick="openNav()"><i class="fa fa-lock"></i> Login</a></li>
 								<li id="login-2"><a href="loginRegistrazioneResp.php"><i class="fa fa-lock"></i> Login</a></li> <!--login e registrazione in responsive-->
 							</ul>
@@ -58,16 +58,6 @@
 			</div>
 		</div>
 	</div><!--/header-middle-->
-
-	<!-- <div class="header-bottom">	header-bottom
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9">
-				</div>
-			</div>
-		</div>
-	</div>			/header-bottom
-	 -->
 </header> <!--fine header-->
 
 <!--tendina login-->
