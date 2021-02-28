@@ -14,7 +14,7 @@
 	<section>
 		<div class="container">
 			<div class="row"> 
-				<h2 class="title text-center"><span class="title-span">Modifica annuncio</span></h2>
+				<h2 class="title text-center add-margin-top"><span class="title-span">Modifica annuncio</span></h2>
 				
 				<h2 class="insert-title" >Modifica il tuo annuncio</h2>
 					

@@ -14,7 +14,7 @@
 
     	<div class="container">
     		<div class="row">
-    			<h2 class="title text-center"><span class="title-span">Registrati</span></h2>
+    			<h2 class="title text-center add-margin-top"><span class="title-span">Registrati</span></h2>
     			<h2 class="insert-title" >Inserisci i tuoi dati</h2>
     			<div class="col-sm-18 padding-right">
     				<div class="features_items">

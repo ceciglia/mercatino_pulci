@@ -40,22 +40,13 @@ echo'
 				</div>
 			</div>
 		</div><!--/header-middle-->
-
-		<div class="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
 	</header><!--/header-->
 
 	<section>
 	    <form action="backend/pubblicaAnnuncio-exe.php" method="POST" >
 		<div class="container">
 			<div class="row">
-				<h2 class="title text-center"><span class="title-span">Nuovo annuncio</span></h2>
+				<h2 class="title text-center add-margin-top"><span class="title-span">Nuovo annuncio</span></h2>
 				<h2 class="insert-title" >Inserisci i dettagli dell\'annuncio</h2>
 				<div class="col-sm-18 padding-right" style="padding-left: 0;"> <!--col-sm-36-->
 					<div class="features_items">

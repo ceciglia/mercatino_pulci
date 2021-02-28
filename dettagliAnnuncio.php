@@ -27,7 +27,7 @@ echo'
 		<div class="container">
 			<div class="row"> 
 			
-				<h2 class="title text-center"><span class="title-span">Dettagli annuncio</span></h2>
+				<h2 class="title text-center add-margin-top"><span class="title-span">Dettagli annuncio</span></h2>
 				<div class="col-sm-18 padding-right" > 
 					<div class="features_items">
 						<div class="col-sm-4">

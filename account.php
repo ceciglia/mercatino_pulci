@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2 id="h2_layer"><span class="title-span">MENU'</span></h2>
+						<h2 id="h2_layer" class="add-margin-top"><span class="title-span">MENU'</span></h2>
 						<div class="panel-group category-products" id="accordian">
 							<div class="panel panel-default">
 								<div class="panel-heading">
@@ -38,7 +38,7 @@
 				<!--PROFILO-->
 				<div class="col-sm-9 padding-right" id='profilo'>
 					<div class="features_items" >
-						<h2 class="title text-center"><span class="title-span">PROFILO</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">PROFILO</span></h2>
 					</div>
                     <?php
                         ciao($cid);
@@ -80,7 +80,7 @@
 				<!--ANNUNCI OSSERVATI-->
 				<div class="col-sm-9 padding-right" id='annunciOsservati'>
 					<div class="features_items" ><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">Annunci osservati</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">Annunci osservati</span></h2>
                             <?php
                                 annunciOsservatiUtente($cid);
                             ?>
@@ -90,7 +90,7 @@
 				<!--I MIEI ACQUISTI-->
 				<div class="col-sm-9 padding-right" id='listaAcquistati'>
 					<div class="features_items" ><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">I miei acquisti</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">I miei acquisti</span></h2>
                         <?php
                             acquistiUtente($cid);
                         ?>
@@ -101,7 +101,7 @@
 				<!--RICHIESTE ACQUISTO-->
 				<div class="col-sm-9 padding-right" id='richiesteAcquisto'>
 					<div class="features_items" ><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">Richieste di acquisto</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">Richieste di acquisto</span></h2>
 						<div class="col-sm-12">
                             <?php
                                 richiesteAcquistoUtente($cid);
@@ -115,7 +115,7 @@
 				<!--Le mie vendire-->
 				<div class="col-sm-9 padding-right" id='mievendite'>
 					<div class="features_items" ><!--features_items-->
-						<h2 class="title text-center"><span class="title-span">Le mie vendite</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">Le mie vendite</span></h2>
                         <?php
                             leMieVendite($cid);
                         ?>
@@ -126,7 +126,7 @@
 				<!--RISPOSTE AGLI ANNUNCI-->
 				<div class="col-sm-9 padding-right" id='risposte'>
 					<div class="features_items" >
-						<h2 class="title text-center"><span class="title-span">Risposte ai miei annunci</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">Risposte ai miei annunci</span></h2>
                         <?php
                         risposteAnnunci($cid);
                         ?>
@@ -135,7 +135,7 @@
 				<!--annunci pubblicati-->
 				<div class="col-sm-9 padding-right" id='annunciPubblicati'>
 					<div class="features_items">
-						<h2 class="title text-center"><span class="title-span">Annunci pubblicati</span></h2>
+						<h2 class="title text-center add-margin-top"><span class="title-span">Annunci pubblicati</span></h2>
                         <?php
                             annunciPubblicati($cid);
                         ?>
