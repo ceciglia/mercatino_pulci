@@ -890,8 +890,8 @@ function annunciPubblicati($cid){
 
                             <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica' . $row["idAnnuncio"] . '"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
-                                <div id="modifica' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+                                <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica\' . $row["idAnnuncio"] . \'"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
+                                <div id="modifica\' . $row["idAnnuncio"] . \'" class="panel-collapse collapse">
                                     <div class="panel-body">
                                     <form method="POST" action="backend/modificaStatoAnnuncio.php?idAnnuncio=' . $row["idAnnuncio"] . ' &statoattuale=' . $stato["stato"] . ' ">
                                         <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
@@ -907,8 +907,8 @@ function annunciPubblicati($cid){
                                                         <div id="id06" class="modal">
                                                             <div class="modal-content popup-modal-content">
                                                                 <div class="container popup-conferma">
-                                                                    <h4>Valutazione</h4>
-                                                                    <p>Stai per confermare la valutazione.</p>
+                                                                    <h4>Stato</h4>
+                                                                    <p>Stai per confermare lo stato del tuo annuncio.</p>
                                                                     <p>Sei sicur* di voler proseguire?</p>
     
                                                                     <div class="clearfix">
