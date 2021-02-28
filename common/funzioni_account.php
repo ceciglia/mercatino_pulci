@@ -851,10 +851,14 @@ function leMieVendite($cid){
 function annunciPubblicati($cid){
     if ($_SESSION["logged"] == true) {
         $email_sessione = $_SESSION["email"];
-        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione'";
+        $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione' ORDER BY idAnnuncio DESC";
         $res = $cid->query($sqlAnnunci);
         if($_SESSION["venditore"]==1){
             while ($row = $res->fetch_array()) {
+                $id=$row["idAnnuncio"];
+                $sqlstato="SELECT stato FROM statoa WHERE idAnnuncio='$id' ORDER BY dataStato DESC";
+                $resStato = $cid->query($sqlstato);
+                $stato=$resStato->fetch_array();
                 echo '
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
@@ -864,8 +868,18 @@ function annunciPubblicati($cid){
                                         <img src="data:image/jpg;base64,' . base64_encode($row["fotoP"]) . '" alt="" />
                                     </div>
                                     <h2>' . $row["prezzoP"] . ' €</h2>
-                                    <p>' . $row["nomeAnnuncio"] . '</p>
-    
+                                    <p>' . $row["nomeAnnuncio"] . '</p>';
+
+                                    if($stato["stato"]=='in vendita'){
+                                        echo'<h4 class="statoA-accettato">' . $stato["stato"] . '</h4>';
+                                    }elseif($stato["stato"]=='eliminato'){
+                                        echo'<h4 class="statoA-rifiutato">' . $stato["stato"] . '</h4>';
+                                    }elseif($stato["stato"]=='scaduto'){
+                                        echo'<h4 >' . $stato["stato"] . '</h4>';
+                                    }elseif($stato["stato"]=='venduto'){
+                                        echo'<h4 style="color: #fb9a14">' . $stato["stato"] . '</h4>';
+                                    }
+                                echo'
                                 </div>
                             </div>
                             <div class="choose">
@@ -873,22 +887,20 @@ function annunciPubblicati($cid){
                                 <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica' . $row["idAnnuncio"] . '"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
                                 <div id="modifica' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                    <form method="POST" action="backend/acq_valuta_ven.php?idAnnuncio=' . $row["idAnnuncio"] . '">
-                                        <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
-                                            <div>';
-                                                $sqlstato="SELECT stato FROM statoa WHERE idAnnuncio";
-                                                echo'
+                                    <form method="POST" action="backend/modificaStatoAnnuncio.php?idAnnuncio=' . $row["idAnnuncio"] . ' &statoattuale=' . $stato["stato"] . ' ">
+                                        <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">n
+                                            <div>
                                                 <p class="title-3">Scegli uno stato:</p>
-                                                <select class="modifica_dati modifica_nuovo_usato">
+                                                <select class="modifica_dati modifica_nuovo_usato" name="stato">
                                                     <option>-- Stato Annuncio --</option>
-                                                    <option>In vendita</option>
-                                                    <option>Venduto/option>
-                                                    <option>Eliminato</option>
+                                                    <option>in vendita</option>
+                                                    <option>venduto</option>
+                                                    <option>eliminato</option>
                                                     
                                                 </select>
                                                 
-                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id04\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
-                                                        <div id="id04" class="modal">
+                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                        <div id="id06" class="modal">
                                                             <div class="modal-content popup-modal-content">
                                                                 <div class="container popup-conferma">
                                                                     <h4>Valutazione</h4>
@@ -897,7 +909,7 @@ function annunciPubblicati($cid){
     
                                                                     <div class="clearfix">
                                                                         <button type="submit" class="popup-btn deletebtn">Conferma</button>
-                                                                        <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                        <button type="button" onclick="document.getElementById(\'id06\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

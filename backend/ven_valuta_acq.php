@@ -14,8 +14,7 @@ $cid->query($sqlvaluta);
 
 if(empty($cid->error)){
 
-    header("Location:../account.php");
+    header("Location:../inserimento-riuscito.php");
 }else{
-    echo'aiutooooo';
-    echo $cid->error;
+    header("Location:../inserimento-non-riuscito.php");
 }

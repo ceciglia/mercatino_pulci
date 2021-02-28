@@ -18,23 +18,21 @@ if(isset($_POST["accetta"])){
     $cid->query($rifiuta);
     if(empty($cid->error)){
 
-       header("Location:../account.php");
+        header("Location:../inserimento-riuscito.php");
     }else{
-        echo'aiutooooo';
-        echo $cid->error;
+        header("Location:../inserimento-non-riuscito.php");
     }
 }elseif(isset($_POST["rifiuta"])){
     $rifiuta="UPDATE richiestaacquisto SET approvato='0' WHERE idAnnuncio='$idAnnuncio' AND acquirenteRA='$acquirente'";
     $cid->query($rifiuta);
     if(empty($cid->error)){
 
-        header("Location:../account.php");
+        header("Location:../inserimento-riuscito.php");
     }else{
-        echo'aiutooooo';
-        echo $cid->error;
+        header("Location:../inserimento-non-riuscito.php");
     }
 }else{
-    echo'nooooo';
+    header("Location:../inserimento-non-riuscito.php");
 }
 
 
