@@ -881,14 +881,17 @@ function annunciPubblicati($cid){
                                     }
                                 echo'
                                 </div>
-                            </div>
+                            </div>';
+                            if(($stato["stato"]!='venduto' ) or (($stato["stato"]=='scaduto') and ($row["nuovo"]==1) )){
+                            echo'
+
                             <div class="choose">
                             <ul class="nav nav-pills nav-justified">
                                 <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica' . $row["idAnnuncio"] . '"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
                                 <div id="modifica' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
                                     <div class="panel-body">
                                     <form method="POST" action="backend/modificaStatoAnnuncio.php?idAnnuncio=' . $row["idAnnuncio"] . ' &statoattuale=' . $stato["stato"] . ' ">
-                                        <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">n
+                                        <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
                                             <div>
                                                 <p class="title-3">Scegli uno stato:</p>
                                                 <select class="modifica_dati modifica_nuovo_usato" name="stato">
@@ -896,9 +899,7 @@ function annunciPubblicati($cid){
                                                     <option>in vendita</option>
                                                     <option>venduto</option>
                                                     <option>eliminato</option>
-                                                    
                                                 </select>
-                                                
                                                     <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
                                                         <div id="id06" class="modal">
                                                             <div class="modal-content popup-modal-content">
@@ -914,15 +915,23 @@ function annunciPubblicati($cid){
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                             </div>
                                         </ul>
                                     </div>
                                     </form>
                                 </div>
-                            </ul>
-                        </div>
-                            
+                                </ul>
+                            </div>';
+                            } else{
+                                echo'
+                                <div class="choose">
+                                    <ul class="nav nav-pills nav-justified">
+                                    <li><a class="btn btn-default add-to-cart account-click valuta-btn" >Prodotto venduto</a></li>
+                                    </ul>
+                                </div>';
+                            }
+                                echo'
+
                         </div>
                     </div>
                 ';
