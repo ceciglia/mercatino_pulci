@@ -84,7 +84,8 @@ function valutazioneVenditore($cid, $idAnnuncio){
 
             }
             echo'</div>
-        <p>Hai valutato la <b >serietà</b> con:</p>
+            <br>
+            <p>Hai valutato la <b >puntualità</b> con:</p>
             <div class="demo-content">';
             $iP=0;
             while($iP <= 4){
@@ -128,7 +129,8 @@ function valutazioneAcquirente($cid, $idAnnuncio, $acquirente){
 
     }
     echo'</div>
-        <p>Hai valutato la <b >serietà</b> con:</p>
+        <br>
+        <p>Hai valutato la <b >puntualità</b> con:</p>
             <div class="demo-content">';
     $iP=0;
     while($iP <= 4){

@@ -8,7 +8,11 @@ function ciao($cid){
         $row=$risultato->fetch_array();
 
          echo'<p class="p_benvenuto" >Ciao '. $row["nome"] .' '. $row["cognome"] .' !</p>';
-
+        if (isset($_GET["npmsg"]) and $_GET["npmsg"]==false){
+            echo '<p class="warning-message">La password è stata modificata</p>';
+        }elseif(isset($_GET["npmsg"]) and $_GET["npmsg"]==true){
+            echo '<p class="warning-message">La password NON è stata modificata</p>';
+        }
 
     }
 }
@@ -96,6 +100,10 @@ function acquirente_venditore($cid){
         echo'
             <button type="submit" class="btn btn-profilo pull-right btn-non-a-v" disabled><i class="fa fa-times" aria-hidden="true"></i>   Venditore</button>
         ';
+      }
+      if (isset($_GET["erroreAV"]) and $_GET["erroreAV"]==true){
+
+          echo '<p class="warning-message">Errore modifica ruolo: devi mantenere almeno un ruolo</p>';
       }
   }
 }
@@ -845,28 +853,88 @@ function annunciPubblicati($cid){
         $email_sessione = $_SESSION["email"];
         $sqlAnnunci = "SELECT * FROM annuncio WHERE venditore='$email_sessione'";
         $res = $cid->query($sqlAnnunci);
-        while ($row = $res->fetch_array()) {
-            echo'
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center">
-                                <div class="img-contenitore">
-                                    <img src="data:image/jpg;base64,'. base64_encode($row["fotoP"]) .'" alt="" />
+        if($_SESSION["venditore"]==1){
+            while ($row = $res->fetch_array()) {
+                echo '
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <div class="img-contenitore">
+                                        <img src="data:image/jpg;base64,' . base64_encode($row["fotoP"]) . '" alt="" />
+                                    </div>
+                                    <h2>' . $row["prezzoP"] . ' €</h2>
+                                    <p>' . $row["nomeAnnuncio"] . '</p>
+    
                                 </div>
-                                <h2>' . $row["prezzoP"] . ' €</h2>
-                                <p>' . $row["nomeAnnuncio"] . '</p>
-
                             </div>
-                        </div>
-                        <div class="choose">
-                            <ul class="nav nav-pills nav-justified blu">
-                                <li><a href="modificaAnnuncio.php"><i class="fa fa-pencil" aria-hidden="true"></i> Modifica</a></li>
+                            <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a class="btn btn-default add-to-cart account-click valuta-btn" data-toggle="collapse" data-parent="#accordian" href="#modifica' . $row["idAnnuncio"] . '"><i class="fa fa-pencil" aria-hidden="true"></i>Modifica lo stato</a></li>
+                                <div id="modifica' . $row["idAnnuncio"] . '" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                    <form method="POST" action="backend/acq_valuta_ven.php?idAnnuncio=' . $row["idAnnuncio"] . '">
+                                        <ul class="nav navbar-nav sottomenu_profilo sottomenu-osservati">
+                                            <div>';
+                                                $sqlstato="SELECT stato FROM statoa WHERE idAnnuncio";
+                                                echo'
+                                                <p class="title-3">Scegli uno stato:</p>
+                                                <select class="modifica_dati modifica_nuovo_usato">
+                                                    <option>-- Stato Annuncio --</option>
+                                                    <option>In vendita</option>
+                                                    <option>Venduto/option>
+                                                    <option>Eliminato</option>
+                                                    
+                                                </select>
+                                                
+                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id04\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                        <div id="id04" class="modal">
+                                                            <div class="modal-content popup-modal-content">
+                                                                <div class="container popup-conferma">
+                                                                    <h4>Valutazione</h4>
+                                                                    <p>Stai per confermare la valutazione.</p>
+                                                                    <p>Sei sicur* di voler proseguire?</p>
+    
+                                                                    <div class="clearfix">
+                                                                        <button type="submit" class="popup-btn deletebtn">Conferma</button>
+                                                                        <button type="button" onclick="document.getElementById(\'id04\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    </form>
+                                </div>
                             </ul>
                         </div>
+                            
+                        </div>
                     </div>
-                </div>
-            ';
+                ';
+            }
+        }else{
+                while ($row = $res->fetch_array()) {
+                    echo '
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <div class="img-contenitore">
+                                        <img src="data:image/jpg;base64,' . base64_encode($row["fotoP"]) . '" alt="" />
+                                    </div>
+                                    <h2>' . $row["prezzoP"] . ' €</h2>
+                                    <p>' . $row["nomeAnnuncio"] . '</p>
+    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                ';
+                }
 
         }
     }
@@ -1063,7 +1131,7 @@ function modificaProfilo($cid){
                             
                     </div>
                     <p style=" color: #2b5164; font-size: 16px;">Modifica password: </p>
-                    <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="password"  placeholder="Password attuale" rows="1"  class="modifica-password"></input ></div>
+                    <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="psw"  placeholder="Password attuale" rows="1"  class="modifica-password"></input ></div>
                     <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="npassword"  placeholder="Nuova password" rows="1"  class="modifica-password"></input ></div>
                     <div><i class="fa fa-pencil marginematita" aria-hidden="true" ></i><input type="password" name="confnpassword"  placeholder="Conferma password" rows="1"  class="modifica-password"></input ></div>
                 </div>

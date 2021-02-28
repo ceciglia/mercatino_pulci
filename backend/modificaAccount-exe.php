@@ -3,11 +3,11 @@
 session_start();
 include "../common/connessione.php";
 
-// aggiungere controllo dei dati
+
 $email = $_SESSION["email"];
 
 if(isset($_POST["conferma"])) {
-  $password = $_POST["password"];
+  $psw = $_POST["psw"];
   $npassword = $_POST["npassword"];
   $confnpassword = $_POST["confnpassword"];
 
@@ -82,7 +82,7 @@ if(isset($_POST["conferma"])) {
 
   $erroreAV=0;
   if(($acquirente==0) and ($venditore==0)){
-      $erroreAV=1;
+      $erroreAV=true;
   }else {
     if ($venditore != $row["venditore"]) {
       $cid->query("UPDATE utente SET venditore='$venditore' WHERE email='$email'");
@@ -98,22 +98,31 @@ if(isset($_POST["conferma"])) {
 
 //controllo sulla password
 //controllo sulla vecchia password
-  $pswctrl = (md5($password));
-  if ($row["password"] == $pswctrl) {
-    if ($npassword == $confnpassword) {
+  $pswctrl = (md5($psw));
+  if ($row["psw"] == $pswctrl) {
+    if ($npassword == $confnpassword){
       $paswcod = md5($npassword);
-      $cid->query("UPDATE utente SET password='$paswcod' WHERE email='$email'");
+      $cid->query("UPDATE utente SET psw='$paswcod' WHERE email='$email'");
+      if (empty($cid->error)){
+        $npmsg=false;
+      }else{
+        $npmsg=true;
+      }
+    }else{
+      $npmsg=true;
     }
+  }else{
+    $npmsg=true;
   }
 
-  if (empty($cid->error)) {
-    header("Location:../account.php");
+ if (empty($cid->error)) {
+    header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg));
   }
 
 }
 
 if(isset($_POST["annulla"])){
-  header("Location:../account.php");
+  header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg));
 }
 ?>
 
