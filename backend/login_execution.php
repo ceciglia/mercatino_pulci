@@ -31,6 +31,10 @@
                 $_SESSION["acquirente"]=$result["acquirente"];
                 $_SESSION["nome"] = $result["nome"];
                 $_SESSION["cognome"] = $result["cognome"];
+                if(isset($result["regione"]) and isset($result["provincia"])){
+                    $_SESSION["regione"]=$result["regione"];
+                    $_SESSION["provincia"]=$result["provincia"];
+                }
 				header("Location:../index.php?status=ok&msg=". urlencode($result["msg"]));
 			} else {
 				header("Location:../index.php?status=ko&msg=" . urlencode($result["msg"]));

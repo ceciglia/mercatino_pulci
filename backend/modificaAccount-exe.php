@@ -92,6 +92,10 @@ if(isset($_POST["conferma"])) {
     if ($acquirente != $row["acquirente"]) {
       $cid->query("UPDATE utente SET acquirente='$acquirente' WHERE email='$email'");
       $_SESSION["acquirente"] = $acquirente;
+      if ($_SESSION["acquirente"]==1){
+        $_SESSION["regione"]=$regione;
+        $_SESSION["provincia"]=$provincia;
+      }
     }
   }
 
