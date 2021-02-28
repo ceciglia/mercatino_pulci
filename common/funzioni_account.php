@@ -903,8 +903,8 @@ function annunciPubblicati($cid){
                                                     <option>venduto</option>
                                                     <option>eliminato</option>
                                                 </select>
-                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06\'\' . $row["idAnnuncio"] . \')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
-                                                        <div id="id06\' . $row["idAnnuncio"] . \'" class="modal">
+                                                    <button type="button" class="btn pull-left btn-profilo" onclick="btnConferma(\'id06\')"><i class="fa fa-check" aria-hidden="true"></i> Conferma</button>
+                                                        <div id="id06" class="modal">
                                                             <div class="modal-content popup-modal-content">
                                                                 <div class="container popup-conferma">
                                                                     <h4>Valutazione</h4>
