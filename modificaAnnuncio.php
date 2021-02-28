@@ -31,7 +31,6 @@
 						</div> 
 						
 						<div class="col-sm-6">
-							
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><textarea name="text"  placeholder="Nome annuncio" rows="1" class="modifica_dati" ></textarea> </div>
 							<div><i class="fa fa-pencil matita" aria-hidden="true" ></i><textarea name="text"  placeholder="Descrizione annuncio" rows="9" class="modifica_dati_margine"></textarea> </div>
 							
