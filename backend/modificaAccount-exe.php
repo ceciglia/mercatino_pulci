@@ -126,33 +126,39 @@ if(isset($_POST["conferma"])) {
 
 //controllo sulla password
 //controllo sulla vecchia password
-  $pswctrl = (md5($psw));
-  if ($row["psw"] == $pswctrl) {
-    if ($npassword == $confnpassword){
-      $paswcod = md5($npassword);
-      $cid->query("UPDATE utente SET psw='$paswcod' WHERE email='$email'");
-      if (empty($cid->error)){
-        $npmsg=false;
+  if(($pswctrl=="") and ($npassword == "") and ($confnpassword == "")){
+    $pswctrl = (md5($psw));
+    if ($row["psw"] == $pswctrl) {
+      if ($npassword == $confnpassword){
+        $paswcod = md5($npassword);
+        $cid->query("UPDATE utente SET psw='$paswcod' WHERE email='$email'");
+        if (empty($cid->error)){
+          $npmsg=false;
+        }else{
+          $npmsg=true;
+        }
       }else{
         $npmsg=true;
       }
     }else{
       $npmsg=true;
     }
-  }else{
-    $npmsg=true;
   }
 
- if (empty($cid->error)) {
-   header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
+  if (empty($cid->error)) {
+    header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
   } else {
-   header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
- }
+    header("Location:../account.php?erroreAV=" .urlencode($erroreAV). "&npmsg=" .urlencode($npmsg). "&erroreImgUpdate=".urlencode($erroreImgUpdate));
+  }
 
 }
 
 if(isset($_POST["annulla"])){
   header("Location:../account.php");
+}
+
+if(isset($_POST["elimina"])){
+  
 }
 ?>
 
