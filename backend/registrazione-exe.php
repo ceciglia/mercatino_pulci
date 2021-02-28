@@ -28,10 +28,15 @@ if(count($_FILES) > 0) {
     if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
         $imgData = addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
         $imgName = $_FILES['immagine']['name'];
+        $imgSize = $_FILES['immagine']['size'];
         $imgNameCmps = explode(".", $imgName);
         $imgExtension = strtolower(end($imgNameCmps));
 
-        $allowedImgExtensions = array('jpg');
+        if ($imgSize>500000000){
+            $erroreImg= 'Upload non riuscito.' . '<br>' . 'Le immagini non devono superare i 4096 MB.';
+            $errore=true;
+        }
+        $allowedImgExtensions = array('jpg', 'png');
         if (in_array($imgExtension, $allowedImgExtensions)) {
             $erroreImg='';
         } else {
@@ -78,9 +83,9 @@ if($errore == false){
                     VALUES ('$email', '$pswmd5', '$nome', '$cognome', '$codFiscale', '{$imgData}', '$via', '$nCivico', '$CAP', '$venditore', '$acquirente', '$comune', '$provincia', '$regione')";
       $ins=$cid->query($inserimento);
       if(empty($cid->error)){
-        header("Location:../inserimento-riuscito.php");
+        header("Location:../inserimento-riuscito.php?messaggio=".urlencode("iscrizione"));
       } else {
-        header("Location:../inserimento-non-riuscito.php");
+        header("Location:../inserimento-non-riuscito.php?messaggio=".urlencode("iscrizione"));
       }
       echo $cid->error;
 } else {
@@ -89,6 +94,3 @@ if($errore == false){
 
 
 
-
-?>
-?>
