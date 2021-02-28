@@ -1211,7 +1211,7 @@ function modificaProfilo($cid){
                         </div>
                     </form>
                     </div>
-                    <button type="submit"  onclick="btnConferma(\'elimina\')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
+                    <button type="button"  onclick="btnConferma(\'elimina\')" class="btn btn-profilo pull-right btn-eliminautente" ><i class="fa fa-trash-o" aria-hidden="true"></i> Elimina utente</button>
                     <div id="elimina" class="modal">
                         <div class="modal-content popup-modal-content">
                             <div class="container popup-conferma">
@@ -1219,7 +1219,7 @@ function modificaProfilo($cid){
                                 <p>Stai per eliminare il tuo profilo.</p>
                                 <p>Sei sicur* di voler proseguire?</p>
                                 <div class="clearfix">
-                                    <button type="button" onclick="document.getElementById(\'elimina\').style.display=\'none\'" class="popup-btn deletebtn">Conferma</button>
+                                    <button type="submit" name="elimina" class="popup-btn deletebtn">Conferma</button>
                                     <button type="button" onclick="document.getElementById(\'elimina\').style.display=\'none\'" class="popup-btn cancelbtn">Annulla</button>
                                 </div>
                             </div>
