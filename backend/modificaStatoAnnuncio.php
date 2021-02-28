@@ -3,7 +3,7 @@ include_once "../common/connessione.php";
 if(!isset($_SESSION)) {
     session_start();
 }
-
+ciao
 $idAnnuncio = $_GET["idAnnuncio"];
 echo $idAnnuncio;
 $stato = $_POST["stato"];
