@@ -35,9 +35,14 @@ if(count($_FILES) > 0) {
     if(is_uploaded_file($_FILES['immagine']['tmp_name'])) {
         $imgData = addslashes(file_get_contents($_FILES['immagine']['tmp_name']));
         $imgName = $_FILES['immagine']['name'];
+        $imgSize = $_FILES['immagine']['size'];
         $imgNameCmps = explode(".", $imgName);
         $imgExtension = strtolower(end($imgNameCmps));
 
+        if ($imgSize>500000000){
+            $erroreImg= 'Upload non riuscito.' . '<br>' . 'Le immagini non devono superare i 4096 MB.';
+            $errore=true;
+        }
         $allowedImgExtensions = array('jpg');
         if (in_array($imgExtension, $allowedImgExtensions)) {
             $erroreImg='';
