@@ -5,9 +5,9 @@ if(!isset($_SESSION)) {
 }
 
 $idAnnuncio = $_GET["idAnnuncio"];
-echo $idAnnuncio;
+
 $stato = $_POST["stato"];
-echo $stato;
+
 $statoattuale = $_GET["statoattuale"];
 echo $statoattuale;
 if(($stato != $statoattuale) AND ($stato != "-- Stato Annuncio --") ){
@@ -16,7 +16,12 @@ if(($stato != $statoattuale) AND ($stato != "-- Stato Annuncio --") ){
 
 }
 
+
+
 if(empty($cid->error)){
+    if($stato=="eliminato"){
+        $sqlra="UPDATE richiestaacquisto SET approvato=0 WHERE idAnnuncio='$idAnnuncio' AND approvato IS NULL";
+    }
     header("Location:../account.php");
 }else{
     header("Location:../account.php");
