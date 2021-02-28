@@ -49,21 +49,20 @@
                             immagine($cid);
 
                         ?>
+
                         <?php
                             valutazione($cid);
-
                         ?>
 
 						<div style="margin-bottom: 30px;">
 							<?php
-									acquirente_venditore($cid);
-
+                                acquirente_venditore($cid);
 							?>
 						</div>
 					</div>
-							<?php
-									utenteinfo($cid);
-							?>
+                        <?php
+                                utenteinfo($cid);
+                        ?>
 					<div>
 						<button type="submit" onclick="opensottomenu(event, 'modificaProfilo')" class="btn btn-profilo modificaprofilo pull-right" ><i class="fa fa-pencil" aria-hidden="true"></i>   Modifica profilo</button>
 
@@ -71,7 +70,6 @@
 
 				</div>
 				<div class="col-sm-9 padding-right" id='modificaProfilo'>
-
                     <?php
                         modificaProfilo($cid);
                     ?>
@@ -94,7 +92,6 @@
                         <?php
                             acquistiUtente($cid);
                         ?>
-
 					</div><!--features_items-->
 				</div>
 
@@ -119,7 +116,6 @@
                         <?php
                             leMieVendite($cid);
                         ?>
-
 					</div>
 				</div>
 
@@ -128,7 +124,7 @@
 					<div class="features_items" >
 						<h2 class="title text-center add-margin-top"><span class="title-span">Risposte ai miei annunci</span></h2>
                         <?php
-                        risposteAnnunci($cid);
+                            risposteAnnunci($cid);
                         ?>
 					</div>
 				</div>

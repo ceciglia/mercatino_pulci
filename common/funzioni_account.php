@@ -405,7 +405,7 @@ function menulaterale($cid){
 function annunciOsservatiUtente($cid){
     if($_SESSION["logged"]==true) {
         $email_sessione = $_SESSION["email"];
-        $sqlAnnunci = "SELECT a.idAnnuncio, nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore FROM osserva AS o JOIN annuncio AS a ON o.idAnnuncio = a.IdAnnuncio JOIN statoa AS s ON a.idAnnuncio = s.idAnnuncio WHERE acquirenteO='$email_sessione' AND s.stato='in vendita'";
+        $sqlAnnunci = "SELECT OS.* FROM (SELECT a.idAnnuncio, nomeAnnuncio, descrizioneAnnuncio, nomeCategoria, sottoCategoria, nomeP, fotoP, prezzoP, nuovo, periodoUtilizzo, usura, garanzia, periodoCopertura, comune, provincia, regione, venditore, s.stato FROM osserva AS o JOIN annuncio AS a ON o.idAnnuncio = a.IdAnnuncio JOIN statoa AS s ON a.idAnnuncio = s.idAnnuncio WHERE acquirenteO='$email_sessione'and s.dataStato IN (SELECT MAX(s1.dataStato) FROM statoa s1 WHERE s.idAnnuncio=s1.idAnnuncio)) AS OS WHERE OS.stato='in vendita'";
         $res = $cid->query($sqlAnnunci);
         while($row = $res->fetch_array()){
             echo'<div class="col-sm-4" >
